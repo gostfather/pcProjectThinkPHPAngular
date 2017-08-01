@@ -1,4 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<?php if (!defined('THINK_PATH')) exit();?><!-- design lj 652 -->
+<!doctype html>
 <html lang="zh">
 
 	<head>
@@ -14,9 +15,9 @@
 			}
 		</style>
 		<link rel="shortcut icon" href="http://531314.com/favicon.ico" />
-		<link href="http://www.531314.com/templates/new/css/base.css" rel="stylesheet" type="text/css">
-		<link href="http://www.531314.com/templates/new/css/home_header.css" rel="stylesheet" type="text/css">
-		<link href="http://www.531314.com/templates/new/css/home_login.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/home_login.css" rel="stylesheet" type="text/css">
 		<link href="http://www.531314.com/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 		<script>
 			var COOKIE_PRE = '3E36_';
@@ -100,90 +101,106 @@
 	</head>
 
 	<body>
+		<link href="__ROOT__/Index/Common/css/index.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
+		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="http://res.531314.com/js/perfect-scrollbar.min.js"></script>
+		<script type="text/javascript" src="http://res.531314.com/js/qtip/jquery.qtip.min.js"></script>
+		<link href="http://res.531314.com/js/qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css">
 
-		<div id="append_parent"></div>
-		<div id="ajaxwaitid"></div>
+		<script src="http://www.531314.com/resource/js/compare.js"></script>
 		<script type="text/javascript">
-			//动画显示边条内容区域
 			$(function() {
-				ncToolbar();
-				$(window).resize(function() {
-					ncToolbar();
-				});
-
-				function ncToolbar() {
-					if($(window).width() >= 1240) {
-						$('#appBarTabs >.variation').hide();
-					} else {
-						$('#appBarTabs >.variation').hide();
-					}
-				}
-				$('#appBarTabs').hover(
-					function() {
-						$('#appBarTabs >.variation').hide();
-					},
-					function() {
-						ncToolbar();
-					}
-				);
-				$("#compare").click(function() {
-					if($("#content-compare").css('right') == '-210px') {
-						loadCompare(false);
-						$('#content-cart').animate({
-							'right': '-210px'
-						});
-						$("#content-compare").animate({
-							right: '35px'
-						});
-					} else {
-						$(".close").click();
-						$(".chat-list").css("display", 'none');
-					}
-				});
-				$("#rtoolbar_cart").click(function() {
-					if($("#content-cart").css('right') == '-210px') {
-						$('#content-compare').animate({
-							'right': '-210px'
-						});
-						$("#content-cart").animate({
-							right: '35px'
-						});
-						if(!$("#rtoolbar_cartlist").html()) {
-							$("#rtoolbar_cartlist").load('index.php?act=cart&op=ajax_load&type=html');
-						}
-					} else {
-						$(".close").click();
-						$(".chat-list").css("display", 'none');
-					}
-				});
-				$(".close").click(function() {
-					$(".content-box").animate({
-						right: '-210px'
-					});
-				});
-
-				$(".quick-menu dl").hover(function() {
-						$(this).addClass("hover");
-					},
-					function() {
-						$(this).removeClass("hover");
-					});
-
-				// 右侧bar用户信息
-				$('div[nctype="a-barUserInfo"]').click(function() {
-					$('div[nctype="barUserInfo"]').toggle();
-				});
-				// 右侧bar登录
-				$('div[nctype="a-barLoginBox"]').click(function() {
-					$('div[nctype="barLoginBox"]').toggle();
-					document.getElementById('codeimage').src = 'http://www.531314.com/index.php?act=seccode&op=makecode&nchash=c93636e5&t=' + Math.random();
-				});
-				$('a[nctype="close-barLoginBox"]').click(function() {
-					$('div[nctype="barLoginBox"]').toggle();
+				// Membership card
+				$('[nctype="mcard"]').membershipCard({
+					type: 'shop'
 				});
 			});
 		</script>
-		<div class="public-top-layout w">
+		
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<script type="text/javascript">
+	//动画显示边条内容区域
+	$(function() {
+		ncToolbar();
+		$(window).resize(function() {
+			ncToolbar();
+		});
+
+		function ncToolbar() {
+			if($(window).width() >= 1240) {
+				$('#appBarTabs >.variation').hide();
+			} else {
+				$('#appBarTabs >.variation').hide();
+			}
+		}
+		$('#appBarTabs').hover(
+			function() {
+				$('#appBarTabs >.variation').hide();
+			},
+			function() {
+				ncToolbar();
+			}
+		);
+		$("#compare").click(function() {
+			if($("#content-compare").css('right') == '-210px') {
+				loadCompare(false);
+				$('#content-cart').animate({
+					'right': '-210px'
+				});
+				$("#content-compare").animate({
+					right: '35px'
+				});
+			} else {
+				$(".close").click();
+				$(".chat-list").css("display", 'none');
+			}
+		});
+		$("#rtoolbar_cart").click(function() {
+			if($("#content-cart").css('right') == '-210px') {
+				$('#content-compare').animate({
+					'right': '-210px'
+				});
+				$("#content-cart").animate({
+					right: '35px'
+				});
+				if(!$("#rtoolbar_cartlist").html()) {
+					$("#rtoolbar_cartlist").load('index.php?act=cart&op=ajax_load&type=html');
+				}
+			} else {
+				$(".close").click();
+				$(".chat-list").css("display", 'none');
+			}
+		});
+		$(".close").click(function() {
+			$(".content-box").animate({
+				right: '-210px'
+			});
+		});
+
+		$(".quick-menu dl").hover(function() {
+				$(this).addClass("hover");
+			},
+			function() {
+				$(this).removeClass("hover");
+			});
+
+		// 右侧bar用户信息
+		$('div[nctype="a-barUserInfo"]').click(function() {
+			$('div[nctype="barUserInfo"]').toggle();
+		});
+		// 右侧bar登录
+		$('div[nctype="a-barLoginBox"]').click(function() {
+			$('div[nctype="barLoginBox"]').toggle();
+			document.getElementById('codeimage').src = 'http://www.531314.com/index.php?act=seccode&op=makecode&nchash=c93636e5&t=' + Math.random();
+		});
+		$('a[nctype="close-barLoginBox"]').click(function() {
+			$('div[nctype="barLoginBox"]').toggle();
+		});
+	});
+</script>
+<div class="public-top-layout w">
 	<div class="topbar wrapper">
 		<div class="user-entry">
 			您好，欢迎来到
@@ -244,14 +261,15 @@
 			<dl class="weixin">
 				<dt>关注我们<i></i></dt>
 				<dd>
-					<h4>扫描二维码<br/>关注商城微信号</h4>
+					<h4>扫描二维码<br/>
+关注商城微信号</h4>
 					<img src="http://img.531314.com/shop/common/05003950598347095.jpg"> </dd>
 			</dl>
 		</div>
 	</div>
 </div>
 
-		<div class="header-wrap">
+<div class="header-wrap">
 	<header class="public-head-layout wrapper">
 		<h1 class="site-logo"><a href="http://531314.com"><img src="http://img.531314.com/shop/common/04993648993753192.png" class="pngFix"></a></h1>
 		<div id="search" class="head-search-bar">
@@ -345,7 +363,6 @@
 		</div>
 	</header>
 </div>
-
 		<nav class="public-nav-layout">
 	<div class="wrapper">
 		<div class="all-category">
@@ -478,543 +495,539 @@
 		</ul>
 	</div>
 </nav>
-		
-		<div class="nch-breadcrumb-layout">
-		</div>
-		<link href="http://www.531314.com/templates/new/css/index.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="http://www.531314.com/resource/js/home_index.js" charset="utf-8"></script>
-		<!--[if IE 6]>
-<script type="text/javascript" src="http://res.531314.com/js/ie6.js" charset="utf-8"></script>
-<![endif]-->
-		<script type="text/javascript">
-			var uid = window.location.href.split("#V3");
-			var fragment = uid[1];
-			if(fragment) {
-				if(fragment.indexOf("V3") == 0) {
-					document.cookie = 'uid=0';
-				} else {
-					document.cookie = 'uid=' + uid[1];
-				}
-			}
-		</script>
-		<style type="text/css">
-			.category {
-				display: block!important;
-			}
-		</style>
-		<div class="clear"></div>
+<div class="nch-breadcrumb-layout">
+</div>
+<link href="http://www.531314.com/templates/new/css/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://www.531314.com/resource/js/home_index.js" charset="utf-8"></script>
 
-		<div class="home-focus-layout">
-			<ul id="fullScreenSlides" class="full-screen-slides">
-				<li style="background:  url('http://img.531314.com/shop/editor/web-101-101-3.jpg?180') no-repeat center top">
-					<a href="http://www.531314.com/shop/index.php?act=zt&amp;op=valentine" target="_blank" title="">&nbsp;</a>
-				</li>
-				<li style="background: #ffffff url('http://img.531314.com/shop/editor/web-101-101-2.jpg?163') no-repeat center top">
-					<a href="http://www.531314.com/shop/cate-1074-0-0-0-0-0-0-0-0.html" target="_blank" title="">&nbsp;</a>
-				</li>
-				<li style="background:  url('http://img.531314.com/shop/editor/web-101-101-1.jpg?806') no-repeat center top">
-					<a href="http://www.531314.com/item-100942.html" target="_blank" title="">&nbsp;</a>
+<script type="text/javascript">
+	var uid = window.location.href.split("#V3");
+	var fragment = uid[1];
+	if(fragment) {
+		if(fragment.indexOf("V3") == 0) {
+			document.cookie = 'uid=0';
+		} else {
+			document.cookie = 'uid=' + uid[1];
+		}
+	}
+</script>
+<style type="text/css">
+	.category {
+		display: block!important;
+	}
+</style>
+<div class="clear"></div>
+
+<div class="home-focus-layout">
+	<ul id="fullScreenSlides" class="full-screen-slides">
+		<li style="background:  url('http://img.531314.com/shop/editor/web-101-101-3.jpg?180') no-repeat center top">
+			<a href="http://www.531314.com/shop/index.php?act=zt&amp;op=valentine" target="_blank" title="">&nbsp;</a>
+		</li>
+		<li style="background: #ffffff url('http://img.531314.com/shop/editor/web-101-101-2.jpg?163') no-repeat center top">
+			<a href="http://www.531314.com/shop/cate-1074-0-0-0-0-0-0-0-0.html" target="_blank" title="">&nbsp;</a>
+		</li>
+		<li style="background:  url('http://img.531314.com/shop/editor/web-101-101-1.jpg?806') no-repeat center top">
+			<a href="http://www.531314.com/item-100942.html" target="_blank" title="">&nbsp;</a>
+		</li>
+	</ul>
+	<script type="text/javascript">
+		update_screen_focus();
+	</script>
+	<div class="right-sidebar">
+		<div class="policy">
+			<ul>
+				<li class="b1">特色服务</li>
+				<li class="b2">方便快捷</li>
+				<li class="b3">价位优惠</li>
+				<li class="b4">机构认证</li>
+				<li class="b5">万千口碑</li>
+				<li class="b6">诚信服务</li>
+			</ul>
+		</div>
+		<div class="proclamation">
+			<ul class="tabs-nav">
+				<li class="tabs-selected">
+					<h3>商城公告</h3>
 				</li>
 			</ul>
-			<script type="text/javascript">
-				update_screen_focus();
-			</script>
-			<div class="right-sidebar">
-				<div class="policy">
-					<ul>
-						<li class="b1">特色服务</li>
-						<li class="b2">方便快捷</li>
-						<li class="b3">价位优惠</li>
-						<li class="b4">机构认证</li>
-						<li class="b5">万千口碑</li>
-						<li class="b6">诚信服务</li>
-					</ul>
-				</div>
-				<div class="proclamation">
-					<ul class="tabs-nav">
-						<li class="tabs-selected">
-							<h3>商城公告</h3>
-						</li>
-					</ul>
-					<div class="tabs-panel">
-						<ul class="mall-news">
-							<li><i></i>
-								<a target="_blank" href="http://www.531314.com/article-102.html" title="花草发黄的11个重大原因！ 喜欢养花的必看！">花草发黄的11个重大原因！ </a>
-								<time>(2016-03-31)</time>
-							</li>
-							<li><i></i>
-								<a target="_blank" href="http://www.531314.com/article-101.html" title="小家庭，小惊喜">小家庭，小惊喜 </a>
-								<time>(2016-03-31)</time>
-							</li>
-							<li><i></i>
-								<a target="_blank" href="http://www.531314.com/article-100.html" title="送花的讲究！">送花的讲究！ </a>
-								<time>(2016-03-31)</time>
-							</li>
-							<li><i></i>
-								<a target="_blank" href="http://www.531314.com/article-99.html" title="关于郁金香的小常识（二）">关于郁金香的小常识（二） </a>
-								<time>(2016-03-30)</time>
-							</li>
-							<li><i></i>
-								<a target="_blank" href="http://www.531314.com/article-98.html" title="关于郁金香的小常识（一）">关于郁金香的小常识（一） </a>
-								<time>(2016-03-30)</time>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="home-sale-layout wrapper">
-			<div class="left-layout">
-				<ul class="tabs-nav">
-					<li class="tabs-selected"><i class="arrow"></i>
-						<h3>新品推荐</h3></li>
+			<div class="tabs-panel">
+				<ul class="mall-news">
+					<li><i></i>
+						<a target="_blank" href="http://www.531314.com/article-102.html" title="花草发黄的11个重大原因！ 喜欢养花的必看！">花草发黄的11个重大原因！ </a>
+						<time>(2016-03-31)</time>
+					</li>
+					<li><i></i>
+						<a target="_blank" href="http://www.531314.com/article-101.html" title="小家庭，小惊喜">小家庭，小惊喜 </a>
+						<time>(2016-03-31)</time>
+					</li>
+					<li><i></i>
+						<a target="_blank" href="http://www.531314.com/article-100.html" title="送花的讲究！">送花的讲究！ </a>
+						<time>(2016-03-31)</time>
+					</li>
+					<li><i></i>
+						<a target="_blank" href="http://www.531314.com/article-99.html" title="关于郁金香的小常识（二）">关于郁金香的小常识（二） </a>
+						<time>(2016-03-30)</time>
+					</li>
+					<li><i></i>
+						<a target="_blank" href="http://www.531314.com/article-98.html" title="关于郁金香的小常识（一）">关于郁金香的小常识（一） </a>
+						<time>(2016-03-30)</time>
+					</li>
 				</ul>
-				<div class="tabs-panel sale-goods-list ">
-					<ul>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100836.html" title="【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送  此款鲜花需提前1-3天预订哦">
+			</div>
+		</div>
+	</div>
+</div>
+		<div class="home-sale-layout wrapper">
+	<div class="left-layout">
+		<ul class="tabs-nav">
+			<li class="tabs-selected"><i class="arrow"></i>
+				<h3>新品推荐</h3></li>
+		</ul>
+		<div class="tabs-panel sale-goods-list ">
+			<ul>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100836.html" title="【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送  此款鲜花需提前1-3天预订哦">
 【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送 此款鲜花需提前1-3天预订哦</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100836.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05075525382032819_240.jpg" alt="【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送  此款鲜花需提前1-3天预订哦" />
-									</a>
-								</dd>
-								<dd class="goods-price">商城价：<em>￥356.00</em></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100976.html" title="【春舞枝】基地直销 香槟洋桔梗混搭玫瑰 香槟玫瑰紫桔梗礼盒">
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100836.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05075525382032819_240.jpg" alt="【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送  此款鲜花需提前1-3天预订哦" />
+							</a>
+						</dd>
+						<dd class="goods-price">商城价：<em>￥356.00</em></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100976.html" title="【春舞枝】基地直销 香槟洋桔梗混搭玫瑰 香槟玫瑰紫桔梗礼盒">
 【春舞枝】基地直销 香槟洋桔梗混搭玫瑰 香槟玫瑰紫桔梗礼盒</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100976.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05231320800154398_240.jpg" alt="【春舞枝】基地直销 香槟洋桔梗混搭玫瑰 香槟玫瑰紫桔梗礼盒" />
-									</a>
-								</dd>
-								<dd class="goods-price">商城价：<em>￥219.00</em></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100928.html" title="【春舞枝】鲜花速递百合玫瑰混搭花束情人节鲜花七夕鲜花全国花店同城配送">
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100976.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05231320800154398_240.jpg" alt="【春舞枝】基地直销 香槟洋桔梗混搭玫瑰 香槟玫瑰紫桔梗礼盒" />
+							</a>
+						</dd>
+						<dd class="goods-price">商城价：<em>￥219.00</em></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100928.html" title="【春舞枝】鲜花速递百合玫瑰混搭花束情人节鲜花七夕鲜花全国花店同城配送">
 【春舞枝】鲜花速递百合玫瑰混搭花束情人节鲜花七夕鲜花全国花店同城配送</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100928.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05078094776874959_240.jpg" alt="【春舞枝】鲜花速递百合玫瑰混搭花束情人节鲜花七夕鲜花全国花店同城配送" />
-									</a>
-								</dd>
-								<dd class="goods-price">商城价：<em>￥268.00</em></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100893.html" title="【春舞枝】鲜花速递 5枝多头向日葵 红豆 花束全国同城配送   此款鲜花需提前1-3天预订哦">
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100928.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05078094776874959_240.jpg" alt="【春舞枝】鲜花速递百合玫瑰混搭花束情人节鲜花七夕鲜花全国花店同城配送" />
+							</a>
+						</dd>
+						<dd class="goods-price">商城价：<em>￥268.00</em></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100893.html" title="【春舞枝】鲜花速递 5枝多头向日葵 红豆 花束全国同城配送   此款鲜花需提前1-3天预订哦">
 【春舞枝】鲜花速递 5枝多头向日葵 红豆 花束全国同城配送 此款鲜花需提前1-3天预订哦</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100893.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05075600576874102_240.jpg" alt="【春舞枝】鲜花速递 5枝多头向日葵 红豆 花束全国同城配送   此款鲜花需提前1-3天预订哦" />
-									</a>
-								</dd>
-								<dd class="goods-price">商城价：<em>￥209.00</em></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100905.html" title="【春舞枝】鲜花速递 5枝白百合配 苏醒 腊梅 花束全国同城配送">
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100893.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05075600576874102_240.jpg" alt="【春舞枝】鲜花速递 5枝多头向日葵 红豆 花束全国同城配送   此款鲜花需提前1-3天预订哦" />
+							</a>
+						</dd>
+						<dd class="goods-price">商城价：<em>￥209.00</em></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100905.html" title="【春舞枝】鲜花速递 5枝白百合配 苏醒 腊梅 花束全国同城配送">
 【春舞枝】鲜花速递 5枝白百合配 苏醒 腊梅 花束全国同城配送</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100905.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05095406137963840_240.jpg" alt="【春舞枝】鲜花速递 5枝白百合配 苏醒 腊梅 花束全国同城配送" />
-									</a>
-								</dd>
-								<dd class="goods-price">商城价：<em>￥288.00</em></dd>
-							</dl>
-						</li>
-					</ul>
-				</div>
-			</div>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100905.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05095406137963840_240.jpg" alt="【春舞枝】鲜花速递 5枝白百合配 苏醒 腊梅 花束全国同城配送" />
+							</a>
+						</dd>
+						<dd class="goods-price">商城价：<em>￥288.00</em></dd>
+					</dl>
+				</li>
+			</ul>
 		</div>
-		<div class="wrapper">
-			<div class="mt10">
-				<div class="mt10">
-				</div>
-			</div>
+	</div>
+</div>
+<div class="wrapper">
+	<div class="mt10">
+		<div class="mt10">
 		</div>
-		<div class="clear"></div>
-		<div class="wrapper">
-			<div class="mt10">
-				<div class="mt10"></div>
-			</div>
-		</div>
-		<div class="clear"></div>
-
+	</div>
+</div>
+<div class="clear"></div>
+<div class="wrapper">
+	<div class="mt10">
+		<div class="mt10"></div>
+	</div>
+</div>
+<div class="clear"></div>
 		<div class="home-standard-layout wrapper style-diy1">
-			<div class="title">
-				<div class="pic-type"><img src="http://img.531314.com/shop/editor/web-2-21.jpg?516" /></div>
-			</div>
-			<div class="left-sidebar">
-				<div class="left-ads">
-					<a href="#" title="" target="_blank">
-						<img src="http://img.531314.com/shop/editor/web-2-23.jpg?132" alt="">
-					</a>
-				</div>
-				<div class="recommend-classes">
-					<ul>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="玫瑰" target="_blank">玫瑰</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="百合" target="_blank">百合</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="康乃馨" target="_blank">康乃馨</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="其它" target="_blank">其它</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="情人节" target="_blank">情人节</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="母亲节" target="_blank">母亲节</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="父亲节" target="_blank">父亲节</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="圣诞节" target="_blank">圣诞节</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="爱人" target="_blank">爱人</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="恋人" target="_blank">恋人</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="单身" target="_blank">单身</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="老师" target="_blank">老师</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="朋友" target="_blank">朋友</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="长辈" target="_blank">长辈</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="探望" target="_blank">探望</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="客户" target="_blank">客户</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="middle-layout">
-				<div class="tabs-panel middle-goods-list ">
-					<ul>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100814.html" title="【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物">
+	<div class="title">
+		<div class="pic-type">
+			<img src="http://img.531314.com/shop/editor/web-2-21.jpg?516" />
+		</div>
+	</div>
+	<div class="left-sidebar">
+		<div class="left-ads">
+			<a href="#" title="" target="_blank">
+				<img src="http://img.531314.com/shop/editor/web-2-23.jpg?132" alt="">
+			</a>
+		</div>
+		<div class="recommend-classes">
+			<ul>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="玫瑰" target="_blank">玫瑰</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="百合" target="_blank">百合</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="康乃馨" target="_blank">康乃馨</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="其它" target="_blank">其它</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="情人节" target="_blank">情人节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="母亲节" target="_blank">母亲节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="父亲节" target="_blank">父亲节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="圣诞节" target="_blank">圣诞节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="爱人" target="_blank">爱人</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="恋人" target="_blank">恋人</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="单身" target="_blank">单身</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="老师" target="_blank">老师</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="朋友" target="_blank">朋友</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="长辈" target="_blank">长辈</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="探望" target="_blank">探望</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="客户" target="_blank">客户</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="middle-layout">
+		<div class="tabs-panel middle-goods-list ">
+			<ul>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100814.html" title="【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物">
 【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100814.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073987921400349_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥238.00</em>
-									<span class="original">￥348.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100816.html" title="【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物">
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100814.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05073987921400349_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥238.00</em>
+							<span class="original">￥348.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100816.html" title="【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物">
 【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100816.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073990172657079_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥238.00</em>
-									<span class="original">￥348.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100818.html" title="【春舞枝】鲜花速递创意礼品21枝粉玫瑰情人节玫瑰花束生日礼物">
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100816.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05073990172657079_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥238.00</em>
+							<span class="original">￥348.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100818.html" title="【春舞枝】鲜花速递创意礼品21枝粉玫瑰情人节玫瑰花束生日礼物">
 【春舞枝】鲜花速递创意礼品21枝粉玫瑰情人节玫瑰花束生日礼物</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100818.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073992177507525_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝粉玫瑰情人节玫瑰花束生日礼物" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥238.00</em>
-									<span class="original">￥348.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100820.html" title="【春舞枝】鲜花速递创意礼品21枝白玫瑰情人节玫瑰花束生日礼物">
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100818.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05073992177507525_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝粉玫瑰情人节玫瑰花束生日礼物" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥238.00</em>
+							<span class="original">￥348.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100820.html" title="【春舞枝】鲜花速递创意礼品21枝白玫瑰情人节玫瑰花束生日礼物">
 【春舞枝】鲜花速递创意礼品21枝白玫瑰情人节玫瑰花束生日礼物</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100820.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073993608904817_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝白玫瑰情人节玫瑰花束生日礼物" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥238.00</em>
-									<span class="original">￥348.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100822.html" title="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物">
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100820.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05073993608904817_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝白玫瑰情人节玫瑰花束生日礼物" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥238.00</em>
+							<span class="original">￥348.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100822.html" title="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物">
 【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100822.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073995135627630_240.jpg" alt="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥118.00</em>
-									<span class="original">￥169.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100823.html" title="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物">
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100822.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05073995135627630_240.jpg" alt="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥118.00</em>
+							<span class="original">￥169.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100823.html" title="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物">
 【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100823.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073996958128690_240.jpg" alt="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥118.00</em>
-									<span class="original">￥169.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100827.html" title="【春舞枝】鲜花速递19朵红玫瑰花束礼盒全国直销">
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100823.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05073996958128690_240.jpg" alt="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥118.00</em>
+							<span class="original">￥169.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100827.html" title="【春舞枝】鲜花速递19朵红玫瑰花束礼盒全国直销">
 【春舞枝】鲜花速递19朵红玫瑰花束礼盒全国直销</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100827.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05074001425935282_240.jpg" alt="【春舞枝】鲜花速递19朵红玫瑰花束礼盒全国直销" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥198.00</em>
-									<span class="original">￥289.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100826.html" title="【春舞枝】鲜花速递19朵香槟玫瑰礼盒花束全国直销">
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100827.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05074001425935282_240.jpg" alt="【春舞枝】鲜花速递19朵红玫瑰花束礼盒全国直销" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥198.00</em>
+							<span class="original">￥289.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100826.html" title="【春舞枝】鲜花速递19朵香槟玫瑰礼盒花束全国直销">
 【春舞枝】鲜花速递19朵香槟玫瑰礼盒花束全国直销</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100826.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073999825004078_240.jpg" alt="【春舞枝】鲜花速递19朵香槟玫瑰礼盒花束全国直销" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥198.00</em>
-									<span class="original">￥289.00</span></dd>
-							</dl>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="right-sidebar">
-
-				<div class="right-side-focus">
-					<ul>
-						<li>
-							<a href="http://www.531314.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=100863" title="" target="_blank">
-								<img src="http://img.531314.com/shop/editor/web-2-28-2.jpg?165" alt="" /></a>
-						</li>
-					</ul>
-				</div>
-			</div>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100826.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05073999825004078_240.jpg" alt="【春舞枝】鲜花速递19朵香槟玫瑰礼盒花束全国直销" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥198.00</em>
+							<span class="original">￥289.00</span></dd>
+					</dl>
+				</li>
+			</ul>
 		</div>
+	</div>
+	<div class="right-sidebar">
+		<div class="right-side-focus">
+			<ul>
+				<li>
+					<a href="http://www.531314.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=100863" title="" target="_blank">
+						<img src="http://img.531314.com/shop/editor/web-2-28-2.jpg?165" alt="" /></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
 		<div class="home-standard-layout wrapper style-diy2">
-			<div class="title">
-				<div class="pic-type"><img src="http://img.531314.com/shop/editor/web-3-31.jpg?545" /></div>
-			</div>
-			<div class="left-sidebar">
-				<div class="left-ads">
-					<a href="#" title="" target="_blank">
-						<img src="http://img.531314.com/shop/editor/web-3-33.jpg?367" alt="">
-					</a>
-				</div>
-				<div class="recommend-classes">
-					<ul>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="鲜花束" target="_blank">鲜花束</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="盒装鲜花" target="_blank">盒装鲜花</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="多肉植物" target="_blank">多肉植物</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="绿植盆栽" target="_blank">绿植盆栽</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="纪念" target="_blank">纪念</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="探视" target="_blank">探视</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="生日" target="_blank">生日</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="祝福" target="_blank">祝福</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="求婚" target="_blank">求婚</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="情人节" target="_blank">情人节</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="教师节" target="_blank">教师节</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="母亲节" target="_blank">母亲节</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="父亲节" target="_blank">父亲节</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="圣诞节" target="_blank">圣诞节</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="middle-layout">
-				<div class="tabs-panel middle-goods-list ">
-					<ul>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100829.html" title="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花">
-【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100829.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05074003616714448_240.jpg" alt="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥178.00</em>
-									<span class="original">￥258.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100830.html" title="【春舞枝】鲜花速递12枝向日葵花束生日礼物送父亲领导同事朋友全国配送">
-【春舞枝】鲜花速递12枝向日葵花束生日礼物送父亲领导同事朋友全国配送</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100830.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05074005295318916_240.jpg" alt="【春舞枝】鲜花速递12枝向日葵花束生日礼物送父亲领导同事朋友全国配送" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥188.00</em>
-									<span class="original">￥269.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100832.html" title="【春舞枝】鲜花速递16枝红色黄色混搭扶郎花祝福鲜花同城花店送花上门">
-【春舞枝】鲜花速递16枝红色黄色混搭扶郎花祝福鲜花同城花店送花上门</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100832.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05074006773124647_240.jpg" alt="【春舞枝】鲜花速递16枝红色黄色混搭扶郎花祝福鲜花同城花店送花上门" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥168.00</em>
-									<span class="original">￥248.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100831.html" title="【春舞枝】鲜花速递12枝红色扶郎花祝福鲜花送长辈送朋友花店同城送花上门">
-【春舞枝】鲜花速递12枝红色扶郎花祝福鲜花送长辈送朋友花店同城送花上门</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100831.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05074004498124365_240.jpg" alt="【春舞枝】鲜花速递12枝红色扶郎花祝福鲜花送长辈送朋友花店同城送花上门" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥138.00</em>
-									<span class="original">￥199.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100828.html" title="【春舞枝】鲜花速递19枝粉色扶郎花父亲节鲜花送长辈送朋友同城送花上门">
-【春舞枝】鲜花速递19枝粉色扶郎花父亲节鲜花送长辈送朋友同城送花上门</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100828.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05074001525622726_240.jpg" alt="【春舞枝】鲜花速递19枝粉色扶郎花父亲节鲜花送长辈送朋友同城送花上门" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥178.00</em>
-									<span class="original">￥258.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100825.html" title="【春舞枝】鲜花速递8枝橙色扶郎+8枝粉康+2枝多头百合祝福鲜花送长辈送朋友">
-【春舞枝】鲜花速递8枝橙色扶郎+8枝粉康+2枝多头百合祝福鲜花送长辈送朋友</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100825.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073999245786620_240.jpg" alt="【春舞枝】鲜花速递8枝橙色扶郎+8枝粉康+2枝多头百合祝福鲜花送长辈送朋友" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥189.00</em>
-									<span class="original">￥299.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100824.html" title="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物">
-【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100824.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073998552500241_240.jpg" alt="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥218.00</em>
-									<span class="original">￥308.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100821.html" title="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物">
-【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100821.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073995069213616_240.jpg" alt="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥248.00</em>
-									<span class="original">￥358.00</span></dd>
-							</dl>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="right-sidebar">
-
-				<div class="right-side-focus">
-					<ul>
-						<li>
-							<a href="http://www.531314.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=100870" title="" target="_blank">
-								<img src="http://img.531314.com/shop/editor/web-3-38-1.jpg?788" alt="" /></a>
-						</li>
-					</ul>
-				</div>
-			</div>
+	<div class="title">
+		<div class="pic-type"><img src="http://img.531314.com/shop/editor/web-3-31.jpg?545" /></div>
+	</div>
+	<div class="left-sidebar">
+		<div class="left-ads">
+			<a href="#" title="" target="_blank">
+				<img src="http://img.531314.com/shop/editor/web-3-33.jpg?367" alt="">
+			</a>
 		</div>
-		<div class="home-standard-layout wrapper style-diy3">
+		<div class="recommend-classes">
+			<ul>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="鲜花束" target="_blank">鲜花束</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="盒装鲜花" target="_blank">盒装鲜花</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="多肉植物" target="_blank">多肉植物</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="绿植盆栽" target="_blank">绿植盆栽</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="纪念" target="_blank">纪念</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="探视" target="_blank">探视</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="生日" target="_blank">生日</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="祝福" target="_blank">祝福</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="求婚" target="_blank">求婚</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="情人节" target="_blank">情人节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="教师节" target="_blank">教师节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="母亲节" target="_blank">母亲节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="父亲节" target="_blank">父亲节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="圣诞节" target="_blank">圣诞节</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="middle-layout">
+		<div class="tabs-panel middle-goods-list ">
+			<ul>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100829.html" title="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花">
+【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花</a></dt>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100829.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05074003616714448_240.jpg" alt="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥178.00</em>
+							<span class="original">￥258.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100830.html" title="【春舞枝】鲜花速递12枝向日葵花束生日礼物送父亲领导同事朋友全国配送">
+【春舞枝】鲜花速递12枝向日葵花束生日礼物送父亲领导同事朋友全国配送</a></dt>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100830.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05074005295318916_240.jpg" alt="【春舞枝】鲜花速递12枝向日葵花束生日礼物送父亲领导同事朋友全国配送" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥188.00</em>
+							<span class="original">￥269.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100832.html" title="【春舞枝】鲜花速递16枝红色黄色混搭扶郎花祝福鲜花同城花店送花上门">
+【春舞枝】鲜花速递16枝红色黄色混搭扶郎花祝福鲜花同城花店送花上门</a></dt>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100832.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05074006773124647_240.jpg" alt="【春舞枝】鲜花速递16枝红色黄色混搭扶郎花祝福鲜花同城花店送花上门" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥168.00</em>
+							<span class="original">￥248.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100831.html" title="【春舞枝】鲜花速递12枝红色扶郎花祝福鲜花送长辈送朋友花店同城送花上门">
+【春舞枝】鲜花速递12枝红色扶郎花祝福鲜花送长辈送朋友花店同城送花上门</a></dt>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100831.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05074004498124365_240.jpg" alt="【春舞枝】鲜花速递12枝红色扶郎花祝福鲜花送长辈送朋友花店同城送花上门" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥138.00</em>
+							<span class="original">￥199.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100828.html" title="【春舞枝】鲜花速递19枝粉色扶郎花父亲节鲜花送长辈送朋友同城送花上门">
+【春舞枝】鲜花速递19枝粉色扶郎花父亲节鲜花送长辈送朋友同城送花上门</a></dt>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100828.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05074001525622726_240.jpg" alt="【春舞枝】鲜花速递19枝粉色扶郎花父亲节鲜花送长辈送朋友同城送花上门" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥178.00</em>
+							<span class="original">￥258.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100825.html" title="【春舞枝】鲜花速递8枝橙色扶郎+8枝粉康+2枝多头百合祝福鲜花送长辈送朋友">
+【春舞枝】鲜花速递8枝橙色扶郎+8枝粉康+2枝多头百合祝福鲜花送长辈送朋友</a></dt>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100825.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05073999245786620_240.jpg" alt="【春舞枝】鲜花速递8枝橙色扶郎+8枝粉康+2枝多头百合祝福鲜花送长辈送朋友" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥189.00</em>
+							<span class="original">￥299.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100824.html" title="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物">
+【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物</a></dt>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100824.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05073998552500241_240.jpg" alt="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥218.00</em>
+							<span class="original">￥308.00</span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100821.html" title="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物">
+【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物</a></dt>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100821.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05073995069213616_240.jpg" alt="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物" />
+							</a>
+						</dd>
+						<dd class="goods-price"><em>￥248.00</em>
+							<span class="original">￥358.00</span></dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="right-sidebar">
+
+		<div class="right-side-focus">
+			<ul>
+				<li>
+					<a href="http://www.531314.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=100870" title="" target="_blank">
+						<img src="http://img.531314.com/shop/editor/web-3-38-1.jpg?788" alt="" /></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+				<div class="home-standard-layout wrapper style-diy3">
 			<div class="title">
 				<div class="pic-type"><img src="http://img.531314.com/shop/editor/web-4-41.jpg?614" /></div>
 			</div>
@@ -1178,14 +1191,14 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="wrapper">
-			<div class="mt10"></div>
-		</div>
+	<div class="mt10"></div>
+</div>
 
-		<div class="clear"></div>
-		<div class="footer-line"></div>
-		<div id="faq">
+<div class="clear"></div>
+<div class="footer-line"></div>
+
+<div id="faq">
 	<div class="faq-wrapper">
 		<ul>
 			<li>
@@ -1341,48 +1354,34 @@
 		<a href="/shop/index.php?act=link">友情链接</a>
 	</p>
 	Copyright 2015</a> 闽ICP备12008006号-1<br/>
-			<script>
-				var _hmt = _hmt || [];
-				(function() {
-					var hm = document.createElement("script");
-					hm.src = "//hm.baidu.com/hm.js?88de49926eae5852d298d5a5fbba3dda";
-					var s = document.getElementsByTagName("script")[0];
-					s.parentNode.insertBefore(hm, s);
-				})();
-			</script>
-			<script type="text/javascript">
-				var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-				document.write(unescape("%3Cspan id='cnzz_stat_icon_5477377'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D5477377' type='text/javascript'%3E%3C/script%3E"));
-			</script>
-			<script type="text/javascript">
-				var _py = _py || [];
-				_py.push(['a', 'Qws..wq6b3kLKcogvLsNjmWhqcX']);
-				_py.push(['domain', 'stats.ipinyou.com']);
-				_py.push(['e', '']); -
-				function(d) {
-					var s = d.createElement('script'),
-						e = d.body.getElementsByTagName('script')[0];
-					e.parentNode.insertBefore(s, e),
-						f = 'https:' == location.protocol;
-					s.src = (f ? 'https' : 'http') + '://' + (f ? 'fm.ipinyou.com' : 'fm.p0y.cn') + '/j/adv.js';
-				}(document);
-			</script>
-			<noscript><img src="//stats.ipinyou.com/adv.gif?a=Qws..wq6b3kLKcogvLsNjmWhqcX&e=" style="display:none;"/></noscript> </div>
-		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
-		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="http://res.531314.com/js/perfect-scrollbar.min.js"></script>
-		<script type="text/javascript" src="http://res.531314.com/js/qtip/jquery.qtip.min.js"></script>
-		<link href="http://res.531314.com/js/qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css">
-
-		<script src="http://www.531314.com/resource/js/compare.js"></script>
-		<script type="text/javascript">
-			$(function() {
-				// Membership card
-				$('[nctype="mcard"]').membershipCard({
-					type: 'shop'
-				});
-			});
-		</script>
+	
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?88de49926eae5852d298d5a5fbba3dda";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script type="text/javascript">
+		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cspan id='cnzz_stat_icon_5477377'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D5477377' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		var _py = _py || [];
+		_py.push(['a', 'Qws..wq6b3kLKcogvLsNjmWhqcX']);
+		_py.push(['domain', 'stats.ipinyou.com']);
+		_py.push(['e', '']); -
+		function(d) {
+			var s = d.createElement('script'),
+				e = d.body.getElementsByTagName('script')[0];
+			e.parentNode.insertBefore(s, e),
+				f = 'https:' == location.protocol;
+			s.src = (f ? 'https' : 'http') + '://' + (f ? 'fm.ipinyou.com' : 'fm.p0y.cn') + '/j/adv.js';
+		}(document);
+	</script>
+	<noscript><img src="//stats.ipinyou.com/adv.gif?a=Qws..wq6b3kLKcogvLsNjmWhqcX&e=" style="display:none;"/></noscript> 
+</div>
 	</body>
-
 </html>
