@@ -101,7 +101,8 @@
 	</head>
 
 	<body>
-		<link href="__ROOT__/Index/Common/css/index.css" rel="stylesheet" type="text/css">
+		
+		
 		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
 		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="http://res.531314.com/js/perfect-scrollbar.min.js"></script>
@@ -363,7 +364,7 @@
 		</div>
 	</header>
 </div>
-		<nav class="public-nav-layout">
+<nav class="public-nav-layout">
 	<div class="wrapper">
 		<div class="all-category">
 			<div class="title"> <i></i>
@@ -497,9 +498,16 @@
 </nav>
 <div class="nch-breadcrumb-layout">
 </div>
-<link href="http://www.531314.com/templates/new/css/index.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://www.531314.com/resource/js/home_index.js" charset="utf-8"></script>
 
+<!--<style type="text/css">
+	.category {
+		display: block!important;
+	}
+</style>-->
+<div class="clear"></div>
+
+		<link href="__ROOT__/Index/Common/css/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://www.531314.com/resource/js/home_index.js" charset="utf-8"></script>		
 <script type="text/javascript">
 	var uid = window.location.href.split("#V3");
 	var fragment = uid[1];
@@ -511,13 +519,6 @@
 		}
 	}
 </script>
-<style type="text/css">
-	.category {
-		display: block!important;
-	}
-</style>
-<div class="clear"></div>
-
 <div class="home-focus-layout">
 	<ul id="fullScreenSlides" class="full-screen-slides">
 		<li style="background:  url('http://img.531314.com/shop/editor/web-101-101-3.jpg?180') no-repeat center top">
