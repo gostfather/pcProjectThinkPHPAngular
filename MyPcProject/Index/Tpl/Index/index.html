@@ -34,75 +34,12 @@
 		<script src="http://res.531314.com/js/jquery.validation.min.js"></script>
 		<script src="http://res.531314.com/js/jquery.masonry.js"></script>
 		<script src="http://res.531314.com/js/dialog/dialog.js" id="dialog_js" charset="utf-8"></script>
-		<script type="text/javascript">
-			var PRICE_FORMAT = '&yen;%s';
-			$(function() {
-				//首页左侧分类菜单
-				$(".category ul.menu").find("li").each(
-					function() {
-						$(this).hover(
-							function() {
-								var cat_id = $(this).attr("cat_id");
-								var menu = $(this).find("div[cat_menu_id='" + cat_id + "']");
-								menu.show();
-								$(this).addClass("hover");
-								var menu_height = menu.height();
-								if(menu_height < 60) menu.height(80);
-								menu_height = menu.height();
-								var li_top = $(this).position().top;
-								$(menu).css("top", -li_top + 38);
-							},
-							function() {
-								$(this).removeClass("hover");
-								var cat_id = $(this).attr("cat_id");
-								$(this).find("div[cat_menu_id='" + cat_id + "']").hide();
-							}
-						);
-					}
-				);
-				$(".head-user-menu dl").hover(function() {
-						$(this).addClass("hover");
-					},
-					function() {
-						$(this).removeClass("hover");
-					});
-				$('.head-user-menu .my-mall').mouseover(function() { // 最近浏览的商品
-					load_history_information();
-					$(this).unbind('mouseover');
-				});
-				$('.head-user-menu .my-cart').mouseover(function() { // 运行加载购物车
-					load_cart_information();
-					$(this).unbind('mouseover');
-				});
-				$('#button').click(function() {
-					if($('#keyword').val() == '') {
-						return false;
-					}
-				});
-			});
-
-			$(function() {
-				//search
-				var act = "index";
-				if(act == "store_list") {
-					$("#search").children('ul').children('li:eq(1)').addClass("current");
-					$("#search").children('ul').children('li:eq(0)').removeClass("current");
-				}
-				$("#search").children('ul').children('li').click(function() {
-					$(this).parent().children('li').removeClass("current");
-					$(this).addClass("current");
-					$('#search_act').attr("value", $(this).attr("act"));
-					$('#keyword').attr("placeholder", $(this).attr("title"));
-				});
-				$("#keyword").blur();
-
-			});
-		</script>
+		
 	</head>
 
 	<body>
-		
-		
+		<link href="__ROOT__/Index/Common/css/index.css" rel="stylesheet" type="text/css">
+
 		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
 		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="http://res.531314.com/js/perfect-scrollbar.min.js"></script>

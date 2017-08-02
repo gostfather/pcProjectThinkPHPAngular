@@ -7,7 +7,7 @@ return array(
     'DB_USER'   => "bdm293207604", // 用户名
     'DB_PWD'    => "sggaoshou88", // 密码
     'DB_PORT'   => "3306", // 端口
-    'DB_PREFIX' => 'User_', // 数据库表前缀
+    'DB_PREFIX' => 'user_', // 数据库表前缀
 );
 
 ?>

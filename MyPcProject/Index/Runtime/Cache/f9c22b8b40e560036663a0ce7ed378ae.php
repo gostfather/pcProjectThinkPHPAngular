@@ -34,75 +34,12 @@
 		<script src="http://res.531314.com/js/jquery.validation.min.js"></script>
 		<script src="http://res.531314.com/js/jquery.masonry.js"></script>
 		<script src="http://res.531314.com/js/dialog/dialog.js" id="dialog_js" charset="utf-8"></script>
-		<script type="text/javascript">
-			var PRICE_FORMAT = '&yen;%s';
-			$(function() {
-				//首页左侧分类菜单
-				$(".category ul.menu").find("li").each(
-					function() {
-						$(this).hover(
-							function() {
-								var cat_id = $(this).attr("cat_id");
-								var menu = $(this).find("div[cat_menu_id='" + cat_id + "']");
-								menu.show();
-								$(this).addClass("hover");
-								var menu_height = menu.height();
-								if(menu_height < 60) menu.height(80);
-								menu_height = menu.height();
-								var li_top = $(this).position().top;
-								$(menu).css("top", -li_top + 38);
-							},
-							function() {
-								$(this).removeClass("hover");
-								var cat_id = $(this).attr("cat_id");
-								$(this).find("div[cat_menu_id='" + cat_id + "']").hide();
-							}
-						);
-					}
-				);
-				$(".head-user-menu dl").hover(function() {
-						$(this).addClass("hover");
-					},
-					function() {
-						$(this).removeClass("hover");
-					});
-				$('.head-user-menu .my-mall').mouseover(function() { // 最近浏览的商品
-					load_history_information();
-					$(this).unbind('mouseover');
-				});
-				$('.head-user-menu .my-cart').mouseover(function() { // 运行加载购物车
-					load_cart_information();
-					$(this).unbind('mouseover');
-				});
-				$('#button').click(function() {
-					if($('#keyword').val() == '') {
-						return false;
-					}
-				});
-			});
-
-			$(function() {
-				//search
-				var act = "index";
-				if(act == "store_list") {
-					$("#search").children('ul').children('li:eq(1)').addClass("current");
-					$("#search").children('ul').children('li:eq(0)').removeClass("current");
-				}
-				$("#search").children('ul').children('li').click(function() {
-					$(this).parent().children('li').removeClass("current");
-					$(this).addClass("current");
-					$('#search_act').attr("value", $(this).attr("act"));
-					$('#keyword').attr("placeholder", $(this).attr("title"));
-				});
-				$("#keyword").blur();
-
-			});
-		</script>
+		
 	</head>
 
 	<body>
-		
-		
+		<link href="__ROOT__/Index/Common/css/index.css" rel="stylesheet" type="text/css">
+
 		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
 		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="http://res.531314.com/js/perfect-scrollbar.min.js"></script>
@@ -118,7 +55,70 @@
 				});
 			});
 		</script>
-		
+		<script type="text/javascript">
+	var PRICE_FORMAT = '&yen;%s';
+	$(function() {
+		//首页左侧分类菜单
+		$(".category ul.menu").find("li").each(
+			function() {
+				$(this).hover(
+					function() {
+						var cat_id = $(this).attr("cat_id");
+						var menu = $(this).find("div[cat_menu_id='" + cat_id + "']");
+						menu.show();
+						$(this).addClass("hover");
+						var menu_height = menu.height();
+						if(menu_height < 60) menu.height(80);
+						menu_height = menu.height();
+						var li_top = $(this).position().top;
+						$(menu).css("top", -li_top + 38);
+					},
+					function() {
+						$(this).removeClass("hover");
+						var cat_id = $(this).attr("cat_id");
+						$(this).find("div[cat_menu_id='" + cat_id + "']").hide();
+					}
+				);
+			}
+		);
+		$(".head-user-menu dl").hover(function() {
+				$(this).addClass("hover");
+			},
+			function() {
+				$(this).removeClass("hover");
+			});
+		$('.head-user-menu .my-mall').mouseover(function() { // 最近浏览的商品
+			load_history_information();
+			$(this).unbind('mouseover');
+		});
+		$('.head-user-menu .my-cart').mouseover(function() { // 运行加载购物车
+			load_cart_information();
+			$(this).unbind('mouseover');
+		});
+		$('#button').click(function() {
+			if($('#keyword').val() == '') {
+				return false;
+			}
+		});
+	});
+
+	$(function() {
+		//search
+		var act = "index";
+		if(act == "store_list") {
+			$("#search").children('ul').children('li:eq(1)').addClass("current");
+			$("#search").children('ul').children('li:eq(0)').removeClass("current");
+		}
+		$("#search").children('ul').children('li').click(function() {
+			$(this).parent().children('li').removeClass("current");
+			$(this).addClass("current");
+			$('#search_act').attr("value", $(this).attr("act"));
+			$('#keyword').attr("placeholder", $(this).attr("title"));
+		});
+		$("#keyword").blur();
+
+	});
+</script>
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
 <script type="text/javascript">
@@ -205,7 +205,7 @@
 	<div class="topbar wrapper">
 		<div class="user-entry">
 			您好，欢迎来到
-			<a href="http://531314.com" title="首页" alt="首页">春舞枝</a> <span>[<a href="http://www.531314.com/index.php?act=login&op=index">登录</a>]</span> <span>[<a href="http://www.531314.com/index.php?act=login&op=register">注册</a>]</span>
+			<a href="http://531314.com" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=index">登录</a>]</span> <span>[<a href="__APP__/Index?act=login&op=register">注册</a>]</span>
 
 		</div>
 		<div class="quick-menu">
@@ -342,7 +342,7 @@
 							<span style="float:right;"><a href="http://www.531314.com/index.php?act=member_goodsbrowse&op=list">全部浏览历史</a></span>
 						</div>
 						<ul>
-							<li class="no-goods"><img class="loading" src="http://www.531314.com/templates/new/images/loading.gif" /></li>
+							<li class="no-goods"><img class="loading" src="__ROOT__/Index/Common/images/loading.gif" /></li>
 						</ul>
 					</div>
 				</dd>
@@ -354,7 +354,7 @@
 						<h4>最新加入的商品</h4>
 					</div>
 					<div class="incart-goods-box">
-						<div class="incart-goods"> <img class="loading" src="http://www.531314.com/templates/new/images/loading.gif" /> </div>
+						<div class="incart-goods"> <img class="loading" src="__ROOT__/Index/Common/images/loading.gif" /> </div>
 					</div>
 					<div class="checkout"> <span class="total-price">共<i>0</i>种商品</span>
 						<a href="http://www.531314.com/index.php?act=cart" class="btn-cart">结算购物车中的商品</a>
@@ -475,38 +475,30 @@
 		</div>
 		<ul class="site-menu">
 			<li>
-				<a href="http://531314.com" class="current">首页</a>
+				<a href="__APP__/Index/index" class="current">首页</a>
 			</li>
 
 			<li>
-				<a href="http://www.531314.com/cate-1074-0-0-0-0-0-0-0-0.html">鲜花速递</a>
+				<a href="__APP__/Cate/cate_1074">鲜花速递</a>
 			</li>
 			<li>
-				<a href="http://www.531314.com/cate-1075-0-0-0-0-0-0-0-0.html">鲜花礼盒</a>
+				<a href="__APP__/Cate/cate_1075">鲜花礼盒</a>
 			</li>
-			<li>
-				<a href="/shop/index.php?act=store_list&amp;op=index">店铺</a>
-			</li>
-			<li>
-				<a href="/shop/index.php?act=article&amp;ac_id=14">鲜花学院</a>
-			</li>
-			<li>
-				<a href="http://www.flowerexpress.cn/">International Delivery</a>
-			</li>
+			
 		</ul>
 	</div>
 </nav>
-<div class="nch-breadcrumb-layout">
-</div>
+<!--<div class="nch-breadcrumb-layout">
+</div>-->
 
 <!--<style type="text/css">
 	.category {
 		display: block!important;
 	}
 </style>-->
-<div class="clear"></div>
+<!--<div class="clear"></div>-->
 
-		<link href="__ROOT__/Index/Common/css/index.css" rel="stylesheet" type="text/css">
+		
 <script type="text/javascript" src="http://www.531314.com/resource/js/home_index.js" charset="utf-8"></script>		
 <script type="text/javascript">
 	var uid = window.location.href.split("#V3");
@@ -521,13 +513,13 @@
 </script>
 <div class="home-focus-layout">
 	<ul id="fullScreenSlides" class="full-screen-slides">
-		<li style="background:  url('http://img.531314.com/shop/editor/web-101-101-3.jpg?180') no-repeat center top">
+		<li style="background:  url('__ROOT__/Index/Common/images/editor/web-101-101-3.jpg?180') no-repeat center top">
 			<a href="http://www.531314.com/shop/index.php?act=zt&amp;op=valentine" target="_blank" title="">&nbsp;</a>
 		</li>
-		<li style="background: #ffffff url('http://img.531314.com/shop/editor/web-101-101-2.jpg?163') no-repeat center top">
+		<li style="background: #ffffff url('__ROOT__/Index/Common/images/editor/web-101-101-2.jpg?163') no-repeat center top">
 			<a href="http://www.531314.com/shop/cate-1074-0-0-0-0-0-0-0-0.html" target="_blank" title="">&nbsp;</a>
 		</li>
-		<li style="background:  url('http://img.531314.com/shop/editor/web-101-101-1.jpg?806') no-repeat center top">
+		<li style="background:  url('__ROOT__/Index/Common/images/editor/web-101-101-1.jpg?806') no-repeat center top">
 			<a href="http://www.531314.com/item-100942.html" target="_blank" title="">&nbsp;</a>
 		</li>
 	</ul>

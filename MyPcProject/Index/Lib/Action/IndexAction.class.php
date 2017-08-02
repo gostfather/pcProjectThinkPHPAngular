@@ -1,7 +1,20 @@
 <?php
-// 本类由系统自动生成，仅供测试用途
+
 class IndexAction extends Action {
     public function index(){
-    $this->display();
+    	$act = I('get.act');
+		$op = I('get.op');
+		if($act==="login" && $op==="register"){
+			$this->display("register");
+		}else{
+    		$this->display("index");
+		}
 	}
+
+
+
+	
+	/*public function checkUsers(){
+		if(session(uid)&&session(username))
+	}*/
 }
