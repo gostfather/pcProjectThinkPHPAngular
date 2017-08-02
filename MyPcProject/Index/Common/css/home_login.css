@@ -38,16 +38,16 @@ label.error{
 	box-shadow:2px 2px 1px 0 #E7E7E7 inset;
 	-moz-box-shadow:2px 2px 1px 0 #E7E7E7inset/* if FF*/;
 	 -webkit--box-shadow: 2px 2px 1px 0 #E7E7E7 inset/* if Webkie*/;
-}
-.quick-login .text:focus{
- 	background-color:#FFF;
+ }
+ .quick-login .text:focus{
+	background-color:#FFF;
 	border-color:#CCC;
 	box-shadow:1px 1px 1px 0 #E7E7E7;
 	-moz-box-shadow:1px 1px 1px 0#E7E7E7/* if FF*/;
 	 -webkit--box-shadow: 1px 1px 1px 0 #E7E7E7/* if Webkie*/;
-}
-.quick-login ul{
- 	width:100%;
+ }
+ .quick-login ul{
+	width:100%;
 	display:block;
 	clear:both;
 	margin:20px auto 10px auto;
@@ -78,7 +78,7 @@ label.error{
 .quick-login .enter .submit{
 	color:#FFF;
 	font-weight:600;
-	background:url(../images/login.png) no-repeat scroll 0px 0px;
+	background:url(__ROOT__/Index/Common/images/login.png) no-repeat scroll 0px 0px;
 	width:88px;
 	height:28px;
 	padding:0;
@@ -121,10 +121,9 @@ label.error{
 }
 .nc-login-layout{
 	width:850px;
-	margin:0 auto;
-}
+margin:0 auto}
 .nc-login{
-		width:400px;
+	width:400px;
 	float:right;
 }
 .nc-login-title{
@@ -242,7 +241,7 @@ label.error{
 	text-decoration:underline;
 }
 .nc-login-other{
-		border-top:dashed 1px #D8D8D8;
+	border-top:dashed 1px #D8D8D8;
 	padding:10px 0px 20px 28%;
 }
 .nc-login-other p{
@@ -265,14 +264,14 @@ label.error{
 	background-position:-88px -28px;
 }
 .nc-login-other a.sina{
-		background-position:-166px 0px;
+	background-position:-166px 0px;
 	width:88px;
 }
 .nc-login-other a:hover.sina{
 	background-position:-166px -28px;
 }
 .nc-login-bottom{
-		clear:both;
+	clear:both;
 	background:url(../images/login.png) no-repeat scroll 0px -124px;
 	width:400px;
 	height:40px;
@@ -291,8 +290,7 @@ label.error{
 	position:absolute;
 	z-index:1;
 	top:0;
-	left:0;
-}
+left:0}
 .nc-login-layout .left-pic span{
 	position:absolute;
 	z-index:2;
@@ -378,13 +376,13 @@ label.error{
 }
 @media projection, screen {
 	.ui-tabs-hide{
-		display:none;
-	}
+	display:none;
+}
 }
 @media print {
 	.ui-tabs-nav{
-		display:none;
-	}
+	display:none;
+}
 }
 .ui-tabs-nav:after{
 	display:block;

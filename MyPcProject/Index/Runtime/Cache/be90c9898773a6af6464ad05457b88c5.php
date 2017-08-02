@@ -177,7 +177,7 @@
 		// 右侧bar登录
 		$('div[nctype="a-barLoginBox"]').click(function() {
 			$('div[nctype="barLoginBox"]').toggle();
-			document.getElementById('codeimage').src = 'http://www.531314.com/index.php?act=seccode&op=makecode&nchash=c93636e5&t=' + Math.random();
+			document.getElementById('codeimage').src = '__APP__/Index?act=seccode&op=makecode&nchash=c93636e5&t=' + Math.random();
 		});
 		$('a[nctype="close-barLoginBox"]').click(function() {
 			$('div[nctype="barLoginBox"]').toggle();
@@ -188,40 +188,40 @@
 	<div class="topbar wrapper">
 		<div class="user-entry">
 			您好，欢迎来到
-			<a href="http://531314.com" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=index">登录</a>]</span> <span>[<a href="__APP__/Index?act=login&op=register">注册</a>]</span>
+			<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=index">登录</a>]</span> <span>[<a href="__APP__/Index?act=login&op=register">注册</a>]</span>
 
 		</div>
 		<div class="quick-menu">
 
 			<dl>
-				<dt><a href="http://www.531314.com/index.php?act=seller_login&op=show_login" target="_blank" title="商户中心">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></dt>
+				<dt><a href="__APP__/Index?act=seller_login&op=show_login" target="_blank" title="商户中心">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></dt>
 
 			</dl>
 			<dl>
-				<dt><a href="http://www.531314.com/index.php?act=member_order">我的订单</a><i></i></dt>
+				<dt><a href="__APP__/Index?act=member_order">我的订单</a><i></i></dt>
 				<dd>
 					<ul>
 						<li>
-							<a href="http://www.531314.com/index.php?act=member_order&state_type=state_new">待付款订单</a>
+							<a href="__APP__/Index?act=member_order&state_type=state_new">待付款订单</a>
 						</li>
 						<li>
-							<a href="http://www.531314.com/index.php?act=member_order&state_type=state_send">待确认收货</a>
+							<a href="__APP__/Index?act=member_order&state_type=state_send">待确认收货</a>
 						</li>
 						<li>
-							<a href="http://www.531314.com/index.php?act=member_order&state_type=state_noeval">待评价交易</a>
+							<a href="__APP__/Index?act=member_order&state_type=state_noeval">待评价交易</a>
 						</li>
 					</ul>
 				</dd>
 			</dl>
 			<dl>
-				<dt><a href="http://www.531314.com/index.php?act=member_favorites&op=fglist">我的收藏</a><i></i></dt>
+				<dt><a href="__APP__/Index?act=member_favorites&op=fglist">我的收藏</a><i></i></dt>
 				<dd>
 					<ul>
 						<li>
-							<a href="http://www.531314.com/index.php?act=member_favorites&op=fglist">商品收藏</a>
+							<a href="__APP__/Index?act=member_favorites&op=fglist">商品收藏</a>
 						</li>
 						<li>
-							<a href="http://www.531314.com/index.php?act=member_favorites&op=fslist">店铺收藏</a>
+							<a href="__APP__/Index?act=member_favorites&op=fslist">店铺收藏</a>
 						</li>
 					</ul>
 				</dd>
@@ -255,7 +255,7 @@
 
 <div class="header-wrap">
 	<header class="public-head-layout wrapper">
-		<h1 class="site-logo"><a href="http://531314.com"><img src="http://img.531314.com/shop/common/04993648993753192.png" class="pngFix"></a></h1>
+		<h1 class="site-logo"><a href="__APP__/Index"><img src="http://img.531314.com/shop/common/04993648993753192.png" class="pngFix"></a></h1>
 		<div id="search" class="head-search-bar">
 
 			<ul class="tab">
@@ -271,19 +271,19 @@
 			<div class="keyword">热门搜索：
 				<ul>
 					<li>
-						<a href="http://www.531314.com/index.php?act=search&op=index&keyword=%E7%99%BD%E8%89%B2%E6%83%85%E4%BA%BA%E8%8A%82">白色情人节</a>
+						<a href="__APP__/Index?act=search&op=index&keyword=%E7%99%BD%E8%89%B2%E6%83%85%E4%BA%BA%E8%8A%82">白色情人节</a>
 					</li>
 					<li>
-						<a href="http://www.531314.com/index.php?act=search&op=index&keyword=%E6%AF%8D%E4%BA%B2%E8%8A%82">母亲节</a>
+						<a href="__APP__/Index?act=search&op=index&keyword=%E6%AF%8D%E4%BA%B2%E8%8A%82">母亲节</a>
 					</li>
 					<li>
-						<a href="http://www.531314.com/index.php?act=search&op=index&keyword=%E7%8E%AB%E7%91%B0">玫瑰</a>
+						<a href="__APP__/Index?act=search&op=index&keyword=%E7%8E%AB%E7%91%B0">玫瑰</a>
 					</li>
 					<li>
-						<a href="http://www.531314.com/index.php?act=search&op=index&keyword=%E5%BA%B7%E4%B9%83%E9%A6%A8">康乃馨</a>
+						<a href="__APP__/Index?act=search&op=index&keyword=%E5%BA%B7%E4%B9%83%E9%A6%A8">康乃馨</a>
 					</li>
 					<li>
-						<a href="http://www.531314.com/index.php?act=search&op=index&keyword=%E7%94%9F%E6%97%A5%E7%A4%BC%E7%89%A9">生日礼物</a>
+						<a href="__APP__/Index?act=search&op=index&keyword=%E7%94%9F%E6%97%A5%E7%A4%BC%E7%89%A9">生日礼物</a>
 					</li>
 				</ul>
 			</div>
@@ -295,34 +295,34 @@
 					<div class="sub-title">
 						<h4>
 </h4>
-						<a href="http://www.531314.com/index.php?act=member&op=home" class="arrow">我的用户中心<i></i></a>
+						<a href="__APP__/Index?act=member&op=home" class="arrow">我的用户中心<i></i></a>
 					</div>
 					<div class="user-centent-menu">
 						<ul>
 							<li>
-								<a href="http://www.531314.com/index.php?act=member_message&op=message">站内消息(<span>0</span>)</a>
+								<a href="__APP__/Index?act=member_message&op=message">站内消息(<span>0</span>)</a>
 							</li>
 							<li>
-								<a href="http://www.531314.com/index.php?act=member_order" class="arrow">我的订单<i></i></a>
+								<a href="__APP__/Index?act=member_order" class="arrow">我的订单<i></i></a>
 							</li>
 							<li>
-								<a href="http://www.531314.com/index.php?act=member_consult&op=my_consult">咨询回复(<span id="member_consult">0</span>)</a>
+								<a href="__APP__/Index?act=member_consult&op=my_consult">咨询回复(<span id="member_consult">0</span>)</a>
 							</li>
 							<li>
-								<a href="http://www.531314.com/index.php?act=member_favorites&op=fglist" class="arrow">我的收藏<i></i></a>
+								<a href="__APP__/Index?act=member_favorites&op=fglist" class="arrow">我的收藏<i></i></a>
 							</li>
 							<li>
-								<a href="http://www.531314.com/index.php?act=member_voucher">代金券(<span id="member_voucher">0</span>)</a>
+								<a href="__APP__/Index?act=member_voucher">代金券(<span id="member_voucher">0</span>)</a>
 							</li>
 							<li>
-								<a href="http://www.531314.com/index.php?act=member_points" class="arrow">我的积分<i></i></a>
+								<a href="__APP__/Index?act=member_points" class="arrow">我的积分<i></i></a>
 							</li>
 						</ul>
 					</div>
 					<div class="browse-history">
 						<div class="part-title">
 							<h4>最近浏览的商品</h4>
-							<span style="float:right;"><a href="http://www.531314.com/index.php?act=member_goodsbrowse&op=list">全部浏览历史</a></span>
+							<span style="float:right;"><a href="__APP__/Index?act=member_goodsbrowse&op=list">全部浏览历史</a></span>
 						</div>
 						<ul>
 							<li class="no-goods"><img class="loading" src="__ROOT__/Index/Common/images/loading.gif" /></li>
@@ -340,7 +340,7 @@
 						<div class="incart-goods"> <img class="loading" src="__ROOT__/Index/Common/images/loading.gif" /> </div>
 					</div>
 					<div class="checkout"> <span class="total-price">共<i>0</i>种商品</span>
-						<a href="http://www.531314.com/index.php?act=cart" class="btn-cart">结算购物车中的商品</a>
+						<a href="__APP__/Index?act=cart" class="btn-cart">结算购物车中的商品</a>
 					</div>
 				</dd>
 			</dl>
@@ -364,15 +364,15 @@
 					<li class="class-items">
 						<dl>
 							<dd>
-								<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=27&keyword=%E7%8E%AB%E7%91%B0">玫瑰</a></h5></dd>
+								<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=27&keyword=%E7%8E%AB%E7%91%B0">玫瑰</a></h5></dd>
 							<dd>
-								<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=28&keyword=%E7%99%BE%E5%90%88">百合</a></h5></dd>
+								<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=28&keyword=%E7%99%BE%E5%90%88">百合</a></h5></dd>
 							<dd>
-								<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=29&keyword=%E5%BA%B7%E4%B9%83%E9%A6%A8">康乃馨</a></h5></dd>
+								<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=29&keyword=%E5%BA%B7%E4%B9%83%E9%A6%A8">康乃馨</a></h5></dd>
 							<dd>
-								<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=30&keyword=%E5%85%B6%E5%AE%83">其它</a></h5></dd>
+								<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=30&keyword=%E5%85%B6%E5%AE%83">其它</a></h5></dd>
 							<dd>
-								<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=85&keyword=%E6%B4%8B%E7%89%A1%E4%B8%B9">洋牡丹</a></h5></dd>
+								<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=85&keyword=%E6%B4%8B%E7%89%A1%E4%B8%B9">洋牡丹</a></h5></dd>
 						</dl>
 						<li>
 							<li>
@@ -384,13 +384,13 @@
 							<li class="class-items">
 								<dl>
 									<dd>
-										<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=32&keyword=%E6%83%85%E4%BA%BA%E8%8A%82">情人节</a></h5></dd>
+										<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=32&keyword=%E6%83%85%E4%BA%BA%E8%8A%82">情人节</a></h5></dd>
 									<dd>
-										<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=33&keyword=%E6%AF%8D%E4%BA%B2%E8%8A%82">母亲节</a></h5></dd>
+										<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=33&keyword=%E6%AF%8D%E4%BA%B2%E8%8A%82">母亲节</a></h5></dd>
 									<dd>
-										<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=34&keyword=%E7%88%B6%E4%BA%B2%E8%8A%82">父亲节</a></h5></dd>
+										<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=34&keyword=%E7%88%B6%E4%BA%B2%E8%8A%82">父亲节</a></h5></dd>
 									<dd>
-										<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=35&keyword=%E5%9C%A3%E8%AF%9E%E8%8A%82">圣诞节</a></h5></dd>
+										<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=35&keyword=%E5%9C%A3%E8%AF%9E%E8%8A%82">圣诞节</a></h5></dd>
 								</dl>
 								<li>
 									<li>
@@ -402,15 +402,15 @@
 									<li class="class-items">
 										<dl>
 											<dd>
-												<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=37&keyword=9">9</a></h5></dd>
+												<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=37&keyword=9">9</a></h5></dd>
 											<dd>
-												<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=38&keyword=11">11</a></h5></dd>
+												<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=38&keyword=11">11</a></h5></dd>
 											<dd>
-												<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=39&keyword=19">19</a></h5></dd>
+												<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=39&keyword=19">19</a></h5></dd>
 											<dd>
-												<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=40&keyword=36">36</a></h5></dd>
+												<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=40&keyword=36">36</a></h5></dd>
 											<dd>
-												<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=41&keyword=99">99</a></h5></dd>
+												<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=41&keyword=99">99</a></h5></dd>
 										</dl>
 										<li>
 											<li>
@@ -422,21 +422,21 @@
 											<li class="class-items">
 												<dl>
 													<dd>
-														<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=51&keyword=%E7%88%B1%E4%BA%BA">爱人</a></h5></dd>
+														<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=51&keyword=%E7%88%B1%E4%BA%BA">爱人</a></h5></dd>
 													<dd>
-														<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=52&keyword=%E6%81%8B%E4%BA%BA">恋人</a></h5></dd>
+														<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=52&keyword=%E6%81%8B%E4%BA%BA">恋人</a></h5></dd>
 													<dd>
-														<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=53&keyword=%E5%8D%95%E8%BA%AB">单身</a></h5></dd>
+														<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=53&keyword=%E5%8D%95%E8%BA%AB">单身</a></h5></dd>
 													<dd>
-														<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=54&keyword=%E8%80%81%E5%B8%88">老师</a></h5></dd>
+														<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=54&keyword=%E8%80%81%E5%B8%88">老师</a></h5></dd>
 													<dd>
-														<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=55&keyword=%E6%9C%8B%E5%8F%8B">朋友</a></h5></dd>
+														<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=55&keyword=%E6%9C%8B%E5%8F%8B">朋友</a></h5></dd>
 													<dd>
-														<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=56&keyword=%E9%95%BF%E8%BE%88">长辈</a></h5></dd>
+														<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=56&keyword=%E9%95%BF%E8%BE%88">长辈</a></h5></dd>
 													<dd>
-														<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=57&keyword=%E6%8E%A2%E6%9C%9B">探望</a></h5></dd>
+														<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=57&keyword=%E6%8E%A2%E6%9C%9B">探望</a></h5></dd>
 													<dd>
-														<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=58&keyword=%E5%AE%A2%E6%88%B7">客户</a></h5></dd>
+														<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=58&keyword=%E5%AE%A2%E6%88%B7">客户</a></h5></dd>
 												</dl>
 												<li>
 													<li>
@@ -448,9 +448,9 @@
 													<li class="class-items">
 														<dl>
 															<dd>
-																<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=60&keyword=%E5%AE%B6%E5%BA%AD%E5%A5%97%E9%A4%90">家庭套餐</a></h5></dd>
+																<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=60&keyword=%E5%AE%B6%E5%BA%AD%E5%A5%97%E9%A4%90">家庭套餐</a></h5></dd>
 															<dd>
-																<h5><a style="margin-left:15px;" href="http://www.531314.com/index.php?act=search&op=index&stc_id=61&keyword=%E6%9C%88%E5%BA%A6%E5%A5%97%E9%A4%90">月度套餐</a></h5></dd>
+																<h5><a style="margin-left:15px;" href="__APP__/Index?act=search&op=index&stc_id=61&keyword=%E6%9C%88%E5%BA%A6%E5%A5%97%E9%A4%90">月度套餐</a></h5></dd>
 														</dl>
 														<li>
 				</ul>

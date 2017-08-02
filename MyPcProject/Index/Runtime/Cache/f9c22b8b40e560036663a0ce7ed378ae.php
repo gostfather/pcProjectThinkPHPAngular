@@ -578,66 +578,27 @@
 		</ul>
 		<div class="tabs-panel sale-goods-list ">
 			<ul>
+
+
+			
 				<li>
 					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100836.html" title="【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送  此款鲜花需提前1-3天预订哦">
-【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送 此款鲜花需提前1-3天预订哦</a></dt>
+						<dt class="goods-name">
+							<a target="_blank" href="http://www.531314.com/item-100836.html" title="【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送  此款鲜花需提前1-3天预订哦">
+								【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送 此款鲜花需提前1-3天预订哦
+							</a>
+						</dt>
 						<dd class="goods-thumb">
 							<a target="_blank" href="http://www.531314.com/item-100836.html">
 								<img src="http://img.531314.com/shop/store/goods/1/1_05075525382032819_240.jpg" alt="【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送  此款鲜花需提前1-3天预订哦" />
 							</a>
 						</dd>
-						<dd class="goods-price">商城价：<em>￥356.00</em></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100976.html" title="【春舞枝】基地直销 香槟洋桔梗混搭玫瑰 香槟玫瑰紫桔梗礼盒">
-【春舞枝】基地直销 香槟洋桔梗混搭玫瑰 香槟玫瑰紫桔梗礼盒</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100976.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05231320800154398_240.jpg" alt="【春舞枝】基地直销 香槟洋桔梗混搭玫瑰 香槟玫瑰紫桔梗礼盒" />
-							</a>
+						<dd class="goods-price">
+							商城价：<em>￥356.00</em>
 						</dd>
-						<dd class="goods-price">商城价：<em>￥219.00</em></dd>
 					</dl>
 				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100928.html" title="【春舞枝】鲜花速递百合玫瑰混搭花束情人节鲜花七夕鲜花全国花店同城配送">
-【春舞枝】鲜花速递百合玫瑰混搭花束情人节鲜花七夕鲜花全国花店同城配送</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100928.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05078094776874959_240.jpg" alt="【春舞枝】鲜花速递百合玫瑰混搭花束情人节鲜花七夕鲜花全国花店同城配送" />
-							</a>
-						</dd>
-						<dd class="goods-price">商城价：<em>￥268.00</em></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100893.html" title="【春舞枝】鲜花速递 5枝多头向日葵 红豆 花束全国同城配送   此款鲜花需提前1-3天预订哦">
-【春舞枝】鲜花速递 5枝多头向日葵 红豆 花束全国同城配送 此款鲜花需提前1-3天预订哦</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100893.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05075600576874102_240.jpg" alt="【春舞枝】鲜花速递 5枝多头向日葵 红豆 花束全国同城配送   此款鲜花需提前1-3天预订哦" />
-							</a>
-						</dd>
-						<dd class="goods-price">商城价：<em>￥209.00</em></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100905.html" title="【春舞枝】鲜花速递 5枝白百合配 苏醒 腊梅 花束全国同城配送">
-【春舞枝】鲜花速递 5枝白百合配 苏醒 腊梅 花束全国同城配送</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100905.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05095406137963840_240.jpg" alt="【春舞枝】鲜花速递 5枝白百合配 苏醒 腊梅 花束全国同城配送" />
-							</a>
-						</dd>
-						<dd class="goods-price">商城价：<em>￥288.00</em></dd>
-					</dl>
-				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -658,13 +619,13 @@
 		<div class="home-standard-layout wrapper style-diy1">
 	<div class="title">
 		<div class="pic-type">
-			<img src="http://img.531314.com/shop/editor/web-2-21.jpg?516" />
+			<img src="__ROOT__/Index/Common/images/index/floor1Top.jpg" />
 		</div>
 	</div>
 	<div class="left-sidebar">
 		<div class="left-ads">
 			<a href="#" title="" target="_blank">
-				<img src="http://img.531314.com/shop/editor/web-2-23.jpg?132" alt="">
+				<img src="__ROOT__/Index/Common/images/index/floor1Left.jpg" alt="">
 			</a>
 		</div>
 		<div class="recommend-classes">
@@ -687,146 +648,35 @@
 				<li>
 					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="母亲节" target="_blank">母亲节</a>
 				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="父亲节" target="_blank">父亲节</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="圣诞节" target="_blank">圣诞节</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="爱人" target="_blank">爱人</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="恋人" target="_blank">恋人</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="单身" target="_blank">单身</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="老师" target="_blank">老师</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="朋友" target="_blank">朋友</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="长辈" target="_blank">长辈</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="探望" target="_blank">探望</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="客户" target="_blank">客户</a>
-				</li>
+				
 			</ul>
 		</div>
 	</div>
 	<div class="middle-layout">
 		<div class="tabs-panel middle-goods-list ">
 			<ul>
+
+			
 				<li>
 					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100814.html" title="【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物">
-【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物</a></dt>
+						<dt class="goods-name">
+							<a target="_blank" href="http://www.531314.com/item-100814.html" title="【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物">
+								【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物
+							</a>
+						</dt>
 						<dd class="goods-thumb">
 							<a target="_blank" href="http://www.531314.com/item-100814.html">
 								<img src="http://img.531314.com/shop/store/goods/1/1_05073987921400349_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物" />
 							</a>
 						</dd>
-						<dd class="goods-price"><em>￥238.00</em>
-							<span class="original">￥348.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100816.html" title="【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物">
-【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100816.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05073990172657079_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物" />
-							</a>
+						<dd class="goods-price">
+							<em>￥238.00</em>
+							<span class="original">￥348.00</span>
 						</dd>
-						<dd class="goods-price"><em>￥238.00</em>
-							<span class="original">￥348.00</span></dd>
 					</dl>
 				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100818.html" title="【春舞枝】鲜花速递创意礼品21枝粉玫瑰情人节玫瑰花束生日礼物">
-【春舞枝】鲜花速递创意礼品21枝粉玫瑰情人节玫瑰花束生日礼物</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100818.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05073992177507525_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝粉玫瑰情人节玫瑰花束生日礼物" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥238.00</em>
-							<span class="original">￥348.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100820.html" title="【春舞枝】鲜花速递创意礼品21枝白玫瑰情人节玫瑰花束生日礼物">
-【春舞枝】鲜花速递创意礼品21枝白玫瑰情人节玫瑰花束生日礼物</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100820.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05073993608904817_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝白玫瑰情人节玫瑰花束生日礼物" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥238.00</em>
-							<span class="original">￥348.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100822.html" title="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物">
-【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100822.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05073995135627630_240.jpg" alt="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥118.00</em>
-							<span class="original">￥169.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100823.html" title="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物">
-【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100823.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05073996958128690_240.jpg" alt="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥118.00</em>
-							<span class="original">￥169.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100827.html" title="【春舞枝】鲜花速递19朵红玫瑰花束礼盒全国直销">
-【春舞枝】鲜花速递19朵红玫瑰花束礼盒全国直销</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100827.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05074001425935282_240.jpg" alt="【春舞枝】鲜花速递19朵红玫瑰花束礼盒全国直销" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥198.00</em>
-							<span class="original">￥289.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100826.html" title="【春舞枝】鲜花速递19朵香槟玫瑰礼盒花束全国直销">
-【春舞枝】鲜花速递19朵香槟玫瑰礼盒花束全国直销</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100826.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05073999825004078_240.jpg" alt="【春舞枝】鲜花速递19朵香槟玫瑰礼盒花束全国直销" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥198.00</em>
-							<span class="original">￥289.00</span></dd>
-					</dl>
-				</li>
+
+				
 			</ul>
 		</div>
 	</div>
@@ -835,7 +685,7 @@
 			<ul>
 				<li>
 					<a href="http://www.531314.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=100863" title="" target="_blank">
-						<img src="http://img.531314.com/shop/editor/web-2-28-2.jpg?165" alt="" /></a>
+						<img src="__ROOT__/Index/Common/images/index/floor1Right.jpg" alt="" /></a>
 				</li>
 			</ul>
 		</div>
@@ -843,12 +693,12 @@
 </div>
 		<div class="home-standard-layout wrapper style-diy2">
 	<div class="title">
-		<div class="pic-type"><img src="http://img.531314.com/shop/editor/web-3-31.jpg?545" /></div>
+		<div class="pic-type"><img src="__ROOT__/Index/Common/images/index/floor2Top.jpg" /></div>
 	</div>
 	<div class="left-sidebar">
 		<div class="left-ads">
 			<a href="#" title="" target="_blank">
-				<img src="http://img.531314.com/shop/editor/web-3-33.jpg?367" alt="">
+				<img src="__ROOT__/Index/Common/images/index/floor2Left.jpg" alt="">
 			</a>
 		</div>
 		<div class="recommend-classes">
@@ -903,106 +753,20 @@
 			<ul>
 				<li>
 					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100829.html" title="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花">
-【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花</a></dt>
+						<dt class="goods-name">
+							<a target="_blank" href="http://www.531314.com/item-100829.html" title="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花">
+								【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花
+							</a>
+						</dt>
 						<dd class="goods-thumb">
 							<a target="_blank" href="http://www.531314.com/item-100829.html">
 								<img src="http://img.531314.com/shop/store/goods/1/1_05074003616714448_240.jpg" alt="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花" />
 							</a>
 						</dd>
-						<dd class="goods-price"><em>￥178.00</em>
-							<span class="original">￥258.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100830.html" title="【春舞枝】鲜花速递12枝向日葵花束生日礼物送父亲领导同事朋友全国配送">
-【春舞枝】鲜花速递12枝向日葵花束生日礼物送父亲领导同事朋友全国配送</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100830.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05074005295318916_240.jpg" alt="【春舞枝】鲜花速递12枝向日葵花束生日礼物送父亲领导同事朋友全国配送" />
-							</a>
+						<dd class="goods-price">
+							<em>￥178.00</em>
+							<span class="original">￥258.00</span>
 						</dd>
-						<dd class="goods-price"><em>￥188.00</em>
-							<span class="original">￥269.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100832.html" title="【春舞枝】鲜花速递16枝红色黄色混搭扶郎花祝福鲜花同城花店送花上门">
-【春舞枝】鲜花速递16枝红色黄色混搭扶郎花祝福鲜花同城花店送花上门</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100832.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05074006773124647_240.jpg" alt="【春舞枝】鲜花速递16枝红色黄色混搭扶郎花祝福鲜花同城花店送花上门" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥168.00</em>
-							<span class="original">￥248.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100831.html" title="【春舞枝】鲜花速递12枝红色扶郎花祝福鲜花送长辈送朋友花店同城送花上门">
-【春舞枝】鲜花速递12枝红色扶郎花祝福鲜花送长辈送朋友花店同城送花上门</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100831.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05074004498124365_240.jpg" alt="【春舞枝】鲜花速递12枝红色扶郎花祝福鲜花送长辈送朋友花店同城送花上门" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥138.00</em>
-							<span class="original">￥199.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100828.html" title="【春舞枝】鲜花速递19枝粉色扶郎花父亲节鲜花送长辈送朋友同城送花上门">
-【春舞枝】鲜花速递19枝粉色扶郎花父亲节鲜花送长辈送朋友同城送花上门</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100828.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05074001525622726_240.jpg" alt="【春舞枝】鲜花速递19枝粉色扶郎花父亲节鲜花送长辈送朋友同城送花上门" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥178.00</em>
-							<span class="original">￥258.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100825.html" title="【春舞枝】鲜花速递8枝橙色扶郎+8枝粉康+2枝多头百合祝福鲜花送长辈送朋友">
-【春舞枝】鲜花速递8枝橙色扶郎+8枝粉康+2枝多头百合祝福鲜花送长辈送朋友</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100825.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05073999245786620_240.jpg" alt="【春舞枝】鲜花速递8枝橙色扶郎+8枝粉康+2枝多头百合祝福鲜花送长辈送朋友" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥189.00</em>
-							<span class="original">￥299.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100824.html" title="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物">
-【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100824.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05073998552500241_240.jpg" alt="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥218.00</em>
-							<span class="original">￥308.00</span></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100821.html" title="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物">
-【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物</a></dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100821.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05073995069213616_240.jpg" alt="【春舞枝】鲜花速递精品玫瑰鲜花礼盒情人节创意礼品生日礼物" />
-							</a>
-						</dd>
-						<dd class="goods-price"><em>￥248.00</em>
-							<span class="original">￥358.00</span></dd>
 					</dl>
 				</li>
 			</ul>
@@ -1014,7 +778,7 @@
 			<ul>
 				<li>
 					<a href="http://www.531314.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=100870" title="" target="_blank">
-						<img src="http://img.531314.com/shop/editor/web-3-38-1.jpg?788" alt="" /></a>
+						<img src="__ROOT__/Index/Common/images/index/floor2Right.jpg" alt="" /></a>
 				</li>
 			</ul>
 		</div>
@@ -1022,12 +786,12 @@
 </div>
 				<div class="home-standard-layout wrapper style-diy3">
 			<div class="title">
-				<div class="pic-type"><img src="http://img.531314.com/shop/editor/web-4-41.jpg?614" /></div>
+				<div class="pic-type"><img src="__ROOT__/Index/Common/images/index/floor3Top.jpg" /></div>
 			</div>
 			<div class="left-sidebar">
 				<div class="left-ads">
 					<a href="#" title="" target="_blank">
-						<img src="http://img.531314.com/shop/editor/web-4-43.jpg?473" alt="">
+						<img src="__ROOT__/Index/Common/images/index/floor3Left.jpg" alt="">
 					</a>
 				</div>
 				<div class="recommend-classes">
@@ -1050,15 +814,6 @@
 						<li>
 							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="教师节" target="_blank">教师节</a>
 						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="母亲节" target="_blank">母亲节</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="父亲节" target="_blank">父亲节</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="圣诞节" target="_blank">圣诞节</a>
-						</li>
 					</ul>
 				</div>
 			</div>
@@ -1067,108 +822,23 @@
 					<ul>
 						<li>
 							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/goods-index-goods_id-100819-stc_id-.html" title="【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花">
-【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花</a></dt>
+								<dt class="goods-name">
+									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100819-stc_id-.html" title="【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花">
+										【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花
+									</a>
+								</dt>
 								<dd class="goods-thumb">
 									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100819-stc_id-.html">
 										<img src="http://img.531314.com/shop/store/goods/1/1_05073992610931992_240.jpg" alt="【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花" />
 									</a>
 								</dd>
-								<dd class="goods-price"><em>￥178.00</em>
-									<span class="original">￥258.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/goods-index-goods_id-100815-stc_id-.html" title="【春舞枝】鲜花速递5枝多头混搭百合花店送花全国配送母亲节教师节祝福鲜花生日花束">
-【春舞枝】鲜花速递5枝多头混搭百合花店送花全国配送母亲节教师节祝福鲜花生日花束</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100815-stc_id-.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073988280789463_240.jpg" alt="【春舞枝】鲜花速递5枝多头混搭百合花店送花全国配送母亲节教师节祝福鲜花生日花束" />
-									</a>
+								<dd class="goods-price">
+									<em>￥178.00</em>
+									<span class="original">￥258.00</span>
 								</dd>
-								<dd class="goods-price"><em>￥178.00</em>
-									<span class="original">￥258.00</span></dd>
 							</dl>
 						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/goods-index-goods_id-100898-stc_id-.html" title="【春舞枝】鲜花速递 5枝白百合配桃花玫瑰 红色蔷薇 全国同城配送提前预定">
-【春舞枝】鲜花速递 5枝白百合配桃花玫瑰 红色蔷薇 全国同城配送提前预定</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100898-stc_id-.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05075605269214091_240.jpg" alt="【春舞枝】鲜花速递 5枝白百合配桃花玫瑰 红色蔷薇 全国同城配送提前预定" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥328.00</em>
-									<span class="original">￥469.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/goods-index-goods_id-100817-stc_id-.html" title="【春舞枝】鲜花速递5枝多头粉百合B花店送花全国配送母亲节教师节祝福鲜花">
-【春舞枝】鲜花速递5枝多头粉百合B花店送花全国配送母亲节教师节祝福鲜花</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100817-stc_id-.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073990994533801_240.jpg" alt="【春舞枝】鲜花速递5枝多头粉百合B花店送花全国配送母亲节教师节祝福鲜花" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥178.00</em>
-									<span class="original">￥258.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/item-100907.html" title="【春舞枝】鲜花速递 5枝粉百合配跳白玫瑰小米果 花束全国同城配送">
-【春舞枝】鲜花速递 5枝粉百合配跳白玫瑰小米果 花束全国同城配送</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/item-100907.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05076622102186929_240.jpg" alt="【春舞枝】鲜花速递 5枝粉百合配跳白玫瑰小米果 花束全国同城配送" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥288.00</em>
-									<span class="original">￥411.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/goods-index-goods_id-100810-stc_id-.html" title="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物 E款-小熊蓝">
-【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物 E款-小熊蓝</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100810-stc_id-.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073982466251268_240.jpg" alt="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物 E款-小熊蓝" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥298.00</em>
-									<span class="original">￥428.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/goods-index-goods_id-100807-stc_id-.html" title="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物 G款-红玫瑰礼盒">
-【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物 G款-红玫瑰礼盒</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100807-stc_id-.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073975800939461_240.jpg" alt="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物 G款-红玫瑰礼盒" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥628.00</em>
-									<span class="original">￥899.00</span></dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt class="goods-name"><a target="_blank" href="http://www.531314.com/goods-index-goods_id-100805-stc_id-.html" title="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物 F款-红玫瑰礼盒">
-【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物 F款-红玫瑰礼盒</a></dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100805-stc_id-.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073971125007293_240.jpg" alt="【春舞枝】鲜花速递永生花礼盒情人节创意礼品生日礼物 F款-红玫瑰礼盒" />
-									</a>
-								</dd>
-								<dd class="goods-price"><em>￥388.00</em>
-									<span class="original">￥558.00</span></dd>
-							</dl>
-						</li>
+
 					</ul>
 				</div>
 			</div>
@@ -1178,7 +848,7 @@
 					<ul>
 						<li>
 							<a href="http://www.531314.com/shop/index.php?act=search&amp;op=index&amp;keyword=&amp;cate_id=1074&amp;stc_id=28" title="" target="_blank">
-								<img src="http://img.531314.com/shop/editor/web-4-48-2.jpg?995" alt="" /></a>
+								<img src="__ROOT__/Index/Common/images/index/floor3Right.jpg" alt="" /></a>
 						</li>
 					</ul>
 				</div>

@@ -1,0 +1,80 @@
+.body {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.addinfo {
+	width: 550px;
+	padding-top: 50px;
+	margin:0 auto 50px;
+	font-size: 13px;
+}
+
+.addinfo input {
+	width: 450px;
+	height: 28px;
+	margin-bottom: 10px;
+	outline: none;
+	padding-left: 5px;
+}
+
+.addinfo span {
+	display: inline-block;
+	width: 50px;
+}
+
+.addinfo_btn {
+	width: 450px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	border: 1px solid #ccc;
+	margin-left: 50px;
+	margin-top: 20px;
+	border-radius: 5px;
+}
+
+.addinfo_btn:hover {
+	background-color: #36A0FB;
+	color: #fff;
+	border: 1px solid #36A0FB;
+}
+
+table {
+	width: 800px;
+	margin:0 auto 50px;
+	font-size: 13px;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+}
+
+table td {
+	border: 1px solid #ddd;
+	padding: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	word-break: break-all;
+	font-size: 12px;
+	font-weight: 300;
+	text-overflow: ellipsis;
+}
+
+table tr {
+	text-align: center;
+	font-size: 15px;
+	height: 30px;
+	color: #fff;
+	background-color: #36A0FB;
+	border: 0;
+}
+
+table tr:hover {
+	background-color: #36A0FB;
+	color: #fff !important;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
