@@ -78,7 +78,7 @@ label.error{
 .quick-login .enter .submit{
 	color:#FFF;
 	font-weight:600;
-	background:url(__ROOT__/Index/Common/images/login.png) no-repeat scroll 0px 0px;
+	background:url(../images/login.png) no-repeat scroll 0px 0px;
 	width:88px;
 	height:28px;
 	padding:0;
