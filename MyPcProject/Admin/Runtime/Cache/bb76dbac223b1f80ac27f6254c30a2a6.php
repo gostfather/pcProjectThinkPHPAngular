@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>后台管理</title>
-    	<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>	
 		<link rel="stylesheet" type="text/css" href="__ROOT__/Admin/Common/css/index.css"/>
 		<link rel="stylesheet" type="text/css" href="__ROOT__/Admin/Common/css/body.css"/>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -16,13 +15,13 @@
 			<div class="body">
 				<div class="addinfo">
 			        <div>
-			            <span>标题 </span><input ng-model="title" type="text"/>
+			            <span>标题 </span><input id="title" type="text"/>
 			        </div>
 			        <div>
-			            <span>简介 </span><input ng-model="info" type="text"/>
+			            <span>简介 </span><input id="info" type="text"/>
 			        </div>
 			        <div>
-			            <span>颜色 </span><input ng-model="color" type="text"/>
+			            <span>颜色 </span><input id="color" type="text"/>
 			        </div>
 			        
 			        <div>
@@ -32,15 +31,18 @@
 			        </div>
 			        
 			        <div>
-			            <span>市场价 </span><input ng-model="marketPrice" type="text"/>
+			            <span>市场价 </span><input id="marketPrice" type="text"/>
 			        </div>
 			        <div>
-			            <span>商店价 </span><input ng-model="StorePrice" type="text"/>
+			            <span>商店价 </span><input id="StorePrice" type="text"/>
 			        </div>
 			        <div>
-			            <span>库存 </span><input ng-model="stock" type="text"/>
+			            <span>库存 </span><input id="stock" type="text"/>
 			        </div>
-			        <div class="addinfo_btn" ng-click="sub()">提交</div>
+			        <div>
+			            <span>分类id </span><input id="classify" type="text"/>
+			        </div>
+			        <div class="addinfo_btn" onclick="sub()">提交</div>
 			    </div>
 			
 
@@ -71,50 +73,72 @@
 		
 	<script type="text/javascript">
 		var fd = new FormData();
-    	const app = angular.module("myapp",[]);
-    	app.controller("mycontroller",function($scope){
-    		//multiple name="img[]"多选图片
-    		$scope.title = "" ;
-    		$scope.info = "" ;
-    		$scope.color = "" ;
-    		$scope.marketPrice = "" ;
-    		$scope.StorePrice = "" ;
-    		$scope.stock = "" ;
-    		$scope.sub = function(){
-    			var allImg = true;
-    			$("input[name='img']").each(function(){
-    				if(this.value===""){
-    					allImg = false;
-    				};
-    			});
-    			if(true){
-	    			
-	    			console.log(fd)
+		function sub(){
+			var	title = $("#title").val() ;
+	    	var	info = $("#info").val() ;
+	    	var	color = $("#color").val() ;
+	    	var	marketPrice = $("#marketPrice").val() ;
+	    	var	StorePrice = $("#StorePrice").val() ;
+	    	var	stock = $("#stock").val() ;
+	    	var	classify = $("#classify").val() ;
+			try{
+				if(title===""){
+					throw new Error("请输入标题");
+				}
+				if(info===""){
+					throw new Error("请输入简介");
+				}
+				if(color===""){
+					throw new Error("请输入颜色");
+				}
+				if(marketPrice===""){
+					throw new Error("请输入市场价");
+				}
+				if(StorePrice===""){
+					throw new Error("请输入商品价");
+				}
+				if(stock===""){
+					throw new Error("请输入库存");
+				}
+				if(classify===""){
+					throw new Error("请输入商品id号");
+				}
+			}catch(e){
+				alert(e.message);
+			}finally{
+				var allImg = true;
+				$("input[name='img']").each(function(){
+					if(this.value===""){
+						allImg = false;
+					};
+				});
+				if(allImg){
 	    			$("input[name='img']").each(function(k){
-//	    				console.log(k, this.files[0] );
+	//	    				console.log(k, this.files[0] );
 						 fd.append('img'+k, this.files[0]);
 	    			});
-	    			fd.append('title', $scope.title);
-	    			fd.append('info', $scope.info);
-	    			fd.append('color', $scope.color);
-	    			fd.append('marketPrice', $scope.marketPrice);
-	    			fd.append('StorePrice', $scope.StorePrice);
-	    			fd.append('stock', $scope.stock);
-//	    			console.log(fd)
+	    			fd.append('title', title);
+	    			fd.append('info', info);
+	    			fd.append('color', color);
+	    			fd.append('marketPrice', marketPrice);
+	    			fd.append('StorePrice', StorePrice);
+	    			fd.append('stock', stock);
+	    			fd.append('classify', classify);
 	    			asdf(fd);
 	    			
-    			}else{
-    				alert("缺少图片");
-    			}
-
-    		}
-    	});
-    	function asdf(fd){
+				}else{
+					alert("缺少图片");
+				}
+			}
+		}
+    	function asdf(data){
     		$.ajax({
 				type:"POST",
 				url:"__APP__/Shop/upload",
 				async:true,
-				data:fd,
+				data:data,
+				processData: false,
+    			contentType: false,
 				success:function(data){
 					console.log(data);
 				}
