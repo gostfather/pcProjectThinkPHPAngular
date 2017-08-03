@@ -6,5 +6,11 @@ class ShopAction extends Action {
     	}
     	$this->display("index");
 	}
+	public function upload(){
+		$data = file_get_contents("php://input");
+		print_r($data);
+		print_r($_FILES);
+//  	$this->ajaxReturn($_POST);
+	}
 
 }

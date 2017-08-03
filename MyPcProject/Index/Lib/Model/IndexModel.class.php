@@ -24,6 +24,26 @@
 			}
 			return $return;
 		}
+		
+		public function loginUser($data){
+			//检查能否登录
+			$user = M("users");
+			$data["pwd"] = md5((int)$data["pwd"]);
+			$res = $user -> where($data) -> find();
+			if($res){
+				//存session
+				session("uid",$res["id"]); 
+				session("username",$res["username"]); 
+				$return["id"]=$res["id"];
+				$return["username"]=$res["username"];
+				$return["status"]=1;
+				$return["info"]="登陆成功";
+			}else{
+				$return["status"]=2;
+				$return["info"]="用户不存在";
+			}
+			return $return;
+		}
 
 	
 	

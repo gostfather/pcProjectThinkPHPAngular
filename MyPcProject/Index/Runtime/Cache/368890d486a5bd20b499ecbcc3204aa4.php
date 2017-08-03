@@ -18,7 +18,6 @@
 		<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
 		<link href="__ROOT__/Index/Common/css/home_login.css" rel="stylesheet" type="text/css">
 		<link href="http://www.531314.com/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
 		<script src="//hm.baidu.com/hm.js?88de49926eae5852d298d5a5fbba3dda"></script>
 		<script>
 			var COOKIE_PRE = '3E36_';
@@ -36,12 +35,10 @@
 		<script src="http://res.531314.com/js/jquery.masonry.js"></script>
 		<script src="http://res.531314.com/js/dialog/dialog.js" id="dialog_js" charset="utf-8"></script>
 		<link href="http://res.531314.com/js/dialog/dialog.css" rel="stylesheet" type="text/css">
-
+		
 	</head>
 
 	<body>
-		<link href="__ROOT__/Index/Common/css/layout.css" rel="stylesheet" type="text/css">
-
 		<script type="text/javascript">
 	var PRICE_FORMAT = '&yen;%s';
 	$(function() {
@@ -191,9 +188,10 @@
 <div class="public-top-layout w">
 	<div class="topbar wrapper">
 		<div class="user-entry">
-			您好，欢迎来到
-			<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=index">登录</a>]</span> <span>[<a href="__APP__/Index?act=login&op=register">注册</a>]</span>
-
+		<?php if(!empty($_SESSION['username'])): ?>您好&nbsp;<?php echo (session('username')); ?>，欢迎来到
+			<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=logout">退出</a>]</span> 
+		<?php else: ?>您好，欢迎来到
+			<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=index">登录</a>]</span> <span>[<a href="__APP__/Index?act=login&op=register">注册</a>]</span><?php endif; ?>
 		</div>
 		<div class="quick-menu">
 
@@ -485,16 +483,16 @@
 </style>-->
 <!--<div class="clear"></div>-->
 
-
+		</div>
 		<div class="nch-breadcrumb-layout">
 			<div class="nch-breadcrumb wrapper"><i class="icon-home"></i>
-				<span><a href="http://www.531314.com">首页</a></span><span class="arrow">&gt;</span>
+				<span><a href="__APP__/Index/index">首页</a></span><span class="arrow">&gt;</span>
 				<span><a href="http://www.531314.com/article_cate-2.html">帮助中心</a></span><span class="arrow">&gt;</span>
 				<span>文章内容</span>
 			</div>
 		</div>
+		<link href="__ROOT__/Index/Common/css/layout.css" rel="stylesheet" type="text/css">
 		<div class="nch-container wrapper">
-			
 			<div class="left">
 	<div class="nch-module nch-module-style01">
 		<div class="title">
@@ -557,7 +555,6 @@
 	</div>
 </div>
 
-			
 			<div class="right">
 				<div class="nch-article-con">
 					<h1>集团采购</h1>
@@ -585,7 +582,7 @@
 						<p></p>
 					</div>
 					<div class="more_article"> <span class="fl">上一篇：
-		<a href="http://www.531314.com/article-8.html">服务声明</a> <time>2014-01-16 17:31</time>
+		<a href="__APP__/Article/article-8">服务声明</a> <time>2014-01-16 17:31</time>
 		</span> <span class="fr">下一篇：
 		没有符合条件的文章 </span> </div>
 				</div>
@@ -780,41 +777,11 @@
 	</script>
 	<noscript><img src="//stats.ipinyou.com/adv.gif?a=Qws..wq6b3kLKcogvLsNjmWhqcX&e=" style="display:none;"/></noscript> 
 </div>
-
-		<script>
-			var _hmt = _hmt || [];
-			(function() {
-				var hm = document.createElement("script");
-				hm.src = "//hm.baidu.com/hm.js?88de49926eae5852d298d5a5fbba3dda";
-				var s = document.getElementsByTagName("script")[0];
-				s.parentNode.insertBefore(hm, s);
-			})();
-		</script>
-		<script type="text/javascript">
-			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-			document.write(unescape("%3Cspan id='cnzz_stat_icon_5477377'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D5477377' type='text/javascript'%3E%3C/script%3E"));
-		</script><span id="cnzz_stat_icon_5477377"></span>
-		<script src=" http://s23.cnzz.com/stat.php?id=5477377" type="text/javascript"></script>
-		<script type="text/javascript">
-			var _py = _py || [];
-			_py.push(['a', 'Qws..wq6b3kLKcogvLsNjmWhqcX']);
-			_py.push(['domain', 'stats.ipinyou.com']);
-			_py.push(['e', '']); -
-			function(d) {
-				var s = d.createElement('script'),
-					e = d.body.getElementsByTagName('script')[0];
-				e.parentNode.insertBefore(s, e),
-					f = 'https:' == location.protocol;
-				s.src = (f ? 'https' : 'http') + '://' + (f ? 'fm.ipinyou.com' : 'fm.p0y.cn') + '/j/adv.js';
-			}(document);
-		</script>
-		<noscript>&lt;img src="//stats.ipinyou.com/adv.gif?a=Qws..wq6b3kLKcogvLsNjmWhqcX&amp;e=" style="display:none;"/&gt;</noscript> </div>
 		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
 		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="http://res.531314.com/js/perfect-scrollbar.min.js"></script>
 		<script type="text/javascript" src="http://res.531314.com/js/qtip/jquery.qtip.min.js"></script>
 		<link href="http://res.531314.com/js/qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css">
-
 		<script src="http://www.531314.com/resource/js/compare.js"></script>
 		<script type="text/javascript">
 			$(function() {
@@ -826,7 +793,6 @@
 		</script>
 
 		<div id="cli_dialog_div"></div>
-
 	</body>
 
 </html>

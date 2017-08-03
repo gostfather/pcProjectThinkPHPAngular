@@ -172,68 +172,66 @@
 			<img src="//stats.ipinyou.com/adv.gif?a=Qws..wq6b3kLKcogvLsNjmWhqcX&e=" style="display:none;"/>
 		</noscript> 
 	</div>
-</body>
-<script src="__ROOT__/Index/Common/js/angular.min.js" type="text/javascript"></script>
-<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
-<script type="text/javascript">
-	var app = angular.module("myapp",[]);
-    app.controller("mycontroller",function ($scope,$http) {
-    	//绑定密码
-    	$scope.username = "";
-        $scope.pwd1 = "";
-        $scope.pwd2 = "";
-        $scope.email = "";
-        $scope.isAgree = true ;
-        $scope.captcha = "" ;
-        $scope.trueVerify = false;
-        $scope.upUser = function(){   	
-        	if(($scope.pwd1 === $scope.pwd2) && $scope.email !== "" ){
-        		$http({
-        			url:"__APP__/Index/upUser",
-        			method:"post",
-        			data:{
-        				username:$scope.username,
-        				pwd:$scope.pwd1,
-        				email:$scope.email,
-        			},
-        			headers:{
-        				"Content-Type":"application/x-www-form-urlencoded",
-        			}
-        		}).success(function(data){
-        			if(data.status === 1){
-        				//成功让他去登陆
-        				window.location.href = "__APP__/Index?act=login&op=index"
-        			}else if (data.status === 3){
-        				alert("系统出错"+data.info)
-        			}else{
-        				alert(data.info);
-        			}
-        		}).error(function(data){
-        			console.log("错误："+data);
-        		})
-        	}else{
-        		alert("邮箱或者密码错误");
-        	}
-        };
-        //验证码验证
-        $scope.sub = function() {
-//      		console.log(11111);
-        	$http.get("__APP__/Index/check").success(function (data) {
-//			 	console.log( (md5($scope.captcha) == data));
-		 		$scope.trueVerify = (md5($scope.captcha) == data);
-			});
-        };
-        
-		 $scope.change = function() {
-			var img = document.getElementById('codeimage');
-			console.log(img)
-			img.src = "__APP__/Index/verify?time="+ new Date().getTime();
-			
-		}
+	<script src="__ROOT__/Index/Common/js/angular.min.js" type="text/javascript"></script>
+	<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+	<script type="text/javascript">
+		var app = angular.module("myapp",[]);
+	    app.controller("mycontroller",function ($scope,$http) {
+	    	//绑定密码
+	    	$scope.username = "";
+	        $scope.pwd1 = "";
+	        $scope.pwd2 = "";
+	        $scope.email = "";
+	        $scope.isAgree = true ;
+	        $scope.captcha = "" ;
+	        $scope.trueVerify = false;
+	        $scope.upUser = function(){   	
+	        	if(($scope.pwd1 === $scope.pwd2) && $scope.email !== "" ){
+	        		$http({
+	        			url:"__APP__/Index/upUser",
+	        			method:"post",
+	        			data:{
+	        				username:$scope.username,
+	        				pwd:$scope.pwd1,
+	        				email:$scope.email,
+	        			},
+	        			headers:{
+	        				"Content-Type":"application/x-www-form-urlencoded",
+	        			}
+	        		}).success(function(data){
+	        			if(data.status === 1){
+	        				//成功让他去登陆
+	        				window.location.href = "__APP__/Index?act=login&op=index"
+	        			}else if (data.status === 3){
+	        				alert("系统出错"+data.info)
+	        			}else{
+	        				alert(data.info);
+	        			}
+	        		}).error(function(data){
+	        			console.log("错误："+data);
+	        		})
+	        	}else{
+	        		alert("邮箱或者密码错误");
+	        	}
+	        };
+	        //验证码验证
+	        $scope.sub = function() {
+	//      		console.log(11111);
+	        	$http.get("__APP__/Index/check").success(function (data) {
+	//			 	console.log( (md5($scope.captcha) == data));
+			 		$scope.trueVerify = (md5($scope.captcha) == data);
+				});
+	        };
+	        
+			 $scope.change = function() {
+				var img = document.getElementById('codeimage');
+				img.src = "__APP__/Index/verify?time="+ new Date().getTime();
+			}
+		
 	
-
-    });
-
-	 
-</script>
+	    });
+	
+		 
+	</script>
+</body>
 </html>

@@ -9,12 +9,26 @@ class IndexAction extends Action {
 			$this->display("register");
 		}elseif ($act==="login" && $op==="index"){
 			$this->display("login");
+		}elseif ($act==="login" && $op==="logout"){
+			unset($_SESSION['username']);
+			unset($_SESSION['uid']);
+			$this->display("index");
 		}elseif ($str[0] === "member" && empty($_SESSION["username"]) ){
 			$this->display("login");
 		}else{
     		$this->display("index");
 		}
 	}
+	//用户登录
+	public function loginUser(){
+		$Index = D("Index");
+		$str = file_get_contents("php://input");
+		$sureData = json_decode($str,true);
+		//实例化模型
+		$res = $Index->loginUser($sureData);
+		$this -> ajaxReturn($res);
+	}
+
 
 	//用户注册
 	public function upUser(){
@@ -25,7 +39,7 @@ class IndexAction extends Action {
 		$res = $Index->checkUpUser($sureData);
 		$this -> ajaxReturn($res);
 	}
-
+	
 	// 验证
 	public function verify(){
         import("ORG.Util.Image");
