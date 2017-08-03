@@ -16,7 +16,15 @@ class IndexAction extends Action {
 		}
 	}
 
-
+	//用户注册
+	public function upUser(){
+		$Index = D("Index");
+		$str = file_get_contents("php://input");
+		$sureData = json_decode($str,true);
+		//实例化模型
+		$res = $Index->checkUpUser($sureData);
+		$this -> ajaxReturn($res);
+	}
 
 	// 验证
 	public function verify(){

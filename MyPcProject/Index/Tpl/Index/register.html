@@ -38,7 +38,7 @@
 	<div class="header-wrap">
 		<header class="public-head-layout wrapper">
 			<h1 class="site-logo">
-				<a href="http://531314.com">
+				<a href="__APP__/Index">
 					<img src="http://img.531314.com/shop/common/04993648993753192.png" class="pngFix">
 				</a>
 			</h1>
@@ -113,7 +113,7 @@
 							<input type="text" id="captcha" name="captcha" class="text w50 fl" require ng-require="true"  ng-model="captcha" ng-trim="false"
 							 ng-blur="sub()" size="10" />
 
-							<img src= "__APP__/Index/verify"  name="codeimage" border="0" id="codeimage" class="fl ml5" onclick="change()"/> <a class="ml5" onclick="change()">看不清，换一张</a>
+							<img src= "__APP__/Index/verify"  name="codeimage" border="0" id="codeimage" class="fl ml5" ng-click="change()"/> <a class="ml5" ng-click="change()">看不清，换一张</a>
 							<label></label>
 						</dd>
 					</dl>
@@ -208,22 +208,28 @@
         		}).error(function(data){
         			console.log("错误："+data);
         		})
+        	}else{
+        		alert("邮箱不能为空");
         	}
         };
+        //验证码验证
         $scope.sub = function() {
+        		console.log(11111);
         	$http.get("__APP__/Index/check").success(function (data) {
-			// console.log( (md5($scope.captcha) == data));
-		 	$scope.trueVerify = (md5($scope.captcha) == data);
-		})
-	}
+			 	console.log( (md5($scope.captcha) == data));
+		 		$scope.trueVerify = (md5($scope.captcha) == data);
+			});
+        };
+		 $scope.change = function() {
+			var img = document.getElementById('codeimage');
+			img.src = "__APP__/Index/verify";
+		};
+	
 
     });
 
 // 验证码刷新
-	function change() {
-		var img = document.getElementById('codeimage');
-		img.src = "__APP__/Index/verify";
-	}
+	function 
 	 
 </script>
 </html>
