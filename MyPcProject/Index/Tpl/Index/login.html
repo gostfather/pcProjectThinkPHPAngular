@@ -78,7 +78,7 @@
 				padding-top: 30px;
 			}
 		</style>
-		<div class="nc-login-layout">
+		<div class="nc-login-layout" ng-app="myapp" ng-controller="mycontroller">
 			<div class="left-pic"><img src="http://img.531314.com/shop/login/1.jpg" border="0"></div>
 			<div class="nc-login">
 				<div class="nc-login-title">
@@ -86,12 +86,16 @@
 				</div>
 				<div class="nc-login-content" id="demo-form-site">
 					<form id="login_form" method="post" action="index.php?act=login&amp;op=login" class="bg">
-						<input type="hidden" name="formhash" value="pGdF8N3xKl_-XntyiZepydOAUxgsFAi"> <input type="hidden" name="form_submit" value="ok">
-						<input name="nchash" type="hidden" value="74c75179">
 						<dl>
 							<dt>用户名</dt>
 							<dd style="min-height:54px;">
-								<input type="text" class="text" autocomplete="off" name="user_name" id="user_name" autofocus="">
+								<input type="text" 
+									class="text" 
+									autocomplete="off" 
+									name="user_name" 
+									id="user_name" 
+									ng-model="username"
+									>
 								<label></label>
 							</dd>
 						</dl>

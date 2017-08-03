@@ -27,9 +27,7 @@
 	<link rel="shortcut icon" href="http://531314.com/favicon.ico"/>
 	<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
 	<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
-	<!-- <link href="http://www.531314.com/templates/new/css/home_login.css" rel="stylesheet" type="text/css"> -->
 	<link href="__ROOT__/Index/Common/css/home_login.css" rel="stylesheet" type="text/css">
-
 </head>
 <body>
 	<div id="append_parent"></div>
@@ -100,7 +98,7 @@
 				            required
 				            ng-required="true"
 				            ng-minlength="5"
-				            pattern="([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}"
+
 				            ng-pattern="/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/"
 							 title="请输入常用的邮箱，将用来找回密码、接受订单通知等"/>
 							<label></label>
@@ -113,7 +111,7 @@
 							<input type="text" id="captcha" name="captcha" class="text w50 fl" require ng-require="true"  ng-model="captcha" ng-trim="false"
 							 ng-blur="sub()" size="10" />
 
-							<img src= "__APP__/Index/verify"  name="codeimage" border="0" id="codeimage" class="fl ml5" ng-click="change()"/> <a class="ml5" ng-click="change()">看不清，换一张</a>
+							<img src= "__APP__/Index/verify"  name="codeimage" border="0" id="codeimage" class="fl ml5" ng-click="change()" href="" /> <a href="" class="ml5" ng-click="change()">看不清，换一张</a>
 							<label></label>
 						</dd>
 					</dl>
@@ -155,7 +153,7 @@
 			</ol>
 			<h3 class="mt20">如果您是本站用户</h3>
 			<div class="nc-login-now mt10">
-				<span class="ml20">我已经注册过账号，立即<a href="index.php?act=login&ref_url=" title="" class="register">登录</a></span>
+				<span class="ml20">我已经注册过账号，立即<a href="__APP__/Index?act=login&op=index" title="" class="register">登录</a></span>
 				<span>或是<a class="forget" href="index.php?act=login&op=forget_password">找回密码？</a></span>
 			</div>
 		</div>
@@ -188,10 +186,8 @@
         $scope.isAgree = true ;
         $scope.captcha = "" ;
         $scope.trueVerify = false;
-        $scope.upUser = function(){
-        	
+        $scope.upUser = function(){   	
         	if(($scope.pwd1 === $scope.pwd2) && $scope.email !== "" ){
-        		console.log($scope.pwd1,$scope.username,$scope.email)
         		$http({
         			url:"__APP__/Index/upUser",
         			method:"post",
@@ -204,32 +200,40 @@
         				"Content-Type":"application/x-www-form-urlencoded",
         			}
         		}).success(function(data){
-        			console.log(data);
+        			if(data.status === 1){
+        				//成功让他去登陆
+        				window.location.href = "__APP__/Index?act=login&op=index"
+        			}else if (data.status === 3){
+        				alert("系统出错"+data.info)
+        			}else{
+        				alert(data.info);
+        			}
         		}).error(function(data){
         			console.log("错误："+data);
         		})
         	}else{
-        		alert("邮箱不能为空");
+        		alert("邮箱或者密码错误");
         	}
         };
         //验证码验证
         $scope.sub = function() {
-        		console.log(11111);
+//      		console.log(11111);
         	$http.get("__APP__/Index/check").success(function (data) {
-			 	console.log( (md5($scope.captcha) == data));
+//			 	console.log( (md5($scope.captcha) == data));
 		 		$scope.trueVerify = (md5($scope.captcha) == data);
 			});
         };
+        
 		 $scope.change = function() {
 			var img = document.getElementById('codeimage');
-			img.src = "__APP__/Index/verify";
-		};
+			console.log(img)
+			img.src = "__APP__/Index/verify?time="+ new Date().getTime();
+			
+		}
 	
 
     });
 
-// 验证码刷新
-	function 
 	 
 </script>
 </html>
