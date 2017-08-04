@@ -160,6 +160,7 @@
 	</div>
 
 	<div id="footer" class="wrapper">
+<<<<<<< HEAD
 		<p>
 			<a href="__APP__/Index/index">首页</a>
 			|
@@ -172,6 +173,14 @@
 			<a href="__APP__/Article?article=22">关于我们</a>
 			|
 			<a href="/shop/index.php?act=link">友情链接</a>
+=======
+		<p><a href="http://www.531314.com">首页</a>
+		| <a href="/shop/index.php?act=article&amp;article_id=24">招聘英才</a>
+		| <a href="/shop/index.php?act=article&amp;article_id=25">合作及洽谈</a>
+		| <a href="/shop/index.php?act=article&amp;article_id=23">联系我们</a>
+		| <a href="/shop/index.php?act=article&amp;article_id=22">关于我们</a>
+		| <a href="/shop/index.php?act=link">友情链接</a>
+>>>>>>> master
 		</p>
 		Copyright 2015</a> 闽ICP备12008006号-1<br/>
 		<noscript>

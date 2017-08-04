@@ -618,6 +618,7 @@
 					<dt>
 店主之家 </dt>
 					<dd><i></i>
+<<<<<<< HEAD
 						<a href="__APP__/Article?article=13" title="如何发货"> 如何发货 </a>
 					</dd>
 					<dd><i></i>
@@ -628,6 +629,18 @@
 					</dd>
 					<dd><i></i>
 						<a href="__APP__/Article?article=11" title="如何管理店铺"> 如何管理店铺 </a>
+=======
+						<a href="http://www.531314.com/article-13.html" title="如何发货"> 如何发货 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-12.html" title="查看售出商品"> 查看售出商品 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-14.html" title="商城商品推荐"> 商城商品推荐 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-11.html" title="如何管理店铺"> 如何管理店铺 </a>
+>>>>>>> master
 					</dd>
 				</dl>
 			</li>
@@ -636,6 +649,7 @@
 					<dt>
 支付方式 </dt>
 					<dd><i></i>
+<<<<<<< HEAD
 						<a href="__APP__/Article?article=30" title="公司转账"> 公司转账 </a>
 					</dd>
 					<dd><i></i>
@@ -646,6 +660,18 @@
 					</dd>
 					<dd><i></i>
 						<a href="__APP__/Article?article=17" title="付款问题"> 付款问题 </a>
+=======
+						<a href="http://www.531314.com/article-30.html" title="公司转账"> 公司转账 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-16.html" title="付款方式"> 付款方式 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-29.html" title="货到付款"> 货到付款 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-17.html" title="付款问题"> 付款问题 </a>
+>>>>>>> master
 					</dd>
 				</dl>
 			</li>
@@ -654,10 +680,17 @@
 					<dt>
 售后服务 </dt>
 					<dd><i></i>
+<<<<<<< HEAD
 						<a href="__APP__/Article?article=32" title="退换货流程"> 退换货流程 </a>
 					</dd>
 					<dd><i></i>
 						<a href="__APP__/Article?article=26" title="投诉说明"> 投诉说明 </a>
+=======
+						<a href="http://www.531314.com/article-32.html" title="退换货流程"> 退换货流程 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-26.html" title="投诉说明"> 投诉说明 </a>
+>>>>>>> master
 					</dd>
 				</dl>
 			</li>
@@ -666,6 +699,7 @@
 					<dt>
 客服中心 </dt>
 					<dd><i></i>
+<<<<<<< HEAD
 						<a href="__APP__/Article?article=18" title="会员修改密码"> 会员修改密码 </a>
 					</dd>
 					<dd><i></i>
@@ -676,6 +710,18 @@
 					</dd>
 					<dd><i></i>
 						<a href="__APP__/Article?article=21" title="修改收货地址"> 修改收货地址 </a>
+=======
+						<a href="http://www.531314.com/article-18.html" title="会员修改密码"> 会员修改密码 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-20.html" title="商品发布"> 商品发布 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-19.html" title="会员修改个人资料"> 会员修改个人资料 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-21.html" title="修改收货地址"> 修改收货地址 </a>
+>>>>>>> master
 					</dd>
 				</dl>
 			</li>
@@ -684,6 +730,7 @@
 					<dt>
 关于我们 </dt>
 					<dd><i></i>
+<<<<<<< HEAD
 						<a href="__APP__/Article?article=23" title="联系我们"> 联系我们 </a>
 					</dd>
 					<dd><i></i>
@@ -694,6 +741,18 @@
 					</dd>
 					<dd><i></i>
 						<a href="__APP__/Article?article=24" title="招聘英才"> 招聘英才 </a>
+=======
+						<a href="http://www.531314.com/article-23.html" title="联系我们"> 联系我们 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-25.html" title="合作及洽谈"> 合作及洽谈 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-22.html" title="关于我们"> 关于我们 </a>
+					</dd>
+					<dd><i></i>
+						<a href="http://www.531314.com/article-24.html" title="招聘英才"> 招聘英才 </a>
+>>>>>>> master
 					</dd>
 				</dl>
 			</li>
@@ -707,7 +766,11 @@
 						<span class="ic mail">it@531314.com</span>
 						<div class="attention cleafix">
 							<div class="weixin f-l">
+<<<<<<< HEAD
 								<img src="__ROOT__/Index/Common/images/05003950598347095.jpg" class="f-l jImg img-error">
+=======
+								<img src="http://img.531314.com/shop/common/05003950598347095.jpg" class="f-l jImg img-error">
+>>>>>>> master
 								<p class="f-l">
 									<span>扫一扫</span>
 									<span>关注我们</span>
@@ -738,6 +801,7 @@
 </div>
 <div id="footer" class="wrapper">
 	<p>
+<<<<<<< HEAD
 		<a href="__APP__/Index/index">首页</a>
 		|
 		<a href="__APP__/Article?article=24">招聘英才</a>
@@ -747,11 +811,49 @@
 		<a href="__APP__/Article?article=23">联系我们</a>
 		|
 		<a href="__APP__/Article?article=22">关于我们</a>
+=======
+		<a href="http://www.531314.com">首页</a>
+		|
+		<a href="/shop/index.php?act=article&amp;article_id=24">招聘英才</a>
+		|
+		<a href="/shop/index.php?act=article&amp;article_id=25">合作及洽谈</a>
+		|
+		<a href="/shop/index.php?act=article&amp;article_id=23">联系我们</a>
+		|
+		<a href="/shop/index.php?act=article&amp;article_id=22">关于我们</a>
+>>>>>>> master
 		|
 		<a href="/shop/index.php?act=link">友情链接</a>
 	</p>
 	Copyright 2015</a> 闽ICP备12008006号-1<br/>
 	
+<<<<<<< HEAD
+=======
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?88de49926eae5852d298d5a5fbba3dda";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<script type="text/javascript">
+		var _py = _py || [];
+		_py.push(['a', 'Qws..wq6b3kLKcogvLsNjmWhqcX']);
+		_py.push(['domain', 'stats.ipinyou.com']);
+		_py.push(['e', '']); -
+		function(d) {
+			var s = d.createElement('script'),
+				e = d.body.getElementsByTagName('script')[0];
+			e.parentNode.insertBefore(s, e),
+				f = 'https:' == location.protocol;
+			s.src = (f ? 'https' : 'http') + '://' + (f ? 'fm.ipinyou.com' : 'fm.p0y.cn') + '/j/adv.js';
+		}(document);
+	</script>
+	<noscript><img src="//stats.ipinyou.com/adv.gif?a=Qws..wq6b3kLKcogvLsNjmWhqcX&e=" style="display:none;"/></noscript> 
+>>>>>>> master
 </div>
 		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
 		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">

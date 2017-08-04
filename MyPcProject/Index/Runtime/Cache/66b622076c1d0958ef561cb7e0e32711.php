@@ -1,49 +1,28 @@
-<?php if (!defined('THINK_PATH')) exit();?><!-- design lj 652 -->
-<!doctype html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh">
-
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>myproject</title>
-<<<<<<< HEAD
-		<meta name="keywords" content="春舞枝,鲜花,鲜花网,鲜花速递,网上订花送花,鲜花礼品,网上订花,送花网站" />
-		<meta name="description" content="春舞枝鲜花网-中国鲜花礼品网领先品牌,专注鲜花速递服务,销量居鲜花礼品网站前茅！春舞枝鲜花网可24小时预订鲜花，同城送花、异地送花服务,网上订花后最快3小时即可将鲜花速递上门,送花网站覆盖中国2800多个县级以上城市！" />
-		<meta property="qc:admins" content="23572640266531314636" />
-		<meta property="wb:webmaster" content="9d474898800c1e71" />
-		<style type="text/css">
-			body {
-				_behavior: url(http://www.531314.com/templates/new/css/csshover.htc);
-			}
-		</style>
-=======
-		
->>>>>>> master
-		<link rel="shortcut icon" href="http://531314.com/favicon.ico" />
+		<title>春舞枝 - 购物流程</title>
+		<meta name="keywords" content="春舞枝,">
+		<meta name="description" content="春舞枝,">
+		<meta property="qc:admins" content="23572640266531314636"><meta property="wb:webmaster" content="9d474898800c1e71"><style type="text/css">body{_behavior:url(http://www.531314.com/templates/new/css/csshover.htc);}</style>
+		<link rel="shortcut icon" href="http://531314.com/favicon.ico">
 		<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
 		<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
 		<link href="__ROOT__/Index/Common/css/home_login.css" rel="stylesheet" type="text/css">
-<<<<<<< HEAD
-		<link href="http://www.531314.com/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" />	
-		
-		<script src="http://res.531314.com/js/jquery.js"></script>
-=======
-		<link href="http://www.531314.com/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-		
+		<link href="http://www.531314.com/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<script src="//hm.baidu.com/hm.js?88de49926eae5852d298d5a5fbba3dda"></script><script>
+		var COOKIE_PRE = '3E36_';var _CHARSET = 'utf-8';var SITEURL = 'http://www.531314.com';var SHOP_SITE_URL = 'http://www.531314.com';var RESOURCE_SITE_URL = 'http://res.531314.com';var RESOURCE_SITE_URL = 'http://res.531314.com';var SHOP_TEMPLATES_URL = 'http://www.531314.com/templates/new';
+		</script>
 		<script src="http://res.531314.com/js/jquery.js"></script>
 		<script src="http://res.531314.com/js/common.js" charset="utf-8"></script>
->>>>>>> master
+		<script src="http://res.531314.com/js/jquery-ui/jquery.ui.js"></script>
+		<script src="http://res.531314.com/js/jquery.validation.min.js"></script>
+		<script src="http://res.531314.com/js/jquery.masonry.js"></script>
+		<script src="http://res.531314.com/js/dialog/dialog.js" id="dialog_js" charset="utf-8"></script><link href="http://res.531314.com/js/dialog/dialog.css" rel="stylesheet" type="text/css">
 		
-	</head>
-
-	<body>
-		<link href="__ROOT__/Index/Common/css/index.css" rel="stylesheet" type="text/css">
-<<<<<<< HEAD
-		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
-		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="http://res.531314.com/js/perfect-scrollbar.min.js"></script>
-		<script type="text/javascript" src="http://res.531314.com/js/qtip/jquery.qtip.min.js"></script>
-		<link href="http://res.531314.com/js/qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css">
-
+		</head>
+		<body>
 		<script type="text/javascript">
 	var PRICE_FORMAT = '&yen;%s';
 	$(function() {
@@ -190,14 +169,6 @@
 		});
 	});
 </script>
-=======
-
-		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
-		<link href="http://res.531314.com/js/qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css">
-
-		
-		
->>>>>>> master
 <div class="public-top-layout w">
 	<div class="topbar wrapper">
 		<div class="user-entry">
@@ -496,372 +467,196 @@
 </style>-->
 <!--<div class="clear"></div>-->
 
-		
-<script type="text/javascript" src="http://www.531314.com/resource/js/home_index.js" charset="utf-8"></script>		
-<<<<<<< HEAD
-=======
-<script type="text/javascript">
-	var uid = window.location.href.split("#V3");
-	var fragment = uid[1];
-	if(fragment) {
-		if(fragment.indexOf("V3") == 0) {
-			document.cookie = 'uid=0';
-		} else {
-			document.cookie = 'uid=' + uid[1];
-		}
-	}
-</script>
->>>>>>> master
-<div class="home-focus-layout">
-	<ul id="fullScreenSlides" class="full-screen-slides">
-		<li style="background:  url('__ROOT__/Index/Common/images/editor/web-101-101-3.jpg?180') no-repeat center top">
-			<a href="http://www.531314.com/shop/index.php?act=zt&amp;op=valentine" target="_blank" title="">&nbsp;</a>
-		</li>
-		<li style="background: #ffffff url('__ROOT__/Index/Common/images/editor/web-101-101-2.jpg?163') no-repeat center top">
-			<a href="http://www.531314.com/shop/cate-1074-0-0-0-0-0-0-0-0.html" target="_blank" title="">&nbsp;</a>
-		</li>
-		<li style="background:  url('__ROOT__/Index/Common/images/editor/web-101-101-1.jpg?806') no-repeat center top">
-			<a href="http://www.531314.com/item-100942.html" target="_blank" title="">&nbsp;</a>
-		</li>
-<<<<<<< HEAD
-	</ul>	
-=======
-	</ul>
-	<script type="text/javascript">
-		update_screen_focus();
-	</script>
->>>>>>> master
-	<div class="right-sidebar">
-		<div class="policy">
-			<ul>
-				<li class="b1">特色服务</li>
-				<li class="b2">方便快捷</li>
-				<li class="b3">价位优惠</li>
-				<li class="b4">机构认证</li>
-				<li class="b5">万千口碑</li>
-				<li class="b6">诚信服务</li>
-			</ul>
+		<div class="nch-breadcrumb-layout">
+		<div class="nch-breadcrumb wrapper"><i class="icon-home"></i>
+		<span><a href="__APP__/Index/index">首页</a></span><span class="arrow">&gt;</span>
+		<span><a href="http://www.531314.com/article_cate-2.html">帮助中心</a></span><span class="arrow">&gt;</span>
+		<span>文章内容</span>
 		</div>
-		<div class="proclamation">
-			<ul class="tabs-nav">
-				<li class="tabs-selected">
-					<h3>商城公告</h3>
-				</li>
-			</ul>
-			<div class="tabs-panel">
-				<ul class="mall-news">
-					<li><i></i>
-						<a target="_blank" href="http://www.531314.com/article-102.html" title="花草发黄的11个重大原因！ 喜欢养花的必看！">花草发黄的11个重大原因！ </a>
-						<time>(2016-03-31)</time>
+		</div>
+		<link href="__ROOT__/Index/Common/css/layout.css" rel="stylesheet" type="text/css">
+		<div class="nch-container wrapper">
+		<div class="left">
+	<div class="nch-module nch-module-style01">
+		<div class="title">
+			<h3>文章分类</h3>
+		</div>
+		<div class="content">
+			<div class="nch-sidebar-article-class">
+				<ul>
+					<li>
+						<a href="http://www.531314.com/article_cate-14.html">鲜花学院</a>
 					</li>
-					<li><i></i>
-						<a target="_blank" href="http://www.531314.com/article-101.html" title="小家庭，小惊喜">小家庭，小惊喜 </a>
-						<time>(2016-03-31)</time>
+					<li>
+						<a href="http://www.531314.com/article_cate-8.html">绿植馆</a>
 					</li>
-					<li><i></i>
-						<a target="_blank" href="http://www.531314.com/article-100.html" title="送花的讲究！">送花的讲究！ </a>
-						<time>(2016-03-31)</time>
+					<li>
+						<a href="http://www.531314.com/article_cate-1.html">商城公告</a>
 					</li>
-					<li><i></i>
-						<a target="_blank" href="http://www.531314.com/article-99.html" title="关于郁金香的小常识（二）">关于郁金香的小常识（二） </a>
-						<time>(2016-03-30)</time>
+					<li>
+						<a href="http://www.531314.com/article_cate-2.html">帮助中心</a>
 					</li>
-					<li><i></i>
-						<a target="_blank" href="http://www.531314.com/article-98.html" title="关于郁金香的小常识（一）">关于郁金香的小常识（一） </a>
-						<time>(2016-03-30)</time>
+					<li>
+						<a href="http://www.531314.com/article_cate-3.html">店主之家</a>
+					</li>
+					<li>
+						<a href="http://www.531314.com/article_cate-4.html">支付方式</a>
+					</li>
+					<li>
+						<a href="http://www.531314.com/article_cate-5.html">售后服务</a>
+					</li>
+					<li>
+						<a href="http://www.531314.com/article_cate-6.html">客服中心</a>
+					</li>
+					<li>
+						<a href="http://www.531314.com/article_cate-7.html">关于我们</a>
+					</li>
+					<li>
+						<a href="http://www.531314.com/article_cate-20.html">配送服务</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
-</div>
-		<div class="home-sale-layout wrapper">
-	<div class="left-layout">
-		<ul class="tabs-nav">
-			<li class="tabs-selected"><i class="arrow"></i>
-				<h3>新品推荐</h3></li>
-		</ul>
-		<div class="tabs-panel sale-goods-list ">
-<<<<<<< HEAD
-			<ul>			
-=======
-			<ul>
-
-
-			
->>>>>>> master
-				<li>
-					<dl>
-						<dt class="goods-name">
-							<a target="_blank" href="http://www.531314.com/item-100836.html" title="【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送  此款鲜花需提前1-3天预订哦">
-								【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送 此款鲜花需提前1-3天预订哦
-							</a>
-						</dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100836.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05075525382032819_240.jpg" alt="【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送  此款鲜花需提前1-3天预订哦" />
-							</a>
-						</dd>
-						<dd class="goods-price">
-							商城价：<em>￥356.00</em>
-						</dd>
-					</dl>
-				</li>
-				
-			</ul>
+	<div class="nch-module nch-module-style03">
+		<div class="title">
+			<h3>最新文章</h3>
 		</div>
-	</div>
-</div>
-<div class="wrapper">
-	<div class="mt10">
-		<div class="mt10">
-		</div>
-	</div>
-</div>
-<div class="clear"></div>
-<div class="wrapper">
-	<div class="mt10">
-		<div class="mt10"></div>
-	</div>
-</div>
-<div class="clear"></div>
-		<div class="home-standard-layout wrapper style-diy1">
-	<div class="title">
-		<div class="pic-type">
-			<img src="__ROOT__/Index/Common/images/index/floor1Top.jpg" />
-		</div>
-	</div>
-	<div class="left-sidebar">
-		<div class="left-ads">
-			<a href="#" title="" target="_blank">
-				<img src="__ROOT__/Index/Common/images/index/floor1Left.jpg" alt="">
-			</a>
-		</div>
-		<div class="recommend-classes">
-			<ul>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="玫瑰" target="_blank">玫瑰</a>
+		<div class="content">
+			<ul class="nch-sidebar-article-list">
+				<li><i></i>
+					<a href="http://www.531314.com/article-6.html">购物流程</a>
 				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="百合" target="_blank">百合</a>
+				<li><i></i>
+					<a href="http://www.531314.com/article-8.html">服务声明</a>
 				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="康乃馨" target="_blank">康乃馨</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="其它" target="_blank">其它</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="情人节" target="_blank">情人节</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="母亲节" target="_blank">母亲节</a>
-				</li>
-				
-			</ul>
-		</div>
-	</div>
-	<div class="middle-layout">
-		<div class="tabs-panel middle-goods-list ">
-			<ul>
-
-			
-				<li>
-					<dl>
-						<dt class="goods-name">
-							<a target="_blank" href="http://www.531314.com/item-100814.html" title="【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物">
-								【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物
-							</a>
-						</dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100814.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05073987921400349_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物" />
-							</a>
-						</dd>
-						<dd class="goods-price">
-							<em>￥238.00</em>
-							<span class="original">￥348.00</span>
-						</dd>
-					</dl>
-				</li>
-
-				
-			</ul>
-		</div>
-	</div>
-	<div class="right-sidebar">
-		<div class="right-side-focus">
-			<ul>
-				<li>
-					<a href="http://www.531314.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=100863" title="" target="_blank">
-						<img src="__ROOT__/Index/Common/images/index/floor1Right.jpg" alt="" /></a>
+				<li><i></i>
+					<a href="http://www.531314.com/article-9.html">集团采购</a>
 				</li>
 			</ul>
 		</div>
 	</div>
 </div>
-		<div class="home-standard-layout wrapper style-diy2">
-	<div class="title">
-		<div class="pic-type"><img src="__ROOT__/Index/Common/images/index/floor2Top.jpg" /></div>
-	</div>
-	<div class="left-sidebar">
-		<div class="left-ads">
-			<a href="#" title="" target="_blank">
-				<img src="__ROOT__/Index/Common/images/index/floor2Left.jpg" alt="">
-			</a>
-		</div>
-		<div class="recommend-classes">
-			<ul>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="鲜花束" target="_blank">鲜花束</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="盒装鲜花" target="_blank">盒装鲜花</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="多肉植物" target="_blank">多肉植物</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="绿植盆栽" target="_blank">绿植盆栽</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="纪念" target="_blank">纪念</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="探视" target="_blank">探视</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="生日" target="_blank">生日</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="祝福" target="_blank">祝福</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="求婚" target="_blank">求婚</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="情人节" target="_blank">情人节</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="教师节" target="_blank">教师节</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="母亲节" target="_blank">母亲节</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="父亲节" target="_blank">父亲节</a>
-				</li>
-				<li>
-					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="圣诞节" target="_blank">圣诞节</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="middle-layout">
-		<div class="tabs-panel middle-goods-list ">
-			<ul>
-				<li>
-					<dl>
-						<dt class="goods-name">
-							<a target="_blank" href="http://www.531314.com/item-100829.html" title="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花">
-								【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花
-							</a>
-						</dt>
-						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100829.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05074003616714448_240.jpg" alt="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花" />
-							</a>
-						</dd>
-						<dd class="goods-price">
-							<em>￥178.00</em>
-							<span class="original">￥258.00</span>
-						</dd>
-					</dl>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="right-sidebar">
 
-		<div class="right-side-focus">
-			<ul>
-				<li>
-					<a href="http://www.531314.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=100870" title="" target="_blank">
-						<img src="__ROOT__/Index/Common/images/index/floor2Right.jpg" alt="" /></a>
-				</li>
-			</ul>
+		<div class="right">
+		<div class="nch-article-con">
+		<h1>购物流程</h1>
+		<h2>2014-01-16 17:31</h2>
+		<div class="default">
+		<p></p><p>
+		<strong><span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">第一步：选择商品</span></strong><br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">&nbsp;&nbsp; 1.进入网站，选择您喜欢的商品，在商品详情页面中，从店铺列表中选择你所需的店铺，点击店铺名称后面的“查看详情”；</span>
+		</p>
+		<p>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">&nbsp;&nbsp; 2.或进入您所选择的店铺，点击商品的图片或者名称，将打开商品详情页面。</span>
+		</p>
+		<p>
+		<br>
+		</p>
+		<p>
+		<br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"></span>
+		</p>
+		<p style="text-align:center;">
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"><img src="http://img.531314.com/shop/editor/20151127120422_63193.png" alt="" height="127" width="800"></span>
+		</p>
+		<p>
+		<br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"></span>
+		</p>
+		<strong><span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">第二步：加入购物车</span></strong>
+		<p>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">&nbsp; 点击商品图片下方的“加入购物车”，添加商品成功。通过页面右上角“我的购物车”进入所选产品列表页面，点击“立即购买”进入登陆页面（如果还需其他产品，您可以点击“再逛逛”按钮，然后找到所需产品，同样点击“加入购物车”即可）。</span>
+		</p>
+		<p>
+		<br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"></span>
+		</p>
+		<p style="text-align:center;">
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">&nbsp; &nbsp; <br>
+		</span>
+		</p>
+		<p style="text-align:center;">
+		<br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"></span>
+		</p>
+		<p style="text-align:center;">
+		<br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"></span>
+		</p>
+		<p style="text-align:center;">
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"><img src="http://img.531314.com/shop/editor/20151127120735_60023.png" alt="" height="501" width="800"><br>
+		</span>
+		</p>
+		<p>
+		<br>
+		</p>
+		<p>
+		<br>
+		</p>
+		<p>
+		<strong><span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">第三步：用户登录</span></strong>
+		</p>
+		<div>
+		<p>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">&nbsp;&nbsp; 1.会员、网店用户请点击网站头部“登录”选项直接登录。</span>
+		</p>
 		</div>
-	</div>
-</div>
-				<div class="home-standard-layout wrapper style-diy3">
-			<div class="title">
-				<div class="pic-type"><img src="__ROOT__/Index/Common/images/index/floor3Top.jpg" /></div>
-			</div>
-			<div class="left-sidebar">
-				<div class="left-ads">
-					<a href="#" title="" target="_blank">
-						<img src="__ROOT__/Index/Common/images/index/floor3Left.jpg" alt="">
-					</a>
-				</div>
-				<div class="recommend-classes">
-					<ul>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="鲜花束" target="_blank">鲜花束</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="盒装鲜花" target="_blank">盒装鲜花</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="多肉植物" target="_blank">多肉植物</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="绿植盆栽" target="_blank">绿植盆栽</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="情人节" target="_blank">情人节</a>
-						</li>
-						<li>
-							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="教师节" target="_blank">教师节</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="middle-layout">
-				<div class="tabs-panel middle-goods-list ">
-					<ul>
-						<li>
-							<dl>
-								<dt class="goods-name">
-									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100819-stc_id-.html" title="【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花">
-										【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花
-									</a>
-								</dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100819-stc_id-.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073992610931992_240.jpg" alt="【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花" />
-									</a>
-								</dd>
-								<dd class="goods-price">
-									<em>￥178.00</em>
-									<span class="original">￥258.00</span>
-								</dd>
-							</dl>
-						</li>
-
-					</ul>
-				</div>
-			</div>
-			<div class="right-sidebar">
-
-				<div class="right-side-focus">
-					<ul>
-						<li>
-							<a href="http://www.531314.com/shop/index.php?act=search&amp;op=index&amp;keyword=&amp;cate_id=1074&amp;stc_id=28" title="" target="_blank">
-								<img src="__ROOT__/Index/Common/images/index/floor3Right.jpg" alt="" /></a>
-						</li>
-					</ul>
-				</div>
-			</div>
+		<div>
+		<p>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">&nbsp;&nbsp; 2.如果您是第一次使用本网站，请点击网站头部“免费注册”，填写用户名和密码注册</span>
+		</p>
+		<p>
+		<br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"></span>
+		</p>
+		<p>
+		<br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"> </span>
+		</p>
+		<p style="text-align:center;">
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"><img src="http://img.531314.com/shop/editor/20151127120806_94201.png" alt="" height="628" width="800"></span>
+		</p>
+		<p>
+		<br>
+		</p>
+		<p>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"><br>
+		</span>
+		</p>
+		</div>
+		<p style="margin-left:5.25pt;">
+		<strong><span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">第四步：提交订单</span></strong><br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">&nbsp;&nbsp;&nbsp; 登陆成功后，页面跳转到订单结算，请仔细填写送、收货人联系方式和地址信息，填写完毕请从页面右侧选择一种支付方式，确定后“提交订单”。</span>
+		</p>
+		<p style="margin-left:5.25pt;">
+		<br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"></span>
+		</p>
+		<p style="margin-left:5.25pt;text-align:center;">
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"><img src="http://img.531314.com/shop/editor/20151127120911_23743.png" alt="" height="362" width="800"><br>
+		</span>
+		</p>
+		<p style="margin-left:5.25pt;">
+		<strong><span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">第五步：支付款项</span></strong><br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">&nbsp;&nbsp;&nbsp; 提交完成订单后，如果您选择“平台支付”，会直接带您到所选择的支付款项的步骤，请按照提示完成支付；如果您选择“网银转账”，稍后请您依照客服提供的账号完成支付。</span><br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;">&nbsp;&nbsp; 如果您不了解支付的相关信息，请参考帮助中心栏目中的支付帮助。</span>
+		</p>
+		<p style="margin-left:5.25pt;">
+		<br>
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"></span>
+		</p>
+		<p style="margin-left:5.25pt;text-align:center;">
+		<span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"><span style="font-size:14px;font-family:Microsoft YaHei;color:#666666;"><img src="http://img.531314.com/shop/editor/20151127120941_12169.png" alt="" height="277" width="800"></span><br>
+		</span>
+		</p><p></p>
+		</div>
+		<div class="more_article"> <span class="fl">上一篇：
+		没有符合条件的文章 </span> <span class="fr">下一篇：
+		<a href="__APP__/Article/article-8">服务声明</a> <time>2014-01-16 17:31</time>
+		</span> </div>
+		</div>
+		</div>
 		</div>
 		<div class="wrapper">
 	<div class="mt10"></div>
@@ -982,11 +777,7 @@
 						<span class="ic mail">it@531314.com</span>
 						<div class="attention cleafix">
 							<div class="weixin f-l">
-<<<<<<< HEAD
-								<img src="__ROOT__/Index/Common/images/05003950598347095.jpg" class="f-l jImg img-error">
-=======
 								<img src="http://img.531314.com/shop/common/05003950598347095.jpg" class="f-l jImg img-error">
->>>>>>> master
 								<p class="f-l">
 									<span>扫一扫</span>
 									<span>关注我们</span>
@@ -1030,10 +821,49 @@
 		<a href="/shop/index.php?act=link">友情链接</a>
 	</p>
 	Copyright 2015</a> 闽ICP备12008006号-1<br/>
-<<<<<<< HEAD
 	
-=======
->>>>>>> master
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?88de49926eae5852d298d5a5fbba3dda";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script type="text/javascript">
+		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cspan id='cnzz_stat_icon_5477377'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D5477377' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		var _py = _py || [];
+		_py.push(['a', 'Qws..wq6b3kLKcogvLsNjmWhqcX']);
+		_py.push(['domain', 'stats.ipinyou.com']);
+		_py.push(['e', '']); -
+		function(d) {
+			var s = d.createElement('script'),
+				e = d.body.getElementsByTagName('script')[0];
+			e.parentNode.insertBefore(s, e),
+				f = 'https:' == location.protocol;
+			s.src = (f ? 'https' : 'http') + '://' + (f ? 'fm.ipinyou.com' : 'fm.p0y.cn') + '/j/adv.js';
+		}(document);
+	</script>
+	<noscript><img src="//stats.ipinyou.com/adv.gif?a=Qws..wq6b3kLKcogvLsNjmWhqcX&e=" style="display:none;"/></noscript> 
 </div>
+		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
+		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="http://res.531314.com/js/perfect-scrollbar.min.js"></script>
+		<script type="text/javascript" src="http://res.531314.com/js/qtip/jquery.qtip.min.js"></script>
+		<link href="http://res.531314.com/js/qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css">		 
+		<script src="http://www.531314.com/resource/js/compare.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			// Membership card
+			$('[nctype="mcard"]').membershipCard({type:'shop'});
+		});
+		</script>
+		
+		
+		<div id="cli_dialog_div"></div>
 	</body>
 </html>

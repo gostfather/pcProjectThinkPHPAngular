@@ -124,6 +124,7 @@ catch(e){}
 
 	<body>
 
+<<<<<<< HEAD
 		<script type="text/javascript">
 	var PRICE_FORMAT = '&yen;%s';
 	$(function() {
@@ -270,6 +271,9 @@ catch(e){}
 		});
 	});
 </script>
+=======
+		
+>>>>>>> master
 <div class="public-top-layout w">
 	<div class="topbar wrapper">
 		<div class="user-entry">

@@ -3,6 +3,7 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< HEAD
 		<title>春舞枝 - 鲜花束</title>
 		<meta name="keywords" content="春舞枝" />
 		<meta name="description" content="春舞枝" />
@@ -13,11 +14,15 @@
 				_behavior: url(http://www.531314.com/templates/new/css/csshover.htc);
 			}
 		</style>
+=======
+		<title>myproject</title>
+>>>>>>> master
 		<link rel="shortcut icon" href="http://531314.com/favicon.ico" />
 		<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
 		<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
 		<link href="__ROOT__/Index/Common/css/home_login.css" rel="stylesheet" type="text/css">
 		<link href="http://www.531314.com/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<<<<<<< HEAD
 		
 		<script>
 			var COOKIE_PRE = '3E36_';
@@ -207,6 +212,18 @@
 		});
 	});
 </script>
+=======
+		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
+		<link href="http://res.531314.com/js/qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/layout.css" rel="stylesheet" type="text/css">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
+	</head>
+
+	<body>
+		
+		
+>>>>>>> master
 <div class="public-top-layout w">
 	<div class="topbar wrapper">
 		<div class="user-entry">
@@ -546,6 +563,7 @@
 					</div>
 				</div>
 
+<<<<<<< HEAD
 				<div nctype="booth_goods" class="nch-module" style="display:none;"> </div>
 
 				<div class="nch-module"></div>
@@ -562,6 +580,8 @@
 						<a href="http://www.531314.com/index.php?act=member_goodsbrowse&op=list" class="nch-sidebar-all-viewed">全部浏览历史</a>
 					</div>
 				</div>
+=======
+>>>>>>> master
 			</div>
 			<div class="right">
 				<div class="nch-module">
@@ -570,6 +590,7 @@
 							<div class="goodsType_row">
 								<div class="goodsClass">主花材：</div>
 								<div class="goodsLable">
+<<<<<<< HEAD
 									<input type="hidden" id="search_div_class_26" data-acid="26" data-pre="0">
 									<div class="goodsLables" id="search_div_class_27" data-acid="27" data-pre="26">
 										<a href="javascript:send_class_searh_url(26,27);">玫瑰</a>
@@ -589,6 +610,26 @@
 									</div>
 									<div class="goodsLables" id="search_div_class_85" data-acid="85" data-pre="26">
 										<a href="javascript:send_class_searh_url(26,85);">洋牡丹</a>
+=======
+									<div class="goodsLables" id="search_div_class_27" >
+										<a >玫瑰</a>
+										<a class="span-a" href="javascript:deleteItem(26,27);"><span id="delte-span-27">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_28" >
+										<a >百合</a>
+										<a class="span-a" href="javascript:deleteItem(26,28);"><span id="delte-span-28">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_29" >
+										<a >康乃馨</a>
+										<a class="span-a" href="javascript:deleteItem(26,29);"><span id="delte-span-29">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_30" >
+										<a >其它</a>
+										<a class="span-a" href="javascript:deleteItem(26,30);"><span id="delte-span-30">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_85" >
+										<a >洋牡丹</a>
+>>>>>>> master
 										<a class="span-a" href="javascript:deleteItem(26,85);"><span id="delte-span-85">×</span></a>
 									</div>
 								</div>
@@ -596,6 +637,7 @@
 							<div class="goodsType_row">
 								<div class="goodsClass">节日：</div>
 								<div class="goodsLable">
+<<<<<<< HEAD
 									<input type="hidden" id="search_div_class_31" data-acid="31" data-pre="0">
 									<div class="goodsLables" id="search_div_class_32" data-acid="32" data-pre="31">
 										<a href="javascript:send_class_searh_url(31,32);">情人节</a>
@@ -611,6 +653,22 @@
 									</div>
 									<div class="goodsLables" id="search_div_class_35" data-acid="35" data-pre="31">
 										<a href="javascript:send_class_searh_url(31,35);">圣诞节</a>
+=======
+									<div class="goodsLables" id="search_div_class_32" >
+										<a >情人节</a>
+										<a class="span-a" href="javascript:deleteItem(31,32);"><span id="delte-span-32">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_33" >
+										<a >母亲节</a>
+										<a class="span-a" href="javascript:deleteItem(31,33);"><span id="delte-span-33">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_34" >
+										<a >父亲节</a>
+										<a class="span-a" href="javascript:deleteItem(31,34);"><span id="delte-span-34">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_35" >
+										<a >圣诞节</a>
+>>>>>>> master
 										<a class="span-a" href="javascript:deleteItem(31,35);"><span id="delte-span-35">×</span></a>
 									</div>
 								</div>
@@ -618,6 +676,7 @@
 							<div class="goodsType_row">
 								<div class="goodsClass">枝数：</div>
 								<div class="goodsLable">
+<<<<<<< HEAD
 									<input type="hidden" id="search_div_class_36" data-acid="36" data-pre="0">
 									<div class="goodsLables" id="search_div_class_37" data-acid="37" data-pre="36">
 										<a href="javascript:send_class_searh_url(36,37);">9</a>
@@ -637,6 +696,26 @@
 									</div>
 									<div class="goodsLables" id="search_div_class_41" data-acid="41" data-pre="36">
 										<a href="javascript:send_class_searh_url(36,41);">99</a>
+=======
+									<div class="goodsLables" id="search_div_class_37" >
+										<a >9</a>
+										<a class="span-a" href="javascript:deleteItem(36,37);"><span id="delte-span-37">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_38" >
+										<a >11</a>
+										<a class="span-a" href="javascript:deleteItem(36,38);"><span id="delte-span-38">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_39" >
+										<a >19</a>
+										<a class="span-a" href="javascript:deleteItem(36,39);"><span id="delte-span-39">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_40" >
+										<a >36</a>
+										<a class="span-a" href="javascript:deleteItem(36,40);"><span id="delte-span-40">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_41" >
+										<a >99</a>
+>>>>>>> master
 										<a class="span-a" href="javascript:deleteItem(36,41);"><span id="delte-span-41">×</span></a>
 									</div>
 								</div>
@@ -644,6 +723,7 @@
 							<div class="goodsType_row">
 								<div class="goodsClass">送花对象：</div>
 								<div class="goodsLable">
+<<<<<<< HEAD
 									<input type="hidden" id="search_div_class_50" data-acid="50" data-pre="0">
 									<div class="goodsLables" id="search_div_class_51" data-acid="51" data-pre="50">
 										<a href="javascript:send_class_searh_url(50,51);">爱人</a>
@@ -675,6 +755,38 @@
 									</div>
 									<div class="goodsLables" id="search_div_class_58" data-acid="58" data-pre="50">
 										<a href="javascript:send_class_searh_url(50,58);">客户</a>
+=======
+									<div class="goodsLables" id="search_div_class_51" >
+										<a >爱人</a>
+										<a class="span-a" href="javascript:deleteItem(50,51);"><span id="delte-span-51">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_52" >
+										<a >恋人</a>
+										<a class="span-a" href="javascript:deleteItem(50,52);"><span id="delte-span-52">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_53" >
+										<a >单身</a>
+										<a class="span-a" href="javascript:deleteItem(50,53);"><span id="delte-span-53">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_54" >
+										<a >老师</a>
+										<a class="span-a" href="javascript:deleteItem(50,54);"><span id="delte-span-54">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_55" >
+										<a >朋友</a>
+										<a class="span-a" href="javascript:deleteItem(50,55);"><span id="delte-span-55">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_56" >
+										<a >长辈</a>
+										<a class="span-a" href="javascript:deleteItem(50,56);"><span id="delte-span-56">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_57" >
+										<a >探望</a>
+										<a class="span-a" href="javascript:deleteItem(50,57);"><span id="delte-span-57">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_58">
+										<a >客户</a>
+>>>>>>> master
 										<a class="span-a" href="javascript:deleteItem(50,58);"><span id="delte-span-58">×</span></a>
 									</div>
 								</div>
@@ -682,6 +794,7 @@
 							<div class="goodsType_row">
 								<div class="goodsClass">鲜花生活馆：</div>
 								<div class="goodsLable">
+<<<<<<< HEAD
 									<input type="hidden" id="search_div_class_59" data-acid="59" data-pre="0">
 									<div class="goodsLables" id="search_div_class_60" data-acid="60" data-pre="59">
 										<a href="javascript:send_class_searh_url(59,60);">家庭套餐</a>
@@ -690,6 +803,15 @@
 									<div class="goodsLables" id="search_div_class_61" data-acid="61" data-pre="59">
 										<a href="javascript:send_class_searh_url(59,61);">月度套餐</a>
 										<a class="span-a" href="javascript:deleteItem(59,61);"><span id="delte-span-61">×</span></a>
+=======
+									<div class="goodsLables" id="search_div_class_60">
+										<a >家庭套餐</a>
+										<a class="span-a" href=""><span id="delte-span-60">×</span></a>
+									</div>
+									<div class="goodsLables" id="search_div_class_61">
+										<a >月度套餐</a>
+										<a class="span-a" href=""><span id="delte-span-61">×</span></a>
+>>>>>>> master
 									</div>
 								</div>
 							</div>
@@ -709,7 +831,11 @@
 								<dd class="list">
 									<ul>
 										<li>
+<<<<<<< HEAD
 											<a href="http://www.531314.com/cate-1074-365-0-0-0-0-0-0-0.html">春舞枝</a>
+=======
+											<a href="__APP__/Cate/cate_1074">春舞枝</a>
+>>>>>>> master
 										</li>
 									</ul>
 								</dd>
@@ -746,18 +872,30 @@
 								</li>
 							</ul>
 						</div>
+<<<<<<< HEAD
 						<div class="nch-all-category">
+=======
+						<!--<div class="nch-all-category">
+>>>>>>> master
 							<div class="all-category">
 								<div class="title"> <i></i>
 									<h3><a href="http://www.531314.com/category.html">所有商品分类</a></h3>
 								</div>
 								<div class="category">
 									<ul class="menu">
+<<<<<<< HEAD
 										<li cat_id="1072" class="odd">
 											<div class="class">
 												<h4><a href="http://www.531314.com/cate-1072-0-0-0-0-0-0-0-0.html">所有分类</a></h4>
 												<span class="arrow"></span> </div>
 											<div class="sub-class" cat_menu_id="1072">
+=======
+										<li class="odd">
+											<div class="class">
+												<h4><a href="http://www.531314.com/cate-1072-0-0-0-0-0-0-0-0.html">所有分类</a></h4>
+												<span class="arrow"></span> </div>
+											<div class="sub-class">
+>>>>>>> master
 												<div class="sub-class-content">
 													<div class="recommend-class">
 														<span><a href="http://www.531314.com/cate-1074-0-0-0-0-0-0-0-0.html" title="鲜花束">鲜花束</a></span>
@@ -796,7 +934,11 @@
 									</ul>
 								</div>
 							</div>
+<<<<<<< HEAD
 						</div>
+=======
+						</div>-->
+>>>>>>> master
 						<div class="nch-sortbar-array"> 排序方式：
 							<ul>
 								<li class="selected">
@@ -817,9 +959,15 @@
 						<div class="nch-sortbar-owner"><span><a href="http://www.531314.com/cate-1074-0-0-0-0-0-1-0-0.html"><i></i>赠品</a></span></div>
 						<div class="nch-sortbar-location">商品所在地：
 							<div class="select-layer">
+<<<<<<< HEAD
 								<div class="holder"><em nc_type="area_name">不限地区 </em></div>
 								<div class="selected">
 									<a nc_type="area_name">不限地区 </a>
+=======
+								<div class="holder"><em>不限地区 </em></div>
+								<div class="selected">
+									<a>不限地区 </a>
+>>>>>>> master
 								</div>
 								<i class="direction"></i>
 								<ul class="options">
@@ -905,7 +1053,11 @@
 											</dd>
 										</dl>
 										<p class="oreder-default">
+<<<<<<< HEAD
 											<a href="http://www.531314.com/cate-1074-0-0-0-0-0-0-0-0.html">不限地区</a>
+=======
+											<a href="__APP__/Cate/cate_1074">不限地区</a>
+>>>>>>> master
 										</p>
 									</div>
 								</ul>
@@ -914,7 +1066,11 @@
 					</nav>
 
 					<div>
+<<<<<<< HEAD
 						<style type="text/css">
+=======
+						<!--<style type="text/css">
+>>>>>>> master
 							#box {
 								background: #FFF;
 								width: 238px;
@@ -933,6 +1089,7 @@
 								right: 25%;
 								top: 0;
 							}
+<<<<<<< HEAD
 						</style>
 						<div class="squares" nc_type="current_display_mode">
 							<input type="hidden" id="lockcompare" value="unlock" />
@@ -1047,10 +1204,20 @@
 									<div class="goods-content" nctype_goods=" 101012" nctype_store="1">
 										<div class="goods-pic">
 											<a href="http://www.531314.com/item-101012.html" target="_blank" title="【春舞枝】基地直销 33枝香槟玫瑰"><img src="http://img.531314.com/shop/store/goods/1/1_05424692804368301_240.jpg" title="【春舞枝】基地直销 33枝香槟玫瑰" alt="【春舞枝】基地直销 33枝香槟玫瑰" /></a>
+=======
+						</style>-->
+						<div class="squares" ng-app="app" ng-controller="myCon">
+							<ul class="list_pic">
+								<li class="item" ng-repeat="(k,v) in data" >
+									<div class="goods-content">
+										<div class="goods-pic">
+											<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="{{v.title}}"><img src="__ROOT__/{{v.imgurl[0]}}" title="{{v.title}}" alt="{{v.title}}" /></a>
+>>>>>>> master
 										</div>
 										<div class="goods-info">
 											<div class="goods-pic-scroll-show">
 												<ul>
+<<<<<<< HEAD
 													<li class="selected">
 														<a href="javascript:void(0);"><img src="http://img.531314.com/shop/store/goods/1/1_05424692804368301_60.jpg" /></a>
 													</li>
@@ -1065,10 +1232,15 @@
 													</li>
 													<li>
 														<a href="javascript:void(0);"><img src="http://img.531314.com/shop/store/goods/1/1_05424711194215975_60.jpg" /></a>
+=======
+													<li class="selected" ng-repeat="(kk,vv) in v.imgurl">
+														<a href=""><img src="__ROOT__/{{vv}}" /></a>
+>>>>>>> master
 													</li>
 												</ul>
 											</div>
 											<div class="goods-name">
+<<<<<<< HEAD
 												<a href="http://www.531314.com/item-101012.html" target="_blank" title="33枝香槟玫瑰 、淡紫色相思梅若干">【春舞枝】基地直销 33枝香槟玫瑰<em>33枝香槟玫瑰 、淡紫色相思梅若干</em></a>
 											</div>
 											<div class="goods-price"> <em class="sale-price" title="商城价：&yen;388.00">&yen;388.00</em> <em class="market-price" title="市场价：&yen;599.00">&yen;599.00</em> <span class="raty" data-score="5"></span> </div>
@@ -1145,10 +1317,35 @@
 											</div>
 											<div class="add-cart">
 												<a href="javascript:void(0);" nctype="add_cart" data-param="{goods_id:101011,store_id:1}"><i class="icon-shopping-cart"></i>加入购物车</a>
+=======
+												<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="9枝白玫瑰紫玫瑰16枝 、8枝子洋桔梗、尤加利若干">{{v.title}}<em>{{v.info}}</em></a>
+											</div>
+											<div class="goods-price"> <em class="sale-price" >&yen;{{v.StorePrice}}</em> <em class="market-price" >&yen;{{v.marketPrice}}</em></div>
+											<div class="goods-sub">
+											</div>
+											<div class="sell-stat">
+												<ul>
+													<li>
+														<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" class="status">1</a>
+														<p>商品销量</p>
+													</li>
+													<li>
+														<a href="http://www.531314.com/comments-101014-0-0.html" target="_blank">0</a>
+														<p>用户评论</p>
+													</li>
+												</ul>
+											</div>
+											<div class="store">
+												<a href="__APP__/Index/index" title="春舞枝旗舰店" class="name">春舞枝旗舰店</a>
+											</div>
+											<div class="add-cart">
+												<a href=""><i class="icon-shopping-cart"></i>加入购物车</a>
+>>>>>>> master
 											</div>
 										</div>
 									</div>
 								</li>
+<<<<<<< HEAD
 								<li class="item">
 									<div class="goods-content" nctype_goods=" 101009" nctype_store="1">
 										<div class="goods-pic">
@@ -2136,11 +2333,30 @@
 								</li>
 								<li>
 									<a class="demo" href="http://www.531314.com/cate-1074-0-0-0-0-0-0-0-6.html"><span>末页</span></a>
+=======
+								<div class="clear"></div>
+							</ul>
+						</div>
+						
+					</div>
+					<div class="tc mt20 mb20">
+						<div class="pagination">
+							<ul>
+								<li><span>首页</span></li>
+								<li><span>上一页</span></li>
+								<li><span class="currentpage">1</span></li>
+								<li>
+									<a class="demo" ><span>下一页</span></a>
+								</li>
+								<li>
+									<a class="demo" ><span>末页</span></a>
+>>>>>>> master
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
+<<<<<<< HEAD
 
 				<div id="guesslike_div" style="width:980px;"></div>
 			</div>
@@ -2259,6 +2475,11 @@
 		</script>
 		
 	<div class="wrapper">
+=======
+			</div>
+		</div>
+		 <div class="wrapper">
+>>>>>>> master
 	<div class="mt10"></div>
 </div>
 
@@ -2421,6 +2642,7 @@
 		<a href="/shop/index.php?act=link">友情链接</a>
 	</p>
 	Copyright 2015</a> 闽ICP备12008006号-1<br/>
+<<<<<<< HEAD
 	
 	<script>
 		var _hmt = _hmt || [];
@@ -2453,4 +2675,58 @@
 	
 	</body>
 
+=======
+</div>
+		 
+		<script type="text/javascript">
+		 	function asdf(){
+		 		console.log($(".item"))
+		 	$(".item").hover(itemmouseOver, itemmouseOut);
+		 	function itemmouseOver(){
+		 		$(this).find(".goods-info").css({"top":180});
+		 		return false;
+		 	};
+		 	function itemmouseOut(){
+		 		$(this).find(".goods-info").css({"top":240});
+		 		return false;
+		 	}
+		 	$(".goods-pic-scroll-show li").hover(liHoverIn,function(){
+		 		return false;
+		 	});
+		 	function liHoverIn(){
+		 		$(".goods-pic-scroll-show li").each(function(){
+		 			this.className = "" ;
+		 		});
+		 		this.className = "selected" ;
+		 		$(this).parent().parent().parent().prev().find("img")[0].src = $(this).find("img")[0].src;
+		 		$(this).parent().parent().parent().prev().find("img").css({
+		 			"width":220,
+		 			"height":220,
+		 		})
+		 	}
+		 	};
+
+			var app = angular.module("app",[]);
+			app.controller("myCon",function ($scope,$http) {
+				$scope.data = [];
+				$scope.err = "";
+				$http.get("__APP__/Cate/getList").success(function(data){
+//					console.log(data);
+					if(data.status ===1 ){
+						$scope.data = data.info;
+//						console.log($scope.data)
+						setTimeout(function(){
+							asdf();
+						},0);
+						//让节点循环完之后绑定jq事件
+					}else{
+						$scope.err = "系统错误暂时找不到信息" ;
+					}
+				}).error(function(data){
+					console.log(data);
+				})
+		    });
+		</script>
+	</body>
+>>>>>>> master
 </html>

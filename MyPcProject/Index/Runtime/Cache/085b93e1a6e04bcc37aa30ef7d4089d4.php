@@ -155,6 +155,7 @@
 			<p>
 				<a href="__APP__/Index">首页</a>
 				|
+<<<<<<< HEAD
 				<a href="__APP__/Article?article=24">招聘英才</a>
 				|
 				<a href="__APP__/Article?article=25">合作及洽谈</a>
@@ -162,10 +163,20 @@
 				<a href="__APP__/Article?article=23">联系我们</a>
 				|
 				<a href="__APP__/Article?article=22">关于我们</a>
+=======
+				<a href="/shop/index.php?act=article&amp;article_id=24">招聘英才</a>
+				|
+				<a href="/shop/index.php?act=article&amp;article_id=25">合作及洽谈</a>
+				|
+				<a href="/shop/index.php?act=article&amp;article_id=23">联系我们</a>
+				|
+				<a href="/shop/index.php?act=article&amp;article_id=22">关于我们</a>
+>>>>>>> master
 				|
 				<a href="/shop/index.php?act=link">友情链接</a>
 			</p>
 			Copyright 2015 闽ICP备12008006号-1<br>
+<<<<<<< HEAD
 			<!--<script>
 				var _hmt = _hmt || [];
 				(function() {
@@ -194,6 +205,36 @@
 				}(document);
 			</script>
 			<noscript>&lt;img src="//stats.ipinyou.com/adv.gif?a=Qws..wq6b3kLKcogvLsNjmWhqcX&amp;e=" style="display:none;"/&gt;</noscript> </div>-->
+=======
+			<script>
+				var _hmt = _hmt || [];
+				(function() {
+					var hm = document.createElement("script");
+					hm.src = "//hm.baidu.com/hm.js?88de49926eae5852d298d5a5fbba3dda";
+					var s = document.getElementsByTagName("script")[0];
+					s.parentNode.insertBefore(hm, s);
+				})();
+			</script>
+			<script type="text/javascript">
+				var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+				document.write(unescape("%3Cspan id='cnzz_stat_icon_5477377'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D5477377' type='text/javascript'%3E%3C/script%3E"));
+			</script><span id="cnzz_stat_icon_5477377"></span>
+			<script src=" http://s23.cnzz.com/stat.php?id=5477377" type="text/javascript"></script>
+			<script type="text/javascript">
+				var _py = _py || [];
+				_py.push(['a', 'Qws..wq6b3kLKcogvLsNjmWhqcX']);
+				_py.push(['domain', 'stats.ipinyou.com']);
+				_py.push(['e', '']); -
+				function(d) {
+					var s = d.createElement('script'),
+						e = d.body.getElementsByTagName('script')[0];
+					e.parentNode.insertBefore(s, e),
+						f = 'https:' == location.protocol;
+					s.src = (f ? 'https' : 'http') + '://' + (f ? 'fm.ipinyou.com' : 'fm.p0y.cn') + '/j/adv.js';
+				}(document);
+			</script>
+			<noscript>&lt;img src="//stats.ipinyou.com/adv.gif?a=Qws..wq6b3kLKcogvLsNjmWhqcX&amp;e=" style="display:none;"/&gt;</noscript> </div>
+>>>>>>> master
 		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
 		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="http://res.531314.com/js/perfect-scrollbar.min.js"></script>

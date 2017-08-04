@@ -716,6 +716,36 @@
 	</p>
 	Copyright 2015</a> 闽ICP备12008006号-1<br/>
 	
+<<<<<<< HEAD
+=======
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?88de49926eae5852d298d5a5fbba3dda";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script type="text/javascript">
+		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cspan id='cnzz_stat_icon_5477377'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D5477377' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		var _py = _py || [];
+		_py.push(['a', 'Qws..wq6b3kLKcogvLsNjmWhqcX']);
+		_py.push(['domain', 'stats.ipinyou.com']);
+		_py.push(['e', '']); -
+		function(d) {
+			var s = d.createElement('script'),
+				e = d.body.getElementsByTagName('script')[0];
+			e.parentNode.insertBefore(s, e),
+				f = 'https:' == location.protocol;
+			s.src = (f ? 'https' : 'http') + '://' + (f ? 'fm.ipinyou.com' : 'fm.p0y.cn') + '/j/adv.js';
+		}(document);
+	</script>
+	<noscript><img src="//stats.ipinyou.com/adv.gif?a=Qws..wq6b3kLKcogvLsNjmWhqcX&e=" style="display:none;"/></noscript> 
+>>>>>>> master
 </div>
 		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
 		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
