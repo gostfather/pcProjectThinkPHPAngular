@@ -19,6 +19,9 @@ class IndexAction extends Action {
     		$this->display("index");
 		}
 	}
+	public function valentine(){
+		$this -> display("valentine");
+	}
 	//用户登录
 	public function loginUser(){
 		$Index = D("Index");
