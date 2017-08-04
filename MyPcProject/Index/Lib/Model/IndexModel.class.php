@@ -2,7 +2,7 @@
 	class IndexModel extends Model {
 		public function checkUpUser($data){
 			//检查用户是否存在
-			$user = M("users");
+			$user = M("Users");
 			$res = $user -> where("username='".$data["username"]."'") -> find();
 			if($res){
 				$return["info"] = "用户名已经存在";
@@ -27,7 +27,7 @@
 		
 		public function loginUser($data){
 			//检查能否登录
-			$user = M("users");
+			$user = M("Users");
 			$data["pwd"] = md5((int)$data["pwd"]);
 			$res = $user -> where($data) -> find();
 			if($res){

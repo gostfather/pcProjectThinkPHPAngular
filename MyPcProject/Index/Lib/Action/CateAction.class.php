@@ -11,7 +11,11 @@
 	
 	
 	
-	
+	public function getList(){
+		$Cate = D("Cate");
+		$res = $Cate -> getList();
+		$this -> ajaxReturn($res);
+	}
 	
 }
 ?>
