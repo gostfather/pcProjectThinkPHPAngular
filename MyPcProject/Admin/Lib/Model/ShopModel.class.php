@@ -1,6 +1,6 @@
 <?php
 	class ShopModel extends Model {
-		function upload($data){
+		public function upload($data){
 			
 			$images = M("images");
 			$data["addtime"] = time();
@@ -15,7 +15,20 @@
 			return($info);
 			
 		}
-
+		
+		public function simpleList(){
+			$images = M("images");
+			$res = $images -> order("addtime DESC") -> select();
+			if($res){
+				$return["status"] = 1 ;
+				$return["info"] = "查询成功";
+				$return["res"]=$res;
+			}else{
+				$return["status"] = 2 ;
+				$return["info"] = "系统错误";
+			}
+			return $return;
+		}
 	
 	
 	
