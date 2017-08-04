@@ -1,4 +1,4 @@
-<html lang="zh">
+<?php if (!defined('THINK_PATH')) exit();?><html lang="zh">
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

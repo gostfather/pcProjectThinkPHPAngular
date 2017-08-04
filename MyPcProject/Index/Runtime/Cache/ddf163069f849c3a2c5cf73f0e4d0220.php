@@ -1,5 +1,16 @@
-
+<?php if (!defined('THINK_PATH')) exit();?>
 <script type="text/javascript" src="http://www.531314.com/resource/js/home_index.js" charset="utf-8"></script>		
+<script type="text/javascript">
+	var uid = window.location.href.split("#V3");
+	var fragment = uid[1];
+	if(fragment) {
+		if(fragment.indexOf("V3") == 0) {
+			document.cookie = 'uid=0';
+		} else {
+			document.cookie = 'uid=' + uid[1];
+		}
+	}
+</script>
 <div class="home-focus-layout">
 	<ul id="fullScreenSlides" class="full-screen-slides">
 		<li style="background:  url('__ROOT__/Index/Common/images/editor/web-101-101-3.jpg?180') no-repeat center top">
@@ -11,7 +22,10 @@
 		<li style="background:  url('__ROOT__/Index/Common/images/editor/web-101-101-1.jpg?806') no-repeat center top">
 			<a href="http://www.531314.com/item-100942.html" target="_blank" title="">&nbsp;</a>
 		</li>
-	</ul>	
+	</ul>
+	<script type="text/javascript">
+		update_screen_focus();
+	</script>
 	<div class="right-sidebar">
 		<div class="policy">
 			<ul>

@@ -1,11 +1,14 @@
-<div class="home-sale-layout wrapper">
+<?php if (!defined('THINK_PATH')) exit();?><div class="home-sale-layout wrapper">
 	<div class="left-layout">
 		<ul class="tabs-nav">
 			<li class="tabs-selected"><i class="arrow"></i>
 				<h3>新品推荐</h3></li>
 		</ul>
 		<div class="tabs-panel sale-goods-list ">
-			<ul>			
+			<ul>
+
+
+			
 				<li>
 					<dl>
 						<dt class="goods-name">

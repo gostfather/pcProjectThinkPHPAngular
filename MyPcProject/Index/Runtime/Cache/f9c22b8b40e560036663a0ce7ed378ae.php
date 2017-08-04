@@ -1,52 +1,37 @@
-<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<?php if (!defined('THINK_PATH')) exit();?><!-- design lj 652 -->
+<!doctype html>
 <html lang="zh">
+
 	<head>
-		<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
-		<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
-		<link href="__ROOT__/Index/Common/css/home_login.css" rel="stylesheet" type="text/css">
-		<link href="__ROOT__/Index/Common/css/home_goods.css" rel="stylesheet" type="text/css">
-		<link href="__ROOT__/Index/Common/css/index.css" rel="stylesheet" type="text/css">
-		<link href="__ROOT__/Index/Common/css/layui.css" rel="stylesheet" type="text/css">
-		<script src="http://res.531314.com/js/jquery.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>【春舞枝】基地直销 33白+紫玫瑰16枝+8枝子洋桔梗 - 春舞枝</title>
-		<meta name="keywords" content="春舞枝," />
-		<meta name="description" content="春舞枝," />
+		<title>myproject</title>
+		<meta name="keywords" content="春舞枝,鲜花,鲜花网,鲜花速递,网上订花送花,鲜花礼品,网上订花,送花网站" />
+		<meta name="description" content="春舞枝鲜花网-中国鲜花礼品网领先品牌,专注鲜花速递服务,销量居鲜花礼品网站前茅！春舞枝鲜花网可24小时预订鲜花，同城送花、异地送花服务,网上订花后最快3小时即可将鲜花速递上门,送花网站覆盖中国2800多个县级以上城市！" />
 		<meta property="qc:admins" content="23572640266531314636" />
 		<meta property="wb:webmaster" content="9d474898800c1e71" />
 		<style type="text/css">
 			body {
 				_behavior: url(http://www.531314.com/templates/new/css/csshover.htc);
 			}
-			.icon-home{
-				display: inline-block;
-				height: 20px;
-				width: 13px;
-				background-image: url(__ROOT__/Index/Common/images/icon/home.png);
-				background-size: 100%;
-				background-repeat: no-repeat;
-				background-position: center bottom;
-			}
-			.icon-shopping-cart{
-				display: inline-block;
-				height: 18px;
-				width: 16px;
-				background-image: url(__ROOT__/Index/Common/images/icon/shoppingCart.png);
-				background-size: 100%;
-				background-repeat: no-repeat;
-				background-position: center bottom;
-			}
 		</style>
-		<style>
-			.ncs-goods-picture .levelB,.ncs-goods-picture .levelC{
-				cursor:url(http://www.531314.com/templates/new/images/shop/zoom.cur),pointer;
-			}
-			.ncs-goods-picture .levelD{
-				cursor:url(http://www.531314.com/templates/new/images/shop/hand.cur),move\9;
-			}
-		</style>
+		<link rel="shortcut icon" href="http://531314.com/favicon.ico" />
+		<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/home_login.css" rel="stylesheet" type="text/css">
+		<link href="http://www.531314.com/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" />	
+		
+		<script src="http://res.531314.com/js/jquery.js"></script>
+		
 	</head>
+
 	<body>
+		<link href="__ROOT__/Index/Common/css/index.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="http://res.531314.com/js/jquery.cookie.js"></script>
+		<link href="http://res.531314.com/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="http://res.531314.com/js/perfect-scrollbar.min.js"></script>
+		<script type="text/javascript" src="http://res.531314.com/js/qtip/jquery.qtip.min.js"></script>
+		<link href="http://res.531314.com/js/qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css">
+
 		<script type="text/javascript">
 	var PRICE_FORMAT = '&yen;%s';
 	$(function() {
@@ -491,464 +476,344 @@
 </style>-->
 <!--<div class="clear"></div>-->
 
-		<div class="nch-breadcrumb-layout">
-			<div class="nch-breadcrumb wrapper">
-				<i class="icon-home"></i>
-				<span><a href="__APP__/Index/index">首页</a></span>
-				<span class="arrow">></span>
-				<span><a href="__APP__/Index/index">所有分类</a></span>
-				<span class="arrow">></span>
-				<span><a href="__APP__/Index/index">鲜花速递</a></span>
-				<span class="arrow">></span>
-				<span><a href="__APP__/Index/index">鲜花束</a></span>
-				<span class="arrow">></span>
-				<span>【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送 此款鲜花需提前1-3天预订哦</span>
+		
+<script type="text/javascript" src="http://www.531314.com/resource/js/home_index.js" charset="utf-8"></script>		
+<div class="home-focus-layout">
+	<ul id="fullScreenSlides" class="full-screen-slides">
+		<li style="background:  url('__ROOT__/Index/Common/images/editor/web-101-101-3.jpg?180') no-repeat center top">
+			<a href="http://www.531314.com/shop/index.php?act=zt&amp;op=valentine" target="_blank" title="">&nbsp;</a>
+		</li>
+		<li style="background: #ffffff url('__ROOT__/Index/Common/images/editor/web-101-101-2.jpg?163') no-repeat center top">
+			<a href="http://www.531314.com/shop/cate-1074-0-0-0-0-0-0-0-0.html" target="_blank" title="">&nbsp;</a>
+		</li>
+		<li style="background:  url('__ROOT__/Index/Common/images/editor/web-101-101-1.jpg?806') no-repeat center top">
+			<a href="http://www.531314.com/item-100942.html" target="_blank" title="">&nbsp;</a>
+		</li>
+	</ul>	
+	<div class="right-sidebar">
+		<div class="policy">
+			<ul>
+				<li class="b1">特色服务</li>
+				<li class="b2">方便快捷</li>
+				<li class="b3">价位优惠</li>
+				<li class="b4">机构认证</li>
+				<li class="b5">万千口碑</li>
+				<li class="b6">诚信服务</li>
+			</ul>
+		</div>
+		<div class="proclamation">
+			<ul class="tabs-nav">
+				<li class="tabs-selected">
+					<h3>商城公告</h3>
+				</li>
+			</ul>
+			<div class="tabs-panel">
+				<ul class="mall-news">
+					<li><i></i>
+						<a target="_blank" href="http://www.531314.com/article-102.html" title="花草发黄的11个重大原因！ 喜欢养花的必看！">花草发黄的11个重大原因！ </a>
+						<time>(2016-03-31)</time>
+					</li>
+					<li><i></i>
+						<a target="_blank" href="http://www.531314.com/article-101.html" title="小家庭，小惊喜">小家庭，小惊喜 </a>
+						<time>(2016-03-31)</time>
+					</li>
+					<li><i></i>
+						<a target="_blank" href="http://www.531314.com/article-100.html" title="送花的讲究！">送花的讲究！ </a>
+						<time>(2016-03-31)</time>
+					</li>
+					<li><i></i>
+						<a target="_blank" href="http://www.531314.com/article-99.html" title="关于郁金香的小常识（二）">关于郁金香的小常识（二） </a>
+						<time>(2016-03-30)</time>
+					</li>
+					<li><i></i>
+						<a target="_blank" href="http://www.531314.com/article-98.html" title="关于郁金香的小常识（一）">关于郁金香的小常识（一） </a>
+						<time>(2016-03-30)</time>
+					</li>
+				</ul>
 			</div>
 		</div>
+	</div>
+</div>
+		<div class="home-sale-layout wrapper">
+	<div class="left-layout">
+		<ul class="tabs-nav">
+			<li class="tabs-selected"><i class="arrow"></i>
+				<h3>新品推荐</h3></li>
+		</ul>
+		<div class="tabs-panel sale-goods-list ">
+			<ul>			
+				<li>
+					<dl>
+						<dt class="goods-name">
+							<a target="_blank" href="http://www.531314.com/item-100836.html" title="【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送  此款鲜花需提前1-3天预订哦">
+								【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送 此款鲜花需提前1-3天预订哦
+							</a>
+						</dt>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100836.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05075525382032819_240.jpg" alt="【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送  此款鲜花需提前1-3天预订哦" />
+							</a>
+						</dd>
+						<dd class="goods-price">
+							商城价：<em>￥356.00</em>
+						</dd>
+					</dl>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="wrapper">
+	<div class="mt10">
+		<div class="mt10">
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="wrapper">
+	<div class="mt10">
+		<div class="mt10"></div>
+	</div>
+</div>
+<div class="clear"></div>
+		<div class="home-standard-layout wrapper style-diy1">
+	<div class="title">
+		<div class="pic-type">
+			<img src="__ROOT__/Index/Common/images/index/floor1Top.jpg" />
+		</div>
+	</div>
+	<div class="left-sidebar">
+		<div class="left-ads">
+			<a href="#" title="" target="_blank">
+				<img src="__ROOT__/Index/Common/images/index/floor1Left.jpg" alt="">
+			</a>
+		</div>
+		<div class="recommend-classes">
+			<ul>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="玫瑰" target="_blank">玫瑰</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="百合" target="_blank">百合</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="康乃馨" target="_blank">康乃馨</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="其它" target="_blank">其它</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="情人节" target="_blank">情人节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="母亲节" target="_blank">母亲节</a>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+	<div class="middle-layout">
+		<div class="tabs-panel middle-goods-list ">
+			<ul>
 
-		<div id="content" class="wrapper pr">
-			<div class="ncs-detail">
-				<div class="ncs-goods-picture image_zoom" id="ncs-goods-picture">
-					<div class="gallery_wrap" style="height: 360px; width: 360px; position: relative; overflow: hidden;">
-						<div class="gallery levelB" style="position: absolute; overflow: hidden; opacity: 1; height: 320px; width: 320px; left: 20px; top: 20px;">
-							<img style="height: 320px; width: 320px;" src="" alt=""/>
-						</div>
-						<div class="gallery gallery_mask" style="position: absolute; overflow: hidden; opacity: 1; height: 320px; width: 320px; left: 20px; top: 20px; display: none;">
-							<img style="height: 320px; width: 320px;" src="" alt=""/>
-						</div>
-					</div>
-					<div class="controller_wrap">
-						<div class="controller">
-							<ul>
-								<li>
-									<a href="">
-										<img src="" alt="" height="60" width="60">
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<img src="" alt="" height="60" width="60">
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<img src="" alt="" height="60" width="60">
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<img src="" alt="" height="60" width="60">
-									</a>
-								</li>
-								<li>
-									<a href="" class="current">
-										<img src="" alt="" height="60" width="60">
-									</a>
-								</li>
-							</ul>
-						</div>
-						<a href="" class="prev">
-							<span><<</span>
-						</a>
-						<a href="" class="next">
-							<span><<</span>
-						</a>
-					</div>
-					<div class="close_wrap">
-						<a href="" class="close" style="display: none;">x</a>
-					</div>
-				</div>
+			
+				<li>
+					<dl>
+						<dt class="goods-name">
+							<a target="_blank" href="http://www.531314.com/item-100814.html" title="【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物">
+								【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物
+							</a>
+						</dt>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100814.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05073987921400349_240.jpg" alt="【春舞枝】鲜花速递创意礼品21枝混搭玫瑰情人节花束生日礼物" />
+							</a>
+						</dd>
+						<dd class="goods-price">
+							<em>￥238.00</em>
+							<span class="original">￥348.00</span>
+						</dd>
+					</dl>
+				</li>
 
-				<div class="ncs-goods-summary">
-					<div class="name">
-						<h1>【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送 此款鲜花需提前1-3天预订哦</h1>
-						<strong></strong>
-					</div>
-					<div class="ncs-meta">
-						<div class="rate">
-							<a href="">商品评分</a>
-							<div class="raty" title="很满意" style="width: 100px;">
-								<img src="__ROOT__/Index/Common/images/icon/start.png" alt="1" title="很满意">
-								<img src="__ROOT__/Index/Common/images/icon/start.png" alt="2" title="很满意">
-								<img src="__ROOT__/Index/Common/images/icon/start.png" alt="3" title="很满意">
-								<img src="__ROOT__/Index/Common/images/icon/start.png" alt="4" title="很满意">
-								<img src="__ROOT__/Index/Common/images/icon/start.png" alt="5" title="很满意">
-							</div>
-						</div>
-						<dl>
-							<dt>市 场 价：</dt>
-							<dd class="cost-price">
-								<strong>¥508.00</strong>
-							</dd>
-						</dl>
-						<dl>
-							<dt>商 城 价：</dt>
-							<dd class="price">
-								<strong>¥356.00</strong>
-							</dd>
-						</dl>
-					</div>
-					<div class="ncs-plus">
-						<dl class="ncs-freight">
-							<dt>至 全国：</dt>
-							<dd id="transport_price">
-								<span id="nc_kd">卖家承担运费</span>
-							</dd>
-							<dd style="color:red;display:none" id="loading_price">loading.....</dd>
-						</dl>
-					</div>
-					<div class="ncs-key">
-						<dl>
-							<dt>购买数量：</dt>
-							<dd class="ncs-figure-input">
-								<input type="text" name="" id="quantity" value="1" size="3" maxlength="6" class="text w30">
-								<a class="increase">+</a>
-								<a class="decrease">-</a>
-								<span>当前库存<em nctype="goods_stock">1369</em></span>
-							</dd>
-						</dl>
-					</div>
-					<div class="ncs-btn">
-						<div nctype="goods_prompt" class="ncs-point"></div>
-						<div class="clear"></div>
-						<a nctype="buynow_submit" class="buynow" title="立即购买">立即购买</a>
-	 					<a nctype="addcart_submit" class="addcart" title="添加购物车">
-	 						<!-- <i class="icon-shopping-cart"></i> -->
-	 						添加购物车
-	 					</a>
-	 					<div class="ncs-cart-popup">
-	 						<dl>
-	 							<dt>
-	 								成功添加到购物车
-	 								<a href="" title="关闭" onclick="">x</a>
-	 							</dt>
-	 							<dd>购物车共有<strong id="bold_num"></strong>种商品，总金额为：<em id="bold_mly" class="saleP"></em></dd>
-	 							<dd class="btns">
-	 								<a href="" class="ncs-btn-mini ncs-btn-green" onclick="">查看购物车</a>
-	 								<a href="" class="ncs-btn-mini" onclick="">继续购物</a>
-	 							</dd>
-	 						</dl>
-	 					</div>
-					</div>
+				
+			</ul>
+		</div>
+	</div>
+	<div class="right-sidebar">
+		<div class="right-side-focus">
+			<ul>
+				<li>
+					<a href="http://www.531314.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=100863" title="" target="_blank">
+						<img src="__ROOT__/Index/Common/images/index/floor1Right.jpg" alt="" /></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+		<div class="home-standard-layout wrapper style-diy2">
+	<div class="title">
+		<div class="pic-type"><img src="__ROOT__/Index/Common/images/index/floor2Top.jpg" /></div>
+	</div>
+	<div class="left-sidebar">
+		<div class="left-ads">
+			<a href="#" title="" target="_blank">
+				<img src="__ROOT__/Index/Common/images/index/floor2Left.jpg" alt="">
+			</a>
+		</div>
+		<div class="recommend-classes">
+			<ul>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="鲜花束" target="_blank">鲜花束</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="盒装鲜花" target="_blank">盒装鲜花</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="多肉植物" target="_blank">多肉植物</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="绿植盆栽" target="_blank">绿植盆栽</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="纪念" target="_blank">纪念</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="探视" target="_blank">探视</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="生日" target="_blank">生日</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="祝福" target="_blank">祝福</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="求婚" target="_blank">求婚</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="情人节" target="_blank">情人节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="教师节" target="_blank">教师节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="母亲节" target="_blank">母亲节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="父亲节" target="_blank">父亲节</a>
+				</li>
+				<li>
+					<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="圣诞节" target="_blank">圣诞节</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="middle-layout">
+		<div class="tabs-panel middle-goods-list ">
+			<ul>
+				<li>
+					<dl>
+						<dt class="goods-name">
+							<a target="_blank" href="http://www.531314.com/item-100829.html" title="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花">
+								【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花
+							</a>
+						</dt>
+						<dd class="goods-thumb">
+							<a target="_blank" href="http://www.531314.com/item-100829.html">
+								<img src="http://img.531314.com/shop/store/goods/1/1_05074003616714448_240.jpg" alt="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花" />
+							</a>
+						</dd>
+						<dd class="goods-price">
+							<em>￥178.00</em>
+							<span class="original">￥258.00</span>
+						</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="right-sidebar">
+
+		<div class="right-side-focus">
+			<ul>
+				<li>
+					<a href="http://www.531314.com/shop/index.php?act=goods&amp;op=index&amp;goods_id=100870" title="" target="_blank">
+						<img src="__ROOT__/Index/Common/images/index/floor2Right.jpg" alt="" /></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+				<div class="home-standard-layout wrapper style-diy3">
+			<div class="title">
+				<div class="pic-type"><img src="__ROOT__/Index/Common/images/index/floor3Top.jpg" /></div>
+			</div>
+			<div class="left-sidebar">
+				<div class="left-ads">
+					<a href="#" title="" target="_blank">
+						<img src="__ROOT__/Index/Common/images/index/floor3Left.jpg" alt="">
+					</a>
 				</div>
-				<!-- 右侧 -->
-				<div style=" position: absolute; z-index: 1; top: -1px; right: -1px;">
-					<div class="ncs-info">
-						<div class="title">
-							<h4>春舞枝旗舰店</h4>
-						</div>
-						<div class="content">
-							<dl class="all-rate">
-								<dt>综合评分：</dt>
-							
-								<dd>
-									<div class="rating">
-										<span style="width: 100%"></span>
-									</div>
-									<em>5</em>分
+				<div class="recommend-classes">
+					<ul>
+						<li>
+							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="鲜花束" target="_blank">鲜花束</a>
+						</li>
+						<li>
+							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="盒装鲜花" target="_blank">盒装鲜花</a>
+						</li>
+						<li>
+							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="多肉植物" target="_blank">多肉植物</a>
+						</li>
+						<li>
+							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="绿植盆栽" target="_blank">绿植盆栽</a>
+						</li>
+						<li>
+							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="情人节" target="_blank">情人节</a>
+						</li>
+						<li>
+							<a href="http://www.531314.com/cate-0-0-0-0-0-0-0-0-0.html" title="教师节" target="_blank">教师节</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="middle-layout">
+				<div class="tabs-panel middle-goods-list ">
+					<ul>
+						<li>
+							<dl>
+								<dt class="goods-name">
+									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100819-stc_id-.html" title="【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花">
+										【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花
+									</a>
+								</dt>
+								<dd class="goods-thumb">
+									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100819-stc_id-.html">
+										<img src="http://img.531314.com/shop/store/goods/1/1_05073992610931992_240.jpg" alt="【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花" />
+									</a>
+								</dd>
+								<dd class="goods-price">
+									<em>￥178.00</em>
+									<span class="original">￥258.00</span>
 								</dd>
 							</dl>
-							<div class="ncs-detail-rate">
-								<h5>
-									<strong>店铺动态评分</strong>与行业相比
-								</h5>
-								<ul>
-									<li>描述相符
-										<span class="credit">4.9 分</span>
-										<span><i></i><em></em></span>
-									</li>
-									<li>服务态度
-										<span class="credit">4.9 分</span>
-										<span><i></i><em></em></span>
-									</li>
-									<li>发货速度
-										<span class="credit">4.9 分</span>
-										<span><i></i><em></em></span>
-									</li>
-								</ul>
-							</div>
-							<dl class="no-border">
-								<dt>店铺名称：</dt>
-								<dd>春舞枝旗舰店</dd>
-							</dl>	
-							<dl>
-								<dt>店铺地址：</dt>
-								<dd>福建省 三明市 清流县</dd>
-							</dl>
-							<div class="goto">
-								<a href="">进入商家店铺</a>
-								<a href="">收藏店铺<em nctype="store_collect">26</em></a>
-							</div>
-						</div>												
-					</div>
-				</div>
-				<div class="clear"></div>
-			</div>
+						</li>
 
-			<div class="ncs-goods-layout expanded">
-				<div class="ncs-goods-main" id="main-nav-holder">
-					<div class="ncs-promotion" id="nc-bundling" style="display:none;"></div>
-					<div class="tabbar pngFix" id="main-nav">
-						<div class="ncs-goods-title-nav">
-							<ul id="categorymenu">
-								<li class="current">
-									<a href="" id="tabGoodsIntro">商品详情</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="ncs-intro">
-						<div class="content bd" id="ncGoodsIntro">
-							<ul class="nc-goods-sort">
-								<li>商家货号：W1T506A040031838</li>
-								<li>品牌：春舞枝</li>
-								<li>颜色：不限</li>
-							</ul>
-							<div class="ncs-goods-info-content">
-								<div class="top-template">
-									<img src="">
-									<img src="">	
-								</div>
-								<div class="default">
-									<p><br/></p>
-									<img src="">
-									<img src="">
-									<img src="">
-									<img src="">
-									<img src="">
-									<img src="">
-									<img src="">
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- 商品评价 -->
-					<div class="ncs-comment">
-						<div class="ncs-goods-title-bar hd">
-							<h4>
-								<a href="">商品评价</a>
-							</h4>
-						</div>
-						<div class="ncs-goods-info-content bd" id="ncGoodsRate">
-							<div class="top">
-								<div class="rate">
-									<p>
-										<strong>100</strong>
-										<sub>%</sub>
-										<span>好评</span>
-									</p>
-									<span>共有1人参与评分</span>
-								</div>
-								<div class="percent">
-									<dl>
-										<dt>好评
-											<em>(100)%</em>
-										</dt>
-										<dd>
-											<i style="width:100%;"></i>
-										</dd>
-									</dl>
-									<dl>
-										<dt>中评
-											<em>(0)%</em>
-										</dt>
-										<dd>
-											<i style="width:0%;"></i>
-										</dd>
-									</dl>
-									<dl>
-										<dt>差评
-											<em>(0)%</em>
-										</dt>
-										<dd>
-											<i style="width:0%;"></i>
-										</dd>
-									</dl>
-								</div>
-								<div class="btns">
-									<span>您可对已购商品进行评价</span>	
-									<p>
-										<a href="" class="ncs-btn ncs-btn-red" target="_blank">评价商品</a>
-									</p>
-								</div>
-							</div>
-							<div class="ncs-goods-title-nav">
-								<ul id="comment_tab">
-									<li class="current">商品评价（<span>1</span>）</li>
-									<li>好价（<span>1</span>）</li>
-									<li>中价（<span>0</span>）</li>
-									<li>差价（<span>0</span>）</li>
-								</ul>
-							</div>
-							<div id="goodseval" class="ncs-commend-main">
-								<div id="t" class="ncs-commend-floor">
-									<div class="user-avatar">
-										<a href="" target="_blank" nctype="mcard">
-											<img src="">
-										</a>
-									</div>
-									<dl class="detail">
-										<dt>
-											<span class="user-name">
-												<a href="" target="_blank" nctype="mcard">梦妞妞</a>
-											</span>
-											<time pubdate="pubdate">[2017-06-06]</time>
-										</dt>
-										<dd>用户评分：
-											<span class="raty" style="width: 100px;" title="很满意">
-												<img src="__ROOT__/Index/Common/images/icon/start.png" alt="1" title="很满意">
-												<img src="__ROOT__/Index/Common/images/icon/start.png" alt="2" title="很满意">
-												<img src="__ROOT__/Index/Common/images/icon/start.png" alt="3" title="很满意">
-												<img src="__ROOT__/Index/Common/images/icon/start.png" alt="4" title="很满意">
-												<img src="__ROOT__/Index/Common/images/icon/start.png" alt="5" title="很满意">
-											</span>
-										</dd>
-										<dd class="content">
-											评价详情：
-											<span>很不错哦</span>
-										</dd>
-									</dl>
-								</div>
-								<div class="tr pr5 pb5 pr">
-									<a href="" class="more-commend">查看全部>></a>
-									<div class="pagination">
-										<ul>
-											<li>
-												<span>首页</span>
-											</li>
-											<li>
-												<span>上一页</span>
-											</li>
-											<li>
-												<span>1</span>
-											</li>
-											<li>
-												<span>下一页</span>
-											</li>
-											<li>
-												<span>末页</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- 销售记录 -->
-					<div class="ncg-salelog">
-						<div class="ncs-goods-title-bar hd">
-							<h4>
-								<a href="">销售记录</a>
-							</h4>
-						</div>
-						<div class="ncs-goods-info-content bd" id="ncGoodsTraded">
-							<div class="top">
-								<div class="price">
-									商 城 价
-									<strong>356.00</strong>
-									<span>购买的价格不同可能是由于店铺往期促销活动引起的，详情可以咨询卖家</span>
-								</div>
-							</div>
-							<div id="salelog_demo" class="ncs-loading">
-								<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mt10">
-									<thead>
-										<tr>
-											<th class="w200">买家1</th>
-											<th class="w100">购买价</th>
-											<th>购买数量</th>
-											<th class="w200">购买时间</th>
-										</tr>
-									</thead>
-									<tbody>
-										<td>
-											<span>用户名</span>
-										</td>
-										<td>
-											<em class="price">¥356.00</em>
-										</td>
-										<td>
-											<span>1</span>
-										</td>
-										<td>
-											<span>2017-08-03 17:26:03</span>
-										</td>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td colspan="10" class="tr">
-												<div class="pagination">
-													<ul>
-														<li>
-															<span>首页</span>
-														</li>
-														<li>
-															<span>上一页</span>
-														</li>
-														<li>
-															<span>1</span>
-														</li>
-														<li>
-															<span>下一页</span>
-														</li>
-														<li>
-															<span>末页</span>
-														</li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
-						</div>
-					</div>
-					<div class="ncs-consult">
-						<div class="ncs-goods-title-bar hd">
-							<h4>
-								<a>购买咨询</a>
-							</h4>
-						</div>
-						<div class="ncs-goods-info-content bd" id="ncGuestbook">
-							<div id="consulting_demo" class="ncs-loading">
-								<div class="top" style="overflow: hidden;">
-									<div class="ncs-cosult-tips">
-										<i></i>
-										<p>客服给到的回复仅对提问者3天内有效，其他网友仅供参考！给您带来的不变还请谅解，谢谢！</p>
-									</div>
-									<div class="ncs-cosult-askbtn">
-										<a href="" target="_blank" class="ncs-btn ncs-btn-red">我要提问</a>
-									</div>
-								</div>
-								<div class="ncs-goods-title-nav">
-									<ul id="consulting_tab">
-										<li class="current">
-											<a href="">全部</a>
-										</li>
-										<li>
-											<a href="">商品咨询</a>
-										</li>
-										<li>
-											<a href="">支付问题</a>
-										</li>
-										<li>
-											<a href="">发票及保修</a>
-										</li>
-										<li>
-											<a href="">促销及赠品</a>
-										</li>
-									</ul>
-								</div>
-								<div class="ncs-cosult-main">
-									<div class="ncs-norecord">还没有咨询内容</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- 推荐商品 -->
-					
+					</ul>
 				</div>
 			</div>
-			
+			<div class="right-sidebar">
+
+				<div class="right-side-focus">
+					<ul>
+						<li>
+							<a href="http://www.531314.com/shop/index.php?act=search&amp;op=index&amp;keyword=&amp;cate_id=1074&amp;stc_id=28" title="" target="_blank">
+								<img src="__ROOT__/Index/Common/images/index/floor3Right.jpg" alt="" /></a>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<div class="wrapper">
 	<div class="mt10"></div>
@@ -1069,7 +934,7 @@
 						<span class="ic mail">it@531314.com</span>
 						<div class="attention cleafix">
 							<div class="weixin f-l">
-								<img src="http://img.531314.com/shop/common/05003950598347095.jpg" class="f-l jImg img-error">
+								<img src="__ROOT__/Index/Common/images/05003950598347095.jpg" class="f-l jImg img-error">
 								<p class="f-l">
 									<span>扫一扫</span>
 									<span>关注我们</span>

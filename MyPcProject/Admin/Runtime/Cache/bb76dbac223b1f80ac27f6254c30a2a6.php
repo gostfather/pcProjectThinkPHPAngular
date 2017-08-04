@@ -8,7 +8,7 @@
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	</head>
 	<body>
-		<div ng-app="myapp" ng-controller="mycontroller" id="main">
+		<div id="main">
 			<div class="header">
 				<h1>后台管理</h1>
 			</div>
@@ -46,13 +46,17 @@
 			    </div>
 			
 
-		        <table>
+		        <table ng-app="app" ng-controller="myCon">
 		            <tr >
 		                <td style="width:55px">编号</td>
-		                <td style="width:100px;">ID</td>
+		                <td style="width:100px;">分类ID</td>
 		                <td >标题</td>
-		                <td >图片链接</td>
+		                <td >简介</td>
+		                <td >颜色</td>
 		                <td >URL</td>
+		                <td >市场价</td>
+		                <td >商店价</td>
+		                <td >库存</td>
 		                <td style="width:70px;">时间</td>
 		                <td style="width:70px;">操作</td>
 		            </tr>
@@ -70,7 +74,30 @@
 		       </table>
 			</div>
 		</div>
-		
+	<script src="__ROOT__/Admin/Common/js/angular.min.js"></script>	
+	<script type="text/javascript">
+		var app = angular.module("app",[]);
+	app.controller("myCon",function ($scope,$http) {
+		$scope.data = [];
+<<<<<<< HEAD
+		$scope.err = "";
+		$http.get("__APP__/Shop/simpleList").success(function(data){
+//			console.log(data);
+			if(data.status ===1 ){
+				$scope.data = data.res;
+			}else{
+				$scope.err = "系统错误暂时找不到信息" ;
+			}
+=======
+		$http.get("__APP__/Shop/simpleList").success(function(data){
+			console.log(data);
+>>>>>>> master
+		}).error(function(data){
+			console.log(data);
+		})
+    });
+	</script>
+
 	<script type="text/javascript">
 		var fd = new FormData();
 		function sub(){

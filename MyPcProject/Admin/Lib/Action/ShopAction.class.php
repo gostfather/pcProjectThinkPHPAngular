@@ -78,5 +78,11 @@ class ShopAction extends Action {
 	}
 
 
-
+	//显示简单列表
+	public function simpleList(){
+		$Index = D("Shop");
+		$res = $Index -> simpleList();
+		$this -> ajaxReturn($res);
+		
+	}
 }
