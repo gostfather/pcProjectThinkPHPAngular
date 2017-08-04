@@ -2310,6 +2310,7 @@ SQL: SELECT * FROM `admin_images` ORDER BY addtime DESC  [ RunTime:0.050577s ]
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ 2017-08-04T10:25:33+08:00 ] 0.0.0.0 /MyPcProject/MyPcProject/admin.php/Index/index
 INFO: [ route_check ] --START--
 INFO: CheckRoute Behavior ::run [ RunTime:0.000374s ]
@@ -4057,6 +4058,8 @@ SQL: SELECT * FROM `admin_images` ORDER BY addtime DESC  [ RunTime:0.038124s ]
 =======
 >>>>>>> master
 =======
+=======
+>>>>>>> master
 [ 2017-08-04T10:58:53+08:00 ] 127.0.0.1 /MyPcProject/admin.php/Shop/index
 INFO: [ route_check ] --START--
 INFO: CheckRoute Behavior ::run [ RunTime:0.000802s ]
@@ -5397,4 +5400,7 @@ SQL: SHOW COLUMNS FROM `admin_images` [ RunTime:0.030043s ]
 NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead D:\wamp64\www\MyPcProject\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
 SQL: SELECT * FROM `admin_images` ORDER BY addtime DESC  [ RunTime:0.034446s ]
 
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master

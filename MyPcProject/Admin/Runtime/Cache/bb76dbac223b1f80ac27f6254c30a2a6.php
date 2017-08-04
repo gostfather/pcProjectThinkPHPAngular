@@ -85,6 +85,9 @@
 		$scope.data = [];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 =======
 >>>>>>> master
 		$scope.err = "";
@@ -92,6 +95,7 @@
 //			console.log(data);
 			if(data.status ===1 ){
 				$scope.data = data.res;
+<<<<<<< HEAD
 <<<<<<< HEAD
 			}else{
 				$scope.err = "系统错误暂时找不到信息" ;
@@ -101,10 +105,15 @@
 			console.log(data);
 >>>>>>> master
 =======
+=======
+>>>>>>> master
 				console.log($scope.data)
 			}else{
 				$scope.err = "系统错误暂时找不到信息" ;
 			}
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 		}).error(function(data){
 			console.log(data);
