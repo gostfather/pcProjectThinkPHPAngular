@@ -442,6 +442,7 @@ body {
 	z-index: 1;
 	left: 0;
 	top: 230px;
+	transition: all .6s;
 }
 
 .squares .goods-pic-scroll-show {
