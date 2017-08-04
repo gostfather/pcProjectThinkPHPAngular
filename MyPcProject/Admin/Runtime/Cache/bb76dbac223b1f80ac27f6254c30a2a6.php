@@ -61,16 +61,20 @@
 		                <td style="width:70px;">操作</td>
 		            </tr>
 		           
-		               <!-- <tr ng-clok ng-repeat="(k,v) in list" style="text-align:center;height:26px;color:#4C4C4C;">
-		                    <td width="10px;">{{k+1}}</td>
-		                    <td>{{v.id}}</td>
-		                    <td>{{v.title}}</td>
-		                    <td>{{v.imgurl}}</td>
-		                    <td>{{v.newurl}}</td>
-		                    <td>{{v.addtime}}</td>
-		                    <td ng-click="del(v.id)"><span>删除</span></td>
-		                </tr>
-		          -->
+	                <tr ng-clok ng-repeat="(k,v) in data" >
+	                    <td width="10px;">{{k+1}}</td>
+	                    <td>{{v.classify}}</td>
+	                    <td>{{v.title}}</td>
+	                    <td>{{v.info}}</td>
+	                    <td>{{v.color}}</td>
+	                    <td>{{v.imgurl}}</td>
+	                    <td>{{v.marketPrice}}</td>
+	                    <td>{{v.StorePrice}}</td>
+	                    <td>{{v.stock}}</td>
+	                    <td>{{v.addtime}}</td>
+	                    <td ng-click="del(v.classify)"><span>删除</span></td>
+	                </tr>
+		          
 		       </table>
 			</div>
 		</div>
@@ -79,8 +83,15 @@
 		var app = angular.module("app",[]);
 	app.controller("myCon",function ($scope,$http) {
 		$scope.data = [];
+		$scope.err = "";
 		$http.get("__APP__/Shop/simpleList").success(function(data){
-			console.log(data);
+//			console.log(data);
+			if(data.status ===1 ){
+				$scope.data = data.res;
+				console.log($scope.data)
+			}else{
+				$scope.err = "系统错误暂时找不到信息" ;
+			}
 		}).error(function(data){
 			console.log(data);
 		})

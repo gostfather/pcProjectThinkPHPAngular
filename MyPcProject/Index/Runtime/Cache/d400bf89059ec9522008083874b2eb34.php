@@ -1,5 +1,5 @@
 <?php if (!defined('THINK_PATH')) exit();?><!doctype html>
-<html lang="zh">
+<html lang="zh" ng-app="app" ng-controller="myCon">
 	<head>
 		<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
 		<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
@@ -9,10 +9,10 @@
 		<link href="__ROOT__/Index/Common/css/layui.css" rel="stylesheet" type="text/css">
 		<script src="http://res.531314.com/js/jquery.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>【春舞枝】基地直销 33白+紫玫瑰16枝+8枝子洋桔梗 - 春舞枝</title>
+		
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
-
+<title ng-bind="data.title" >{{data.title}} - 春舞枝</title>
 		<style type="text/css">
 			body {
 				_behavior: url(http://www.531314.com/templates/new/css/csshover.htc);
@@ -45,7 +45,7 @@
 			}
 		</style>
 	</head>
-	<body ng-app="app" ng-controller="myCon">
+	<body >
 		
 <div class="public-top-layout w">
 	<div class="topbar wrapper">
@@ -356,7 +356,7 @@
 				<span class="arrow">></span>
 				<span><a href="__APP__/Index/index">鲜花束</a></span>
 				<span class="arrow">></span>
-				<span>【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送 此款鲜花需提前1-3天预订哦</span>
+				<span ng-clock >{{data.title}} 此款鲜花需提前1-3天预订哦</span>
 			</div>
 		</div>
 
@@ -365,38 +365,16 @@
 				<div class="ncs-goods-picture image_zoom" id="ncs-goods-picture">
 					<div class="gallery_wrap" style="height: 360px; width: 360px; position: relative; overflow: hidden;">
 						<div class="gallery levelB" style="position: absolute; overflow: hidden; opacity: 1; height: 320px; width: 320px; left: 20px; top: 20px;">
-							<img style="height: 320px; width: 320px;" src="" alt=""/>
+							<img style="height: 320px; width: 320px;" src="__ROOT__/{{data.imgurl[0]}}" alt="{{data.info}}"/>
 						</div>
-						<div class="gallery gallery_mask" style="position: absolute; overflow: hidden; opacity: 1; height: 320px; width: 320px; left: 20px; top: 20px; display: none;">
-							<img style="height: 320px; width: 320px;" src="" alt=""/>
-						</div>
+						
 					</div>
 					<div class="controller_wrap">
 						<div class="controller">
 							<ul>
-								<li>
-									<a href="">
-										<img src="" alt="" height="60" width="60">
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<img src="" alt="" height="60" width="60">
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<img src="" alt="" height="60" width="60">
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<img src="" alt="" height="60" width="60">
-									</a>
-								</li>
-								<li>
-									<a href="" class="current">
-										<img src="" alt="" height="60" width="60">
+								<li ng-repeat="(k,v) in data.imgurl">
+									<a href="" class="">
+										<img src="__ROOT__/{{v}}" alt="{{data.info}}" height="60" width="60">
 									</a>
 								</li>
 							</ul>
@@ -409,13 +387,13 @@
 						</a>
 					</div>
 					<div class="close_wrap">
-						<a href="" class="close" style="display: none;">x</a>
+						<a class="close" >x</a>
 					</div>
 				</div>
 
 				<div class="ncs-goods-summary">
 					<div class="name">
-						<h1>【春舞枝】鲜花速递 白玫瑰清新混搭白紫罗兰花束全国同城配送 此款鲜花需提前1-3天预订哦</h1>
+						<h1 ng-clock >{{data.title}} 此款鲜花需提前1-3天预订哦</h1>
 						<strong></strong>
 					</div>
 					<div class="ncs-meta">
@@ -432,13 +410,13 @@
 						<dl>
 							<dt>市 场 价：</dt>
 							<dd class="cost-price">
-								<strong>¥508.00</strong>
+								<strong ng-clock >¥{{data.marketPrice}}</strong>
 							</dd>
 						</dl>
 						<dl>
 							<dt>商 城 价：</dt>
 							<dd class="price">
-								<strong>¥356.00</strong>
+								<strong ng-clock >¥{{data.StorePrice}}</strong>
 							</dd>
 						</dl>
 					</div>
@@ -458,7 +436,7 @@
 								<input type="text" name="" id="quantity" value="1" size="3" maxlength="6" class="text w30">
 								<a class="increase">+</a>
 								<a class="decrease">-</a>
-								<span>当前库存<em nctype="goods_stock">1369</em></span>
+								<span>当前库存<em nctype="goods_stock">{{data.stock}}</em></span>
 							</dd>
 						</dl>
 					</div>
@@ -1007,20 +985,19 @@
 </div>
 		<script type="text/javascript">
 			var classify = <?php echo ($classify); ?>;
-			console.log(classify)
+//			console.log(classify)
 			var app = angular.module("app",[]);
 			app.controller("myCon",function ($scope,$http) {
-				$scope.data = [];
+				$scope.data = null;
 				$scope.err = "";
-				$http.get("__APP__/Cate/getList").success(function(data){
+				$http.get("__APP__/Item/getList?item="+classify).success(function(data){
 //					console.log(data);
 					if(data.status ===1 ){
 						$scope.data = data.info;
 //						console.log($scope.data)
 						setTimeout(function(){
-							asdf();
+							after();
 						},0);
-						//让节点循环完之后绑定jq事件
 					}else{
 						$scope.err = "系统错误暂时找不到信息" ;
 					}
@@ -1028,6 +1005,65 @@
 					console.log(data);
 				})
 		    });
+		    var img = $(".gallery_wrap").children("div:first-child");
+		    $(".gallery_wrap").on("click",levelB);
+		    function levelB(){
+		    	console.log(this);
+		    	img.attr("class","gallery levelC");
+		    	$(this).animate({
+		    		"height": "480px",
+		    		"width": "1198px",
+		    	},500,"linear");
+		    	//背景可视窗口
+		    	$(".ncs-goods-picture .close_wrap a").css("display","block");
+		    	//关闭按钮
+		    	img.animate({
+		    		"height": "450px",
+		    		"width": "450px",
+		    		"left": "374px",
+		    		"top": "15px",
+		    	},500,"linear");
+//		    	图片位置
+		    	img.children("img:first-child").animate({
+		    		"height": "450px",
+		    		"width": "450px",
+		    		"left": "374px",
+		    		"top": "15px",
+		    	},500,"linear");
+		    	//图片大小
+		    }
+		    $(".ncs-goods-picture .close_wrap a").on("click",function(){
+		    	$(this).css("display","none");
+		    	$(".gallery_wrap").animate({
+		    		"height": "360px",
+		    		"width": "360px",
+		    	},400,"linear");
+		    	
+		    	img.attr("class","gallery levelB");
+		    	img.animate({
+			    	"height": "320px",
+			    	"width": "320px",
+			    	"left": "20px",
+			    	"top": "20px",
+		    	},500,"linear");
+		    	img.children("img:first-child").animate({
+		    		"height": "320px",
+		    		"width": "320px",
+		    	},500,"linear");
+
+		    });
+
+		    function after(){
+		    var smallImgs = $(".controller ul li a");
+		    	smallImgs.eq(0).addClass("current");
+		    	smallImgs.hover(function(){
+		    		smallImgs.each(function(){
+		    			$(this).attr("class","");
+		    		});
+		    		$(this).attr("class","current");
+		    		$(".gallery_wrap").find("img")[0].src = $(this).children("img:first-child").attr("src")
+		    	});
+		    }
 		</script>
 	</body>
 </html>
