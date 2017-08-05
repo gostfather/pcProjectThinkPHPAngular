@@ -1907,7 +1907,26 @@ form label.validate_right {
 	position: relative;
 	z-index: 2;
 }
-
+/*
+ *	author : sjy 
+ * 
+ */
+.pagination .canHover span {
+	color: #005AA0;
+	background-color: #FFF;
+	position: relative;
+	z-index: 1;
+}
+.canHover:hover span{
+	color: #FFF;
+	text-decoration: none!important;
+	background-color: #434343;
+	border-color: #CA3300;
+	position: relative;
+	z-index: 9;
+	cursor: pointer;
+}
+/**/
 .sort-bar .pagination {
 	display: inline-block;
 	float: right;

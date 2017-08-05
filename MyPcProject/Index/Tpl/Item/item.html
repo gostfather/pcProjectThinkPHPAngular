@@ -12,7 +12,7 @@
 		
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
-<title ng-bind="data.title" >{{data.title}} - 春舞枝</title>
+<title ng-bind="data.title + ' 春舞枝'" ></title>
 		<style type="text/css">
 			body {
 				_behavior: url(http://www.531314.com/templates/new/css/csshover.htc);
@@ -547,8 +547,8 @@
 		    });
 		    var img = $(".gallery_wrap").children("div:first-child");
 		    $(".gallery_wrap").on("click",levelB);
+		    //点击父容器 里面的图片和容器同时变大
 		    function levelB(){
-		    	console.log(this);
 		    	img.attr("class","gallery levelC");
 		    	$(this).animate({
 		    		"height": "480px",
@@ -570,8 +570,71 @@
 		    		"left": "374px",
 		    		"top": "15px",
 		    	},500,"linear");
-		    	//图片大小
+		    	//图片大小 
+		    	//图片可点击
+		    	$(".levelC img").off("click");
+		    	$(".levelC img").on("click",levelC);
+//		    	变大后点击图片 还能二次变大
+		    	
 		    }
+		    function levelC(event){
+	    		$(this).animate({
+	    			"height": "1200px",
+	    			"width": "1200px",
+	    		},300,"linear");
+	    		var ev = window.event || event;
+	    		$(this).parent().attr("class","gallery levelD");
+	    		$(this).parent().animate({
+	    			"height": "1200px",
+	    			"width": "1200px",
+	    			"left": "0px",
+	    			"top": -ev.offsetY*720/450,
+	    		},300,"linear");
+	    		//取消之前绑定的点击事件防止它改变图片位置
+	    		$(".levelD img").off("click");
+	    		$(".levelD img").off("mousedown");
+	    		var is_move = false ;
+	    		//作为判断是否有拖拽的控件
+		    	$(".levelD img").on("mousedown",function(event){
+		    		var ev = window.event || event;
+		    		var _top = ev.offsetY;
+		    		is_move = false ;
+		    		//取消点击事件 只进行鼠标按下的的操作
+		    		$(".levelC img").off("click");
+		    		//点击关闭变大的动画效果
+		    		$(".gallery_wrap").off("click");
+		    		$(".levelD img").on("mousemove",function(event){
+		    			is_move = true ;
+		    			var ev = window.event || event ;
+		    			var imgTop = $(this).parent()[0].style.top;
+		    			var imgTrueTop = (parseInt(imgTop) + ev.offsetY - _top);
+						//移动图片容器是他显示位置不同
+						if(imgTrueTop >= 0 ){
+							imgTrueTop = 0 ;
+						}
+						if(imgTrueTop <= -720){
+							imgTrueTop = -720;
+						}
+		    			$(this).parent()[0].style.top =  imgTrueTop + "px" ;
+		    			return false ;
+		    		});
+		    		return false ;
+		    	});
+		    	$(".levelD img").off("mouseup");
+		    	//防止绑定多次 mouseup事件
+		    	$(".levelD img").on("mouseup",function(){
+		    		if(!is_move){
+		    			//当没有进行拖拽就给他点击放大的事件 
+		    			$(".levelC img").on("click",levelC);
+		    			//当没有进行拖拽就给他点击缩小的事件 
+		    			$(".gallery_wrap").on("click",levelB);
+		    		}
+		    		$(".levelD img").off("mousemove");
+		    		is_move = false ;//控件属性还原    提供拖拽后的正常效果
+		    	})
+	    		
+	    		return false;
+	    	}
 		    $(".ncs-goods-picture .close_wrap a").on("click",function(){
 		    	$(this).css("display","none");
 		    	$(".gallery_wrap").animate({
@@ -590,9 +653,10 @@
 		    		"height": "320px",
 		    		"width": "320px",
 		    	},500,"linear");
+		    	$(".gallery img").off("click");
 
 		    });
-
+			
 		    function after(){
 		    var smallImgs = $(".controller ul li a");
 		    	smallImgs.eq(0).addClass("current");
