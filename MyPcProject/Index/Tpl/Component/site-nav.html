@@ -1,13 +1,11 @@
 	<div class="public-top-layout w">
 		<div class="topbar wrapper">
 			<div class="user-entry">
-				您好
-				<span>
-					<a href="">张三</a>
-					<div class="nc-grade-mini" style="cursor:pointer;" onclick="">V0</div>
-				</span>欢迎来到
-				<a href="__APP__/Index"><span>春舞枝</span></a>
-				<a href=""><span>[退出]</span></a>
+				<if condition="!empty($_SESSION['username'])">您好&nbsp;{$Think.session.username}，欢迎来到
+					<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=logout">退出</a>]</span> 
+				<else/>您好，欢迎来到
+					<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=index">登录</a>]</span> <span>[<a href="__APP__/Index?act=login&op=register">注册</a>]</span>
+				</if>
 			</div>
 			<div class="quick-menu">
 				<dl>
