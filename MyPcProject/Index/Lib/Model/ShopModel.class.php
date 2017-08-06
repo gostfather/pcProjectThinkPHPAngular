@@ -1,17 +1,22 @@
 <?php
 class ShopModel extends Model {
 	public function getList(){
-			$uid = session("uid");
+		$uid = session("uid");
 		$shop = M("shop");
 		$img = M("images");
+		
+		
 		$res = $shop -> where("uid=".$uid) -> select();
 		for($i= 0 ; $i < count($res) ; $i++){
-			$data[] = $this -> getImages($res[$i]["classify"]);
+			$data = $this -> getImages($res[$i]["classify"]);
+			$data["count"] = $res[$i]["count"];
+			$arr[]=$data;
+			
 		}
 		if($res){
 			$return["info"] = "查询成功";
 			$return["status"] = 1;
-			$return["data"] = $data;
+			$return["data"] = $arr;
 		}else{
 			$return["info"] = "购物车暂无数据";
 			$return["status"] = 2;
