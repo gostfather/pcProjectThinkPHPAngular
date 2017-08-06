@@ -16,8 +16,14 @@ class IndexAction extends Action {
 		}elseif ($str[0] === "member" && empty($_SESSION["username"]) ){
 			$this->display("login");
 		}else{
+			$uid = session('uid');
+			$classify = session('classify');
+			if( $uid && $classify ){
+				header("location:../Shop/ShoppingCart");
+			}
     		$this->display("index");
 		}
+		
 	}
 	public function valentine(){
 		$this -> display("valentine");
