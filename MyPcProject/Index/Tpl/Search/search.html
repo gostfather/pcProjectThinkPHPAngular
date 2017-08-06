@@ -4,21 +4,12 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>{$keyWord} - 春舞枝搜索</title>
-		<meta name="keywords" content="春舞枝" />
-		<meta name="description" content="春舞枝" />
-		<meta property="qc:admins" content="23572640266531314636" />
-		<meta property="wb:webmaster" content="9d474898800c1e71" />
-		<style type="text/css">
-			body {
-				_behavior: url(http://www.531314.com/templates/new/css/csshover.htc);
-			}
-		</style>
 		<link rel="shortcut icon" href="http://531314.com/favicon.ico" />
-		<link href="http://www.531314.com/templates/new/css/base.css" rel="stylesheet" type="text/css">
-		<link href="http://www.531314.com/templates/new/css/home_header.css" rel="stylesheet" type="text/css">
-		<link href="http://www.531314.com/templates/new/css/home_login.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/home_login.css" rel="stylesheet" type="text/css">
 		<link href="http://www.531314.com/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-		<link href="http://www.531314.com/templates/new/css/layout.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/layout.css" rel="stylesheet" type="text/css">
 		
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
@@ -67,7 +58,7 @@
 								<li><span>下一页</span></li>
 							</ul>
 						</div>
-						<div class="nch-all-category">
+						<!--<div class="nch-all-category">
 							<div class="all-category">
 								<div class="title"> <i></i>
 									<h3><a href="http://www.531314.com/category.html">所有商品分类</a></h3>
@@ -117,7 +108,7 @@
 									</ul>
 								</div>
 							</div>
-						</div>
+						</div>-->
 						<div class="nch-sortbar-array"> 排序方式：
 							<ul>
 								<li class="selected">
@@ -235,7 +226,7 @@
 					</nav>
 
 					<div>
-						<style type="text/css">
+						<!--<style type="text/css">
 							#box {
 								background: #FFF;
 								width: 238px;
@@ -254,25 +245,71 @@
 								right: 25%;
 								top: 0;
 							}
-						</style>
+						</style>-->
 						<div class="squares" nc_type="current_display_mode">
-							<input type="hidden" id="lockcompare" value="unlock" />
-							<div id="no_results" class="no-results"><i></i>没有找到符合条件的商品</div>
+							<div ng-show="show" id="no_results" ng-model="message" ng-cloak class="no-results"><i></i>{{message}}符合条件的商品</div>
+							<ul class="list_pic">
+								<li class="item" ng-repeat="(k,v) in data" >
+									<div class="goods-content">
+										<div class="goods-pic">
+											<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="{{v.title}}"><img ng-cloak ng-src="__ROOT__/{{v.imgurl[0]}}" title="{{v.title}}" alt="{{v.title}}" /></a>
+										</div>
+										<div class="goods-info">
+											<div class="goods-pic-scroll-show">
+												<ul>
+													<li class="selected" ng-repeat="(kk,vv) in v.imgurl">
+														<a href=""><img ng-cloak ng-src="__ROOT__/{{vv}}" /></a>
+													</li>
+												</ul>
+											</div>
+											<div class="goods-name">
+												<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="9枝白玫瑰紫玫瑰16枝 、8枝子洋桔梗、尤加利若干">{{v.title}}<em>{{v.info}}</em></a>
+											</div>
+											<div class="goods-price"> <em class="sale-price" >&yen;{{v.StorePrice}}</em> <em class="market-price" >&yen;{{v.marketPrice}}</em></div>
+											<div class="goods-sub">
+											</div>
+											<div class="sell-stat">
+												<ul>
+													<li>
+														<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" class="status">1</a>
+														<p>商品销量</p>
+													</li>
+													<li>
+														<a href="http://www.531314.com/comments-101014-0-0.html" target="_blank">0</a>
+														<p>用户评论</p>
+													</li>
+												</ul>
+											</div>
+											<div class="store">
+												<a href="__APP__/Index/index" title="春舞枝旗舰店" class="name">春舞枝旗舰店</a>
+											</div>
+											<div class="add-cart">
+												<a href=""><i class="icon-shopping-cart"></i>加入购物车</a>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
 						</div>
-						<form id="buynow_form" method="post" action="http://www.531314.com/index.php?store_id=" target="_blank">
-							<input id="act" name="act" type="hidden" value="buy" />
-							<input id="op" name="op" type="hidden" value="buy_step1" />
-						</form>
-						
 					</div>
 					<div class="tc mt20 mb20">
 						<div class="pagination">
 							<ul>
-								<li><span>首页</span></li>
-								<li><span>上一页</span></li>
-								<li><span class="currentpage">1</span></li>
-								<li><span>下一页</span></li>
-								<li><span>末页</span></li>
+								<li ng-class="currentPage==0? '' : 'canHover'">
+									<span ng-click="currentPage==0? '' : changePage(0)">首页</span>
+								</li>
+								<li ng-class="currentPage==0? '' : 'canHover'">
+									<span ng-click="currentPage > 0? changePage(currentPage-1) : ''">上一页</span>
+								</li>
+								<li ng-cloak ng-repeat="(k,v) in range(0,pages)" ng-class="currentPage==k? '' : 'canHover' ">
+									<span ng-click="currentPage==k? '' : changePage(k)">{{k+1}}</span>
+								</li>
+								<li ng-class="currentPage == pages - 1 ? '' : 'canHover' ">
+									<span ng-click="currentPage < pages -1 ? changePage(currentPage+1) : ''">下一页</span>
+								</li>
+								<li ng-class="currentPage == pages - 1 ? '' : 'canHover'">
+									<span ng-click="currentPage==pages-1? '' : changePage(pages-1)">末页</span>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -284,17 +321,80 @@
 		<include file="Component:footer" />
 		<script type="text/javascript">
 			var keyWord = "{$keyWord}" ;
-			console.log(keyWord);
+			
+			function asdf(){
+		 	$(".item").hover(itemmouseOver, itemmouseOut);
+		 	function itemmouseOver(){
+		 		$(this).find(".goods-info").css({"top":180});
+		 		return false;
+		 	};
+		 	function itemmouseOut(){
+		 		$(this).find(".goods-info").css({"top":240});
+		 		return false;
+		 	}
+		 	$(".goods-pic-scroll-show li").hover(liHoverIn,function(){
+		 		return false;
+		 	});
+		 	function liHoverIn(){
+		 		$(".goods-pic-scroll-show li").each(function(){
+		 			this.className = "" ;
+		 		});
+		 		this.className = "selected" ;
+		 		$(this).parent().parent().parent().prev().find("img")[0].src = $(this).find("img")[0].src;
+		 		$(this).parent().parent().parent().prev().find("img").css({
+			 			"width":220,
+			 			"height":220,
+			 		})
+			 	}
+		 	};
+			
 			var app = angular.module("app",[]);
 			app.controller("myCon",function ($scope,$http) {
 				$scope.title = keyWord;
+				$scope.show = true ;
 				$scope.data = [];
-				$http.get("__APP__/Search/searchKeyWord?keyWord="+keyWord)
-				.success(function(data){
-					console.log(data);
-				}).error(function(data){
-					console.log(data);
-				})
+				$scope.message = "等待查询";
+				
+				$scope.pages = 0;
+				$scope.currentPage = 0;
+				$scope.range = function (start, end) {
+			        var ret = [];
+			        if (!end) {
+			            end = start;
+			            start = 0;
+			        }
+			        for (var i = start; i < end; i++) {
+			            ret.push(i);
+			        }
+			        return ret;
+			    };
+			    $scope.changePage = function(k){
+			    	console.log(k)
+			    	searchKey($scope.title,k);
+			    }
+			    searchKey($scope.title,$scope.pages);
+				function searchKey(keyWord,page){
+					$http.get("__APP__/Search/searchKeyWord?keyWord="+ keyWord + "&page=" + page)
+					.success(function(data){
+						console.log(data);
+						if(data.status ===1){
+							$scope.data = data.data;
+							$scope.show = false ;
+							$scope.pages = data.pages;
+							console.log($scope.pages)
+							$scope.currentPage = page;
+							setTimeout(function(){
+								asdf();
+							},0);
+						}else{
+							$scope.show = true ; 
+							$scope.message = "没有找到" ;
+						}
+					}).error(function(data){
+						console.log(data);
+					})
+				}
+				
 		  });
 		</script>
 		
