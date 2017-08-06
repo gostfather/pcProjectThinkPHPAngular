@@ -19,11 +19,36 @@
 			}
 			return $return;
 		}
-		
+		public function getSubtotal(){
+			$shop = M("shop");
+			$img = M("images");
+			$uid = session("uid");
+			$res = $shop -> where("uid=".$uid) -> select();
+			if($res){
+				$subtotal = 0 ;
+				$number = count($res) ;
+				for($i= 0 ; $i < $number ; $i++){
+					$data = $this -> getImages($res[$i]["classify"]);
+					//拿到单价
+					$StorePrice = $data["StorePrice"];
+					$count = $res[$i]["count"];
+					$subtotal += (int)$count * (int)$StorePrice ;
+				}
+				$return["status"]=1;
+				$return["info"] = "查询成功";
+				$return["number"] = $number;
+				$return["subtotal"] = $subtotal;
+			}else{
+				//系统出错
+				$return["status"]=2;
+				$return["info"] = "查询失败";
+			}
+			return $return;
+		}
 		public function getImages($classify){
 			$shop = M("shop");
 			$img = M("images");
-			$img = $shop -> where("classify='".$classify."'") -> find();
+			$img = $img -> where("classify='".$classify."'") -> find();
 			return $img;
 		}
 		//添加到购物车
@@ -36,16 +61,21 @@
 				session("classify",$classify);
 			}else{
 				$data["classify"] = $classify;
-				$data["count"] = 1;
+				$data["count"] = 1 ;
 				$shop = M("shop");
-	//			$find = $shop ->
-				$res = $shop -> data($data) -> add();
-				if($res){
-					$return["info"] = "添加成功";
-					$return["status"] = 1;
+				$find = $shop -> where("classify='".$classify."' AND count=1") -> find();
+				if($find){
+					$return["info"] = "购物车已经存在此商品";
+					$return["status"] = 4;
 				}else{
-					$return["info"] = "添加失败";
-					$return["status"] = 2;
+					$res = $shop -> data($data) -> add();
+					if($res){
+						$return["info"] = "添加成功";
+						$return["status"] = 1;
+					}else{
+						$return["info"] = "添加失败";
+						$return["status"] = 2;
+					}
 				}
 			}
 			return $return;
@@ -59,6 +89,7 @@
 			$find["count"] = $find["count"]+1;
 			$res = $shop -> where($data) -> data($find) -> save();
 			if($res){
+				$return["count"] = $find["count"];
 				$return["info"] = "更新成功";
 				$return["status"] = 1;
 			}else{
@@ -76,6 +107,7 @@
 			$find["count"] = $find["count"]-1;
 			$res = $shop -> where($data) -> data($find) -> save();
 			if($res){
+				$return["count"] = $find["count"];
 				$return["info"] = "更新成功";
 				$return["status"] = 1;
 			}else{
