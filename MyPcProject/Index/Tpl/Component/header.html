@@ -9,10 +9,9 @@
 		<div id="search" class="head-search-bar">
 			<ul class="tab">
 				<li title="请输入您要搜索的商品关键字" class="current">商品</li>
-				<li title="请输入您要搜索的店铺关键字">店铺</li>
 			</ul>
-			<form action="" class="search-form">
-				<input type="text" placeholder="请输入您要搜索的商品关键字" class="input-text" maxlength="60">
+			<form action="__APP__/Search/search" method="get" class="search-form">
+				<input type="text" name="keyWord" placeholder="请输入您要搜索的商品关键字" class="input-text" maxlength="60">
 				<input type="submit" id="button" value="搜索" class="input-submit">
 			</form>
 			<div class="keyword">

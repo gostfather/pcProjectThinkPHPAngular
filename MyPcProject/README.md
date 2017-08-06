@@ -15,3 +15,5 @@ C:\Users\admin\Documents\GitHub\pcProjectThinkPHPAngular
 	lj-- 购物车
 	
 添加到购物车。。item。shopphp 、、未登录-点击添加购物车-存session-到登录界面-登陆成功跳转到购物车-存数据库-返回给购物车
+
+8-6 search 到cate 页面做呈现；
