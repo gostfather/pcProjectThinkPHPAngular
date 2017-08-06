@@ -110,7 +110,7 @@
 							</td>
 							<td class="w60">
 								<a href="" target="_blank" class="ncc-goods-thumb">
-									<img ng-src="__ROOT__/{{v.imgurl}}" alt="{{v.title}}">
+									<img ng-src="__ROOT__/{{v.img}}" alt="{{v.title}}">
 								</a>
 							</td>
 							<td class="tl">
@@ -132,7 +132,7 @@
 								<em >{{v.count * v.StorePrice | number:2}}</em>
 							</td>
 							<td class="w80">
-								<a ng-click="del(k,v)">删除</a>
+								<a ng-click="del(k)">删除</a>
 							</td>
 						</tr>
 					</tbody>
@@ -187,26 +187,40 @@
 </body>
 <script>
 	angular.module("shopApp",[]).controller("shopController",function ($scope,$http) {
-		$scope.item = [];
-		$http({
-           method: "post",
-           url: "__APP__/Shop/getList",
-       }).success(function (data) {
-       		if (data.status == 1) {
-       			console.log(data);
-       			$scope.item = data.data;
-       		}
-       }).error(function (err) {
-       		console.log(err);
-       })
-
+		$scope.item = [
+			{	
+				id:1,
+				img:"Index/Common/item.jpg",
+				title:"【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物",
+				StorePrice:238.00,
+				count:1,
+			},
+			{	
+				id:2,
+				img:"Index/Common/item.jpg",
+				title:"【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物",
+				StorePrice:308.00,
+				count:2,
+			},
+			{	
+				id:3,
+				img:"Index/Common/item.jpg",
+				title:"【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物",
+				StorePrice:238.00,
+				count:11,
+			},
+		];
 		$scope.sub = function (item,index) {
 			if (item.count == 1 || item.count < 1) {
 				item.count = 1;
 			} else{
-				$http.get("__APP__/Shop/reduceItem?classify=" + item.classify
-)
-				.success(function(data){
+				$http({
+					url:"__APP__/Shop/reduceItem",
+	    			method:"get",
+	    			data:{
+	    				classify: item.id,
+	    			},
+	    		}).success(function(data){
 					if(data.status == 1){
 						item.count = data.count;
 						if ($scope.chkItem[index]) {
@@ -221,36 +235,28 @@
     		}			
 		}
 		$scope.add = function (item,index) {
-			$http.get("__APP__/Shop/addItem?classify=" + item.classify)
-				.success(function(data){
-					if(data.status == 1){
-						item.count = data.count;
-						if ($scope.chkItem[index]) {
-			   				$scope.total += item.StorePrice;
-			   			}
-					}else{
-						console.log(data);
-						alert("操作失败");
-					}
-	    		})
-	    		.error(function(data){
-	    			console.log("错误："+data);
-	    		})
-			}
-		$scope.del = function (k,item) {
+			$http({
+				url:"__APP__/Shop/addItem",
+    			method:"get",
+    			data:{
+    				classify: item.id,
+    			},
+    		}).success(function(data){
+				if(data.status == 1){
+					item.count = data.count;
+					if ($scope.chkItem[index]) {
+		   				$scope.total += item.StorePrice;
+		   			}
+				}else{
+					alert("操作失败");
+				}
+    		}).error(function(data){
+    			console.log("错误："+data);
+    		})
+		}
+		$scope.del = function (k) {
 			console.log(k)
-			$http.get("__APP__/Shop/deleteItem?classify=" + item.classify)
-				.success(function (data) {
-					if (data.status == 1) {
-						$scope.item.splice(k,1);
-					} else {
-						alert("操作失败");
-					}
-				})
-				.error(function (err) {
-					console.log(err);
-				})
-			
+			$scope.item.splice(k,1);
 		}
 		$scope.total = 0;
 		//用来标志每一项的状态  
