@@ -1,5 +1,5 @@
 <?php
-	class ItemModel extends Model {
+	class ShopModel extends Model {
 		
 		public function getList(){
 			$uid = session("uid");
@@ -30,17 +30,23 @@
 		public function addToShop($classify){
 			$data["addtime"] = time();
 			$data["uid"] = session("uid");
-			$data["classify"] = $classify;
-			$data["count"] = 1;
-			$shop = M("shop");
-//			$find = $shop ->
-			$res = $shop -> data($data) -> add();
-			if($res){
-				$return["info"] = "添加成功";
-				$return["status"] = 1;
+			if(empty(session("uid"))){
+				$return["info"] = "请登录";
+				$return["status"] = 3;
+				session("classify",$classify);
 			}else{
-				$return["info"] = "添加失败";
-				$return["status"] = 2;
+				$data["classify"] = $classify;
+				$data["count"] = 1;
+				$shop = M("shop");
+	//			$find = $shop ->
+				$res = $shop -> data($data) -> add();
+				if($res){
+					$return["info"] = "添加成功";
+					$return["status"] = 1;
+				}else{
+					$return["info"] = "添加失败";
+					$return["status"] = 2;
+				}
 			}
 			return $return;
 		}

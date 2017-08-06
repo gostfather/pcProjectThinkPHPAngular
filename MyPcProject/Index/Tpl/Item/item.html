@@ -144,11 +144,10 @@
 						</dl>
 					</div>
 					<div class="ncs-btn">
-						<div nctype="goods_prompt" class="ncs-point"></div>
+						<div class="ncs-point"></div>
 						<div class="clear"></div>
-						<a nctype="buynow_submit" class="buynow" title="立即购买">立即购买</a>
-	 					<a nctype="addcart_submit" class="addcart" title="添加购物车">
-	 						<!-- <i class="icon-shopping-cart"></i> -->
+						<a class="buynow" title="立即购买">立即购买</a>
+	 					<a class="addcart" title="添加购物车" ng-click="addToShop()">
 	 						添加购物车
 	 					</a>
 	 					<div class="ncs-cart-popup">
@@ -543,7 +542,27 @@
 					}
 				}).error(function(data){
 					console.log(data);
-				})
+				});
+				//添加到购物车
+				$scope.addToShop = function(){
+					$http({
+						method: 'GET',
+        				url: '__APP__/Shop/addToShop/?classify='+classify,
+					}).success(function(data){
+						console.log(data);
+						if(data.status === 1){
+							//进入购物车
+						}else if(data.status === 3){
+							//进入登录
+							window.location.href = "__APP__/Index/index?act=login&op=index"
+						}else{
+							//加入失败 网络问题
+						}
+					}).error(function(data){
+						console.log(data);
+					});
+				}
+				
 		    });
 		    var img = $(".gallery_wrap").children("div:first-child");
 		    $(".gallery_wrap").on("click",levelB);
