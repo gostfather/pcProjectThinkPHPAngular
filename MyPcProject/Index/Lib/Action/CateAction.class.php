@@ -17,7 +17,7 @@
 		if(empty($page)){
 			$page = 0 ;
 		}
-		$res = $Cate -> getList($page,3);
+		$res = $Cate -> getList($page,4);
 		$this -> ajaxReturn($res);
 	}
 	

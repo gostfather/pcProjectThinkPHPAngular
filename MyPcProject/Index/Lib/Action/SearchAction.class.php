@@ -7,9 +7,13 @@ class SearchACtion extends Action {
     }
 	public function searchKeyWord() {
 		$keyWord = I("keyWord");
-		/*$keyWord = I("keyWord");
-		$img = D("Cate");
-		$img -> getSearch($keyWord);*/
-		$this -> ajaxReturn($keyWord);
+		$page =I("page");
+		if(empty($page)){
+			$page = 0 ;
+		}
+		$search = D("Search");
+		$res = $search -> searchKeyWord($keyWord,$page,4);
+		$this -> ajaxReturn($res);
 	}
+	
 }
