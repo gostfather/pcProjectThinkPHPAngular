@@ -42,6 +42,8 @@ class ShopACtion extends Action {
 		$Shop = D("Shop");
 		$res = $Shop -> addItem($classify);
 		$this ->ajaxReturn($res);
+		// $this ->ajaxReturn($classify);
+
 	}
 	//减少商品数量
 	public function reduceItem(){

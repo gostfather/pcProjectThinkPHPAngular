@@ -132,7 +132,7 @@
 								<em >{{v.count * v.StorePrice | number:2}}</em>
 							</td>
 							<td class="w80">
-								<a ng-click="del(k)">删除</a>
+								<a ng-click="del(k,v)">删除</a>
 							</td>
 						</tr>
 					</tbody>
@@ -204,13 +204,9 @@
 			if (item.count == 1 || item.count < 1) {
 				item.count = 1;
 			} else{
-				$http({
-					url:"__APP__/Shop/reduceItem",
-	    			method:"get",
-	    			data:{
-	    				classify: item.classify,
-	    			},
-	    		}).success(function(data){
+				$http.get("__APP__/Shop/reduceItem?classify=" + item.classify
+)
+				.success(function(data){
 					if(data.status == 1){
 						item.count = data.count;
 						if ($scope.chkItem[index]) {
@@ -225,28 +221,36 @@
     		}			
 		}
 		$scope.add = function (item,index) {
-			$http({
-				url:"__APP__/Shop/addItem",
-    			method:"get",
-    			data:{
-    				classify: item.classify,
-    			},
-    		}).success(function(data){
-				if(data.status == 1){
-					item.count = data.count;
-					if ($scope.chkItem[index]) {
-		   				$scope.total += item.StorePrice;
-		   			}
-				}else{
-					alert("操作失败");
-				}
-    		}).error(function(data){
-    			console.log("错误："+data);
-    		})
-		}
-		$scope.del = function (k) {
+			$http.get("__APP__/Shop/addItem?classify=" + item.classify)
+				.success(function(data){
+					if(data.status == 1){
+						item.count = data.count;
+						if ($scope.chkItem[index]) {
+			   				$scope.total += item.StorePrice;
+			   			}
+					}else{
+						console.log(data);
+						alert("操作失败");
+					}
+	    		})
+	    		.error(function(data){
+	    			console.log("错误："+data);
+	    		})
+			}
+		$scope.del = function (k,item) {
 			console.log(k)
-			$scope.item.splice(k,1);
+			$http.get("__APP__/Shop/deleteItem?classify=" + item.classify)
+				.success(function (data) {
+					if (data.status == 1) {
+						$scope.item.splice(k,1);
+					} else {
+						alert("操作失败");
+					}
+				})
+				.error(function (err) {
+					console.log(err);
+				})
+			
 		}
 		$scope.total = 0;
 		//用来标志每一项的状态  
