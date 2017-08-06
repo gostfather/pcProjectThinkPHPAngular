@@ -7,12 +7,11 @@
 		<link href="__ROOT__/Index/Common/css/home_goods.css" rel="stylesheet" type="text/css">
 		<link href="__ROOT__/Index/Common/css/index.css" rel="stylesheet" type="text/css">
 		<link href="__ROOT__/Index/Common/css/layui.css" rel="stylesheet" type="text/css">
-		<script src="http://res.531314.com/js/jquery.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
-<title ng-bind="data.title" >{{data.title}} - 春舞枝</title>
+<title ng-bind="data.title + ' 春舞枝'" ></title>
 		<style type="text/css">
 			body {
 				_behavior: url(http://www.531314.com/templates/new/css/csshover.htc);
@@ -68,7 +67,7 @@
 				<div class="ncs-goods-picture image_zoom" id="ncs-goods-picture">
 					<div class="gallery_wrap" style="height: 360px; width: 360px; position: relative; overflow: hidden;">
 						<div class="gallery levelB" style="position: absolute; overflow: hidden; opacity: 1; height: 320px; width: 320px; left: 20px; top: 20px;">
-							<img style="height: 320px; width: 320px;" src="__ROOT__/{{data.imgurl[0]}}" alt="{{data.info}}"/>
+							<img style="height: 320px; width: 320px;" ng-src="__ROOT__/{{data.imgurl[0]}}" alt="{{data.info}}"/>
 						</div>
 						
 					</div>
@@ -77,7 +76,7 @@
 							<ul>
 								<li ng-repeat="(k,v) in data.imgurl">
 									<a href="" class="">
-										<img src="__ROOT__/{{v}}" alt="{{data.info}}" height="60" width="60">
+										<img ng-src="__ROOT__/{{v}}" alt="{{data.info}}" height="60" width="60">
 									</a>
 								</li>
 							</ul>
@@ -144,23 +143,22 @@
 						</dl>
 					</div>
 					<div class="ncs-btn">
-						<div nctype="goods_prompt" class="ncs-point"></div>
+						<div class="ncs-point"></div>
 						<div class="clear"></div>
-						<a nctype="buynow_submit" class="buynow" title="立即购买">立即购买</a>
-	 					<a nctype="addcart_submit" class="addcart" title="添加购物车">
-	 						<!-- <i class="icon-shopping-cart"></i> -->
+						<a class="buynow" title="立即购买">立即购买</a>
+	 					<a class="addcart" title="添加购物车" ng-click="addToShop()">
 	 						添加购物车
 	 					</a>
 	 					<div class="ncs-cart-popup">
 	 						<dl>
 	 							<dt>
-	 								成功添加到购物车
-	 								<a href="" title="关闭" onclick="">x</a>
+	 								已经成功添加到购物车
+	 								<a title="关闭" onclick="closeInfo()">x</a>
 	 							</dt>
-	 							<dd>购物车共有<strong id="bold_num"></strong>种商品，总金额为：<em id="bold_mly" class="saleP"></em></dd>
+	 							<dd>购物车共有<strong id="bold_num" ng-bind="goods"></strong>种商品，总金额为：<em id="bold_mly" ng-bind="totalMoney" class="saleP"></em></dd>
 	 							<dd class="btns">
-	 								<a href="" class="ncs-btn-mini ncs-btn-green" onclick="">查看购物车</a>
-	 								<a href="" class="ncs-btn-mini" onclick="">继续购物</a>
+	 								<a class="ncs-btn-mini ncs-btn-green" href="__APP__/Shop/ShoppingCart" >查看购物车</a>
+	 								<a class="ncs-btn-mini" href="__APP__/Cate/cate_1074">继续购物</a>
 	 							</dd>
 	 						</dl>
 	 					</div>
@@ -525,11 +523,12 @@
 		<include file="Component:footer" />
 		<script type="text/javascript">
 			var classify = {$classify};
-//			console.log(classify)
 			var app = angular.module("app",[]);
 			app.controller("myCon",function ($scope,$http) {
 				$scope.data = null;
 				$scope.err = "";
+				$scope.goods = 0 ;
+				$scope.totalMoney = 0 ;
 				$http.get("__APP__/Item/getList?item="+classify).success(function(data){
 //					console.log(data);
 					if(data.status ===1 ){
@@ -543,12 +542,51 @@
 					}
 				}).error(function(data){
 					console.log(data);
-				})
+				});
+
+				//添加到购物车
+				$scope.addToShop = function(){
+//					console.log(classify)
+					$http({
+						method: 'GET',
+        				url: '__APP__/Shop/addToShop/?classify='+classify,
+					}).success(function(data){
+//						console.log(data);
+						if(data.status === 1){
+							//进入购物车
+							getSubtotal();
+						}else if(data.status === 3){
+							//进入登录
+							window.location.href = "__APP__/Index/index?act=login&op=index"
+						}else if(data.status === 4){
+							//购物车已经存在
+							getSubtotal();
+						}else{
+							//加入失败 网络问题
+							alert("网络问题  购物车 " + data.info);
+						}
+					}).error(function(data){
+						console.log(data);
+					});
+				}
+				function getSubtotal(){
+					$http.get("__APP__/Shop/subtotal").success(function(data){
+	//					console.log(data);
+						if(data.status == 1){
+							$scope.goods = data.number ;
+							$scope.totalMoney = data.subtotal ;
+							$(".ncs-cart-popup").css("display","block");
+						}
+					}).error(function(data){
+						console.log(data);
+					});
+				};
+				
 		    });
 		    var img = $(".gallery_wrap").children("div:first-child");
 		    $(".gallery_wrap").on("click",levelB);
+		    //点击父容器 里面的图片和容器同时变大
 		    function levelB(){
-		    	console.log(this);
 		    	img.attr("class","gallery levelC");
 		    	$(this).animate({
 		    		"height": "480px",
@@ -570,8 +608,71 @@
 		    		"left": "374px",
 		    		"top": "15px",
 		    	},500,"linear");
-		    	//图片大小
+		    	//图片大小 
+		    	//图片可点击
+		    	$(".levelC img").off("click");
+		    	$(".levelC img").on("click",levelC);
+//		    	变大后点击图片 还能二次变大
+		    	
 		    }
+		    function levelC(event){
+	    		$(this).animate({
+	    			"height": "1200px",
+	    			"width": "1200px",
+	    		},300,"linear");
+	    		var ev = window.event || event;
+	    		$(this).parent().attr("class","gallery levelD");
+	    		$(this).parent().animate({
+	    			"height": "1200px",
+	    			"width": "1200px",
+	    			"left": "0px",
+	    			"top": -ev.offsetY*720/450,
+	    		},300,"linear");
+	    		//取消之前绑定的点击事件防止它改变图片位置
+	    		$(".levelD img").off("click");
+	    		$(".levelD img").off("mousedown");
+	    		var is_move = false ;
+	    		//作为判断是否有拖拽的控件
+		    	$(".levelD img").on("mousedown",function(event){
+		    		var ev = window.event || event;
+		    		var _top = ev.offsetY;
+		    		is_move = false ;
+		    		//取消点击事件 只进行鼠标按下的的操作
+		    		$(".levelC img").off("click");
+		    		//点击关闭变大的动画效果
+		    		$(".gallery_wrap").off("click");
+		    		$(".levelD img").on("mousemove",function(event){
+		    			is_move = true ;
+		    			var ev = window.event || event ;
+		    			var imgTop = $(this).parent()[0].style.top;
+		    			var imgTrueTop = (parseInt(imgTop) + ev.offsetY - _top);
+						//移动图片容器是他显示位置不同
+						if(imgTrueTop >= 0 ){
+							imgTrueTop = 0 ;
+						}
+						if(imgTrueTop <= -720){
+							imgTrueTop = -720;
+						}
+		    			$(this).parent()[0].style.top =  imgTrueTop + "px" ;
+		    			return false ;
+		    		});
+		    		return false ;
+		    	});
+		    	$(".levelD img").off("mouseup");
+		    	//防止绑定多次 mouseup事件
+		    	$(".levelD img").on("mouseup",function(){
+		    		if(!is_move){
+		    			//当没有进行拖拽就给他点击放大的事件 
+		    			$(".levelC img").on("click",levelC);
+		    			//当没有进行拖拽就给他点击缩小的事件 
+		    			$(".gallery_wrap").on("click",levelB);
+		    		}
+		    		$(".levelD img").off("mousemove");
+		    		is_move = false ;//控件属性还原    提供拖拽后的正常效果
+		    	})
+	    		
+	    		return false;
+	    	}
 		    $(".ncs-goods-picture .close_wrap a").on("click",function(){
 		    	$(this).css("display","none");
 		    	$(".gallery_wrap").animate({
@@ -590,9 +691,12 @@
 		    		"height": "320px",
 		    		"width": "320px",
 		    	},500,"linear");
+		    	$(".gallery img").off("click");
 
 		    });
-
+		    function closeInfo(){
+				$(".ncs-cart-popup").css("display","none");
+			};
 		    function after(){
 		    var smallImgs = $(".controller ul li a");
 		    	smallImgs.eq(0).addClass("current");
@@ -601,7 +705,7 @@
 		    			$(this).attr("class","");
 		    		});
 		    		$(this).attr("class","current");
-		    		$(".gallery_wrap").find("img")[0].src = $(this).children("img:first-child").attr("src")
+		    		$(".gallery_wrap").find("img")[0].src = $(this).children("img:first-child").attr("src");
 		    	});
 		    }
 		</script>

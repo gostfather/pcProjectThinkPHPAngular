@@ -13,7 +13,11 @@
 	
 	public function getList(){
 		$Cate = D("Cate");
-		$res = $Cate -> getList();
+		$page =I("page");
+		if(empty($page)){
+			$page = 0 ;
+		}
+		$res = $Cate -> getList($page,4);
 		$this -> ajaxReturn($res);
 	}
 	
