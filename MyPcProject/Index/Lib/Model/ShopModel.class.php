@@ -4,11 +4,13 @@ class ShopModel extends Model {
 		$uid = session("uid");
 		$shop = M("shop");
 		$img = M("images");
-		
-		
-		$res = $shop -> where("uid=".$uid) -> select();
+		$see["uid"] = $uid ;
+		$see["is_delete"] = 1 ;
+		$see["is_order"] = "" ;
+		$res = $shop -> where($see) -> order("addtime DESC") -> select();
 		for($i= 0 ; $i < count($res) ; $i++){
 			$data = $this -> getImages($res[$i]["classify"]);
+			$data["id"] = $res[$i]["id"];
 			$data["count"] = $res[$i]["count"];
 			$arr[]=$data;
 			
@@ -27,7 +29,10 @@ class ShopModel extends Model {
 		$shop = M("shop");
 		$img = M("images");
 		$uid = session("uid");
-		$res = $shop -> where("uid=".$uid) -> select();
+		$see["uid"] = $uid ;
+		$see["is_delete"] = 1 ;
+		$see["is_order"] = "" ;
+		$res = $shop -> where($see) -> order("addtime DESC") -> select();
 		if($res){
 			$subtotal = 0 ;
 			$number = count($res) ;
@@ -67,7 +72,7 @@ class ShopModel extends Model {
 			$data["classify"] = $classify;
 			$data["count"] = 1 ;
 			$shop = M("shop");
-			$find = $shop -> where("classify='".$classify."' AND count=1") -> find();
+			$find = $shop -> where("classify='".$classify."' AND is_order=''") -> find();
 			if($find){
 				$return["info"] = "购物车已经存在此商品";
 				$return["status"] = 4;
@@ -87,7 +92,9 @@ class ShopModel extends Model {
 	//点击增加商品数量
 	public function addItem($classify){
 		$data["uid"] = session("uid");
-		$data["classify"] = $classify;
+		$data["id"] = $classify;
+		$data["is_delete"] = 1 ;
+		$data["is_order"] = "" ;
 		$shop = M("shop");
 		$find = $shop -> where($data) -> find();
 		$find["count"] = $find["count"]+1;
@@ -105,7 +112,9 @@ class ShopModel extends Model {
 	//减少商品数量
 	public function reduceItem($classify){
 		$data["uid"] = session("uid");
-		$data["classify"] = $classify;
+		$data["id"] = $classify;
+		$data["is_delete"] = 1 ;
+		$data["is_order"] = "" ;
 		$shop = M("shop");
 		$find = $shop -> where($data) -> find();
 		$find["count"] = $find["count"]-1;
@@ -123,10 +132,11 @@ class ShopModel extends Model {
 	//删除商品
 	public function deleteItem($classify){
 		$data["uid"] = session("uid");
-		$data["classify"] = $classify;
+		$data["id"] = $classify;
 		$shop = M("shop");
-		$res = $shop -> where($data) -> delete();
-	
+		$find["is_delete"] = 0 ;
+		$data["is_order"] = "" ;
+		$res = $shop -> where($data) -> data($find) -> save();
 		if($res){
 			$return["info"] = "删除成功";
 			$return["status"] = 1;
@@ -136,4 +146,33 @@ class ShopModel extends Model {
 		}
 		return $return;
 	}
+	
+	public function getShop($arr){
+		$uid = session("uid");
+		$shop = M("shop");
+		$img = M("images");
+		$see["uid"] = $uid ;
+		$see["is_delete"] = 1 ;
+		$see["is_order"] = "" ;
+		for($i = 0 ; $i < count($arr) ; $i ++){
+			$see["id"] = (int)$arr[$i] ;
+			$res = $shop -> where($see) -> find();
+			$data = $this -> getImages($res["classify"]);
+			$data["id"] = $res["id"];
+			$data["count"] = $res["count"];
+			$arr[]=$data;
+			
+		}
+		if($res){
+			$return["info"] = "查询成功";
+			$return["status"] = 1;
+			$return["data"] = $arr;
+		}else{
+			$return["info"] = "购物车暂无数据";
+			$return["status"] = 2;
+		}
+		return $return;
+		
+	}
+	
 }

@@ -16,7 +16,6 @@ class ShopACtion extends Action {
 			$list = $Shop -> getList();
 			$this -> assign("list" , $list);
 	    	$this -> display("ShoppingCart");
-//		}
 	}
 	public function getList(){
 		$Shop = D("Shop");
@@ -42,8 +41,6 @@ class ShopACtion extends Action {
 		$Shop = D("Shop");
 		$res = $Shop -> addItem($classify);
 		$this ->ajaxReturn($res);
-		// $this ->ajaxReturn($classify);
-
 	}
 	//减少商品数量
 	public function reduceItem(){
@@ -59,4 +56,16 @@ class ShopACtion extends Action {
 		$res = $Shop -> deleteItem($classify);
 		$this ->ajaxReturn($res);
 	}
+
+	//传到订单页面
+	public function gotoCheck(){
+		$str = I("arr");
+		$data = explode(",", $str);
+		$Shop = D("Shop");
+		$res = $Shop -> getShop($data);
+		$return = json_encode($res["data"]);
+		$this -> assign("data",$return);
+		$this -> display("shoppingCheck");
+	}
+	
 }
