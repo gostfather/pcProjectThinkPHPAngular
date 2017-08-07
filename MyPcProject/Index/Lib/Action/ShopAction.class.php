@@ -18,6 +18,9 @@ class ShopACtion extends Action {
 	    	$this -> display("ShoppingCart");
 //		}
 	}
+	public function ShoppingCheck() {
+		$this -> display("shoppingCheck");
+	}
 	public function getList(){
 		$Shop = D("Shop");
 		$list = $Shop -> getList();

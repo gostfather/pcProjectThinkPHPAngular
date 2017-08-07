@@ -30,7 +30,7 @@
 			</a>
 		</div>
 		<ul class="ncc-flow">
-			<li class="current">
+			<li>
 				<i class="step1"></i>
 				<p>我的购物车</p>
 				<sub></sub>
@@ -149,7 +149,7 @@
 				</table>
 			</form>
 			<div class="ncc-bottom">
-				<a href="" id="next_submit" class="ncc-btn ncc-btn-acidblue fr">
+				<a ng-click="submit()" id="next_submit" class="ncc-btn ncc-btn-acidblue fr">
 					下一步，填写核对购物信息
 				</a>
 			</div>
@@ -186,8 +186,10 @@
 	</div>
 </body>
 <script>
+	$(".ncc-flow li").eq(0).addClass("current");
 	angular.module("shopApp",[]).controller("shopController",function ($scope,$http) {
 		$scope.item = [];
+
 		$http({
            method: "post",
            url: "__APP__/Shop/getList",
@@ -229,7 +231,7 @@
 			   				$scope.total += item.StorePrice;
 			   			}
 					}else{
-						console.log(data);
+						// console.log(data);
 						alert("操作失败");
 					}
 	    		})
@@ -297,6 +299,32 @@
                 $scope.chkItem[i] = sel || false;  
             }  
         } 
+
+        // 提交
+        $scope.submit = function () {
+        	var arr = [];
+        	for (var i = 0; i < $scope.item.length ; i++) {
+        		if ($scope.chkItem[i]) {
+        			arr.push($scope.item[i].id);
+        		}
+        	}
+        	console.log(arr.length);
+        	if (arr.length == 0) {
+        		alert("您还没有选择商品哦！");
+        	}else{
+        		arr = arr.join();
+        		// 跳转
+        		// $http({
+        		// 	url: "__APP__/Shop/gotoCheck",
+        		// 	method: "post",
+        		// 	headers:{
+	        	// 			"Content-Type":"application/x-www-form-urlencoded",
+	        	// 	},
+	        	// 	data: {arr:arr},
+        		// })
+        		location.href = "__APP__/Shop/gotoCheck?arr=" + arr;
+        	}
+        }
 	})
 </script>
 </html>
