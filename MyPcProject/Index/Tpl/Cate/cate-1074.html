@@ -430,7 +430,7 @@
 						</style>-->
 						<div class="squares" >
 							<ul class="list_pic">
-								<li class="item" ng-repeat="(k,v) in data" >
+								<li class="item" ng-cloak ng-repeat="(k,v) in data" >
 									<div class="goods-content">
 										<div class="goods-pic">
 											<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="{{v.title}}"><img ng-cloak ng-src="__ROOT__/{{v.imgurl[0]}}" title="{{v.title}}" alt="{{v.title}}" /></a>
@@ -503,36 +503,39 @@
 		 
 		<script type="text/javascript">
 		 	function asdf(){
-		 	$(".item").hover(itemmouseOver, itemmouseOut);
-		 	function itemmouseOver(){
-		 		$(this).find(".goods-info").css({"top":180});
-		 		return false;
+			 	$(".item").hover(itemmouseOver, itemmouseOut);
+			 	function itemmouseOver(){
+			 		$(this).find(".goods-info").css({"top":180});
+			 		return false;
+			 	};
+			 	function itemmouseOut(){
+			 		$(this).find(".goods-info").css({"top":240});
+			 		return false;
+			 	}
+			 	$(".goods-pic-scroll-show li").hover(liHoverIn,function(){
+			 		return false;
+			 	});
+			 	function liHoverIn(){
+			 		$(".goods-pic-scroll-show li").each(function(){
+			 			this.className = "" ;
+			 		});
+			 		this.className = "selected" ;
+			 		$(this).parent().parent().parent().prev().find("img")[0].src = $(this).find("img")[0].src;
+			 		$(this).parent().parent().parent().prev().find("img").css({
+			 			"width":220,
+			 			"height":220,
+			 		});
+			 	}
 		 	};
-		 	function itemmouseOut(){
-		 		$(this).find(".goods-info").css({"top":240});
-		 		return false;
-		 	}
-		 	$(".goods-pic-scroll-show li").hover(liHoverIn,function(){
-		 		return false;
-		 	});
-		 	function liHoverIn(){
-		 		$(".goods-pic-scroll-show li").each(function(){
-		 			this.className = "" ;
-		 		});
-		 		this.className = "selected" ;
-		 		$(this).parent().parent().parent().prev().find("img")[0].src = $(this).find("img")[0].src;
-		 		$(this).parent().parent().parent().prev().find("img").css({
-		 			"width":220,
-		 			"height":220,
-		 		})
-		 	}
-		 	};
-
+			var data = {$data} ;
 			var app = angular.module("app",[]);
 			app.controller("myCon",function ($scope,$http) {
-				$scope.data = [];
+				$scope.data = data.info;
+				setTimeout(function(){
+					asdf();
+				},0);
 				$scope.err = "";
-				$scope.pages = 0;
+				$scope.pages = data.pages;
 				$scope.currentPage = 0;
 				$scope.range = function (start, end) {
 			        var ret = [];
@@ -548,19 +551,15 @@
 			    $scope.changePage = function(k){
 			    	getItem(k);
 			    }
-			    getItem($scope.pages);
 			    function getItem(page){
 					$http.get("__APP__/Cate/getList?page="+page).success(function(data){
-						console.log(data);
 						if(data.status ===1 ){
 							$scope.data = data.info;
 							$scope.pages = data.pages;
 							$scope.currentPage = page;
-							console.log($scope.currentPage);
 							setTimeout(function(){
 								asdf();
 							},0);
-							//让节点循环完之后绑定jq事件
 						}else{
 							$scope.err = "系统错误暂时找不到信息" ;
 						}
