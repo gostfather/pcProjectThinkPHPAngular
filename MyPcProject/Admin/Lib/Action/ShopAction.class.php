@@ -27,45 +27,39 @@ class ShopAction extends Action {
 			}
 		}
 	}
-	
-	
 	public function upload(){
-//		print_r($_POST);
-	//	print_r($_FILES);
-		//先保存图片到服务器
-		
-		if(!file_exists("shopImages")){
-			mkdir("shopImages");
-		};
-		$dirname = time();
-		if(!file_exists("shopImages/".$dirname)){
-			mkdir("shopImages/".$dirname);
-		};
-		$success = true;
-		for($i = 0 ; $i < count($_FILES) ; $i++){
-			$sourseName = $_FILES['img'.$i]['name'];
-			$tmpPath = $_FILES['img'.$i]['tmp_name'];
-			$res = $this -> upImg($sourseName,$tmpPath,$dirname);
-			if($res =="存储失败"){
-				$success = false;
-			}
-		};
-		if($success){
-			$return["info"]="上传成功";
-			$return["status"]=1;
+		$images = M("images");
+		$findOne = $images -> where("classify='".$_POST["classify"]."'") -> find();
+		if($findOne){
+			$return["info"]="已经有这个商品请通过管理修改";
+			$return["status"]=3;
 		}else{
-			$return["info"]="上传失败";
-			$return["status"]=2;
-		};
+			if(!file_exists("shopImages")){
+				mkdir("shopImages");
+			};
+			$dirname = time();
+			if(!file_exists("shopImages/".$dirname)){
+				mkdir("shopImages/".$dirname);
+			};
+			$success = true;
+			for($i = 0 ; $i < count($_FILES) ; $i++){
+				$sourseName = $_FILES['img'.$i]['name'];
+				$tmpPath = $_FILES['img'.$i]['tmp_name'];
+				$res = $this -> upImg($sourseName,$tmpPath,$dirname);
+				if($res =="存储失败"){
+					$success = false;
+				}
+			};
+			if($success){
+				$return["info"]="上传成功";
+				$return["status"]=1;
+			}else{
+				$return["info"]="上传失败";
+				$return["status"]=2;
+			};
+		}
 		$this -> ajaxReturn($return);
-		
-		
 	}
-	
-	
-	
-	
-	
 	//修改上传文件名字
 	public function randstr($num){
 		$str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
