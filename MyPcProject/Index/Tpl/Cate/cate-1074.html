@@ -527,12 +527,19 @@
 		 		})
 		 	}
 		 	};
-
+			var data = {$data} ;
 			var app = angular.module("app",[]);
 			app.controller("myCon",function ($scope,$http) {
-				$scope.data = [];
+				if(data.status == 1 ){
+					$scope.data = data.info;
+				}else{
+					$scope.data = [];
+				}
+				setTimeout(function(){
+					asdf();
+				},0);
 				$scope.err = "";
-				$scope.pages = 0;
+				$scope.pages = data.pages;
 				$scope.currentPage = 0;
 				$scope.range = function (start, end) {
 			        var ret = [];
@@ -548,11 +555,9 @@
 			    $scope.changePage = function(k){
 			    	getItem(k);
 			    }
-			    getItem($scope.pages);
 			    function getItem(page){
 					$http.get("__APP__/Cate/getList?page="+page).success(function(data){
-						console.log(data);
-						if(data.status ===1 ){
+						if(data.status === 1 ){
 							$scope.data = data.info;
 							$scope.pages = data.pages;
 							$scope.currentPage = page;
