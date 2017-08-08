@@ -65,10 +65,9 @@ class ShopACtion extends Action {
 		$str = I("arr");
 		$data = explode(",", $str);
 		$Shop = D("Shop");
-		$res = $Shop -> getShop($data);
+		$res = $Shop -> getShop($_POST["arr"]);
 		$return = json_encode($res["data"]);
 		$this -> assign("data",$return);
 		$this -> display("shoppingCheck");
 	}
-	
 }

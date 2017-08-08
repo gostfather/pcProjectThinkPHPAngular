@@ -151,22 +151,24 @@ class ShopModel extends Model {
 		$uid = session("uid");
 		$shop = M("shop");
 		$img = M("images");
-		$see["uid"] = $uid ;
-		$see["is_delete"] = 1 ;
-		$see["is_order"] = "" ;
+		$see["uid"] = $uid;
+		$see["is_delete"] = 1;
+		$see["is_order"] = "";
+		$message = [];
 		for($i = 0 ; $i < count($arr) ; $i ++){
 			$see["id"] = (int)$arr[$i] ;
 			$res = $shop -> where($see) -> find();
 			$data = $this -> getImages($res["classify"]);
-			$data["id"] = $res["id"];
-			$data["count"] = $res["count"];
-			$arr[]=$data;
-			
+			$message[$i]["id"] = $res["id"];
+			$message[$i]["count"] = $res["count"];
+			$message[$i]["title"] = $data["title"];
+			$message[$i]["imgurl"] = $data["imgurl"];
+			$message[$i]["StorePrice"] = $data["StorePrice"];
 		}
 		if($res){
 			$return["info"] = "查询成功";
 			$return["status"] = 1;
-			$return["data"] = $arr;
+			$return["data"] = $message;
 		}else{
 			$return["info"] = "购物车暂无数据";
 			$return["status"] = 2;

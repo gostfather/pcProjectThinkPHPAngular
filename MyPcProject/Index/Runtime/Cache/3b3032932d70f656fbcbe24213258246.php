@@ -1,4 +1,4 @@
-<!doctype html>
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -36,7 +36,77 @@
 </head>
 <body ng-app="shopApp" ng-controller="shopController" ng-cloak>
 	<!-- 1 -->
-	<include file="Component:site-nav"/>
+		<div class="public-top-layout w">
+		<div class="topbar wrapper">
+			<div class="user-entry">
+				<?php if(!empty($_SESSION['username'])): ?>您好&nbsp;<?php echo (session('username')); ?>，欢迎来到
+					<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=logout">退出</a>]</span> 
+				<?php else: ?>您好，欢迎来到
+					<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=index">登录</a>]</span> <span>[<a href="__APP__/Index?act=login&op=register">注册</a>]</span><?php endif; ?>
+			</div>
+			<div class="quick-menu">
+				<dl>
+					<dt>
+						<a href="" target="_blank" title="商户中心">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</a>
+					</dt>
+				</dl>
+				<dl>
+					<dt>
+						<a href="">我的订单</a>
+						<i></i>
+					</dt>
+					<dd>
+						<ul>
+							<li><a href="">待付款订单</a></li>
+							<li><a href="">待确认收货</a></li>
+							<li><a href="">待评价交易</a></li>
+						</ul>
+					</dd>	
+				</dl>
+				<dl>
+					<dt>
+						<a href="">我的收藏</a>
+						<i></i>
+					</dt>
+					<dd>
+						<ul>
+							<li><a href="">商品收藏</a></li>
+							<li><a href="">店铺收藏</a></li>
+						</ul>
+					</dd>	
+				</dl>
+				<dl>
+					<dt>
+						<a href="">客服服务</a>
+						<i></i>
+					</dt>
+					<dd>
+						<ul>
+							<li><a href="">帮助中心</a></li>
+							<li><a href="">售后服务</a></li>
+							<li><a href="">客服中心</a></li>
+						</ul>
+					</dd>	
+				</dl>
+				<dl class="weixin">
+					<dt>
+						关注我们
+						<i></i>
+					</dt>
+					<dd>
+						<h4>
+							扫描二维码
+							<br>
+							关注商城微信号	
+						</h4>
+						<img src="__ROOT__/Index/Common/images/QRcode.jpg" alt="">
+					</dd>
+				</dl>
+			</div>
+		</div>
+
 	<!-- 1.1 -->
 	<header class="ncc-head-layout">
 		<div class="site-logo">
