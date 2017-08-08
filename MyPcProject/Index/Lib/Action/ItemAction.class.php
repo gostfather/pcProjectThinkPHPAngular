@@ -3,7 +3,9 @@
 
 	public function item(){
 		$classify = I("item");
-		$this -> assign("classify",$classify);
+		$Item = D("Item");
+		$res = $Item -> getList($classify);
+		$this -> assign("classify",json_encode($res));
 		$this->display("item");
 	}
 	public function getList(){
