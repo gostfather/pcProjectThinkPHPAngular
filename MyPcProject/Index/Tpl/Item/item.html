@@ -532,12 +532,14 @@
 				setTimeout(function(){
 					after();
 				},0);
+
 				//添加到购物车
 				$scope.addToShop = function(){
 					$http({
 						method: 'GET',
         				url: '__APP__/Shop/addToShop/?classify='+classify.info.classify,
 					}).success(function(data){
+//						console.log(data);
 						if(data.status === 1){
 							//进入购物车
 							getSubtotal();
@@ -557,6 +559,7 @@
 				}
 				function getSubtotal(){
 					$http.get("__APP__/Shop/subtotal").success(function(data){
+	//					console.log(data);
 						if(data.status == 1){
 							$scope.goods = data.number ;
 							$scope.totalMoney = data.subtotal ;
