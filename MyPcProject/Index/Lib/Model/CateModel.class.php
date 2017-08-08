@@ -4,7 +4,7 @@
 			$images = M("images");
 			$res = $images -> order("addtime DESC") -> group("classify") -> limit($page*$everPage,$everPage) -> select() ;
 			for($i = 0 ;$i < count($res) ; $i++){
-//				$arr = Array();
+				$arr = array();
 				$data = $images -> where("classify='".$res[$i]["classify"]."'") -> select();
 				for($k=0 ; $k < count($data) ; $k++){
 					 $arr[$k] = $data[$k]["imgurl"];

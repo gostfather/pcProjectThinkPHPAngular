@@ -14,7 +14,7 @@ class ShopACtion extends Action {
 			//登陆状态的添加购物车可以直接跳转
 			$Shop = D("Shop");
 			$list = $Shop -> getList();
-			$this -> assign("list" , $list);
+			$this -> assign("list" , json_encode($list));
 	    	$this -> display("ShoppingCart");
 	}
 	public function ShoppingCheck() {

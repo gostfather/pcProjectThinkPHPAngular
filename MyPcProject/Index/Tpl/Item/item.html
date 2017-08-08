@@ -11,7 +11,7 @@
 		
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
-<title ng-bind="data.title + ' 春舞枝'" ></title>
+		<title ng-bind="data.title + ' 春舞枝'" ></title>
 		<style type="text/css">
 			body {
 				_behavior: url(http://www.531314.com/templates/new/css/csshover.htc);
@@ -58,7 +58,7 @@
 				<span class="arrow">></span>
 				<span><a href="__APP__/Index/index">鲜花束</a></span>
 				<span class="arrow">></span>
-				<span ng-clock >{{data.title}} 此款鲜花需提前1-3天预订哦</span>
+				<span ng-cloak >{{data.title}} 此款鲜花需提前1-3天预订哦</span>
 			</div>
 		</div>
 
@@ -74,7 +74,7 @@
 					<div class="controller_wrap">
 						<div class="controller">
 							<ul>
-								<li ng-repeat="(k,v) in data.imgurl">
+								<li ng-cloak ng-repeat="(k,v) in data.imgurl">
 									<a href="" class="">
 										<img ng-src="__ROOT__/{{v}}" alt="{{data.info}}" height="60" width="60">
 									</a>
@@ -95,7 +95,7 @@
 
 				<div class="ncs-goods-summary">
 					<div class="name">
-						<h1 ng-clock >{{data.title}} 此款鲜花需提前1-3天预订哦</h1>
+						<h1 ng-cloak >{{data.title}} 此款鲜花需提前1-3天预订哦</h1>
 						<strong></strong>
 					</div>
 					<div class="ncs-meta">
@@ -112,13 +112,13 @@
 						<dl>
 							<dt>市 场 价：</dt>
 							<dd class="cost-price">
-								<strong ng-clock >¥{{data.marketPrice}}</strong>
+								<strong ng-cloak >¥{{data.marketPrice}}</strong>
 							</dd>
 						</dl>
 						<dl>
 							<dt>商 城 价：</dt>
 							<dd class="price">
-								<strong ng-clock >¥{{data.StorePrice}}</strong>
+								<strong ng-cloak >¥{{data.StorePrice}}</strong>
 							</dd>
 						</dl>
 					</div>
@@ -525,31 +525,19 @@
 			var classify = {$classify};
 			var app = angular.module("app",[]);
 			app.controller("myCon",function ($scope,$http) {
-				$scope.data = null;
+				$scope.data = classify.info;
 				$scope.err = "";
 				$scope.goods = 0 ;
 				$scope.totalMoney = 0 ;
-				$http.get("__APP__/Item/getList?item="+classify).success(function(data){
-//					console.log(data);
-					if(data.status ===1 ){
-						$scope.data = data.info;
-//						console.log($scope.data)
-						setTimeout(function(){
-							after();
-						},0);
-					}else{
-						$scope.err = "系统错误暂时找不到信息" ;
-					}
-				}).error(function(data){
-					console.log(data);
-				});
+				setTimeout(function(){
+					after();
+				},0);
 
 				//添加到购物车
 				$scope.addToShop = function(){
-//					console.log(classify)
 					$http({
 						method: 'GET',
-        				url: '__APP__/Shop/addToShop/?classify='+classify,
+        				url: '__APP__/Shop/addToShop/?classify='+classify.info.classify,
 					}).success(function(data){
 //						console.log(data);
 						if(data.status === 1){
