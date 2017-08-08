@@ -207,7 +207,7 @@ a:hover.ncc-btn-black{
 	*display:inline/*IE6,7*/;
 }
 .ncc-flow li i{
-	background:#FFF url(../images/buy_step.gif) no-repeat;
+	background:#fafafa url(../images/buy_step.gif) no-repeat;
 	width:30px;
 	height:30px;
 	margin-left:-15px;

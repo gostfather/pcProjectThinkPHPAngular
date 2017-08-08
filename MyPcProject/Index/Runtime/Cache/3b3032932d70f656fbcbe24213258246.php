@@ -1,4 +1,4 @@
-<!doctype html>
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,7 +12,22 @@
 		.nc-appbar-tabs a.compare{display:none!important;}
 	</style>
 	<style>
-		.ncc-table-style tbody tr.item_disabled td{background:none repeat scroll 0 0 #F9F9F9;height:30px;padding:10px 0;text-align:center;}
+		.ncc-table-style tbody tr.item_disabled td{background:none repeat scroll 0 0 #F9F9F9;height:30px;padding:10px 0;text-align:center;
+		}
+		input.ncc-btn.ncc-btn-acidblue.fr{
+			display: block;
+			border: 0;
+			height: 38px;
+			padding: 0 10px;
+			background-color: #49AFCD;
+			font-size: 16px;
+			color: white;
+			cursor: pointer;
+		} 
+		input.ncc-btn.ncc-btn-acidblue.fr:hover{
+			background-color: #2F96B4;
+		}
+
 	</style>
 	<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
 	<link href="__ROOT__/Index/Common/css/home_cart.css" rel="stylesheet" type="text/css">
@@ -21,7 +36,77 @@
 </head>
 <body ng-app="shopApp" ng-controller="shopController" ng-cloak>
 	<!-- 1 -->
-	<include file="Component:site-nav"/>
+		<div class="public-top-layout w">
+		<div class="topbar wrapper">
+			<div class="user-entry">
+				<?php if(!empty($_SESSION['username'])): ?>您好&nbsp;<?php echo (session('username')); ?>，欢迎来到
+					<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=logout">退出</a>]</span> 
+				<?php else: ?>您好，欢迎来到
+					<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=index">登录</a>]</span> <span>[<a href="__APP__/Index?act=login&op=register">注册</a>]</span><?php endif; ?>
+			</div>
+			<div class="quick-menu">
+				<dl>
+					<dt>
+						<a href="" target="_blank" title="商户中心">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</a>
+					</dt>
+				</dl>
+				<dl>
+					<dt>
+						<a href="">我的订单</a>
+						<i></i>
+					</dt>
+					<dd>
+						<ul>
+							<li><a href="">待付款订单</a></li>
+							<li><a href="">待确认收货</a></li>
+							<li><a href="">待评价交易</a></li>
+						</ul>
+					</dd>	
+				</dl>
+				<dl>
+					<dt>
+						<a href="">我的收藏</a>
+						<i></i>
+					</dt>
+					<dd>
+						<ul>
+							<li><a href="">商品收藏</a></li>
+							<li><a href="">店铺收藏</a></li>
+						</ul>
+					</dd>	
+				</dl>
+				<dl>
+					<dt>
+						<a href="">客服服务</a>
+						<i></i>
+					</dt>
+					<dd>
+						<ul>
+							<li><a href="">帮助中心</a></li>
+							<li><a href="">售后服务</a></li>
+							<li><a href="">客服中心</a></li>
+						</ul>
+					</dd>	
+				</dl>
+				<dl class="weixin">
+					<dt>
+						关注我们
+						<i></i>
+					</dt>
+					<dd>
+						<h4>
+							扫描二维码
+							<br>
+							关注商城微信号	
+						</h4>
+						<img src="__ROOT__/Index/Common/images/QRcode.jpg" alt="">
+					</dd>
+				</dl>
+			</div>
+		</div>
+
 	<!-- 1.1 -->
 	<header class="ncc-head-layout">
 		<div class="site-logo">
@@ -30,7 +115,7 @@
 			</a>
 		</div>
 		<ul class="ncc-flow">
-			<li class="current">
+			<li>
 				<i class="step1"></i>
 				<p>我的购物车</p>
 				<sub></sub>
@@ -77,7 +162,7 @@
 				</h5>
 			</div>
 			<!-- 购物车操作开始 -->
-			<form>
+			<form action="__APP__/Shop/gotoCheck" method="post">
 				<table class="ncc-table-style" nc_type="table_cart">
 					<thead>
 						<tr>
@@ -106,11 +191,11 @@
 						</tr>
 						<tr ng-repeat="(k,v) in item" class="shop-list">
 							<td>
-								<input type="checkbox" ng-checked="chkItem[k]" ng-checked="chkItem[k]" ng-click="ck(chkItem[k]==undefind?false:chkItem[k], v, k)">
+								<input name="arr[]" value="{{v.id}}" type="checkbox" ng-checked="chkItem[k]" ng-checked="chkItem[k]" ng-click="ck(chkItem[k]==undefind?false:chkItem[k], v, k)">
 							</td>
 							<td class="w60">
 								<a href="" target="_blank" class="ncc-goods-thumb">
-									<img ng-src="__ROOT__/{{v.img}}" alt="{{v.title}}">
+									<img ng-src="__ROOT__/{{v.imgurl}}" alt="{{v.title}}">
 								</a>
 							</td>
 							<td class="tl">
@@ -132,7 +217,7 @@
 								<em >{{v.count * v.StorePrice | number:2}}</em>
 							</td>
 							<td class="w80">
-								<a ng-click="del(k)">删除</a>
+								<a ng-click="del(k,v)">删除</a>
 							</td>
 						</tr>
 					</tbody>
@@ -147,12 +232,12 @@
 						</tr>
 					</tfoot>
 				</table>
+				<div class="ncc-bottom">
+					<input ng-show="show" class="ncc-btn ncc-btn-acidblue fr" type="submit" value="下一步，填写核对购物信息">
+					<input ng-show="!show" class="ncc-btn ncc-btn-acidblue fr" type="button" onclick="alert('您还没有选择商品哦！')" value="下一步，填写核对购物信息">
+				</div>
+
 			</form>
-			<div class="ncc-bottom">
-				<a href="" id="next_submit" class="ncc-btn ncc-btn-acidblue fr">
-					下一步，填写核对购物信息
-				</a>
-			</div>
 		</div>
 	</div>
 
@@ -186,41 +271,28 @@
 	</div>
 </body>
 <script>
+	$(".ncc-flow li").eq(0).addClass("current");
 	angular.module("shopApp",[]).controller("shopController",function ($scope,$http) {
-		$scope.item = [
-			{	
-				id:1,
-				img:"Index/Common/item.jpg",
-				title:"【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物",
-				StorePrice:238.00,
-				count:1,
-			},
-			{	
-				id:2,
-				img:"Index/Common/item.jpg",
-				title:"【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物",
-				StorePrice:308.00,
-				count:2,
-			},
-			{	
-				id:3,
-				img:"Index/Common/item.jpg",
-				title:"【春舞枝】鲜花速递创意礼品21枝香槟玫瑰情人节玫瑰花束生日礼物",
-				StorePrice:238.00,
-				count:11,
-			},
-		];
+		$scope.item = [];
+
+		$http({
+           method: "post",
+           url: "__APP__/Shop/getList",
+       }).success(function (data) {
+       		if (data.status == 1) {
+       			console.log(data);
+       			$scope.item = data.data;
+       		}
+       }).error(function (err) {
+       		console.log(err);
+       })
+
 		$scope.sub = function (item,index) {
 			if (item.count == 1 || item.count < 1) {
 				item.count = 1;
 			} else{
-				$http({
-					url:"__APP__/Shop/reduceItem",
-	    			method:"get",
-	    			data:{
-	    				classify: item.id,
-	    			},
-	    		}).success(function(data){
+				$http.get("__APP__/Shop/reduceItem?classify=" + item.id)
+				.success(function(data){
 					if(data.status == 1){
 						item.count = data.count;
 						if ($scope.chkItem[index]) {
@@ -235,33 +307,42 @@
     		}			
 		}
 		$scope.add = function (item,index) {
-			$http({
-				url:"__APP__/Shop/addItem",
-    			method:"get",
-    			data:{
-    				classify: item.id,
-    			},
-    		}).success(function(data){
-				if(data.status == 1){
-					item.count = data.count;
-					if ($scope.chkItem[index]) {
-		   				$scope.total += item.StorePrice;
-		   			}
-				}else{
-					alert("操作失败");
-				}
-    		}).error(function(data){
-    			console.log("错误："+data);
-    		})
-		}
-		$scope.del = function (k) {
-			console.log(k)
-			$scope.item.splice(k,1);
+			$http.get("__APP__/Shop/addItem?classify=" + item.id)
+				.success(function(data){
+					if(data.status == 1){
+						item.count = data.count;
+						if ($scope.chkItem[index]) {
+			   				$scope.total += item.StorePrice;
+			   			}
+					}else{
+						// console.log(data);
+						alert("操作失败");
+					}
+	    		})
+	    		.error(function(data){
+	    			console.log("错误："+data);
+	    		})
+			}
+		$scope.del = function (k,item) {
+			console.log(item.id)
+			$http.get("__APP__/Shop/deleteItem?classify=" + item.id)
+				.success(function (data) {
+					if (data.status == 1) {
+						$scope.item.splice(k,1);
+					} else {
+						alert("操作失败");
+					}
+				})
+				.error(function (err) {
+					console.log(err);
+				})
 		}
 		$scope.total = 0;
 		//用来标志每一项的状态  
-        $scope.chkItem = [];  
-        $scope.ck = function (state, item, index) {  
+        $scope.chkItem = []; 
+        $scope.show = false; 
+        $scope.ck = function (state, item, index) {
+        	$scope.show = false;  
             //取状态的相反值  
             $scope.chkItem[index] = !state;
             // 计算总价
@@ -270,6 +351,14 @@
             }else{
             	$scope.total -= $scope.item[index].count * $scope.item[index].StorePrice;
             }
+            // 显示隐藏
+            for (var i = 0; i < $scope.item.length ; i++) {
+        		if ($scope.chkItem[i]) {
+        			$scope.show = true;
+        			break;
+        		}
+
+        	}
             //有一个为false则全选按钮为不选中  
             if(!$scope.chkItem[index]){  
                 $scope.checks = false;  
@@ -286,6 +375,7 @@
         } 
         // 全选
         $scope.all = function (checks) {  
+        	$scope.show = false;
             //初始化设置状态  
             init(checks);  
             // 总计
@@ -294,6 +384,7 @@
             	for(var i = 0; i < $scope.item.length; i++) {  
                 	$scope.total += $scope.item[i].count * $scope.item[i].StorePrice;
             	}  
+            	$scope.show = true;
             }
         }
         //初始化  
