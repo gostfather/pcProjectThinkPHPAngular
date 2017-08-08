@@ -12,7 +12,22 @@
 		.nc-appbar-tabs a.compare{display:none!important;}
 	</style>
 	<style>
-		.ncc-table-style tbody tr.item_disabled td{background:none repeat scroll 0 0 #F9F9F9;height:30px;padding:10px 0;text-align:center;}
+		.ncc-table-style tbody tr.item_disabled td{background:none repeat scroll 0 0 #F9F9F9;height:30px;padding:10px 0;text-align:center;
+		}
+		input.ncc-btn.ncc-btn-acidblue.fr{
+			display: block;
+			border: 0;
+			height: 38px;
+			padding: 0 10px;
+			background-color: #49AFCD;
+			font-size: 16px;
+			color: white;
+			cursor: pointer;
+		} 
+		input.ncc-btn.ncc-btn-acidblue.fr:hover{
+			background-color: #2F96B4;
+		}
+
 	</style>
 	<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
 	<link href="__ROOT__/Index/Common/css/home_cart.css" rel="stylesheet" type="text/css">
@@ -30,7 +45,7 @@
 			</a>
 		</div>
 		<ul class="ncc-flow">
-			<li class="current">
+			<li>
 				<i class="step1"></i>
 				<p>我的购物车</p>
 				<sub></sub>
@@ -77,7 +92,7 @@
 				</h5>
 			</div>
 			<!-- 购物车操作开始 -->
-			<form>
+			<form action="__APP__/Shop/gotoCheck" method="post">
 				<table class="ncc-table-style" nc_type="table_cart">
 					<thead>
 						<tr>
@@ -106,7 +121,7 @@
 						</tr>
 						<tr ng-repeat="(k,v) in item" class="shop-list">
 							<td>
-								<input type="checkbox" ng-checked="chkItem[k]" ng-checked="chkItem[k]" ng-click="ck(chkItem[k]==undefind?false:chkItem[k], v, k)">
+								<input name="arr[]" value="{{v.id}}" type="checkbox" ng-checked="chkItem[k]" ng-checked="chkItem[k]" ng-click="ck(chkItem[k]==undefind?false:chkItem[k], v, k)">
 							</td>
 							<td class="w60">
 								<a href="" target="_blank" class="ncc-goods-thumb">
@@ -147,12 +162,12 @@
 						</tr>
 					</tfoot>
 				</table>
+				<div class="ncc-bottom">
+					<input ng-show="show" class="ncc-btn ncc-btn-acidblue fr" type="submit" value="下一步，填写核对购物信息">
+					<input ng-show="!show" class="ncc-btn ncc-btn-acidblue fr" type="button" onclick="alert('您还没有选择商品哦！')" value="下一步，填写核对购物信息">
+				</div>
+
 			</form>
-			<div class="ncc-bottom">
-				<a href="" id="next_submit" class="ncc-btn ncc-btn-acidblue fr">
-					下一步，填写核对购物信息
-				</a>
-			</div>
 		</div>
 	</div>
 
@@ -186,8 +201,10 @@
 	</div>
 </body>
 <script>
+	$(".ncc-flow li").eq(0).addClass("current");
 	angular.module("shopApp",[]).controller("shopController",function ($scope,$http) {
 		$scope.item = [];
+
 		$http({
            method: "post",
            url: "__APP__/Shop/getList",
@@ -228,7 +245,7 @@
 			   				$scope.total += item.StorePrice;
 			   			}
 					}else{
-						console.log(data);
+						// console.log(data);
 						alert("操作失败");
 					}
 	    		})
@@ -249,12 +266,13 @@
 				.error(function (err) {
 					console.log(err);
 				})
-			
 		}
 		$scope.total = 0;
 		//用来标志每一项的状态  
-        $scope.chkItem = [];  
-        $scope.ck = function (state, item, index) {  
+        $scope.chkItem = []; 
+        $scope.show = false; 
+        $scope.ck = function (state, item, index) {
+        	$scope.show = false;  
             //取状态的相反值  
             $scope.chkItem[index] = !state;
             // 计算总价
@@ -263,6 +281,14 @@
             }else{
             	$scope.total -= $scope.item[index].count * $scope.item[index].StorePrice;
             }
+            // 显示隐藏
+            for (var i = 0; i < $scope.item.length ; i++) {
+        		if ($scope.chkItem[i]) {
+        			$scope.show = true;
+        			break;
+        		}
+
+        	}
             //有一个为false则全选按钮为不选中  
             if(!$scope.chkItem[index]){  
                 $scope.checks = false;  
@@ -279,6 +305,7 @@
         } 
         // 全选
         $scope.all = function (checks) {  
+        	$scope.show = false;
             //初始化设置状态  
             init(checks);  
             // 总计
@@ -287,6 +314,7 @@
             	for(var i = 0; i < $scope.item.length; i++) {  
                 	$scope.total += $scope.item[i].count * $scope.item[i].StorePrice;
             	}  
+            	$scope.show = true;
             }
         }
         //初始化  
