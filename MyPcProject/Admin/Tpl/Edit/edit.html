@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>后台管理</title>
+    	<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="__ROOT__/Admin/Common/css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="__ROOT__/Admin/Common/css/edit.css"/>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	</head>
+	<body>
+		<div ng-app="app" ng-controller="myCon" id="main">
+			<div class="header">
+				<h1>后台管理</h1>
+				<div class="search">
+					<input type="text" id="search" placeholder="搜索商品" /><input id="btn" value="搜索" type="button">
+				</div>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="__APP__/Shop/index">添加商品》</a></li>
+					<li><a href="__APP__/Manage/manage">管理商品》</a></li>
+				</ul>
+			</nav>
+			<article ng-model="shop">
+				<div class="text">
+					<ul>
+						<li><span>id：</span>{{shop.id}}</li>
+						<li><span>商品id：</span>{{shop.classify}}</li>
+						<li><span>标题：</span>{{shop.title}}</li>
+						<li><span>简介：</span>{{shop.info}}</li>
+						<li><span>颜色：</span>{{shop.color}}</li>
+						<li><span>市场价：</span>{{shop.marketPrice}}</li>
+						<li><span>商店价：</span>{{shop.StorePrice}}</li>
+						<li><span>库存：</span>{{shop.stock}}</li>
+						<li><span>添加时间：</span>{{shop.addtime}}</li>
+					</ul>
+				</div>
+				<div class="imges" >
+					<img ng-repeat="(kk,vv) in shop.imgurl" ng-src="__ROOT__/{{vv}}"/>
+				</div>
+			</article>
+			<div class="upload">
+				<div class="text">
+					<ul>
+						<li><span>标题：</span><input type="text" ng-model="title" /></li>
+						<li><span>简介：</span><input type="text" ng-model="info" /></li>
+						<li><span>颜色：</span><input type="text" ng-model="color" /></li>
+						<li><span>市场价：</span><input type="text" ng-model="marketPrice" /></li>
+						<li><span>商店价：</span><input type="text" ng-model="StorePrice" /></li>
+						<li><span>库存：</span><input type="text" ng-model="stock" /></li>
+					</ul>
+				</div>
+				<input ng-click="sub(shop.classify)" type="button" value="提交修改" />
+				<div class="imges" >
+					<h3>修改图片</h3>
+					<div class="delImages" >
+						<img ng-repeat="(kk,vv) in shop.imgurl" ng-click="del(vv)" ng-src="__ROOT__/{{vv}}"/>
+					</div>
+				</div>
+				 <div class="addImage">
+				 	<span id="addBtn" >&nbsp;&nbsp;点击添加更多图片 </span>
+		        </div>
+		        <h3 onclick="sub()" style="width: 80px;border: 1px solid black;">点击上传</h3>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var item = {$data};
+	    	var app = angular.module("app",[]);
+			app.controller("myCon",function ($scope,$http) {
+				$scope.title = "" ;
+				$scope.info = "" ;
+				$scope.color = "" ;
+				$scope.marketPrice = "" ;
+				$scope.StorePrice = "" ;
+				$scope.stock = "" ;
+				if(item.status===1){
+					$scope.shop = item.info;
+				}else{
+					alert(item.info);
+				}
+				$scope.sub = function(classify){
+					var data = {};
+					if($scope.title){
+						data.title = $scope.title;
+					}
+					if($scope.info){
+						data.info = $scope.info;
+					}
+					if($scope.color){
+						data.color = $scope.color;
+					}
+					if($scope.marketPrice){
+						data.marketPrice = $scope.marketPrice;
+					}
+					if($scope.StorePrice){
+						data.StorePrice = $scope.StorePrice;
+					}
+					if($scope.stock){
+						data.stock = $scope.stock;
+					}
+					if(JSON.stringify(data) !== "{}"){
+						data.classify = classify ;
+						$http({
+						url:'__APP__/Edit/subChange',
+						method:'POST',
+						headers:{
+    						"Content-type" : "application/x-www-form-urlencoded",
+    					},
+    					data:data, 
+						}).success(function(data){
+							if(data.status === 1){
+								$scope.shop = data.info;
+							}else{
+								alert(data.info);
+							}
+						}).error(function(err){
+							console.log("错误是"+err);
+						});
+					}else{
+						alert("您没有修改内容");
+					}
+					
+				}
+				$scope.del = function(id){
+					if(confirm("是否要删除这张图片")){
+						$http({
+							url:'__APP__/Edit/del',
+							method:'POST',
+							headers:{
+	    						"Content-type" : "application/x-www-form-urlencoded",
+	    					},
+	    					data:{
+	    						imgurl:id
+	    					},
+	    					
+						}).success(function(data){
+							console.log(data);
+							if(data.status === 1){
+								window.location.reload();
+							}else{
+								alert(data.info);
+							}
+						}).error(function(err){
+							console.log("错误是"+err);
+						});
+					}
+				}
+				
+			});
+		</script>
+		
+		<script type="text/javascript">
+		var index = 1;
+		var inputImage = $("<div class='list'><span>图片"+ (index) +"主图: </span><input onchange='preview("+(index-1)+")' name='img' type='file'/></div>")
+		$(".addImage").append(inputImage);
+		$("#addBtn").on("click",function(){
+			index++;
+			var inputImage = $("<div class='list'><span>图片"+ (index) +": </span><input onchange='preview("+(index-1)+")' name='img' type='file'/></div>")
+			$(this).parent().append(inputImage)
+		})
+		function preview(k){
+			const fs = document.getElementsByName("img")[k].files[0]; 
+			const reader = new FileReader();
+			reader.readAsDataURL(fs);
+			reader.onload = function(){
+				const img = new Image();
+				img.style.width = "70px";
+				img.style.height = "70px";
+				img.src = reader.result;
+				document.getElementsByName("img")[k].parentNode.appendChild(img);
+			}
+		}
+		function sub(){
+			var fd = new FormData();
+			var allImg = true;
+			$("input[name='img']").each(function(){
+				if(this.value===""){
+					allImg = false;
+				};
+			});
+			if(allImg){
+    			$("input[name='img']").each(function(k){
+//	    				console.log(k, this.files[0] );
+					 fd.append('img'+k, this.files[0]);
+    			});
+    			fd.append('title', item.info.title);
+    			fd.append('info', item.info.info);
+    			fd.append('color', item.info.color);
+    			fd.append('marketPrice', item.info.marketPrice);
+    			fd.append('StorePrice', item.info.StorePrice);
+    			fd.append('stock', item.info.stock);
+    			fd.append('classify', item.info.classify);
+    			
+    			
+    			asdf(fd);
+    			
+			}else{
+				alert("缺少图片");
+			}
+		}
+    	function asdf(data){
+    		$.ajax({
+				type:"POST",
+				url:"__APP__/Edit/upload",
+				async:true,
+				data:data,
+				processData: false,
+    			contentType: false,
+				success:function(data){
+					if(data.status === 1 ){
+						window.location.reload();
+						$("input[name='img']").each(function(){
+							this.value = null ;
+						});
+					}else{
+						alert(data.info);
+					}
+					
+				}
+			});
+    	}
+    </script>
+	</body>
+</html>
