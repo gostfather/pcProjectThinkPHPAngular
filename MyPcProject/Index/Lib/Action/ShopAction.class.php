@@ -1,4 +1,5 @@
 <?php
+// 本类由系统自动生成，仅供测试用途
 class ShopACtion extends Action {
     public function ShoppingCart(){
     		$classify = session("classify");
@@ -15,6 +16,9 @@ class ShopACtion extends Action {
 			$list = $Shop -> getList();
 			$this -> assign("list" , json_encode($list));
 	    	$this -> display("ShoppingCart");
+	}
+	public function ShoppingCheck() {
+		$this -> display("shoppingCheck");
 	}
 	//获取购物车小计
 	public function subtotal(){
@@ -56,10 +60,9 @@ class ShopACtion extends Action {
 		$str = I("arr");
 		$data = explode(",", $str);
 		$Shop = D("Shop");
-		$res = $Shop -> getShop($data);
+		$res = $Shop -> getShop($_POST["arr"]);
 		$return = json_encode($res["data"]);
 		$this -> assign("data",$return);
 		$this -> display("shoppingCheck");
 	}
-	
 }
