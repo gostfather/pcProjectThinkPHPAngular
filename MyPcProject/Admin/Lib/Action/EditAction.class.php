@@ -23,8 +23,6 @@ class EditAction extends Action {
 		}
 		$this -> ajaxReturn($res);
 	}
-	
-	
 	public function subChange(){
 		$str = file_get_contents("php://input");
 		$data = json_decode($str , true);
@@ -37,13 +35,11 @@ class EditAction extends Action {
 			$this -> ajaxReturn($res);
 		}
 	}
-	
-		public function upImg($sourseName,$tmpPath,$dirname){
+	public function upImg($sourseName,$tmpPath,$dirname){
 		$type  = strrchr($sourseName,".");
 		$fileName = $this -> randstr(6).$type;
 		$data = $_POST;
 		$data["addtime"] = $dirname;
-//		var_dump($_POST);die;
 		if(is_uploaded_file($tmpPath)){
 			$res = move_uploaded_file($tmpPath, "shopImages/".$dirname."/".$fileName);
 			if($res){
@@ -111,8 +107,6 @@ class EditAction extends Action {
 			return "没有这个文件";
 		}
 	}
-	
-	
 	//修改上传文件名字
 	public function randstr($num){
 		$str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -123,7 +117,5 @@ class EditAction extends Action {
 		}
 		return $newstr;
 	}
-
-	
 	
 }

@@ -15,7 +15,7 @@
 			$message["stock"] = $res[0]["stock"];
 			$message["classify"] = $res[0]["classify"];
 			$message["addtime"] = date("Y-m-d h:i:sa",$res[0]["addtime"]);
-			if($message){
+			if($res){
 				$return["status"] = 1 ;
 				$return["info"] = $message ;
 			}else{
@@ -64,6 +64,6 @@
 			}
 			return($info);
 		}
-	
+
 }
 ?>

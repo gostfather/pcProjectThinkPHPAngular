@@ -3,7 +3,6 @@ class IndexAction extends Action {
     public function index(){
     	$this->display("index");
 	}
-	
 	public function checkUsers(){
     	$str = file_get_contents("php://input");
 		$sureData = json_decode($str,true);
