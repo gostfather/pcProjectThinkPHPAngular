@@ -21,7 +21,8 @@
 					<li><a href="__APP__/Manage/manage">管理商品》</a></li>
 				</ul>
 			</nav>
-			<article ng-repeat="(k,v) in item" ng-click="edit(v.classify)">
+			<h3 ng-show="!shouList">找不到商品</h3>
+			<article ng-show="shouList" ng-repeat="(k,v) in item" ng-click="edit(v.classify)">
 				<div class="text">
 					<ul>
 						<li><span>id：</span>{{v.id}}</li>
@@ -39,22 +40,22 @@
 					<img ng-repeat="(kk,vv) in v.imgurl" ng-src="__ROOT__/{{vv}}"/>
 				</div>
 			</article>
-			<div class="pagination">
+			<div ng-show="manage" class="pagination">
 				<ul>
-					<li ng-class="currentPage==0? '' : 'canHover'">
-						<span ng-click="currentPage==0? '' : changePage(0)">首页</span>
+					<li ng-class="currentPage==0? '' : 'canHover'" ng-click="currentPage==0? '' : changePage(0)">
+						<span >首页</span>
 					</li>
-					<li ng-class="currentPage==0? '' : 'canHover'">
-						<span ng-click="currentPage > 0? changePage(currentPage-1) : ''">上一页</span>
+					<li ng-class="currentPage==0? '' : 'canHover'" ng-click="currentPage > 0? changePage(currentPage-1) : ''">
+						<span >上一页</span>
 					</li>
-					<li ng-repeat="(k,v) in range(0,pages)" ng-class="currentPage==k? '' : 'canHover' ">
-						<span ng-click="currentPage==k? '' : changePage(k)">{{k+1}}</span>
+					<li ng-repeat="(k,v) in range(0,pages)" ng-click="currentPage==k? '' : changePage(k)" ng-class="currentPage==k? '' : 'canHover' ">
+						<span >{{k+1}}</span>
 					</li>
-					<li ng-class="currentPage == pages - 1 ? '' : 'canHover' ">
-						<span ng-click="currentPage < pages -1 ? changePage(currentPage+1) : ''">下一页</span>
+					<li ng-class="currentPage == pages - 1 ? '' : 'canHover' " ng-click="currentPage < pages -1 ? changePage(currentPage+1) : ''">
+						<span >下一页</span>
 					</li>
-					<li ng-class="currentPage == pages - 1 ? '' : 'canHover'">
-						<span ng-click="currentPage==pages-1? '' : changePage(pages-1)">末页</span>
+					<li ng-class="currentPage == pages - 1 ? '' : 'canHover'" ng-click="currentPage==pages-1? '' : changePage(pages-1)">
+						<span >末页</span>
 					</li>
 				</ul>
 			</div>
@@ -68,6 +69,11 @@
 		$scope.pages = item.pages;
 		$scope.currentPage = 0;
 		$scope.keyWord = "" ;
+		$scope.shouList = false ;
+		$scope.manage = true ;
+		if(item.status == 1){
+			$scope.shouList = true ;
+		}
 		$scope.range = function (start, end) {
 	        var ret = [];
 	        if (!end) {
@@ -108,6 +114,14 @@
 				},
 			}).success(function(data){
 				console.log(data);
+				if(data.status === 1 ){
+					$scope.item = data.info ;
+					$scope.manage = false ;
+					$scope.shouList = true ;
+				}else{
+					$scope.shouList = true ;
+					$scope.manage = false ;
+				}
 			}).error(function(err){
 				console.log("我是错误：" + err);
 			});
