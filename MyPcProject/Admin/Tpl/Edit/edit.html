@@ -23,7 +23,8 @@
 					<li><a href="__APP__/Manage/manage">管理商品》</a></li>
 				</ul>
 			</nav>
-			<article ng-model="shop">
+			<h3 ng-bind="message"></h3>
+			<article ng-show="showInfo" ng-model="shop">
 				<div class="text">
 					<ul>
 						<li><span>id：</span>{{shop.id}}</li>
@@ -41,7 +42,7 @@
 					<img ng-repeat="(kk,vv) in shop.imgurl" ng-src="__ROOT__/{{vv}}"/>
 				</div>
 			</article>
-			<div class="upload">
+			<div ng-show="showInfo" class="upload">
 				<div class="text">
 					<ul>
 						<li><span>标题：</span><input type="text" ng-model="title" /></li>
@@ -75,10 +76,13 @@
 				$scope.marketPrice = "" ;
 				$scope.StorePrice = "" ;
 				$scope.stock = "" ;
-				if(item.status===1){
+				$scope.message = "" ;
+				$scope.showInfo = false ;
+				if(item.status === 1){
+					$scope.showInfo = true ;
 					$scope.shop = item.info;
 				}else{
-					alert(item.info);
+					$scope.message = item.info;
 				}
 				$scope.sub = function(classify){
 					var data = {};
@@ -150,7 +154,6 @@
 				
 			});
 		</script>
-		
 		<script type="text/javascript">
 		var index = 1;
 		var inputImage = $("<div class='list'><span>图片"+ (index) +"主图: </span><input onchange='preview("+(index-1)+")' name='img' type='file'/></div>")
@@ -182,7 +185,6 @@
 			});
 			if(allImg){
     			$("input[name='img']").each(function(k){
-//	    				console.log(k, this.files[0] );
 					 fd.append('img'+k, this.files[0]);
     			});
     			fd.append('title', item.info.title);
@@ -192,8 +194,6 @@
     			fd.append('StorePrice', item.info.StorePrice);
     			fd.append('stock', item.info.stock);
     			fd.append('classify', item.info.classify);
-    			
-    			
     			asdf(fd);
     			
 			}else{
