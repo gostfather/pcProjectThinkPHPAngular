@@ -54,15 +54,17 @@ class ShopACtion extends Action {
 		$res = $Shop -> deleteItem($classify);
 		$this ->ajaxReturn($res);
 	}
-
 	//传到订单页面
 	public function gotoCheck(){
-		$str = I("arr");
-		$data = explode(",", $str);
+		$Address = D("Address");
+		$res = $Address -> getAddress();
+		$this -> assign("address" ,json_encode($res));
+		//返回地址信息
 		$Shop = D("Shop");
 		$res = $Shop -> getShop($_POST["arr"]);
 		$return = json_encode($res["data"]);
 		$this -> assign("data",$return);
+		//返回购物车信息
 		$this -> display("shoppingCheck");
 	}
 }
