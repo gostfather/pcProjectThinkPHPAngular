@@ -76,9 +76,7 @@
 	                    <td>{{v.StorePrice}}</td>
 	                    <td>{{v.stock}}</td>
 	                    <td>{{v.addtime}}</td>
-	                    <td ng-click="del(v.classify)"><span>删除</span></td>
 	                </tr>
-		          
 		       </table>
 			</div>
 		</div>
@@ -89,7 +87,6 @@
 		$scope.data = [];
 		$scope.err = "";
 		$http.get("__APP__/Shop/simpleList").success(function(data){
-//			console.log(data);
 			if(data.status ===1 ){
 				$scope.data = data.res;
 			}else{

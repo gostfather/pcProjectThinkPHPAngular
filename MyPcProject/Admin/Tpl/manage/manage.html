@@ -12,7 +12,7 @@
 			<div class="header">
 				<h1>后台管理</h1>
 				<div class="search">
-					<input type="text" id="search" placeholder="搜索商品" /><input id="btn" value="搜索" type="button">
+					<input type="text" id="search" ng-model="keyWord" placeholder="搜索商品" /><input id="btn" ng-click="search()" value="搜索" type="button">
 				</div>
 			</div>
 			<nav>
@@ -61,13 +61,13 @@
 		</div>
 	<script type="text/javascript">
 		var item = {$data};
-		console.log(item);
     	var app = angular.module("app",[]);
 	app.controller("myCon",function ($scope,$http) {
 		$scope.item = item.info;
 		$scope.err = "";
 		$scope.pages = item.pages;
 		$scope.currentPage = 0;
+		$scope.keyWord = "" ;
 		$scope.range = function (start, end) {
 	        var ret = [];
 	        if (!end) {
@@ -85,14 +85,10 @@
 	    function getItem(page){
 			$http.get("__APP__/Manage/getList?page="+page)
 			.success(function(data){
-				console.log(data);
 				if(data.status ===1 ){
 					$scope.item = data.info;
 					$scope.pages = data.pages;
 					$scope.currentPage = page;
-					console.log($scope.currentPage);
-					
-					//让节点循环完之后绑定jq事件
 				}else{
 					$scope.err = "系统错误暂时找不到信息" ;
 				}
@@ -100,6 +96,23 @@
 				console.log(data);
 			});
 		}
+	    $scope.search = function(){
+	    	$http({
+	    		url:'__APP__/Manage/search',
+				method:'POST',
+				headers:{
+					"Content-type" : "application/x-www-form-urlencoded",
+				},
+				data:{
+					keyWord:$scope.keyWord,
+				},
+			}).success(function(data){
+				console.log(data);
+			}).error(function(err){
+				console.log("我是错误：" + err);
+			});
+	    }
+	    
 	    $scope.edit = function(classify){
 	    	window.location.href = "__APP__/Edit/edit?classify="+ classify ;
 	    }
