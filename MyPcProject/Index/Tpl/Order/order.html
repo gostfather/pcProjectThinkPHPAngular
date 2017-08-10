@@ -64,9 +64,6 @@
 							<li class="active">
 								<a>订单列表</a>
 							</li>
-							<li class="">
-								<a>回收站</a>
-							</li>
 						</ul>
 					</div>
 					<div>
@@ -94,7 +91,7 @@
 							</tr>
 						</table>
 					</div>
-					<table  ng-app="app" ng-controller="myCon" class="ncm-default-table order">
+					<table ng-app="app" ng-controller="myCon" class="ncm-default-table order">
 						<thead>
 							<tr>
 								<th class="w10"></th>
@@ -107,85 +104,150 @@
 								<th class="w150">交易操作</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr ng-show="isFind">
+						<tbody ng-show="isFind">
+							<tr>
 								<td colspan="20" class="norecord">
 									<div class="warning-option"><i>&nbsp;</i><span>暂无符合条件的数据记录</span></div>
 								</td>
 							</tr>
-							<tbody ng-repeat="(k,v) in orders" class="pay">
-								<tr>
-									<td colspan="19" class="sep-row"></td>
-								</tr>
-								<tr>
-									<td colspan="19" class="pay-td"><span class="ml15">在线支付金额：<em>￥{{v.totalmoney}}</em></span>
-										<a class="ncm-btn ncm-btn-orange fr mr15" ><i class="icon-shield"></i>订单支付</a>
-									</td>
-								</tr>
-								<tr>
-									<th colspan="19"> 
-										<span class="ml10">订单号：{{v.ordernumber}} </span>
-										<span>下单时间：{{v.addtime}}</span>
-										<span><a href="__ROOT__/Index/index" title="春舞枝旗舰店">春舞枝旗舰店</a></span>
-										<span member_id="1"></span>
-										<a class="share-goods" ><i class="icon-share"></i>分享</a>
-									</th>
-								</tr>
-								<tr>
-									<td class="bdl"></td>
-									<td class="w70">
-										<div class="ncm-goods-thumb">
-											<a><img ng-src="{{v.shops[0].imgurl}}"></a>
-										</div>
-									</td>
-									<td class="tl">
-										<dl class="goods-name">
-											<dt><a>{{v.shops[0].title}}</a></dt>
-										</dl>
-									</td>
-									<td>388.00</td>
-									<td>1</td>
-									<td>
-									</td>
-									<td class="bdl" rowspan="{{v.shops.length}}">
-										<p class=""><strong>{{v.totalmoney}}</strong></p>
-										<p class="goods-freight">
-											（免运费） </p>
-										<p title="支付方式：在线付款">在线付款</p>
-									</td>
-									<td class="bdl" rowspan="{{v.shops.length}}">
-										<p><span ng-show="v.is_pay == 0 " style="color:#36C">待付款</span> </p>
-										<p><span ng-show="v.is_pay == 1 && v.is_receive == 0 " style="color:#36C">待发货</span> </p>
-										<p><span ng-show="v.is_pay == 1 && v.is_receive == 1 " style="color:#36C">已完成，待评价</span> </p>
-										<p>
-											<a>订单详情</a>
-										</p>
+						</tbody>
+						<tbody ng-repeat="(k,v) in orders" class="pay">
+							<tr>
+								<td colspan="19" class="sep-row"></td>
+							</tr>
+							<tr>
+								<td colspan="19" class="pay-td"><span class="ml15">在线支付金额：<em>￥{{v.totalmoney}}</em></span>
+									<a class="ncm-btn ncm-btn-orange fr mr15"><i class="icon-shield"></i>订单支付</a>
+								</td>
+							</tr>
+							<tr>
+								<th colspan="19">
+									<span class="ml10">订单号：{{v.ordernumber}} </span>
+									<span>下单时间：{{v.addtime}}</span>
+									<span><a href="__ROOT__/Index/index" title="春舞枝旗舰店">春舞枝旗舰店</a></span>
+									<span member_id="1"></span>
+									<a class="share-goods"><i class="icon-share"></i>分享</a>
+								</th>
+							</tr>
+							<tr>
+								<td class="bdl"></td>
+								<td class="w70">
+									<div class="ncm-goods-thumb">
+										<a><img ng-src="{{v.shops[0].imgurl}}" /></a>
+									</div>
+								</td>
+								<td class="tl">
+									<dl class="goods-name">
+										<dt><a>{{v.shops[0].title}}</a></dt>
+									</dl>
+								</td>
+								<td>388.00</td>
+								<td>1</td>
+								<td>
+								</td>
+								<td class="bdl" rowspan="{{v.shops.length}}">
+									<p class=""><strong>{{v.totalmoney}}</strong></p>
+									<p class="goods-freight">
+										（免运费） </p>
+									<p title="支付方式：在线付款">在线付款</p>
+								</td>
+								<td class="bdl" rowspan="{{v.shops.length}}">
+									<p><span ng-show="v.is_pay == 0 " style="color:#36C">待付款</span> </p>
+									<p><span ng-show="v.is_pay == 1 && v.is_receive == 0 " style="color:#36C">待发货</span> </p>
+									<p><span ng-show="v.is_pay == 1 && v.is_receive == 1 " style="color:#36C">已完成，待评价</span> </p>
+									<p>
+										<a>订单详情</a>
+									</p>
 
-									</td>
-									<td class="bdl bdr" rowspan="{{v.shops.length}}">
-										<p>
-											<a class="ncm-btn ncm-btn-red" ><i class="icon-ban-circle"></i> 取消订单</a>
-										</p>
-									</td>
-								</tr>
-								<tr ng-repeat="(kk,vv) in v.shops" ng-if="$index !== 0">
-									<td class="bdl"></td>
-									<td class="w70">
-										<div class="ncm-goods-thumb">
-											<a><img ng-src="{{vv.imgurl}}"></a>
-										</div>
-									</td>
-									<td class="tl">
-										<dl class="goods-name">
-											<dt><a>{{vv.title}}</a></dt>
-										</dl>
-									</td>
-									<td>{{vv.StorePrice}}</td>
-									<td>{{vv.count}}</td>
-									<td>
-									</td>
-								</tr>
-							</tbody>
+								</td>
+								<td class="bdl bdr" rowspan="{{v.shops.length}}">
+									<p>
+										<a ng-click="delOrder(v.ordernumber)" class="ncm-btn ncm-btn-red"><i class="icon-ban-circle"></i> 取消订单</a>
+									</p>
+								</td>
+							</tr>
+							<tr ng-repeat="(kk,vv) in v.shops" ng-if="$index !== 0">
+								<td class="bdl"></td>
+								<td class="w70">
+									<div class="ncm-goods-thumb">
+										<a><img ng-src="{{vv.imgurl}}" /></a>
+									</div>
+								</td>
+								<td class="tl">
+									<dl class="goods-name">
+										<dt><a>{{vv.title}}</a></dt>
+									</dl>
+								</td>
+								<td>{{vv.StorePrice}}</td>
+								<td>{{vv.count}}</td>
+								<td>
+								</td>
+							</tr>
+						</tbody>
+						<tbody ng-repeat="(k,v) in orders">
+							<tr>
+								<td colspan="19" class="sep-row"></td>
+							</tr>
+							<tr>
+								<th colspan="19">
+									<span class="ml10">订单号：{{v.ordernumber}} </span>
+									<span>下单时间：{{v.addtime}}</span>
+									<span><a href="__ROOT__/Index/index" title="春舞枝旗舰店">春舞枝旗舰店</a></span>
+									<span member_id="1"></span>
+									<a class="share-goods"><i class="icon-share"></i>分享</a>
+									<a class="order-trash"><i class="icon-trash"></i>删除</a>
+								</th>
+							</tr>
+							<tr>
+								<td class="bdl"></td>
+								<td class="w70">
+									<div class="ncm-goods-thumb">
+										<a><img ng-src="{{v.shops[0].imgurl}}" /></a>
+									</div>
+								</td>
+								<td class="tl">
+									<dl class="goods-name">
+										<dt><a>{{v.shops[0].title}}</a></dt>
+									</dl>
+								</td>
+								<td>388.00</td>
+								<td>1</td>
+								<td>
+								</td>
+								<td class="bdl" rowspan="{{v.shops.length}}">
+									<p class=""><strong>{{v.totalmoney}}</strong></p>
+									<p class="goods-freight">
+										（免运费） </p>
+									<p title="支付方式：在线付款">在线付款</p>
+								</td>
+								<td class="bdl" rowspan="{{v.shops.length}}">
+									<p><span>已取消</span> </p>
+									<p>
+										<a>订单详情</a>
+									</p>
+
+								</td>
+								<td class="bdl bdr" rowspan="{{v.shops.length}}">
+									
+								</td>
+							</tr>
+							<tr ng-repeat="(kk,vv) in v.shops" ng-if="$index !== 0">
+								<td class="bdl"></td>
+								<td class="w70">
+									<div class="ncm-goods-thumb">
+										<a><img ng-src="{{vv.imgurl}}" /></a>
+									</div>
+								</td>
+								<td class="tl">
+									<dl class="goods-name">
+										<dt><a>{{vv.title}}</a></dt>
+									</dl>
+								</td>
+								<td>{{vv.StorePrice}}</td>
+								<td>{{vv.count}}</td>
+								<td>
+								</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -193,49 +255,80 @@
 			<div class="clear"></div>
 		</div>
 		<include file="Component:footer" />
-<script type="text/javascript">
-	var data = [{
-			ordernumber:123123,
-			shops:[{
-				imgurl:"http://img.531314.com/shop/store/goods/1/1_05424639725775441_60.jpg",
-				title:"【春舞枝】基地直销 33枝粉玫瑰",
-				StorePrice:"388.00",
-				count:1,
-			},
-			{
-				imgurl:"http://img.531314.com/shop/store/goods/1/1_05424686092644715_60.jpg",
-				title:"【春舞枝】基地直销 33枝红玫瑰情人草",
-				StorePrice:"388.00",
-				count:1,
-			},],
-			addtime:"2017-08-07 11:25:30",
-			totalmoney:"776.00",
-			is_pay:1,
-			is_receive:1,
-		},
-		{
-			ordernumber:41234123,
-			shops:[{
-				imgurl:"http://img.531314.com/shop/store/goods/1/1_05424686092644715_60.jpg",
-				title:"【春舞枝】基地直销 33白+紫玫瑰16枝+8枝子洋桔梗",
-				StorePrice:"388.00",
-				count:2,
-			}],
-			addtime:"2017-08-07 09:58:44",
-			totalmoney:"776.00",
-			is_pay:0,
-			is_receive:0,
-		}];
-	console.log(data);
-	var app = angular.module("app",[]);
-	app.controller("myCon",function ($scope,$http) {
-		$scope.isFind = true ;
-		if(data){
-			$scope.isFind = false ;
-		}
-		$scope.orders = data;
-	});
-</script>
+		<script type="text/javascript">
+			var data = [{
+					ordernumber: 123123,
+					shops: [{
+							imgurl: "http://img.531314.com/shop/store/goods/1/1_05424639725775441_60.jpg",
+							title: "【春舞枝】基地直销 33枝粉玫瑰",
+							StorePrice: "388.00",
+							count: 1,
+						},
+						{
+							imgurl: "http://img.531314.com/shop/store/goods/1/1_05424686092644715_60.jpg",
+							title: "【春舞枝】基地直销 33枝红玫瑰情人草",
+							StorePrice: "388.00",
+							count: 1,
+						},
+					],
+					addtime: "2017-08-07 11:25:30",
+					totalmoney: "776.00",
+					is_pay: 1,
+					is_receive: 1,
+				},
+				{
+					ordernumber: 41234123,
+					shops: [{
+						imgurl: "http://img.531314.com/shop/store/goods/1/1_05424686092644715_60.jpg",
+						title: "【春舞枝】基地直销 33白+紫玫瑰16枝+8枝子洋桔梗",
+						StorePrice: "388.00",
+						count: 2,
+					}],
+					addtime: "2017-08-07 09:58:44",
+					totalmoney: "776.00",
+					is_pay: 0,
+					is_receive: 0,
+				}
+			];
+			console.log(data);
+			var app = angular.module("app", []);
+			app.controller("myCon", function($scope, $http) {
+				$scope.isFind = true;
+				if(data) {
+					$scope.isFind = false;
+				}
+				$scope.orders = data;
+				setTimeout(function() {
+					$(".ncm-goods-thumb").on("mouseenter", mouseIn);
+				}, 0);
+				$scope.delOrder = function(ordernumber) {
+					console.log(ordernumber);
+				}
+			});
+
+			function mouseIn(ev) {
+				var event = window.event || ev;
+				var img = $("<img />");
+				var src = $(this).find("img").attr("src");
+				img.css({
+					"position": "absolute",
+					"width": "100",
+				})
+				img.attr("src", src);
+				$(this).append(img);
+				$(this).mousemove(function(ev) {
+					var event = window.event || ev;
+					img.css({
+						"marginLeft": event.offsetX + 30,
+						"marginTop": event.offsetY - 90,
+					});
+					$(this).mouseleave(function() {
+						img.remove();
+					})
+				})
+				return false;
+			}
+		</script>
 	</body>
 
 </html>
