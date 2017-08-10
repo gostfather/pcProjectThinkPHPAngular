@@ -57,9 +57,13 @@
 					$default["is_default"] = 1;
 					$t_o =  $address -> where($data) -> data($default) -> save();
 					if($t_o){
+						$list = $this -> getAddress();
+						$return["data"] = $list["data"] ;
 						$return["info"] = "写入成功" ;
 						$return["status"] = 1 ;
-						$return["id"] = $address -> where($data) -> find() ;
+						$aaa["uid"] = session("uid");
+						$aaa["is_default"] = 1;
+						$return["id"] = $address -> where($aaa) -> find() ;
 					}
 				}
 				
