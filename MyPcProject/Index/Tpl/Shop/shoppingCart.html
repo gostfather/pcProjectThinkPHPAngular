@@ -5,13 +5,8 @@
 	<title>春舞枝</title>
 	<meta name="keywords" content="春舞枝"/>
 	<meta name="description" content="春舞枝"/>
-	<style type="text/css">
-		body{
-			_behavior:url(http://www.531314.com/templates/new/css/csshover.htc);
-		}
-		.nc-appbar-tabs a.compare{display:none!important;}
-	</style>
 	<style>
+		.nc-appbar-tabs a.compare{display:none!important;}
 		.ncc-table-style tbody tr.item_disabled td{background:none repeat scroll 0 0 #F9F9F9;height:30px;padding:10px 0;text-align:center;
 		}
 		input.ncc-btn.ncc-btn-acidblue.fr{
@@ -27,7 +22,6 @@
 		input.ncc-btn.ncc-btn-acidblue.fr:hover{
 			background-color: #2F96B4;
 		}
-
 	</style>
 	<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
 	<link href="__ROOT__/Index/Common/css/home_cart.css" rel="stylesheet" type="text/css">
@@ -121,7 +115,7 @@
 						</tr>
 						<tr ng-repeat="(k,v) in item" class="shop-list">
 							<td>
-								<input name="arr[]" value="{{v.id}}" type="checkbox" ng-checked="chkItem[k]" ng-checked="chkItem[k]" ng-click="ck(chkItem[k]==undefind?false:chkItem[k], v, k)">
+								<input name="arr[]" value="{{v.id}}" type="checkbox" ng-checked="chkItem[k]" ng-click="ck(chkItem[k]==undefind?false:chkItem[k], v, k)">
 							</td>
 							<td class="w60">
 								<a href="" target="_blank" class="ncc-goods-thumb">
