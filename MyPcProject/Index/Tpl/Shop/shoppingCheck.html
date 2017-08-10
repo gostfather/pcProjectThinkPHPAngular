@@ -10,6 +10,7 @@
 		.ncc-table-style tbody tr.item_disabled td{
 			background:none repeat scroll 0 0 #F9F9F9;height:30px;padding:10px 0;text-align:center;
 		}
+
 	</style>
 	<!-- 省级联动 -->
 	<style>
@@ -22,22 +23,14 @@
 		._citys1 a { width: 83px; height: 35px; display: inline-block; background-color: rgba(86, 180, 248, 0.35); color: #666; margin-left: 6px; margin-top: 3px; line-height: 35px; text-align: center; cursor: pointer; font-size: 13px; overflow: hidden; }
 		._citys1 a:hover { color: #fff; background-color: #56b4f8; }
 		.AreaS { background-color: #56b4f8 !important; color: #fff !important; }
-	</style>
-	<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
-	<link href="__ROOT__/Index/Common/css/home_cart.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
-	<script type="text/javascript" src="__ROOT__/Index/Common/js/jq.min.js"></script>
-	<script src="__ROOT__/Index/Common/js/Popt.js"></script>
-<script src="__ROOT__/Index/Common/js/cityJson.js"></script>
-<script src="__ROOT__/Index/Common/js/citySet.js"></script>
-	<style>
-		.ncc-table-style tbody tr.item_disabled td {
-			background:none repeat scroll 0 0 #F9F9F9;
-			height:30px;
-			padding:10px 0;
-			text-align:center;
-		}
-	</style>
+		</style>
+		<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/home_cart.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
+		<script type="text/javascript" src="__ROOT__/Index/Common/js/jq.min.js"></script>
+		<script src="__ROOT__/Index/Common/js/Popt.js"></script>
+		<script src="__ROOT__/Index/Common/js/cityJson.js"></script>
+		<script src="__ROOT__/Index/Common/js/citySet.js"></script>
 </head>
 <body ng-app="shopApp" ng-controller="shopController" ng-cloak>
 	<!-- 1 -->
@@ -83,21 +76,51 @@
 					<h3>填写核对购物信息</h3>
 					<h5>请仔细核对填写收货、发票等信息，以确保物流快递及时准确投递。</h5>
 				</div>
-				<!-- 收货人信息 -->
-				<div class="ncc-receipt-info" ng-class="{true:'current_box',false:''}[IsFill]">
+
+
+				<!-- 收货人信息模块 -->
+				<!-- 1.有信息，2.没信息 -->
+				<div class="ncc-receipt-info" ng-class="{true:'',false:'current_box'}[IsRevise]">
 					<div class="ncc-receipt-info-title">
+						<!-- 共有 -->
 						<h3>收货人信息</h3>
-						<a ng-show="IsRe" ng-click="update()">[修改]</a>
+						<!-- 1.有信息 的时候显示 ng-show2 -->
+						<a ng-show="IsRevise" ng-click="update()">[修改]</a>
 					</div>
-					<!-- 1.数据库没有信息，填写收货人信息 -->
-					<div ng-show="IsFill" class="ncc-candidate-items">
+					<div class="ncc-candidate-items">
 						<ul>
-							<li class="receive_add addr_item">
-								<input type="radio">
-								<label for="">使用新地址</label>
-								<label for=""><a class="del" href="" target="_blank">使用自提服务站</a></label>
+							<!--  有信息 -->
+							<!-- 收货人信息 -->
+							<!-- 这里需要一个ng-show1 -->
+							<!-- 有修改按钮的时候 一定会显示， 修改按钮消失，也一定会消失 -->
+							<li ng-show="IsRevise">
+								<span class="true-name">{{defaultAddress.username}}</span>
+								<span class="address">{{defaultAddress.area}}</span>
+								<span class="address">{{defaultAddress.address}}</span>
+								<span class="phone">{{defaultAddress.phone}}</span>
+								<span ng-if="defaultAddress.tel">{{defaultAddress.tel}}</span>
+							</li>	
+							<!-- 点击[修改]显示信息列表 添加 类名 -->
+							<!-- 点击[修改按钮]（消失） 显示收货人列表  和[修改]按钮值相反-->
+							<li ng-repeat="(k,v) in receiveAddress" class="receive_add address_item ncc-selected-item" ng-show="!IsRevise">
+								<input type="radio" name="isSelect" class="radio" ng-click="ck()" ng-value="v.id">
+								<label for="">
+									<span class="true-name">{{v.username}}</span>
+									<span class="address">{{v.area}}</span>
+									<span class="address">{{v.address}}</span>
+									<span class="phone">{{v.phone}}</span>
+									<span ng-if="v.tel">{{v.tel}}</span>
+								</label>
+								<a href="" class="del">删除</a>
 							</li>
-							<li>
+							<!-- 和循环的li同一个控件 ng-show2 和[修改]按钮相反 -->
+							<li class="receive_add addr_item" ng-show="!IsRevise">
+								<input type="radio" name="isSelect" ng-checked="IsFill" ng-click="ck(true)" value="newadd">
+								<label for="">使用新地址</label>
+								<a href="" class="del">使用自提服务</a>
+							</li>
+							<!-- 控件 由选择[点击使用新地址]控制 -->
+							<li ng-show="IsFill">
 								<div>
 									<div class="ncc-form-default">
 										<form action="">
@@ -144,101 +167,13 @@
 	  												<input type="text" class="text w100" maxlength="20" ng-model="tel">
 												</dd>
 											</dl>
-											
 										</form>
 									</div>
 								</div>
 							</li>
 						</ul>
-						<div class="hr16">
-							<a ng-click="sub()" class="ncc-btn ncc-btn-red">保存收货人信息</a>
-						</div>
-					</div>
-					<!-- 2.数据库有信息，默认收货人信息 -->
-					<div ng-show="IsRe" class="ncc-candidate-items">
-						<ul>
-							<!-- 收货人信息 -->
-							<li>
-								<span class="true-name">{{defaultAddress.username}}</span>
-								<span class="address">{{defaultAddress.area}}</span>
-								<span class="address">{{defaultAddress.address}}</span>
-								<span class="phone">{{defaultAddress.phone}}</span>
-								<span ng-if="defaultAddress.tel">{{defaultAddress.tel}}</span>
-							</li>	
-						</ul>
-					</div>
-					<!-- 点击[修改]按钮展示所有地址信息 -->
-					<div ng-show="!IsRe"  class="ncc-candidate-items">
-						<ul>
-							<!-- 循环 -->
-							<li ng-repeat="(k,v) in receiveAddress" class="receive_add address_item ncc-selected-item">
-								<input type="radio" name="isSelect" class="radio" ng-click="ck()" ng-value="v.id">
-								<label for="">
-									<span class="true-name">{{v.username}}</span>
-									<span class="address">{{v.area}}</span>
-									<span class="address">{{v.address}}</span>
-									<span class="phone">{{v.phone}}</span>
-									<span ng-if="v.tel">{{v.tel}}</span>
-								</label>
-								<a href="" class="del">删除</a>
-							</li>
-							<li class="receive_add addr_item">
-								<input type="radio" name="isSelect" ng-click="ck(true)" value="newadd">
-								<label for="">使用新地址</label>
-								<a href="" class="del">使用自提服务</a>
-							</li>
-							<li ng-show="!IsAdd">
-								<div class="ncc-form-default">
-									<form action="">
-										<dl>
-											<dt>
-												<i class="required">*</i>
-												收货人姓名
-											</dt>
-											<dd>
-												<input type="text" class="text w150" maxlength="20" ng-model="consignee">
-												<p class="hint">最多20个字符</p>
-											</dd>
-
-										</dl>
-										<dl>
-											<dt>
-												<i class="required">*</i>
-												所在地区
-											</dt>
-											<dd>
-												<div>
-													<input type="button" ng-model="area" id="select1" value="{{area}}">
-												</div>
-											</dd>
-										</dl>
-										<dl>
-											<dt>
-												<i class="required">*</i>
-												详细地址:
-											</dt>
-											<dd>
-												<input type="text" class="text w500" maxlength="100" ng-model="address">
-												<p class="hint">请填写真实地址，不需要重复填写所在地区</p>
-											</dd>
-										</dl>
-										<dl>
-											<dt>
-												<i class="required">*</i>
-												手机号码:
-											</dt>
-											<dd>
-												<input type="text" class="text w80" maxlength="11" ng-model="cellphone">
-  												 &nbsp;(或) 固定电话:&nbsp; 
-  												<input type="text" class="text w100" maxlength="20" ng-model="tel">
-											</dd>
-										</dl>
-										
-									</form>
-								</div>
-							</li>
-						</ul>
-						<div class="hr16">
+						<!-- 和点击[修改]按钮同一个控件 值相反 -->
+						<div class="hr16" ng-show="!IsRevise">
 							<a href="" class="ncc-btn ncc-btn-red" ng-click="submit()">
 								保存收货人信息
 							</a>
@@ -442,9 +377,9 @@
 		// 是否显示填写资料
 		$scope.IsFill = true;
 		// 是否显示修改收货人信息按钮
-		$scope.IsRe = false;
+		$scope.IsRevise = false;
 		// 点击使用新地址
-		$scope.IsAdd = true;
+		$scope.IsAdd = false;
 /************************************************/ 
 		// 接收收货人信息
 		if (receive.status == 1) { // 有信息
@@ -455,7 +390,7 @@
 			// 隐藏填写资料
 			$scope.IsFill = false;
 			// 显示[修改]按钮
-			$scope.IsRe = true;
+			$scope.IsRevise = true;
 		}else{
 				// 没有信息
 				$scope.receiveAddress = [];
@@ -531,6 +466,8 @@
 		        }).success(function (data) {
 		       		if (data.status == 1) {
 		       			console.log("添加成功");
+		       			$scope.IsRevise = true;
+		       			$scope.IsFill = false;
 		       		}else if (data.status == 2) {
 		       			console.log(data);
 		       		}
@@ -541,44 +478,56 @@
 		}
 		$scope.ck = function (isadd) {
 			if (isadd) {
-				$scope.IsAdd = false;
+				$scope.IsFill = true;
 			}else{
-				$scope.IsAdd = true;
+				$scope.IsFill = false;
 			}
 		}
 		$scope.update = function () {
-			$scope.IsRe = false;
+			$scope.IsRevise = false;
 		}
 		$scope.submit = function () {
-			if ($("input[type='radio']:checked").val() == "newadd") {//返还新添加信息
+			if ($("input[type='radio']:checked").val() == "newadd") {
+				//返还新添加信息
 				console.log("需要新添加");
+				$scope.sub();
+
 			} else { //返还id
-				$http({
-		           method: "POST",
-		           url: "__APP__/Address/updateAddress",
-		           headers: {
-		           		"Content-type" : "application/x-www-form-urlencoded",
-		           },
-		           data:{
-		           		id: Number($("input[type='radio']:checked").val()),
-		           }
-		        }).success(function (data) {
-		       		if (data.status == 1) { // 更新成功
-		       			_default.data = data.default;
-		       			$scope.defaultAddress = _default.data;
-		       		}else if (data.status == 2) {
-		       			console.log(data);
-		       		}
-		        }).error(function (err) {
-		       		console.log(err);
-		        })
+				if (_default.data.id == $("input[type='radio']:checked").val()) {
+					// 没有变化 不需要更改数据库
+					$scope.IsRevise = true;
+				}else{
+					console.log("id不一样，需要更新数据库");
+					// 更改了默认地址
+					$http({
+			           method: "POST",
+			           url: "__APP__/Address/updateAddress",
+			           headers: {
+			           		"Content-type" : "application/x-www-form-urlencoded",
+			           },
+			           data:{
+			           		id: Number($("input[type='radio']:checked").val()),
+			           }
+			        }).success(function (data) {
+			       		if (data.status == 1) { // 更新成功
+			       			_default.data = data.default;
+			       			$scope.defaultAddress = _default.data;
+			       			console.log("更新成功");
+			       			console.log(data);
+			       			$scope.IsRevise = true;
+			       		}else if (data.status == 2) {
+			       			console.log(data);
+			       			console.log("更新失败");
+			       		}
+			        }).error(function (err) {
+			       		console.log(err);
+			       		console.log("更新失败");
+			        })
+				}
 			}
 		}
 	});
 	$("#select").click(function (e) {
-	SelCity(this,e);
-	});
-	$("#select1").click(function (e) {
 	SelCity(this,e);
 	});
 </script>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<!doctype html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,6 +10,7 @@
 		.ncc-table-style tbody tr.item_disabled td{
 			background:none repeat scroll 0 0 #F9F9F9;height:30px;padding:10px 0;text-align:center;
 		}
+
 	</style>
 	<!-- 省级联动 -->
 	<style>
@@ -22,96 +23,18 @@
 		._citys1 a { width: 83px; height: 35px; display: inline-block; background-color: rgba(86, 180, 248, 0.35); color: #666; margin-left: 6px; margin-top: 3px; line-height: 35px; text-align: center; cursor: pointer; font-size: 13px; overflow: hidden; }
 		._citys1 a:hover { color: #fff; background-color: #56b4f8; }
 		.AreaS { background-color: #56b4f8 !important; color: #fff !important; }
-	</style>
-	<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
-	<link href="__ROOT__/Index/Common/css/home_cart.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
-	<script type="text/javascript" src="__ROOT__/Index/Common/js/jq.min.js"></script>
-	<script src="__ROOT__/Index/Common/js/Popt.js"></script>
-<script src="__ROOT__/Index/Common/js/cityJson.js"></script>
-<script src="__ROOT__/Index/Common/js/citySet.js"></script>
-	<style>
-		.ncc-table-style tbody tr.item_disabled td {
-			background:none repeat scroll 0 0 #F9F9F9;
-			height:30px;
-			padding:10px 0;
-			text-align:center;
-		}
-	</style>
+		</style>
+		<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/home_cart.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
+		<script type="text/javascript" src="__ROOT__/Index/Common/js/jq.min.js"></script>
+		<script src="__ROOT__/Index/Common/js/Popt.js"></script>
+		<script src="__ROOT__/Index/Common/js/cityJson.js"></script>
+		<script src="__ROOT__/Index/Common/js/citySet.js"></script>
 </head>
 <body ng-app="shopApp" ng-controller="shopController" ng-cloak>
 	<!-- 1 -->
-		<div class="public-top-layout w">
-		<div class="topbar wrapper">
-			<div class="user-entry">
-				<?php if(!empty($_SESSION['username'])): ?>您好&nbsp;<?php echo (session('username')); ?>，欢迎来到
-					<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=logout">退出</a>]</span> 
-				<?php else: ?>您好，欢迎来到
-					<a href="__APP__/Index" title="首页" alt="首页">春舞枝</a> <span>[<a href="__APP__/Index?act=login&op=index">登录</a>]</span> <span>[<a href="__APP__/Index?act=login&op=register">注册</a>]</span><?php endif; ?>
-			</div>
-			<div class="quick-menu">
-				<dl>
-					<dt>
-						<a href="" target="_blank" title="商户中心">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						</a>
-					</dt>
-				</dl>
-				<dl>
-					<dt>
-						<a href="__APP__/Order/order">我的订单</a>
-						<i></i>
-					</dt>
-					<dd>
-						<ul>
-							<li><a href="">待付款订单</a></li>
-							<li><a href="">待确认收货</a></li>
-							<li><a href="">待评价交易</a></li>
-						</ul>
-					</dd>	
-				</dl>
-				<dl>
-					<dt>
-						<a href="">我的收藏</a>
-						<i></i>
-					</dt>
-					<dd>
-						<ul>
-							<li><a href="">商品收藏</a></li>
-							<li><a href="">店铺收藏</a></li>
-						</ul>
-					</dd>	
-				</dl>
-				<dl>
-					<dt>
-						<a href="">客服服务</a>
-						<i></i>
-					</dt>
-					<dd>
-						<ul>
-							<li><a href="">帮助中心</a></li>
-							<li><a href="">售后服务</a></li>
-							<li><a href="">客服中心</a></li>
-						</ul>
-					</dd>	
-				</dl>
-				<dl class="weixin">
-					<dt>
-						关注我们
-						<i></i>
-					</dt>
-					<dd>
-						<h4>
-							扫描二维码
-							<br>
-							关注商城微信号	
-						</h4>
-						<img src="__ROOT__/Index/Common/images/QRcode.jpg" alt="">
-					</dd>
-				</dl>
-			</div>
-		</div>
-
+	<include file="Component:site-nav"/>
 	<!-- 1.1 -->
 	<header class="ncc-head-layout">
 		<div class="site-logo">
@@ -503,10 +426,10 @@
 	</div>
 </body>
 <script>
-	console.log(<?php echo ($address); ?>);
-	var _default = <?php echo ($default); ?>;
+	console.log({$address});
+	var _default = {$default};
 	console.log(_default);
-	var receive = <?php echo ($address); ?>;
+	var receive = {$address};
 	$(".ncc-flow li").eq(1).addClass("current");
 	angular.module("shopApp",[]).controller("shopController",function ($scope,$http) {
 		// 是否显示填写资料
@@ -532,7 +455,7 @@
 				// 显示填写资料
 			}
 		$scope.message = "";
-		$scope.item = <?php echo ($data); ?>;
+		$scope.item = {$data};
 		$scope.total = 0;
 		for (var i = 0; i < $scope.item.length; i++) {
 			$scope.total += $scope.item[i].StorePrice * $scope.item[i].count;
@@ -620,10 +543,37 @@
 			$scope.IsRe = false;
 		}
 		$scope.submit = function () {
-			if ($("input[type='radio']:checked").val() != "newadd") {
+			if ($("input[type='radio']:checked").val() == "newadd") {
+				//返还新添加信息
 				console.log("需要新添加");
-			} else {
 
+			} else { //返还id
+				if (_default.data.id == $("input[type='radio']:checked").val()) {
+					// 没有变化 不需要更改数据库
+					console.log("没有变化");
+				}else{
+					// 更改了默认地址
+					$http({
+			           method: "POST",
+			           url: "__APP__/Address/updateAddress",
+			           headers: {
+			           		"Content-type" : "application/x-www-form-urlencoded",
+			           },
+			           data:{
+			           		id: Number($("input[type='radio']:checked").val()),
+			           }
+			        }).success(function (data) {
+			       		if (data.status == 1) { // 更新成功
+			       			_default.data = data.default;
+			       			$scope.defaultAddress = _default.data;
+			       			console.log(data);
+			       		}else if (data.status == 2) {
+			       			console.log(data);
+			       		}
+			        }).error(function (err) {
+			       		console.log(err);
+			        })
+				}
 			}
 		}
 	});
