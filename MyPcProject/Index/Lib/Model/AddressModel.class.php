@@ -69,6 +69,7 @@
 			$res = $address -> where($data) -> data($default) -> save();
 			// 给当前的加上默认字段
 			if($res){
+				$return["default"] = $address -> where($data) ->find() ;
 				$return["info"] = "修改成功";
 				$return["status"] = 1 ;
 			}else{
