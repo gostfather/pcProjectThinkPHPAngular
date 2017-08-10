@@ -58,7 +58,13 @@ class IndexAction extends Action {
 
         $this -> ajaxReturn($_SESSION["verify"]);
     }
-	/*public function checkUsers(){
-		if(session(uid)&&session(username))
-	}*/
+	public function getList(){
+		$Cate = D("Cate");
+		$page =I("page");
+		if(empty($page)){
+			$page = 0 ;
+		}
+		$res = $Cate -> getList($page,8);
+		$this -> ajaxReturn($res);
+	}	
 }
