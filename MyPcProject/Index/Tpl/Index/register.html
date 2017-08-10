@@ -8,9 +8,6 @@
 	<meta property="qc:admins" content="23572640266531314636"/>
 	<meta property="wb:webmaster" content="9d474898800c1e71"/>
 	<style type="text/css">
-		body{_behavior:url(http://www.531314.com/templates/new/css/csshover.htc);}
-	</style>
-	<style type="text/css">
 		.public-top-layout,.head-app,.head-search-bar,.head-user-menu,.public-nav-layout,.nch-breadcrumb-layout,#faq{
 			display:none!important;
 		}
@@ -24,20 +21,16 @@
 			border-top:none!important;padding-top:30px;
 		}
 	</style>
-	<link rel="shortcut icon" href="http://531314.com/favicon.ico"/>
 	<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
 	<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
 	<link href="__ROOT__/Index/Common/css/home_login.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div id="append_parent"></div>
-	<div id="ajaxwaitid"></div> 
-
 	<div class="header-wrap">
 		<header class="public-head-layout wrapper">
 			<h1 class="site-logo">
 				<a href="__APP__/Index">
-					<img src="http://img.531314.com/shop/common/04993648993753192.png" class="pngFix">
+					<img src="__ROOT__/Index/Common/images/logo.png" class="pngFix">
 				</a>
 			</h1>
 		</header>
@@ -233,12 +226,8 @@
 			 $scope.change = function() {
 				var img = document.getElementById('codeimage');
 				img.src = "__APP__/Index/verify?time="+ new Date().getTime();
-			}
-		
-	
-	    });
-	
-		 
+			}		
+	    });	 
 	</script>
 </body>
 </html>
