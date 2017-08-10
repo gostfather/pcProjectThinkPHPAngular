@@ -465,11 +465,12 @@
 		           }
 		        }).success(function (data) {
 		       		if (data.status == 1) {
-		       			console.log("添加成功");
+		       			// 添加新收货人信息成功
+		       			$scope.receiveAddress = data.data;
 		       			$scope.IsRevise = true;
 		       			$scope.IsFill = false;
 		       		}else if (data.status == 2) {
-		       			console.log(data);
+		       			// 添加新收货人信息失败
 		       		}
 		        }).error(function (err) {
 		       		console.log(err);
@@ -489,19 +490,16 @@
 		$scope.submit = function () {
 			if ($("input[type='radio']:checked").val() == "newadd") {
 				//返还新添加信息
-				console.log("需要新添加");
 				$scope.sub();
-
 			} else { //返还id
 				if (_default.data.id == $("input[type='radio']:checked").val()) {
 					// 没有变化 不需要更改数据库
 					$scope.IsRevise = true;
 				}else{
-					console.log("id不一样，需要更新数据库");
 					// 更改了默认地址
 					$http({
 			           method: "POST",
-			           url: "__APP__/Address/updateAddress",
+			           url: "__APP__/Address/updataAddress",
 			           headers: {
 			           		"Content-type" : "application/x-www-form-urlencoded",
 			           },
@@ -510,23 +508,22 @@
 			           }
 			        }).success(function (data) {
 			       		if (data.status == 1) { // 更新成功
+			       			// 更换默认收货人信息
 			       			_default.data = data.default;
 			       			$scope.defaultAddress = _default.data;
-			       			console.log("更新成功");
-			       			console.log(data);
+			       			// 收起current_box
 			       			$scope.IsRevise = true;
 			       		}else if (data.status == 2) {
-			       			console.log(data);
-			       			console.log("更新失败");
+			       			// 更新失败
 			       		}
 			        }).error(function (err) {
 			       		console.log(err);
-			       		console.log("更新失败");
 			        })
 				}
 			}
 		}
 	});
+	// 省级联动
 	$("#select").click(function (e) {
 	SelCity(this,e);
 	});
