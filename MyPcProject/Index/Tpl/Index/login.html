@@ -1,5 +1,4 @@
 <html lang="zh">
-
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>春舞枝 - 登&nbsp;&nbsp;&nbsp;录</title>
@@ -8,26 +7,19 @@
 		<meta property="qc:admins" content="23572640266531314636">
 		<meta property="wb:webmaster" content="9d474898800c1e71">
 		<style type="text/css">
-			body {
-				_behavior: url(http://www.531314.com/templates/new/css/csshover.htc);
-			}
+			.public-top-layout,.head-app,.head-search-bar,.head-user-menu,.public-nav-layout,.nch-breadcrumb-layout,#faq { display: none!important;}
+			.public-head-layout { margin: 10px auto -10px auto;}
+			.wrapper { width: 1000px;}
+			#footer { border-top: none!important;padding-top: 30px;}
 		</style>
-		<link rel="shortcut icon" href="http://531314.com/favicon.ico">
 		<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
 		<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
 		<link href="__ROOT__/Index/Common/css/home_login.css" rel="stylesheet" type="text/css">
-		<link href="http://www.531314.com/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
 	</head>
-
 	<body>
-
-		<div id="append_parent"></div>
-		<div id="ajaxwaitid"></div>
-
 		<div class="header-wrap">
 			<header class="public-head-layout wrapper">
-				<h1 class="site-logo"><a href="__APP__/Index"><img src="http://img.531314.com/shop/common/04993648993753192.png" class="pngFix"></a></h1>
+				<h1 class="site-logo"><a href="__APP__/Index"><img src="__ROOT__/Index/Common/images/logo.png" class="pngFix"></a></h1>
 				<div id="search" class="head-search-bar">
 
 				</div>
@@ -36,30 +28,6 @@
 
 		<div class="nch-breadcrumb-layout">
 		</div>
-		<style type="text/css">
-			.public-top-layout,
-			.head-app,
-			.head-search-bar,
-			.head-user-menu,
-			.public-nav-layout,
-			.nch-breadcrumb-layout,
-			#faq {
-				display: none!important;
-			}
-			
-			.public-head-layout {
-				margin: 10px auto -10px auto;
-			}
-			
-			.wrapper {
-				width: 1000px;
-			}
-			
-			#footer {
-				border-top: none!important;
-				padding-top: 30px;
-			}
-		</style>
 		<div class="nc-login-layout" ng-app="myapp" ng-controller="mycontroller">
 			<div class="left-pic"><img src="http://img.531314.com/shop/login/1.jpg" border="0"></div>
 			<div class="nc-login">
@@ -77,8 +45,7 @@
 									name="user_name" 
 									id="user_name" 
 									ng-model="username"
-									>
-								
+									> 
 							</dd>
 						</dl>
 						<dl>
@@ -196,12 +163,7 @@
 					img.src = "__APP__/Index/verify?time="+ new Date().getTime();
 					
 				}
-		    });
-		
-			 
-		</script>
-		
-		
+		    });	 
+		</script>	
 	</body>
-
 </html>
