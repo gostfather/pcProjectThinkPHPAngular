@@ -168,7 +168,7 @@
 										</p>
 									</td>
 								</tr>
-								<tr ng-repeat="(kk,vv) in v.shops" ng-hide="$index == 0">
+								<tr ng-repeat="(kk,vv) in v.shops" ng-if="$index !== 0">
 									<td class="bdl"></td>
 									<td class="w70">
 										<div class="ncm-goods-thumb">
