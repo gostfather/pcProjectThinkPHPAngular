@@ -198,7 +198,12 @@
 	var list = {$list} ;
 	$(".ncc-flow li").eq(0).addClass("current");
 	angular.module("shopApp",[]).controller("shopController",function ($scope,$http) {
-		$scope.item = list.data;
+		if(list.status == 1){
+			$scope.item = list.data;
+		}else{
+			$scope.item = [];
+		}
+
 
 		$scope.sub = function (item,index) {
 			if (item.count == 1 || item.count < 1) {
