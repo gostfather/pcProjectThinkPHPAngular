@@ -33,7 +33,7 @@
 					$return["status"] = 1 ;
 					$return["data"] = $def ;
 				}else{
-					$return["info"] = "没有磨人地址信息" ;
+					$return["info"] = "没有默认地址信息" ;
 					$return["status"] = 2 ;
 				}
 			}
