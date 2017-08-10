@@ -44,14 +44,25 @@
 			//data 里面有 姓名 区域 详细地址 电话  需要添加uid time
 			$data["addtime"] = time();
 			$data["uid"] = session("uid");
-			$data["is_default"] = 1;
+			$data["is_default"] = 2;
 			$address = M("useraddress");
 			$res = $address -> data($data) -> add();
 			//返回id
 			if($res){
-				$return["info"] = "写入成功" ;
-				$return["status"] = 1 ;
-				$return["id"] = $res ;
+				$uid["uid"] = session("uid"); 
+				$uid["is_default"] = 1; 
+				$default["is_default"] = 0;
+				$o_o = $address -> where($uid) -> data($default) -> save();
+				if($o_o){
+					$default["is_default"] = 1;
+					$t_o =  $address -> where($data) -> data($default) -> save();
+					if($t_o){
+						$return["info"] = "写入成功" ;
+						$return["status"] = 1 ;
+						$return["id"] = $address -> where($data) -> find() ;
+					}
+				}
+				
 			} else {
 				$return["info"] = "写入失败" ;
 				$return["status"] = 2 ;
@@ -63,7 +74,7 @@
 			$address = M("useraddress");
 			$uid["uid"] = session("uid"); 
 			$default["is_default"] = 0;
-			$res = $address -> where($uid) -> data($default) -> save();
+			$address -> where($uid) -> data($default) -> save();
 			//先全部置0
 			$data["uid"] = session("uid"); 
 			$default["is_default"] = 1;
