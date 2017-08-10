@@ -59,7 +59,7 @@
 				</dl>
 				<dl>
 					<dt>
-						<a href="">我的订单</a>
+						<a href="__APP__/Order/order">我的订单</a>
 						<i></i>
 					</dt>
 					<dd>
@@ -157,13 +157,13 @@
 				<div class="ncc-receipt-info" ng-class="{true:'current_box',false:''}[IsFill]">
 					<div class="ncc-receipt-info-title">
 						<h3>收货人信息</h3>
-						<a ng-show="!IsFill" ng-click="update()">[修改]</a>
+						<a ng-show="IsRe" ng-click="update()">[修改]</a>
 					</div>
-					<!-- 填写收货人信息 -->
-					<div ng-show="IsFill"  class="ncc-candidate-items">
+					<!-- 1.数据库没有信息，填写收货人信息 -->
+					<div ng-show="IsFill" class="ncc-candidate-items">
 						<ul>
 							<li class="receive_add addr_item">
-								<input type="radio" checked="">
+								<input type="radio">
 								<label for="">使用新地址</label>
 								<label for=""><a class="del" href="" target="_blank">使用自提服务站</a></label>
 							</li>
@@ -224,8 +224,8 @@
 							<a ng-click="sub()" class="ncc-btn ncc-btn-red">保存收货人信息</a>
 						</div>
 					</div>
-					<!-- 默认收货人信息 -->
-					<div ng-show="!IsRe" class="ncc-candidate-items">
+					<!-- 2.数据库有信息，默认收货人信息 -->
+					<div ng-show="IsRe" class="ncc-candidate-items">
 						<ul>
 							<!-- 收货人信息 -->
 							<li>
@@ -233,29 +233,31 @@
 								<span class="address">{{defaultAddress.area}}</span>
 								<span class="address">{{defaultAddress.address}}</span>
 								<span class="phone">{{defaultAddress.phone}}</span>
-								<span class="phone" ng-if="defaultAddress.tel">{{defaultAddress.tel}}</span>
+								<span ng-if="defaultAddress.tel">{{defaultAddress.tel}}</span>
 							</li>	
 						</ul>
 					</div>
-					<!-- 点击修改按钮展示所有地址信息 -->
-					<div ng-show="IsRe"  class="ncc-candidate-items">
+					<!-- 点击[修改]按钮展示所有地址信息 -->
+					<div ng-show="!IsRe"  class="ncc-candidate-items">
 						<ul>
 							<!-- 循环 -->
 							<li ng-repeat="(k,v) in receiveAddress" class="receive_add address_item ncc-selected-item">
-								<input type="radio" class="radio">
+								<input type="radio" name="isSelect" class="radio" ng-click="ck()" ng-value="v.id">
 								<label for="">
-									<span class="true-name">第三方</span>
-									<span class="address">fhieofhioef</span>
-									<span class="address">fhieofhioefvcdrvserers</span>
+									<span class="true-name">{{v.username}}</span>
+									<span class="address">{{v.area}}</span>
+									<span class="address">{{v.address}}</span>
+									<span class="phone">{{v.phone}}</span>
+									<span ng-if="v.tel">{{v.tel}}</span>
 								</label>
 								<a href="" class="del">删除</a>
 							</li>
 							<li class="receive_add addr_item">
-								<input type="radio"  ng-checked="IsAdd" ng-click="ck(IsAdd)" >
+								<input type="radio" name="isSelect" ng-click="ck(true)" value="newadd">
 								<label for="">使用新地址</label>
 								<a href="" class="del">使用自提服务</a>
 							</li>
-							<li ng-show="IsAdd">
+							<li ng-show="!IsAdd">
 								<div class="ncc-form-default">
 									<form action="">
 										<dl>
@@ -307,7 +309,7 @@
 							</li>
 						</ul>
 						<div class="hr16">
-							<a href="" class="ncc-btn ncc-btn-red">
+							<a href="" class="ncc-btn ncc-btn-red" ng-click="submit()">
 								保存收货人信息
 							</a>
 						</div>
@@ -501,33 +503,34 @@
 	</div>
 </body>
 <script>
-	// 接收地址列表 
-	var receive = <?php echo ($address); ?>;
-	// 接收默认收货人信息
+	console.log(<?php echo ($address); ?>);
 	var _default = <?php echo ($default); ?>;
+	console.log(_default);
+	var receive = <?php echo ($address); ?>;
 	$(".ncc-flow li").eq(1).addClass("current");
 	angular.module("shopApp",[]).controller("shopController",function ($scope,$http) {
-		// 是否显示填写资料模块一
+		// 是否显示填写资料
 		$scope.IsFill = true;
 		// 是否显示修改收货人信息按钮
-		$scope.IsAdd = false;
-		// 点击使用新地址
 		$scope.IsRe = false;
-		// 信息列表初始化
-		$scope.receiveAddress = [];
-/*****************************************************/ 
+		// 点击使用新地址
+		$scope.IsAdd = true;
+/************************************************/ 
 		// 接收收货人信息
 		if (receive.status == 1) { // 有信息
 			// 默认收货人信息
 			$scope.defaultAddress = _default.data;
-			// 接收收货人信息列表;
+			// 接收收货人信息列表
 			$scope.receiveAddress = receive.data;
-			// 隐藏填写资料模块一
+			// 隐藏填写资料
 			$scope.IsFill = false;
+			// 显示[修改]按钮
+			$scope.IsRe = true;
 		}else{
 				// 没有信息
-				// 显示添加收货人信息
-		}
+				$scope.receiveAddress = [];
+				// 显示填写资料
+			}
 		$scope.message = "";
 		$scope.item = <?php echo ($data); ?>;
 		$scope.total = 0;
@@ -606,13 +609,22 @@
 		        })
 		    }
 		}
-		$scope.ck = function (IsAdd) {
-			if (!$scope.IsAdd) {
-				$scope.IsAdd = !IsAdd;
+		$scope.ck = function (isadd) {
+			if (isadd) {
+				$scope.IsAdd = false;
+			}else{
+				$scope.IsAdd = true;
 			}
 		}
 		$scope.update = function () {
-			$scope.IsRe = true;
+			$scope.IsRe = false;
+		}
+		$scope.submit = function () {
+			if ($("input[type='radio']:checked").val() != "newadd") {
+				console.log("需要新添加");
+			} else {
+
+			}
 		}
 	});
 	$("#select").click(function (e) {
