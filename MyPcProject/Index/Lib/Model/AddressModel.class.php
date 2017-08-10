@@ -26,8 +26,16 @@
 				$return["status"] = 1 ;
 				$return["data"] = $res ;
 			} else {
-				$return["info"] = "没有默认地址" ;
-				$return["status"] = 2 ;
+				$where["uid"] = session("uid");
+				$def = $address -> where($where) -> order("addtime DESC") -> find();
+				if($def){
+					$return["info"] = "返回最新地址信息" ;
+					$return["status"] = 1 ;
+					$return["data"] = $def ;
+				}else{
+					$return["info"] = "没有磨人地址信息" ;
+					$return["status"] = 2 ;
+				}
 			}
 			return $return ;
 		}
