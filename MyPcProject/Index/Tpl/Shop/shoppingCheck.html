@@ -443,9 +443,10 @@
 		$scope.IsAdd = false;
 		// 接收收货人信息
 		if (receive.status == 1) { // 有信息
+			// 接收收货人信息列表
 			$scope.receiveAddress = receive.data;
 				// 隐藏填写资料
-				IsFill = false;
+				$scope.IsFill = false;
 			}else{
 				// 没有信息
 				// 显示添加收货人信息
