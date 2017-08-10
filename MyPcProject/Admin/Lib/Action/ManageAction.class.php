@@ -20,11 +20,10 @@ class ManageAction extends Action {
 	public function search(){
 		$str = file_get_contents("php://input");
 		$keyWord = json_decode($str , true)["keyWord"] ;
-		/*if(empty($page)){
-			$page = 0 ;
-		}*/
-//		$res = $manage -> getList($page,4);
-		$this -> ajaxReturn($keyWord);
+		$manage = D("Manage");
+		//默认查10条
+		$res = $manage -> getList(0,10,$keyWord);
+		$this -> ajaxReturn($res);
 	}
 	
 	
