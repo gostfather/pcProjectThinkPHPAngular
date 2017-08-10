@@ -87,13 +87,13 @@
 				<div class="ncc-receipt-info" ng-class="{true:'current_box',false:''}[IsFill]">
 					<div class="ncc-receipt-info-title">
 						<h3>收货人信息</h3>
-						<a ng-show="!IsFill" ng-click="update()">[修改]</a>
+						<a ng-show="!IsRe" ng-click="update()">[修改]</a>
 					</div>
 					<!-- 填写收货人信息 -->
-					<div ng-show="IsFill"  class="ncc-candidate-items">
+					<div ng-show="IsFill" class="ncc-candidate-items">
 						<ul>
 							<li class="receive_add addr_item">
-								<input type="radio" checked="">
+								<input type="radio">
 								<label for="">使用新地址</label>
 								<label for=""><a class="del" href="" target="_blank">使用自提服务站</a></label>
 							</li>
@@ -159,11 +159,10 @@
 						<ul>
 							<!-- 收货人信息 -->
 							<li>
-								<span class="true-name">{{defaultAddress.username}}</span>
-								<span class="address">{{defaultAddress.area}}</span>
-								<span class="address">{{defaultAddress.address}}</span>
-								<span class="phone">{{defaultAddress.phone}}</span>
-								<span class="phone" ng-if="defaultAddress.tel">{{defaultAddress.tel}}</span>
+								<span class="true-name">第三方</span>
+								<span class="address">fhieofhioef</span>
+								<span class="address">fhieofhioefvcdrvserers</span>
+								<span class="phone">11111</span>
 							</li>	
 						</ul>
 					</div>
@@ -431,33 +430,28 @@
 	</div>
 </body>
 <script>
-	// 接收地址列表 
+	console.log({$address});
 	var receive = {$address};
-	// 接收默认收货人信息
-	var _default = {$default};
 	$(".ncc-flow li").eq(1).addClass("current");
 	angular.module("shopApp",[]).controller("shopController",function ($scope,$http) {
-		// 是否显示填写资料模块一
+		// 是否显示填写资料
 		$scope.IsFill = true;
 		// 是否显示修改收货人信息按钮
-		$scope.IsAdd = false;
-		// 点击使用新地址
 		$scope.IsRe = false;
-		// 信息列表初始化
 		$scope.receiveAddress = [];
-/*****************************************************/ 
+		// 点击使用新地址
+		$scope.IsAdd = false;
 		// 接收收货人信息
 		if (receive.status == 1) { // 有信息
-			// 默认收货人信息
-			$scope.defaultAddress = _default.data;
-			// 接收收货人信息列表;
+			// 接收收货人信息列表
+			
 			$scope.receiveAddress = receive.data;
-			// 隐藏填写资料模块一
-			$scope.IsFill = false;
-		}else{
+				// 隐藏填写资料
+				$scope.IsFill = false;
+			}else{
 				// 没有信息
 				// 显示添加收货人信息
-		}
+			}
 		$scope.message = "";
 		$scope.item = {$data};
 		$scope.total = 0;
