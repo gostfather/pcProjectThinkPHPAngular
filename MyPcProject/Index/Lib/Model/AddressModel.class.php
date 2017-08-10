@@ -2,9 +2,9 @@
 	class AddressModel extends Model {
 		//获取地址
 		public function getAddress(){
-			$data["uid"] = session("uid");
+			$list["uid"] = session("uid");
 			$address = M("useraddress");
-			$res = $address -> where($data) -> order("addtime DESC") -> select();
+			$res = $address -> where($list) -> order("addtime DESC") -> select();
 			if($res){
 				$return["info"] = "返回地址信息" ;
 				$return["status"] = 1 ;
@@ -81,6 +81,8 @@
 			$res = $address -> where($data) -> data($default) -> save();
 			// 给当前的加上默认字段
 			if($res){
+				$list = $this -> getAddress();
+				$return["data"] = $list["data"] ;
 				$return["default"] = $address -> where($data) ->find() ;
 				$return["info"] = "修改成功";
 				$return["status"] = 1 ;
