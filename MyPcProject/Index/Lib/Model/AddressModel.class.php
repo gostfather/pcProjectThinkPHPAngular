@@ -15,6 +15,22 @@
 			}
 			return $return ;
 		}
+		//获取默认的地址
+		public function getDefault(){
+			$data["uid"] = session("uid");
+			$data["is_default"] = 1;
+			$address = M("useraddress");
+			$res = $address -> where($data) -> find();
+			if($res){
+				$return["info"] = "返回默认地址信息" ;
+				$return["status"] = 1 ;
+				$return["data"] = $res ;
+			} else {
+				$return["info"] = "没有默认地址" ;
+				$return["status"] = 2 ;
+			}
+			return $return ;
+		}
 		//上传用户地址
 		public function addAddress($data){
 			//data 里面有 姓名 区域 详细地址 电话  需要添加uid time
