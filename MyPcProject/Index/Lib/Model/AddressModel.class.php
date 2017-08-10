@@ -2,9 +2,9 @@
 	class AddressModel extends Model {
 		//获取地址
 		public function getAddress(){
-			$data["uid"] = session("uid");
+			$list["uid"] = session("uid");
 			$address = M("useraddress");
-			$res = $address -> where($data) -> order("addtime DESC") -> select();
+			$res = $address -> where($list) -> order("addtime DESC") -> select();
 			if($res){
 				$return["info"] = "返回地址信息" ;
 				$return["status"] = 1 ;
