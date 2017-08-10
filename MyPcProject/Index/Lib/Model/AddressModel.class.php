@@ -35,7 +35,7 @@
 		public function addAddress($data){
 			//data 里面有 姓名 区域 详细地址 电话  需要添加uid time
 			$data["addtime"] = time();
-			$data["addtime"] = session("uid");
+			$data["uid"] = session("uid");
 			$address = M("useraddress");
 			$res = $address -> data($data) -> add();
 			//返回id
