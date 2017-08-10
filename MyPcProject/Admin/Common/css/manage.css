@@ -1,0 +1,22 @@
+
+.pagination {
+	width: 800px;
+	margin: 10px auto;
+}
+.pagination ul li {
+	margin: 0 auto;
+	border: 1px solid black;
+	width: 60px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	text-align: center;
+}
+.canHover{
+	cursor: pointer;
+	background-color: lightgray;
+}
+.canHover:hover{
+	background-color: black;
+	color: wheat;
+}

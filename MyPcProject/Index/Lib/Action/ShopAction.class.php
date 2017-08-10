@@ -14,16 +14,11 @@ class ShopACtion extends Action {
 			//登陆状态的添加购物车可以直接跳转
 			$Shop = D("Shop");
 			$list = $Shop -> getList();
-			$this -> assign("list" , $list);
+			$this -> assign("list" , json_encode($list));
 	    	$this -> display("ShoppingCart");
 	}
 	public function ShoppingCheck() {
 		$this -> display("shoppingCheck");
-	}
-	public function getList(){
-		$Shop = D("Shop");
-		$list = $Shop -> getList();
-		$this ->ajaxReturn($list);
 	}
 	//获取购物车小计
 	public function subtotal(){
@@ -62,12 +57,18 @@ class ShopACtion extends Action {
 
 	//传到订单页面
 	public function gotoCheck(){
-		$str = I("arr");
-		$data = explode(",", $str);
+		$Address = D("Address");
+		$getAddress = $Address -> getAddress();
+		$this -> assign("address" ,json_encode($getAddress));
+		//返回地址信息
+		$default = $Address -> getDefault();
+		$this -> assign("default" ,json_encode($default));
+		//返回默认的地址
 		$Shop = D("Shop");
 		$res = $Shop -> getShop($_POST["arr"]);
 		$return = json_encode($res["data"]);
 		$this -> assign("data",$return);
+		//返回购物车信息
 		$this -> display("shoppingCheck");
 	}
 }

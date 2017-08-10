@@ -12,6 +12,12 @@
 			<div class="header">
 				<h1>后台管理</h1>
 			</div>
+			<nav>
+				<ul>
+					<li><a href="__APP__/Shop/index">添加商品》</a></li>
+					<li><a href="__APP__/Manage/manage">管理商品》</a></li>
+				</ul>
+			</nav>
 			<div class="body">
 				<div class="addinfo">
 			        <div>
@@ -24,10 +30,8 @@
 			            <span>颜色 </span><input id="color" type="text"/>
 			        </div>
 			        
-			        <div>
-			            <span>图片1: </span><input name="img" type="file"/><span id="btn" style="position: absolute; margin-left: -50px;margin-top: 5px; width: 120px;">&nbsp;&nbsp;点击添加更多图片 </span>
-			        	<span>图片2: </span><input name="img" type="file"/>
-			        	<span>图片3: </span><input name="img" type="file"/>
+			        <div class="addImage">
+			        	<span id="addBtn">&nbsp;&nbsp;点击添加更多图片 </span>
 			        </div>
 			        
 			        <div>
@@ -72,20 +76,17 @@
 	                    <td>{{v.StorePrice}}</td>
 	                    <td>{{v.stock}}</td>
 	                    <td>{{v.addtime}}</td>
-	                    <td ng-click="del(v.classify)"><span>删除</span></td>
 	                </tr>
-		          
 		       </table>
 			</div>
 		</div>
 	<script src="__ROOT__/Admin/Common/js/angular.min.js"></script>	
 	<script type="text/javascript">
 		var app = angular.module("app",[]);
-	app.controller("myCon",function ($scope,$http) {
+		app.controller("myCon",function ($scope,$http) {
 		$scope.data = [];
 		$scope.err = "";
 		$http.get("__APP__/Shop/simpleList").success(function(data){
-//			console.log(data);
 			if(data.status ===1 ){
 				$scope.data = data.res;
 			}else{
@@ -98,6 +99,33 @@
 	</script>
 
 	<script type="text/javascript">
+		var index = 0;
+		for(var i = 0 ; i < 3 ; i++){
+			index++;
+			if(index === 1 ){
+				var inputImage = $("<div class='list'><span>图片"+ (index) +"主图: </span><input onchange='preview("+(index-1)+")' name='img' type='file'/></div>")
+			}else{
+				var inputImage = $("<div class='list'><span>图片"+ (index) +": </span><input onchange='preview("+(index-1)+")' name='img' type='file'/></div>")
+			}
+			$(".addImage").append(inputImage);
+		}
+		$("#addBtn").on("click",function(){
+			index ++ ;
+			var inputImage = $("<div class='list'><span>图片"+ (index) +": </span><input onchange='preview("+(index-1)+")' name='img' type='file'/></div>")
+			$(this).parent().append(inputImage)
+		})
+		function preview(k){
+			const fs = document.getElementsByName("img")[k].files[0]; 
+			const reader = new FileReader();
+			reader.readAsDataURL(fs);
+			reader.onload = function(){
+				const img = new Image();
+				img.style.width = "70px";
+				img.style.height = "70px";
+				img.src = reader.result;
+				document.getElementsByName("img")[k].parentNode.appendChild(img);
+			}
+		}
 		var fd = new FormData();
 		function sub(){
 			var	title = $("#title").val() ;
@@ -166,7 +194,14 @@
 				processData: false,
     			contentType: false,
 				success:function(data){
-					console.log(data);
+//					console.log(data);
+					if(data.status === 1 ){
+						$("input[name='img']").each(function(){
+							this.value = null ;
+						});
+					}else{
+						alert(data.info);
+					}
 				}
 			});
     	}

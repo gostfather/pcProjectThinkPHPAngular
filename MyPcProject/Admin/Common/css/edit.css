@@ -1,0 +1,21 @@
+.upload{
+	width: 800px;
+	margin: 10px auto;
+}
+#btn {
+	height: 35px;
+}
+.addImage .list{
+	line-height: 80px;
+	vertical-align: middle;
+}
+.addImage input {
+	width: 450px;
+	height: 28px;
+	float: left;
+}
+
+.addImage span {
+	width: 100px;
+}
+
