@@ -3,7 +3,7 @@
 
 	public function cate_1074(){
 		$Cate = D("Cate");
-		$res = $Cate -> getList(0,4);
+		$res = $Cate -> getList(0,12);
 		$this -> assign("data" , json_encode($res));
 		$this->display("cate-1074");
 	}
@@ -20,7 +20,7 @@
 		if(empty($page)){
 			$page = 0 ;
 		}
-		$res = $Cate -> getList($page,4);
+		$res = $Cate -> getList($page,12);
 		$this -> ajaxReturn($res);
 	}
 	

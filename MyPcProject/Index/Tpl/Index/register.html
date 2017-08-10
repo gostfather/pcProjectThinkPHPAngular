@@ -42,7 +42,7 @@
 				<h3>用户注册</h3>
 			</div>
 			<div class="nc-login-content">
-				<form id="register_form" method="post" action="">
+				<form id="register_form" name="myForm">
 					<dl>
 						<dt>用户名</dt>
 						<dd style="min-height:54px;">
@@ -52,11 +52,10 @@
 				            ng-required="true"
 				            ng-minlength="5"
 				            ng-maxlength="20"
-				            pattern="[a-zA-Z]{1}([a-zA-Z0-9]|[._]){4,19}"
-				            ng-pattern="/^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){4,19}$/"
-				            ng-change=""	
-							title="只能输入5-20个以字母开头、可带数字、“_”、“.”的字串" autofocus />
-							<label></label>
+				            pattern="[a-zA-Z\u4e00-\u9fa5]{1}[a-zA-Z0-9_\u4e00-\u9fa5]{3,9}"
+				            ng-pattern="/^[a-zA-Z\u4e00-\u9fa5]{1}[a-zA-Z0-9_\u4e00-\u9fa5]{3,9}$/"
+							title="只能输入4-10个以字母开头、可带数字、“_”、“.”的字串" autofocus />
+							<label  ng-hide="myForm.username.$valid">只能输入4-10个以字母开头、可带数字、“_”、“.”的字串</label>
 						</dd>
 					</dl>
 					<dl>
@@ -70,9 +69,8 @@
 				            ng-maxlength="20"
 				            pattern="(\w){6,20}"
 				            ng-pattern="/^(\w){6,20}$/"
-				            ng-change=""
 							title="只能输入6-20个字母、数字、下划线"/>
-							<label></label>
+							<label ng-hide="myForm.password.$valid">只能输入6-20个字母、数字、下划线</label>
 						</dd>
 					</dl>
 					<dl>
@@ -91,10 +89,9 @@
 				            required
 				            ng-required="true"
 				            ng-minlength="5"
-
 				            ng-pattern="/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/"
-							 title="请输入常用的邮箱，将用来找回密码、接受订单通知等"/>
-							<label></label>
+							title="请输入常用的邮箱，将用来找回密码、接受订单通知等"/>
+							<label ng-hide="myForm.email.$valid">确认邮箱格式</label>
 						</dd>
 					</dl>
 					<dl>
@@ -184,45 +181,61 @@
 	        $scope.isAgree = true ;
 	        $scope.captcha = "" ;
 	        $scope.trueVerify = false;
-	        $scope.upUser = function(){   	
-	        	if(($scope.pwd1 === $scope.pwd2) && $scope.email !== "" ){
-	        		$http({
-	        			url:"__APP__/Index/upUser",
-	        			method:"post",
-	        			data:{
-	        				username:$scope.username,
-	        				pwd:$scope.pwd1,
-	        				email:$scope.email,
-	        			},
-	        			headers:{
-	        				"Content-Type":"application/x-www-form-urlencoded",
-	        			}
-	        		}).success(function(data){
-	        			console.log(data)
-	        			if(data.status === 1){
-	        				//成功让他去登陆
-	        				window.location.href = "__APP__/Index?act=login&op=index"
-	        			}else if (data.status === 3){
-	        				alert("系统出错"+data.info)
-	        			}else{
-	        				alert(data.info);
-	        			}
-	        		}).error(function(data){
-	        			console.log("错误："+data);
-	        		})
-	        	}else{
-	        		alert("邮箱或者密码错误");
-	        	}
+	        $scope.tureMessage = true ;
+	        $scope.upUser = function(){
+				try{
+					if( !$scope.username.length ){
+						throw new Error("验证您输入的用户名是否输入正确");
+					}
+					if( !$scope.pwd1){
+						throw new Error("验证您输入的密码是否输入正确");
+					}
+					if( $scope.pwd1 !== $scope.pwd2){
+						throw new Error("验证密码是否相等");
+					}
+					$scope.tureMessage = true ;
+				}catch(e){
+					alert(e.message);
+					$scope.tureMessage = false ;
+				}
+				if( $scope.tureMessage ){
+					if(($scope.myForm.email.$valid)){
+						$http({
+		        			url:"__APP__/Index/upUser",
+		        			method:"post",
+		        			data:{
+		        				username:$scope.username,
+		        				pwd:$scope.pwd1,
+		        				email:$scope.email,
+		        			},
+		        			headers:{
+		        				"Content-Type":"application/x-www-form-urlencoded",
+		        			}
+		        		}).success(function(data){
+		        			console.log(data)
+		        			if(data.status === 1){
+		        				//成功让他去登陆
+		        				window.location.href = "__APP__/Index?act=login&op=index"
+		        			}else if (data.status === 3){
+		        				alert("系统出错"+data.info)
+		        			}else{
+		        				alert(data.info);
+		        			}
+		        		}).error(function(data){
+		        			console.log("错误："+data);
+		        		});
+		        	}else{
+						alert("验证您输入的邮箱是否输入正确");
+					}
+				}
+				
 	        };
 	        //验证码验证
 	        $scope.sub = function() {
-	//      		console.log(11111);
 	        	$http.get("__APP__/Index/check").success(function (data) {
-	//			 	console.log( (md5($scope.captcha) == data));
 			 		$scope.trueVerify = (md5($scope.captcha) == data);
 				});
 	        };
-	        
 			 $scope.change = function() {
 				var img = document.getElementById('codeimage');
 				img.src = "__APP__/Index/verify?time="+ new Date().getTime();

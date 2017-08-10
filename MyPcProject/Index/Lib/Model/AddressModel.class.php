@@ -60,8 +60,14 @@
 		//修改地址信息
 		public function updataAddress($data){
 			$address = M("useraddress");
-			$addtime["addtime"] = time();
-			$res = $address -> where($data) -> data($addtime) -> save();
+			$uid["uid"] = session("uid"); 
+			$default["is_default"] = 0;
+			$res = $address -> where($uid) -> data($default) -> save();
+			//先全部置0
+			$data["uid"] = session("uid"); 
+			$default["is_default"] = 1;
+			$res = $address -> where($data) -> data($default) -> save();
+			// 给当前的加上默认字段
 			if($res){
 				$return["info"] = "修改成功";
 				$return["status"] = 1 ;
