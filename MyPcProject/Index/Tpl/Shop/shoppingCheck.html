@@ -430,24 +430,26 @@
 	</div>
 </body>
 <script>
+	console.log({$address});
+	var receive = {$address};
 	$(".ncc-flow li").eq(1).addClass("current");
 	angular.module("shopApp",[]).controller("shopController",function ($scope,$http) {
 		// 是否显示填写资料
-		$scope.IsFill = false;
+		$scope.IsFill = true;
 		// 是否显示修改收货人信息按钮
 		$scope.IsRe = false;
 		$scope.receiveAddress = [];
 		// 点击使用新地址
 		$scope.IsAdd = false;
 		// 接收收货人信息
-		// if ({$address.status} == 1) { // 有信息
-			// $scope.address = {$address["data"]};
-			// 	// 隐藏填写资料
-			// 	IsFill = false;
-			// }else{
-			// 	// 没有信息
-			// 	// 显示添加收货人信息
-			// }
+		if (receive.status == 1) { // 有信息
+			$scope.receiveAddress = receive.data;
+				// 隐藏填写资料
+				IsFill = false;
+			}else{
+				// 没有信息
+				// 显示添加收货人信息
+			}
 		$scope.message = "";
 		$scope.item = {$data};
 		$scope.total = 0;
@@ -477,6 +479,7 @@
 		    if (arr.length !== 3) {
 		    	console.log("所在地区未选全");
 		    } else {
+		    	$scope.area = $("#select").val();
 		    	IsArea = true;
 		    }
 		    // 是否填写详细地址
@@ -518,7 +521,7 @@
 		       		if (data.status == 1) {
 		       			console.log("添加成功");
 		       		}else if (data.status == 2) {
-		       			console.log("添加失败");
+		       			console.log(data);
 		       		}
 		        }).error(function (err) {
 		       		console.log(err);
