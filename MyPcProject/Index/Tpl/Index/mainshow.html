@@ -1,14 +1,8 @@
 <div class="home-focus-layout">
 	<ul id="fullScreenSlides" class="full-screen-slides">
-		<li style="background:  url('__ROOT__/Index/Common/images/editor/web-101-101-3.jpg?180') no-repeat center top">
-			<a href="http://www.531314.com/shop/index.php?act=zt&amp;op=valentine" target="_blank" title="">&nbsp;</a>
-		</li>
-		<li style="background: #ffffff url('__ROOT__/Index/Common/images/editor/web-101-101-2.jpg?163') no-repeat center top">
-			<a href="http://www.531314.com/shop/cate-1074-0-0-0-0-0-0-0-0.html" target="_blank" title="">&nbsp;</a>
-		</li>
-		<li style="background:  url('__ROOT__/Index/Common/images/editor/web-101-101-1.jpg?806') no-repeat center top">
-			<a href="http://www.531314.com/item-100942.html" target="_blank" title="">&nbsp;</a>
-		</li>
+		<li><a href="http://www.531314.com/shop/index.php?act=zt&amp;op=valentine"><img src="__ROOT__/Index/Common/images/editor/web-101-101-3.jpg?180" alt="" /></a></li>
+		<li><a href="http://www.531314.com/shop/cate-1074-0-0-0-0-0-0-0-0.html"><img src="__ROOT__/Index/Common/images/editor/web-101-101-2.jpg?163" alt="" /></a></li>
+		<li><a href="http://www.531314.com/item-100942.html"><img src="__ROOT__/Index/Common/images/editor/web-101-101-1.jpg?806" alt="" /></a></li>
 	</ul>	
 	<div class="right-sidebar">
 		<div class="policy">
@@ -54,3 +48,17 @@
 		</div>
 	</div>
 </div>
+<script>
+	$(function(){
+		var length = $(".full-screen-slides li").length;
+		$(".full-screen-slides li").first().show();
+		var i = 0;
+		var t = setInterval(move,3000);
+		function move(){
+			i++;
+			if(i==length) 
+				i = 0;
+			$(".full-screen-slides li").eq(i).fadeIn(1000).siblings().fadeOut(1000);		
+		}
+	})
+</script>
