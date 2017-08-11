@@ -64,6 +64,25 @@
 						$aaa["uid"] = session("uid");
 						$aaa["is_default"] = 1;
 						$return["id"] = $address -> where($aaa) -> find() ;
+					}else {
+						$return["info2"] = "数据写入成功，拉取默认信息失败" ;
+						$return["status2"] = 2 ;
+					}
+				}else {
+					//  新用户
+					$default["is_default"] = 1;
+					$t_o =  $address -> where($data) -> data($default) -> save();
+					if($t_o){
+						$list = $this -> getAddress();
+						$return["data"] = $list["data"] ;
+						$return["info"] = "写入成功" ;
+						$return["status"] = 1 ;
+						$aaa["uid"] = session("uid");
+						$aaa["is_default"] = 1;
+						$return["id"] = $address -> where($aaa) -> find() ;
+					}else {
+						$return["info2"] = "数据写入成功，拉取默认信息失败" ;
+						$return["status2"] = 2 ;
 					}
 				}
 				
