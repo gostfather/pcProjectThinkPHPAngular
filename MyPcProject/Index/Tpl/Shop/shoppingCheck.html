@@ -464,14 +464,20 @@
 		           		tel : $scope.tel,
 		           }
 		        }).success(function (data) {
+		        	console.log(data);
 		       		if (data.status == 1) {
 		       			// 添加新收货人信息成功
 		       			$scope.receiveAddress = data.data;
 		       			// 默认收货人信息
-			       		$scope.defaultAddress = data.default;
-			       		console.log(data);
+			       		$scope.defaultAddress = data.id;
 		       			$scope.IsRevise = true;
 		       			$scope.IsFill = false;
+		       			// 收货人信息
+						$scope.consignee = "";   // 姓名
+						$scope.area = "点击选择城市";	  // 区
+						$scope.address = ""; // 详细地址
+						$scope.cellphone = ""; // 手机号号码
+						$scope.tel = "";	//固话
 		       		}else if (data.status == 2) {
 		       			// 添加新收货人信息失败
 		       		}
