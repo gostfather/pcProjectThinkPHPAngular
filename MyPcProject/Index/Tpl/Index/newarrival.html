@@ -6,7 +6,7 @@
 		</ul>
 		<div class="tabs-panel sale-goods-list" ng-controller="myCon4">
 			<ul>			
-				<li class="item" ng-repeat="(k,v) in data">
+				<li ng-cloak class="item" ng-repeat="(k,v) in data">
 					<dl>
 						<dt class="goods-name">
 							<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="9枝白玫瑰紫玫瑰16枝 、8枝子洋桔梗、尤加利若干">{{v.title}}<em>{{v.info}}</em></a>
@@ -40,23 +40,11 @@
 </div>
 <div class="clear"></div>
 <script type="text/javascript">
+	var data = {$newarr};
 	var app = angular.module("app",[]);
 	app.controller("myCon4",function ($scope,$http) {
-		$scope.data = [];
-	    getItem(3);
-	    function getItem(page){
-			$http.get("__APP__/Index/getList?page="+page).success(function(data){
-				console.log(data);
-				if(data.status ===1 ){
-					$scope.data = data.info;					
-					//让节点循环完之后绑定jq事件				
-				}else{
-					$scope.err = "系统错误暂时找不到信息" ;
-				}
-			}).error(function(data){
-				console.log(data);
-			});
-		}
+		$scope.data = data.data;
+	    
    });
 	
 </script>
