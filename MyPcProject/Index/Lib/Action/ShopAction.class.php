@@ -2,20 +2,23 @@
 // 本类由系统自动生成，仅供测试用途
 class ShopACtion extends Action {
     public function ShoppingCart(){
-    		$classify = session("classify");
-			if( !empty($classify) ){
-				//添加一条数据
-				$Shop = D("Shop");
-				$res = $Shop -> addToShop($classify);
-				$this -> assign("addOne" , $res);
-				//直接显示到前面是否添加成功
-				unset($_SESSION['classify']);
-			}
-			//登陆状态的添加购物车可以直接跳转
+    	if( empty(session('uid')) ){
+			header("location:../Index/index?act=login&op=index");
+		}
+		$classify = session("classify");
+		if( !empty($classify) ){
+			//添加一条数据
 			$Shop = D("Shop");
-			$list = $Shop -> getList();
-			$this -> assign("list" , json_encode($list));
-	    	$this -> display("ShoppingCart");
+			$res = $Shop -> addToShop($classify);
+			$this -> assign("addOne" , $res);
+			//直接显示到前面是否添加成功
+			unset($_SESSION['classify']);
+		}
+		//登陆状态的添加购物车可以直接跳转
+		$Shop = D("Shop");
+		$list = $Shop -> getList();
+		$this -> assign("list" , json_encode($list));
+    	$this -> display("ShoppingCart");
 	}
 	public function ShoppingCheck() {
 		$this -> display("shoppingCheck");
@@ -57,6 +60,12 @@ class ShopACtion extends Action {
 
 	//传到订单页面
 	public function gotoCheck(){
+		if(empty($_POST["arr"])){
+			header("location:../Shop/ShoppingCart");
+		}
+		if(empty(session('uid'))){
+			header("location:../Index/index?act=login&op=index");
+		}
 		$Address = D("Address");
 		$getAddress = $Address -> getAddress();
 		$this -> assign("address" ,json_encode($getAddress));
