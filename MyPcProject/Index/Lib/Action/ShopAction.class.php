@@ -2,7 +2,7 @@
 // 本类由系统自动生成，仅供测试用途
 class ShopACtion extends Action {
     public function ShoppingCart(){
-    	if(empty(session('uid'))){
+    	if( empty(session('uid')) ){
 			header("location:../Index/index?act=login&op=index");
 		}
 		$classify = session("classify");
@@ -61,7 +61,7 @@ class ShopACtion extends Action {
 	//传到订单页面
 	public function gotoCheck(){
 		if(empty($_POST["arr"])){
-			header("location:../Shop/ShoppingCart")
+			header("location:../Shop/ShoppingCart");
 		}
 		if(empty(session('uid'))){
 			header("location:../Index/index?act=login&op=index");

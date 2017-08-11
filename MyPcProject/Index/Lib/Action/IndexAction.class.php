@@ -24,7 +24,7 @@ class IndexAction extends Action {
 			$res1 = $this -> getList([""],0,5);
 			$res2 = $this -> getList(["玫瑰"],0,8);
 			$res3 = $this -> getList(["长辈","百合"],0,8);
-			$res4 = $this -> getList(["礼物",""],1,8);
+			$res4 = $this -> getList(["礼物",""],2,8);
 			$this -> assign("newarr",json_encode($res1));
 			$this -> assign("floor1",json_encode($res2));
 			$this -> assign("floor2",json_encode($res3));
