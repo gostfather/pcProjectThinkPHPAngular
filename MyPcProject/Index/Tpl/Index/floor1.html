@@ -33,7 +33,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="middle-layout"  ng-app="app" ng-controller="myCon">
+	<div class="middle-layout" ng-controller="myCon1">
 		<div class="tabs-panel middle-goods-list ">
 			<ul>			
 				<li class="item" ng-repeat="(k,v) in data" >
@@ -80,24 +80,9 @@
 	 	}
 	 }
 	var app = angular.module("app",[]);
-	app.controller("myCon",function ($scope,$http) {
-		$scope.data = [];
-		$scope.err = "";		
-		$scope.range = function (start, end) {
-	        var ret = [];
-	        if (!end) {
-	            end = start;
-	            start = 0;
-	        }
-	        for (var i = start; i < end; i++) {
-	            ret.push(i);
-	        }
-	        return ret;
-	    };
-	    $scope.changePage = function(k){
-	    	getItem(k);
-	    }
-	    getItem($scope.pages);
+	app.controller("myCon1",function ($scope,$http) {
+		$scope.data = [];	
+	    getItem(0);
 	    function getItem(page){
 			$http.get("__APP__/Index/getList?page="+page).success(function(data){
 				console.log(data);
