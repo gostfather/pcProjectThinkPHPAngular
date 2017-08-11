@@ -529,7 +529,7 @@
 			    	if(k === 2){
 			    		$scope.isNumber = true ;
 			    	}
-			    	$scope.arr.push(text);
+			    	$scope.arr[k-1] = text;
 			    	CateKeyWord($scope.arr)
 			    	return false;
 			    }
@@ -543,7 +543,7 @@
 			    	if(k === 2){
 			    		$scope.isNumber = false ;
 			    	}
-			    	$scope.arr.splice(k-1,1);
+			    	$scope.arr[k-1] = "";
 			    	CateKeyWord($scope.arr);
 					return false;
 				}
@@ -559,7 +559,6 @@
 	        				"Content-Type":"application/x-www-form-urlencoded",
 	        			},
 			    	}).success(function(data){
-			    		console.log(data);
 			    		if(data.status === 1){
 			    			$scope.show = false ;
 			    			$scope.data = data.data;
