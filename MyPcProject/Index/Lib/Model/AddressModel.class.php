@@ -2,9 +2,9 @@
 	class AddressModel extends Model {
 		//获取地址
 		public function getAddress(){
-			$data["uid"] = session("uid");
+			$list["uid"] = session("uid");
 			$address = M("useraddress");
-			$res = $address -> where($data) -> order("addtime DESC") -> select();
+			$res = $address -> where($list) -> order("addtime DESC") -> select();
 			if($res){
 				$return["info"] = "返回地址信息" ;
 				$return["status"] = 1 ;
@@ -26,8 +26,16 @@
 				$return["status"] = 1 ;
 				$return["data"] = $res ;
 			} else {
-				$return["info"] = "没有默认地址" ;
-				$return["status"] = 2 ;
+				$where["uid"] = session("uid");
+				$def = $address -> where($where) -> order("addtime DESC") -> find();
+				if($def){
+					$return["info"] = "返回最新地址信息" ;
+					$return["status"] = 1 ;
+					$return["data"] = $def ;
+				}else{
+					$return["info"] = "没有默认地址信息" ;
+					$return["status"] = 2 ;
+				}
 			}
 			return $return ;
 		}
@@ -35,14 +43,49 @@
 		public function addAddress($data){
 			//data 里面有 姓名 区域 详细地址 电话  需要添加uid time
 			$data["addtime"] = time();
-			$data["addtime"] = session("uid");
+			$data["uid"] = session("uid");
+			$data["is_default"] = 2;
 			$address = M("useraddress");
 			$res = $address -> data($data) -> add();
 			//返回id
 			if($res){
-				$return["info"] = "写入成功" ;
-				$return["status"] = 1 ;
-				$return["id"] = $res ;
+				$uid["uid"] = session("uid"); 
+				$uid["is_default"] = 1; 
+				$default["is_default"] = 0;
+				$o_o = $address -> where($uid) -> data($default) -> save();
+				if($o_o){
+					$default["is_default"] = 1;
+					$t_o =  $address -> where($data) -> data($default) -> save();
+					if($t_o){
+						$list = $this -> getAddress();
+						$return["data"] = $list["data"] ;
+						$return["info"] = "写入成功" ;
+						$return["status"] = 1 ;
+						$aaa["uid"] = session("uid");
+						$aaa["is_default"] = 1;
+						$return["id"] = $address -> where($aaa) -> find() ;
+					}else {
+						$return["info2"] = "数据写入成功，拉取默认信息失败" ;
+						$return["status2"] = 2 ;
+					}
+				}else {
+					//  新用户
+					$default["is_default"] = 1;
+					$t_o =  $address -> where($data) -> data($default) -> save();
+					if($t_o){
+						$list = $this -> getAddress();
+						$return["data"] = $list["data"] ;
+						$return["info"] = "写入成功" ;
+						$return["status"] = 1 ;
+						$aaa["uid"] = session("uid");
+						$aaa["is_default"] = 1;
+						$return["id"] = $address -> where($aaa) -> find() ;
+					}else {
+						$return["info2"] = "数据写入成功，拉取默认信息失败" ;
+						$return["status2"] = 2 ;
+					}
+				}
+				
 			} else {
 				$return["info"] = "写入失败" ;
 				$return["status"] = 2 ;
@@ -52,9 +95,18 @@
 		//修改地址信息
 		public function updataAddress($data){
 			$address = M("useraddress");
-			$addtime["addtime"] = time();
-			$res = $address -> where($data) -> data($addtime) -> save();
+			$uid["uid"] = session("uid"); 
+			$default["is_default"] = 0;
+			$address -> where($uid) -> data($default) -> save();
+			//先全部置0
+			$data["uid"] = session("uid"); 
+			$default["is_default"] = 1;
+			$res = $address -> where($data) -> data($default) -> save();
+			// 给当前的加上默认字段
 			if($res){
+				$list = $this -> getAddress();
+				$return["data"] = $list["data"] ;
+				$return["default"] = $address -> where($data) ->find() ;
 				$return["info"] = "修改成功";
 				$return["status"] = 1 ;
 			}else{

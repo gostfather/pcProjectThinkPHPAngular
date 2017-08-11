@@ -16,7 +16,7 @@ class AddressAction extends Action {
 		$this ->ajaxReturn($res);
 	}
 	//修改地址信息
-	public function updataAddress($data){
+	public function updataAddress(){
 		$str = file_get_contents("php://input");
 		$data = json_decode($str,true);
 		$Address = D("Address");
@@ -24,7 +24,7 @@ class AddressAction extends Action {
 		$this ->ajaxReturn($res);
 	}
 	//删除地址信息
-	public function deleteAddress($data){
+	public function deleteAddress(){
 		$str = file_get_contents("php://input");
 		$data = json_decode($str,true);
 		$Address = D("Address");
