@@ -69,121 +69,50 @@
 							<div class="goodsType_row">
 								<div class="goodsClass">主花材：</div>
 								<div class="goodsLable">
-									<div class="goodsLables" id="search_div_class_27" >
-										<a >玫瑰</a>
-										<a class="span-a" href="javascript:deleteItem(26,27);"><span id="delte-span-27">×</span></a>
+									<div class="goodsLables" >
+										<a ng-click="!isMaterial ? search($event,1) : ''">玫瑰</a>
+										<a class="span-a" ng-click="unsearch($event,1)"><span>×</span></a>
 									</div>
-									<div class="goodsLables" id="search_div_class_28" >
-										<a >百合</a>
-										<a class="span-a" href="javascript:deleteItem(26,28);"><span id="delte-span-28">×</span></a>
+									<div class="goodsLables" >
+										<a ng-click="!isMaterial ? search($event,1) : ''">百合</a>
+										<a class="span-a" ng-click="unsearch($event,1)"><span>×</span></a>
 									</div>
-									<div class="goodsLables" id="search_div_class_29" >
-										<a >康乃馨</a>
-										<a class="span-a" href="javascript:deleteItem(26,29);"><span id="delte-span-29">×</span></a>
+									<div class="goodsLables" >
+										<a ng-click="!isMaterial ? search($event,1) : ''">康乃馨</a>
+										<a class="span-a" ng-click="unsearch($event,1)"><span>×</span></a>
 									</div>
-									<div class="goodsLables" id="search_div_class_30" >
-										<a >其它</a>
-										<a class="span-a" href="javascript:deleteItem(26,30);"><span id="delte-span-30">×</span></a>
+									<div class="goodsLables" >
+										<a ng-click="!isMaterial ? search($event,1) : ''">其它</a>
+										<a class="span-a" ng-click="unsearch($event,1)"><span>×</span></a>
 									</div>
-									<div class="goodsLables" id="search_div_class_85" >
-										<a >洋牡丹</a>
-										<a class="span-a" href="javascript:deleteItem(26,85);"><span id="delte-span-85">×</span></a>
-									</div>
-								</div>
-							</div>
-							<div class="goodsType_row">
-								<div class="goodsClass">节日：</div>
-								<div class="goodsLable">
-									<div class="goodsLables" id="search_div_class_32" >
-										<a >情人节</a>
-										<a class="span-a" href="javascript:deleteItem(31,32);"><span id="delte-span-32">×</span></a>
-									</div>
-									<div class="goodsLables" id="search_div_class_33" >
-										<a >母亲节</a>
-										<a class="span-a" href="javascript:deleteItem(31,33);"><span id="delte-span-33">×</span></a>
-									</div>
-									<div class="goodsLables" id="search_div_class_34" >
-										<a >父亲节</a>
-										<a class="span-a" href="javascript:deleteItem(31,34);"><span id="delte-span-34">×</span></a>
-									</div>
-									<div class="goodsLables" id="search_div_class_35" >
-										<a >圣诞节</a>
-										<a class="span-a" href="javascript:deleteItem(31,35);"><span id="delte-span-35">×</span></a>
+									<div class="goodsLables" >
+										<a ng-click="!isMaterial ? search($event,1) : ''">洋牡丹</a>
+										<a class="span-a" ng-click="unsearch($event,1)"><span>×</span></a>
 									</div>
 								</div>
 							</div>
 							<div class="goodsType_row">
 								<div class="goodsClass">枝数：</div>
 								<div class="goodsLable">
-									<div class="goodsLables" id="search_div_class_37" >
-										<a >9</a>
-										<a class="span-a" href="javascript:deleteItem(36,37);"><span id="delte-span-37">×</span></a>
+									<div class="goodsLables">
+										<a ng-click="!isNumber ? search($event,2) : ''">9</a>
+										<a class="span-a" ng-click="unsearch($event,2)"><span>×</span></a>
 									</div>
-									<div class="goodsLables" id="search_div_class_38" >
-										<a >11</a>
-										<a class="span-a" href="javascript:deleteItem(36,38);"><span id="delte-span-38">×</span></a>
+									<div class="goodsLables" >
+										<a ng-click="!isNumber ? search($event,2) : ''">11</a>
+										<a class="span-a" ng-click="unsearch($event,2)"><span >×</span></a>
 									</div>
-									<div class="goodsLables" id="search_div_class_39" >
-										<a >19</a>
-										<a class="span-a" href="javascript:deleteItem(36,39);"><span id="delte-span-39">×</span></a>
+									<div class="goodsLables" >
+										<a ng-click="!isNumber ? search($event,2) : ''">19</a>
+										<a class="span-a" ng-click="unsearch($event,2)"><span >×</span></a>
 									</div>
-									<div class="goodsLables" id="search_div_class_40" >
-										<a >36</a>
-										<a class="span-a" href="javascript:deleteItem(36,40);"><span id="delte-span-40">×</span></a>
+									<div class="goodsLables" >
+										<a ng-click="!isNumber ? search($event,2) : ''">36</a>
+										<a class="span-a" ng-click="unsearch($event,2)"><span >×</span></a>
 									</div>
-									<div class="goodsLables" id="search_div_class_41" >
-										<a >99</a>
-										<a class="span-a" href="javascript:deleteItem(36,41);"><span id="delte-span-41">×</span></a>
-									</div>
-								</div>
-							</div>
-							<div class="goodsType_row">
-								<div class="goodsClass">送花对象：</div>
-								<div class="goodsLable">
-									<div class="goodsLables" id="search_div_class_51" >
-										<a >爱人</a>
-										<a class="span-a" href="javascript:deleteItem(50,51);"><span id="delte-span-51">×</span></a>
-									</div>
-									<div class="goodsLables" id="search_div_class_52" >
-										<a >恋人</a>
-										<a class="span-a" href="javascript:deleteItem(50,52);"><span id="delte-span-52">×</span></a>
-									</div>
-									<div class="goodsLables" id="search_div_class_53" >
-										<a >单身</a>
-										<a class="span-a" href="javascript:deleteItem(50,53);"><span id="delte-span-53">×</span></a>
-									</div>
-									<div class="goodsLables" id="search_div_class_54" >
-										<a >老师</a>
-										<a class="span-a" href="javascript:deleteItem(50,54);"><span id="delte-span-54">×</span></a>
-									</div>
-									<div class="goodsLables" id="search_div_class_55" >
-										<a >朋友</a>
-										<a class="span-a" href="javascript:deleteItem(50,55);"><span id="delte-span-55">×</span></a>
-									</div>
-									<div class="goodsLables" id="search_div_class_56" >
-										<a >长辈</a>
-										<a class="span-a" href="javascript:deleteItem(50,56);"><span id="delte-span-56">×</span></a>
-									</div>
-									<div class="goodsLables" id="search_div_class_57" >
-										<a >探望</a>
-										<a class="span-a" href="javascript:deleteItem(50,57);"><span id="delte-span-57">×</span></a>
-									</div>
-									<div class="goodsLables" id="search_div_class_58">
-										<a >客户</a>
-										<a class="span-a" href="javascript:deleteItem(50,58);"><span id="delte-span-58">×</span></a>
-									</div>
-								</div>
-							</div>
-							<div class="goodsType_row">
-								<div class="goodsClass">鲜花生活馆：</div>
-								<div class="goodsLable">
-									<div class="goodsLables" id="search_div_class_60">
-										<a >家庭套餐</a>
-										<a class="span-a" href=""><span id="delte-span-60">×</span></a>
-									</div>
-									<div class="goodsLables" id="search_div_class_61">
-										<a >月度套餐</a>
-										<a class="span-a" href=""><span id="delte-span-61">×</span></a>
+									<div class="goodsLables" >
+										<a ng-click="!isNumber ? search($event,2) : ''">99</a>
+										<a class="span-a" ng-click="unsearch($event,2)"><span >×</span></a>
 									</div>
 								</div>
 							</div>
@@ -192,9 +121,7 @@
 				</div>
 				<div class="nch-module nch-module-style01">
 					<div class="title">
-						<h3>
-<em>鲜花束</em> -
-商品筛选</h3>
+						<h3><em>鲜花束</em>-商品筛选</h3>
 					</div>
 					<div class="content">
 						<div class="nch-module-filter">
@@ -213,16 +140,16 @@
 								<dd class="list">
 									<ul>
 										<li>
-											<a href="http://www.531314.com/cate-1074-0-1-0-0-0-0-0-0.html">红色</a>
+											<a >红色</a>
 										</li>
 										<li>
-											<a href="http://www.531314.com/cate-1074-0-2-0-0-0-0-0-0.html">香槟</a>
+											<a >香槟</a>
 										</li>
 										<li>
-											<a href="http://www.531314.com/cate-1074-0-3-0-0-0-0-0-0.html">蓝色</a>
+											<a >蓝色</a>
 										</li>
 										<li>
-											<a href="http://www.531314.com/cate-1074-0-4-0-0-0-0-0-0.html">白色</a>
+											<a >白色</a>
 										</li>
 									</ul>
 								</dd>
@@ -234,9 +161,11 @@
 					<nav class="sort-bar" id="main-nav">
 						<div class="pagination">
 							<ul>
-								<li><span>上一页</span></li>
-								<li>
-									<a class="demo" href="http://www.531314.com/cate-1074-0-0-0-0-0-0-0-2.html"><span>下一页</span></a>
+								<li >
+									<a ng-class="currentPage==0? '' : 'canHover'"><span ng-click="currentPage > 0? changePage(currentPage-1) : ''">上一页</span></a>
+								</li>
+								<li >
+									<a ng-class="currentPage == pages - 1 ? '' : 'canHover' "><span ng-click="currentPage < pages -1 ? changePage(currentPage+1) : ''">下一页</span></a>
 								</li>
 							</ul>
 						</div>
@@ -294,21 +223,21 @@
 						<div class="nch-sortbar-array"> 排序方式：
 							<ul>
 								<li class="selected">
-									<a href="http://www.531314.com/cate-1074-0-0-0-0-0-0-0-0.html" title="默认排序">默认</a>
+									<a  title="默认排序">默认</a>
 								</li>
 								<li>
-									<a href="http://www.531314.com/cate-1074-0-0-1-2-0-0-0-0.html" title="点击按销量从高到低排序">销量<i></i></a>
+									<a  title="点击按销量从高到低排序">销量<i></i></a>
 								</li>
 								<li>
-									<a href="http://www.531314.com/cate-1074-0-0-2-2-0-0-0-0.html" title="点击按人气从高到低排序">人气<i></i></a>
+									<a  title="点击按人气从高到低排序">人气<i></i></a>
 								</li>
 								<li>
-									<a href="http://www.531314.com/cate-1074-0-0-3-2-0-0-0-0.html" title="点击按价格从高到低排序">价格<i></i></a>
+									<a  title="点击按价格从高到低排序">价格<i></i></a>
 								</li>
 							</ul>
 						</div>
-						<div class="nch-sortbar-owner"><span><a href="http://www.531314.com/cate-1074-0-0-0-0-1-0-0-0.html"><i></i>平台自营</a></span></div>
-						<div class="nch-sortbar-owner"><span><a href="http://www.531314.com/cate-1074-0-0-0-0-0-1-0-0.html"><i></i>赠品</a></span></div>
+						<div class="nch-sortbar-owner"><span><a ><i></i>平台自营</a></span></div>
+						<div class="nch-sortbar-owner"><span><a ><i></i>赠品</a></span></div>
 						<div class="nch-sortbar-location">商品所在地：
 							<div class="select-layer">
 								<div class="holder"><em>不限地区 </em></div>
@@ -429,7 +358,8 @@
 							}
 						</style>-->
 						<div class="squares" >
-							<ul class="list_pic">
+							<div ng-show="show" id="no_results" ng-model="message" ng-cloak class="no-results"><i></i>{{message}}符合条件的商品</div>
+							<ul ng-show="!show" class="list_pic">
 								<li class="item" ng-repeat="(k,v) in data" >
 									<div class="goods-content">
 										<div class="goods-pic">
@@ -438,8 +368,8 @@
 										<div class="goods-info">
 											<div class="goods-pic-scroll-show">
 												<ul>
-													<li class="selected" ng-cloak ng-repeat="(kk,vv) in v.imgurl">
-														<a href=""><img ng-cloak ng-src="__ROOT__/{{vv}}" /></a>
+													<li ng-class="$index == 0 ? 'selected' : ''" ng-cloak ng-repeat="(kk,vv) in v.imgurl">
+														<a><img ng-cloak ng-src="__ROOT__/{{vv}}" /></a>
 													</li>
 												</ul>
 											</div>
@@ -476,7 +406,7 @@
 						
 					</div>
 					<div class="tc mt20 mb20">
-						<div class="pagination">
+						<div ng-show="pages>1" class="pagination">
 							<ul>
 								<li ng-class="currentPage==0? '' : 'canHover'">
 									<span ng-click="currentPage==0? '' : changePage(0)">首页</span>
@@ -513,12 +443,10 @@
 		 		return false;
 		 	}
 		 	$(".goods-pic-scroll-show li").hover(liHoverIn,function(){
-		 		return false;
+		 		return false ;
 		 	});
 		 	function liHoverIn(){
-		 		$(".goods-pic-scroll-show li").each(function(){
-		 			this.className = "" ;
-		 		});
+		 		$(this).parent().find("li").attr("class","");
 		 		this.className = "selected" ;
 		 		$(this).parent().parent().parent().prev().find("img")[0].src = $(this).find("img")[0].src;
 		 		$(this).parent().parent().parent().prev().find("img").css({
@@ -530,17 +458,28 @@
 			var data = {$data} ;
 			var app = angular.module("app",[]);
 			app.controller("myCon",function ($scope,$http) {
+				$scope.show = true ;
+				$scope.message = "正在搜索";
+				//显示加载页
+				$scope.currentPage = 0;
+				//当前页数
+				$scope.isMaterial = false ;
+			    $scope.isNumber = false ;
+			    //按钮搜索条件
+			    $scope.arr = [] ; 
+			    //存放关键字
 				if(data.status == 1 ){
+					$scope.pages = data.pages;
+					$scope.show = false ;
 					$scope.data = data.info;
 				}else{
+					$scope.pages = 0;
 					$scope.data = [];
 				}
 				setTimeout(function(){
 					asdf();
 				},0);
-				$scope.err = "";
-				$scope.pages = data.pages;
-				$scope.currentPage = 0;
+				window.clearTimeout();
 				$scope.range = function (start, end) {
 			        var ret = [];
 			        if (!end) {
@@ -553,11 +492,15 @@
 			        return ret;
 			    };
 			    $scope.changePage = function(k){
+			    	if( $scope.arr.length > 1){
+			    		CateKeyWord($scope.arr,k);
+			    	}
 			    	getItem(k);
 			    }
 			    function getItem(page){
 					$http.get("__APP__/Cate/getList?page="+page).success(function(data){
 						if(data.status === 1 ){
+							$scope.show = false ;
 							$scope.data = data.info;
 							$scope.pages = data.pages;
 							$scope.currentPage = page;
@@ -565,15 +508,78 @@
 							setTimeout(function(){
 								asdf();
 							},0);
+							window.clearTimeout();
 							//让节点循环完之后绑定jq事件
 						}else{
-							$scope.err = "系统错误暂时找不到信息" ;
+							$scope.show = true ;
+			    			$scope.pages = 0;
+							$scope.message = data.info ;
 						}
 					}).error(function(data){
 						console.log(data);
 					});
 				}
+			    $scope.search = function($event,k){
+			    	var text = $($event.target).text();
+			    	$($event.target).parent().attr("class","goodsLables goodsLables_selected");
+			    	$($event.target).parent().find("span").css({"display":"inline"});
+			    	if(k === 1){
+			    		$scope.isMaterial = true ;
+			    	}
+			    	if(k === 2){
+			    		$scope.isNumber = true ;
+			    	}
+			    	$scope.arr[k-1] = text;
+			    	CateKeyWord($scope.arr)
+			    	return false;
+			    }
+			    $scope.unsearch = function($event ,k){
+			    	console.log($($event.target).parent().prev().text());
+			    	$($event.target).parent().parent().attr("class","goodsLables");
+			    	$($event.target).parent().parent().find("span").css({"display":"none"});
+					if(k === 1){
+			    		$scope.isMaterial = false ;
+			    	}
+			    	if(k === 2){
+			    		$scope.isNumber = false ;
+			    	}
+			    	$scope.arr[k-1] = "";
+			    	CateKeyWord($scope.arr);
+					return false;
+				}
+			    function CateKeyWord(arr,k){
+			    	$http({
+			    		url:"__APP__/Cate/CateKeyWord",
+			    		method:"POST",
+			    		data:{
+			    			arr:arr,
+			    			page:k,
+			    		},
+			    		headers:{
+	        				"Content-Type":"application/x-www-form-urlencoded",
+	        			},
+			    	}).success(function(data){
+			    		if(data.status === 1){
+			    			$scope.show = false ;
+			    			$scope.data = data.data;
+			    			$scope.pages = data.pages;
+							$scope.currentPage = 0;
+							setTimeout(function(){
+								asdf();
+							},0);
+							window.clearTimeout();
+			    		}else{
+			    			$scope.show = true ;
+			    			$scope.pages = 0;
+			    			$scope.message = data.info ;
+			    		}
+			    	}).error(function(err){
+			    		console.log("错误是"+err);
+			    	});
+			    }
+			    
 		    });
+		    
 		</script>
 	</body>
 </html>
