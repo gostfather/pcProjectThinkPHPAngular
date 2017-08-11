@@ -55,27 +55,25 @@
 			</ul>
 		</div>
 	</div>
-	<div class="middle-layout">
+	<div class="middle-layout" ng-controller="myCon2">
 		<div class="tabs-panel middle-goods-list ">
-			<ul>
-				<li>
+			<ul>			
+				<li class="item" ng-repeat="(k,v) in data" >
 					<dl>
 						<dt class="goods-name">
-							<a target="_blank" href="http://www.531314.com/item-100829.html" title="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花">
-								【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花
-							</a>
+							<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="9枝白玫瑰紫玫瑰16枝 、8枝子洋桔梗、尤加利若干">{{v.title}}<em>{{v.info}}</em></a>
 						</dt>
 						<dd class="goods-thumb">
-							<a target="_blank" href="http://www.531314.com/item-100829.html">
-								<img src="http://img.531314.com/shop/store/goods/1/1_05074003616714448_240.jpg" alt="【春舞枝】鲜花速递19枝混搭扶郎花送长辈送朋友花店送花" />
+							<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="{{v.title}}">
+								<img ng-cloak ng-src="__ROOT__/{{v.imgurl[0]}}" title="{{v.title}}" alt="{{v.title}}" />
 							</a>
 						</dd>
 						<dd class="goods-price">
-							<em>￥178.00</em>
-							<span class="original">￥258.00</span>
+							 <em class="sale-price" >&yen;{{v.StorePrice}}</em> 
+							 <span class="original">&yen;{{v.marketPrice}}</span>
 						</dd>
 					</dl>
-				</li>
+				</li>			
 			</ul>
 		</div>
 	</div>
@@ -91,3 +89,37 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">	
+	function asdf(){
+	 	$(".item").hover(itemmouseOver, itemmouseOut);
+	 	function itemmouseOver(){
+	 		$(this).siblings(".item").css({"opacity":0.25})
+	 		return false;
+	 	};
+	 	function itemmouseOut(){
+	 		$(this).siblings(".item").css({"opacity":1})
+	 		return false;
+	 	}
+	}
+	app.controller("myCon2",function ($scope,$http) {
+		$scope.data = [];
+	    getItem(1);
+	    function getItem(page){
+			$http.get("__APP__/Index/getList?page="+page).success(function(data){
+				console.log(data);
+				if(data.status ===1 ){
+					$scope.data = data.info;					
+					//让节点循环完之后绑定jq事件
+					setTimeout(function(){
+						asdf();
+					},0);
+				}else{
+					$scope.err = "系统错误暂时找不到信息" ;
+				}
+			}).error(function(data){
+				console.log(data);
+			});
+		}
+   });
+	
+</script>
