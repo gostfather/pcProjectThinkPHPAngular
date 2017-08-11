@@ -135,6 +135,7 @@
 	    	var	StorePrice = $("#StorePrice").val() ;
 	    	var	stock = $("#stock").val() ;
 	    	var	classify = $("#classify").val() ;
+	    	var canSub = true ;
 			try{
 				if(title===""){
 					throw new Error("请输入标题");
@@ -157,9 +158,12 @@
 				if(classify===""){
 					throw new Error("请输入商品id号");
 				}
+				canSub = true ;
 			}catch(e){
+				canSub = false ;
 				alert(e.message);
-			}finally{
+			}
+			if(canSub){
 				var allImg = true;
 				$("input[name='img']").each(function(){
 					if(this.value===""){
