@@ -14,6 +14,10 @@ class OrderACtion extends Action {
 		$str = file_get_contents("php://input");
 		$data = json_decode($str,true);
 		$Order = D("Order");
+		/*$data["addressid"] = 7 ;
+		$data["deliverytime"] = "2017-08-07";
+		$data["message"] = "asdfasdfasdfasdfasdf7";
+		$data["shopids"] = [26,28];*/
 		$res = $Order -> uptoOrder($data);
 		$this->ajaxReturn($res);
 	}
