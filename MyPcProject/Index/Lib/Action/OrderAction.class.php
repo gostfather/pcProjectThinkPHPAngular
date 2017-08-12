@@ -18,7 +18,7 @@ class OrderACtion extends Action {
 		$data = json_decode($str,true);
 		$Order = D("Order");
 		/*$data["addressid"] = 7 ;
-		$data["deliverytime"] = "2017-08-07";
+		$data["deliverytime"] = "2017-08-07 17:00";
 		$data["message"] = "asdfasdfasdfasdfasdf7";
 		$data["shopids"] = [26,28];*/
 		$res = $Order -> uptoOrder($data);
