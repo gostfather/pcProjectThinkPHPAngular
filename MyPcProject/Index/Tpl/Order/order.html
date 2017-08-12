@@ -115,7 +115,7 @@
 								</td>
 							</tr>
 						</tbody>
-						<tbody ng-repeat="(k,v) in orders" class="pay" ng-if="v.is_cancel == 0">
+						<tbody ng-cloak ng-repeat="(k,v) in orders" class="pay" ng-if="v.is_cancel == 0">
 							<tr>
 								<td colspan="19" class="sep-row"></td>
 							</tr>
@@ -260,41 +260,7 @@
 		</div>
 		<include file="Component:footer" />
 		<script type="text/javascript">
-			var orderList = {$orderList};
-			console.log(orderList);
-			/*var data = [{
-					ordernumber: 123123,
-					addtime: "2017-08-07 11:25:30",
-					is_pay: 1,
-					is_receive: 1,
-					shops: [{
-							imgurl: "http://img.531314.com/shop/store/goods/1/1_05424639725775441_60.jpg",
-							title: "【春舞枝】基地直销 33枝粉玫瑰",
-							StorePrice: "388.00",
-							count: 1,
-						},
-						{
-							imgurl: "http://img.531314.com/shop/store/goods/1/1_05424686092644715_60.jpg",
-							title: "【春舞枝】基地直销 33枝红玫瑰情人草",
-							StorePrice: "388.00",
-							count: 1,
-						},
-					],
-				},
-				{
-					ordernumber: 41234123,
-					addtime: "2017-08-07 09:58:44",
-					is_pay: 0,
-					is_receive: 0,
-					shops: [{
-						imgurl: "http://img.531314.com/shop/store/goods/1/1_05424686092644715_60.jpg",
-						title: "【春舞枝】基地直销 33白+紫玫瑰16枝+8枝子洋桔梗",
-						StorePrice: "388.00",
-						count: 2,
-					}],
-				}
-			];
-			console.log(data);*/
+			var orderList = {$orderList};		
 			var app = angular.module("app", []);
 			app.controller("myCon", function($scope, $http) {
 				$scope.isFind = true;
