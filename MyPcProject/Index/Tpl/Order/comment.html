@@ -13,10 +13,23 @@
 		<link href="http://www.531314.com/templates/new/css/member.css" rel="stylesheet" type="text/css">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
+		<script type="text/javascript" src="__ROOT__/Index/Common/js/jquery.ratyli.min.js"></script>
+		<style type="text/css">
+			.ratyli .rate{
+				font-size: 20px;
+			}
+			/*字体大小*/
+			.ratyli .rate-active{
+				color: red;
+			}
+			/*填充颜色*/
+			.ratyli .rate-full{
+				color: red;
+			}
+		</style>
+	</head> 
 
-	</head>
-
-	<body>
+	<body ng-app="app" ng-controller="myCon">
 		<include file="Component:site-nav" />
 		<include file="Component:header" />
 		<div class="nch-breadcrumb-layout">
@@ -70,7 +83,7 @@
 							</li>
 						</ul>
 					</div>
-					<table ng-app="app" ng-controller="myCon" class="ncm-default-table order">
+					<table  class="ncm-default-table order">
  						<tbody ng-show="isFind">
 							<tr>
 								<td colspan="20" class="norecord">
@@ -78,61 +91,160 @@
 								</td>
 							</tr>
 						</tbody>
+						<tbody ng-show="!isFind" ng-cloak ng-repeat="(k,v) in orders" class="pay" >
+							<tr>
+								<td colspan="19" class="sep-row"></td>
+							</tr>
+							<tr>
+								<th colspan="19">
+									<span class="ml10">订单号：{{v.ordernumber}} </span>
+									<span>下单时间：{{v.addtime}}</span>
+									<span><a href="__ROOT__/Index/index" title="春舞枝旗舰店">春舞枝旗舰店</a></span>
+									<span member_id="1">订单已完成</span>
+									<a class="share-goods"><i class="icon-share"></i>分享</a>
+								</th>
+							</tr>
+							<tr>
+								<td class="bdl"></td>
+								<td class="w70">
+									<input type="radio" name="commentShop"  ng-value="v.shops[0].classify"/>
+									<div class="ncm-goods-thumb">
+										<a><img ng-src="__ROOT__/{{v.shops[0].imgurl}}" /></a>
+									</div>
+								</td>
+								<td class="tl">
+									<dl class="goods-name">
+										<dt><a>{{v.shops[0].title}}</a></dt>
+									</dl>
+								</td>
+								<td>388.00</td>
+								<td>1</td>
+								<td>
+								</td>
+								<td class="bdl" rowspan="{{v.shops.length}}">
+									<p class=""><strong>{{v.totalmoney}}</strong></p>
+									<p class="goods-freight">
+										（免运费） </p>
+									<p title="支付方式：在线付款">在线付款</p>
+								</td>
+								<td class="bdl" rowspan="{{v.shops.length}}">
+									<p><span ng-show="v.is_pay == 0 " style="color:#36C">待付款</span> </p>
+									<p><span ng-show="v.is_pay == 1 && v.is_receive == 0 " style="color:#36C">待发货</span> </p>
+									<p><span ng-show="v.is_pay == 1 && v.is_receive == 1 " style="color:#36C">已完成，待评价</span> </p>
+									<p>
+										<a>订单详情</a>
+									</p>
+
+								</td>
+							</tr>
+							<tr ng-repeat="(kk,vv) in v.shops" ng-if="$index !== 0">
+								<td class="bdl"></td>
+								<td class="w70">
+									<input type="radio" name="commentShop" ng-value="vv.classify" />
+									<div class="ncm-goods-thumb">
+										<a><img ng-src="__ROOT__/{{vv.imgurl}}" /></a>
+									</div>
+								</td>
+								<td class="tl">
+									<dl class="goods-name">
+										<dt><a>{{vv.title}}</a></dt>
+									</dl>
+								</td>
+								<td>{{vv.StorePrice}}</td>
+								<td>{{vv.count}}</td>
+								<td>
+								</td>
+							</tr>
+						</tbody>
 					</table>
+					<div ng-if="!isFind" class="comment">
+						<span>请对您购买的商品进行评价</span>
+						<span class="ratyli" data-rate="4" data-ratemax="5"></span>
+						<div class="commentBody">
+							<textarea ng-change="isComment()" ng-model="commentBody" placeholder="评论不得少于5个字" style="width: 100%;height:150px;font-size: 20px;resize: none;" cols="10"></textarea>
+						</div>
+						<span id="maxComment">
+							评论字数<em ng-bind="length">0</em>/250
+						</span>
+						<button ng-click="subComment()" style="float: right;">点击提交评价</button>
+					</div>
 				</div>
 			</div>
+			<style type="text/css">
+				.comment{
+					padding: 20px;
+				}
+			</style>
 			<div class="clear"></div>
 		</div>
 		<include file="Component:footer" />
 		<script type="text/javascript">
-			var data = [{
-					ordernumber: 123123,
-					shops: [{
-							imgurl: "http://img.531314.com/shop/store/goods/1/1_05424639725775441_60.jpg",
-							title: "【春舞枝】基地直销 33枝粉玫瑰",
-							StorePrice: "388.00",
-							count: 1,
-						},
-						{
-							imgurl: "http://img.531314.com/shop/store/goods/1/1_05424686092644715_60.jpg",
-							title: "【春舞枝】基地直销 33枝红玫瑰情人草",
-							StorePrice: "388.00",
-							count: 1,
-						},
-					],
-					addtime: "2017-08-07 11:25:30",
-					totalmoney: "776.00",
-					is_pay: 1,
-					is_receive: 1,
-				},
-				{
-					ordernumber: 41234123,
-					shops: [{
-						imgurl: "http://img.531314.com/shop/store/goods/1/1_05424686092644715_60.jpg",
-						title: "【春舞枝】基地直销 33白+紫玫瑰16枝+8枝子洋桔梗",
-						StorePrice: "388.00",
-						count: 2,
-					}],
-					addtime: "2017-08-07 09:58:44",
-					totalmoney: "776.00",
-					is_pay: 0,
-					is_receive: 0,
-				}
-			];
-			console.log(data);
+			$(function() {
+			    $('.ratyli').ratyli();
+			});  
+			var willComment = {$willComment};
 			var app = angular.module("app", []);
 			app.controller("myCon", function($scope, $http) {
-				$scope.isFind = true;
-				/*if(data) {
+				$scope.length = 0 ;
+				$scope.commentBody = "" ;
+				$scope.isFind = false;
+				//false 是没有完成购买的
+				$scope.canComment = true;
+				//是否能评论
+				if(willComment.status === 1 ){
+					$scope.orders = willComment.data;
+					$scope.canComment = true;
 					$scope.isFind = false;
-				}*/
-				$scope.orders = data;
+				}else{
+					$scope.isFind = true;
+					$scope.canComment = false;
+				}
+			
 				setTimeout(function() {
 					$(".ncm-goods-thumb").on("mouseenter", mouseIn);
 				}, 0);
-				$scope.delOrder = function(ordernumber) {
-					console.log(ordernumber);
+
+				$scope.isComment = function(){
+					//显示评论字数
+					$scope.length = $scope.commentBody.length;
 				}
+				$scope.subComment = function(){
+					var classify = $("input[type='radio']:checked").attr("value");
+					var star = Number($(".ratyli").attr("data-rate"));
+					console.log(classify)
+					//验证然后提交评论
+					try{
+						if(classify === undefined){
+							throw new Error("请选择商品id进行评论");
+						}
+						if($scope.commentBody.length < 5 || $scope.commentBody.length > 250 ){
+							throw new Error("请控制评论字数");
+						}
+						$scope.canComment = true;
+					}catch(e){
+						$scope.canComment = false;
+						alert(e.message);
+					}
+					if($scope.canComment){
+						$http({
+							method:"POST",
+							url:"__APP__/Order/subComment",
+							data:{
+								star:star,
+								comment:$scope.commentBody,
+								classify,classify,
+							},
+							headers:{
+			    				"Content-Type":"application/x-www-form-urlencoded",
+			    			},
+						}).success(function(data){
+							console.log(data);
+						}).error(function(err){
+							console.log(err);
+						})
+					}
+				}
+				
 			});
 
 			function mouseIn(ev) {
