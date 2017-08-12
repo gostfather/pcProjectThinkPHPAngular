@@ -74,15 +74,44 @@ class ShopModel extends Model {
 			$shop = M("shop");
 			$find = $shop -> where("classify='".$classify."' AND is_order=''") -> find();
 			if($find){
-				$return["info"] = "购物车已经存在此商品";
-				$return["status"] = 4;
+				//2.1  是否假删    假删
+				$where["uid"] = session("uid");
+				$where["classify"] = $classify;
+				$where["is_order"] = "";
+				$where["is_delete"] = 0;
+				$find = $shop -> where($where) -> find();
+				if($find){
+					$idDelete["is_delete"] = 1;
+					$idDelete["count"] = 1;
+					$hasDelete = $shop -> where($where) -> data($idDelete) -> save();
+					if($hasDelete){
+						$return["info"] = "添加成功";
+						$return["status"] = 1;
+					}else{
+						$return["info"] = "添加失败2.1";
+						$return["status"] = 2;
+					}
+				}else{
+					//2.2  不是假删  商品数量加1
+					$where["is_delete"] = 1;
+					$rockery = $shop -> where($where) -> find();
+					$rockery["count"] = $rockery["count"]+1;
+					$addShop = $shop -> where($where) -> data($rockery) -> save();
+					if($addShop){
+						$return["info"] = "添加成功";
+						$return["status"] = 1;
+					}else{
+						$return["info"] = "添加失败2.2";
+						$return["status"] = 2;
+					}
+				}
 			}else{
 				$res = $shop -> data($data) -> add();
 				if($res){
 					$return["info"] = "添加成功";
 					$return["status"] = 1;
 				}else{
-					$return["info"] = "添加失败";
+					$return["info"] = "添加失败1.2";
 					$return["status"] = 2;
 				}
 			}
