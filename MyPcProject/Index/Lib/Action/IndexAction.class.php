@@ -21,6 +21,14 @@ class IndexAction extends Action {
 			if( $uid && $classify ){
 				header("location:../Shop/ShoppingCart");
 			}
+			$res1 = $this -> getList([""],0,5);
+			$res2 = $this -> getList(["玫瑰"],0,8);
+			$res3 = $this -> getList(["长辈","百合"],0,8);
+			$res4 = $this -> getList(["礼物",""],2,8);
+			$this -> assign("newarr",json_encode($res1));
+			$this -> assign("floor1",json_encode($res2));
+			$this -> assign("floor2",json_encode($res3));
+			$this -> assign("floor3",json_encode($res4));
     		$this->display("index");
 		}
 		
@@ -37,7 +45,6 @@ class IndexAction extends Action {
 		$res = $Index->loginUser($sureData);
 		$this -> ajaxReturn($res);
 	}
-
 
 	//用户注册
 	public function upUser(){
@@ -58,13 +65,9 @@ class IndexAction extends Action {
 
         $this -> ajaxReturn($_SESSION["verify"]);
     }
-	public function getList(){
-		$Cate = D("Cate");
-		$page =I("page");
-		if(empty($page)){
-			$page = 0 ;
-		}
-		$res = $Cate -> getList($page,8);
-		$this -> ajaxReturn($res);
+	public function getList($keyWord,$page,$number){
+		$search = D("Search");
+		$res = $search -> IndexKeyWord($keyWord,$page,$number);
+		return $res ;
 	}	
 }
