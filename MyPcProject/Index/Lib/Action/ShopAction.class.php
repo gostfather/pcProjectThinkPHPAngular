@@ -18,7 +18,7 @@ class ShopACtion extends Action {
 		$Shop = D("Shop");
 		$list = $Shop -> getList();
 		$this -> assign("list" , json_encode($list));
-    	$this -> display("ShoppingCart");
+    	$this -> display("shoppingCart");
 	}
 	public function ShoppingCheck() {
 		$this -> display("shoppingCheck");
