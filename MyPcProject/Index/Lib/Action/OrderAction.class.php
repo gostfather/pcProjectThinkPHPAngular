@@ -18,7 +18,7 @@ class OrderACtion extends Action {
 		$data = json_decode($str,true);
 		$Order = D("Order");
 		/*$data["addressid"] = 7 ;
-		$data["deliverytime"] = "2017-08-07";
+		$data["deliverytime"] = "2017-08-07 17:00";
 		$data["message"] = "asdfasdfasdfasdfasdf7";
 		$data["shopids"] = [26,28];*/
 		$res = $Order -> uptoOrder($data);
@@ -29,5 +29,24 @@ class OrderACtion extends Action {
 		$Order = D("Order");
 		$res = $Order -> deleteOrder($ordernumber);
 		$this->ajaxReturn($res);
+	}
+	//进入评论页
+	public function comment(){
+		$uid = session('uid');
+		if(empty($uid)){
+			header("location:../Index/index?act=login&op=index");
+		}
+		$Order = D("Order");
+		$willComment = $Order -> willComment();
+		$this -> assign("willComment",json_encode($willComment));
+		$this -> display("comment") ;
+	}
+	
+	public function subComment(){
+		$str = file_get_contents("php://input");
+		$data = json_decode($str,true);
+		$Order = D("Order");
+//		$res = $Order -> subComment($data);
+		$this->ajaxReturn($data);
 	}
 }

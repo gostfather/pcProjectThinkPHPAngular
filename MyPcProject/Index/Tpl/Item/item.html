@@ -157,7 +157,7 @@
 	 							</dt>
 	 							<dd>购物车共有<strong id="bold_num" ng-bind="goods"></strong>种商品，总金额为：<em id="bold_mly" ng-bind="totalMoney" class="saleP"></em></dd>
 	 							<dd class="btns">
-	 								<a class="ncs-btn-mini ncs-btn-green" href="__APP__/Shop/ShoppingCart" >查看购物车</a>
+	 								<a class="ncs-btn-mini ncs-btn-green" href="__APP__/Shop/shoppingCart" >查看购物车</a>
 	 								<a class="ncs-btn-mini" href="__APP__/Cate/cate_1074">继续购物</a>
 	 							</dd>
 	 						</dl>
@@ -225,7 +225,7 @@
 						<div class="ncs-goods-title-nav">
 							<ul id="categorymenu">
 								<li class="current">
-									<a href="" id="tabGoodsIntro">商品详情</a>
+									<a>商品详情</a>
 								</li>
 							</ul>
 						</div>
@@ -259,7 +259,7 @@
 					<div class="ncs-comment">
 						<div class="ncs-goods-title-bar hd">
 							<h4>
-								<a href="">商品评价</a>
+								<a href="__APP__/Order/comment">商品评价</a>
 							</h4>
 						</div>
 						<div class="ncs-goods-info-content bd" id="ncGoodsRate">
@@ -301,7 +301,7 @@
 								<div class="btns">
 									<span>您可对已购商品进行评价</span>	
 									<p>
-										<a href="" class="ncs-btn ncs-btn-red" target="_blank">评价商品</a>
+										<a href="__APP__/Order/comment" class="ncs-btn ncs-btn-red" target="_blank">评价商品</a>
 									</p>
 								</div>
 							</div>
@@ -539,6 +539,7 @@
 						method: 'GET',
         				url: '__APP__/Shop/addToShop/?classify='+classify.info.classify,
 					}).success(function(data){
+						console.log(data);
 						if(data.status === 1){
 							//进入购物车
 							getSubtotal();
@@ -558,6 +559,7 @@
 				}
 				function getSubtotal(){
 					$http.get("__APP__/Shop/subtotal").success(function(data){
+	//					console.log(data);
 						if(data.status == 1){
 							$scope.goods = data.number ;
 							$scope.totalMoney = data.subtotal ;

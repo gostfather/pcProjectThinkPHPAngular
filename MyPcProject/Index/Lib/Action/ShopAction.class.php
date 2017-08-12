@@ -18,7 +18,7 @@ class ShopACtion extends Action {
 		$Shop = D("Shop");
 		$list = $Shop -> getList();
 		$this -> assign("list" , json_encode($list));
-    	$this -> display("ShoppingCart");
+    	$this -> display("shoppingCart");
 	}
 	public function ShoppingCheck() {
 		$this -> display("shoppingCheck");
@@ -76,6 +76,10 @@ class ShopACtion extends Action {
 		$Shop = D("Shop");
 		$res = $Shop -> getShop($_POST["arr"]);
 		$return = json_encode($res["data"]);
+		/*
+		* Author: doudou
+		*/ 
+		// 返回发票信息
 		$this -> assign("data",$return);
 		//返回购物车信息
 		$this -> display("shoppingCheck");
