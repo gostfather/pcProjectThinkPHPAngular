@@ -47,15 +47,17 @@
 			$data["is_default"] = 2;
 			$address = M("useraddress");
 			$res = $address -> data($data) -> add();
-			//返回id
+			// 是否添加成功
 			if($res){
 				$uid["uid"] = session("uid"); 
 				$uid["is_default"] = 1; 
 				$default["is_default"] = 0;
 				$o_o = $address -> where($uid) -> data($default) -> save();
+				// 默认为1的是否成功更新为0
 				if($o_o){
 					$default["is_default"] = 1;
 					$t_o =  $address -> where($data) -> data($default) -> save();
+					// 新添加的信息置为默认1
 					if($t_o){
 						$list = $this -> getAddress();
 						$return["data"] = $list["data"] ;
@@ -69,10 +71,11 @@
 						$return["status2"] = 2 ;
 					}
 				}else {
-					//  新用户
+					//  新用户（没有默认为1的信息），直接将新添加的信息置为1
 					$default["is_default"] = 1;
 					$t_o =  $address -> where($data) -> data($default) -> save();
 					if($t_o){
+						// 返还1.默认信息，2.全部信息
 						$list = $this -> getAddress();
 						$return["data"] = $list["data"] ;
 						$return["info"] = "写入成功" ;
@@ -85,7 +88,6 @@
 						$return["status2"] = 2 ;
 					}
 				}
-				
 			} else {
 				$return["info"] = "写入失败" ;
 				$return["status"] = 2 ;
