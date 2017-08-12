@@ -135,7 +135,7 @@
 						<dl>
 							<dt>购买数量：</dt>
 							<dd class="ncs-figure-input">
-								<input type="text" name="" id="quantity" value="1" size="3" maxlength="6" class="text w30">
+								<input ng-model="count" type="text" name="" id="quantity" value="1" size="3" maxlength="6" class="text w30">
 								<a class="increase">+</a>
 								<a class="decrease">-</a>
 								<span>当前库存<em nctype="goods_stock">{{data.stock}}</em></span>
@@ -145,7 +145,7 @@
 					<div class="ncs-btn">
 						<div class="ncs-point"></div>
 						<div class="clear"></div>
-						<a class="buynow" title="立即购买">立即购买</a>
+						<a class="buynow" ng-click="goToCheck()" title="立即购买">立即购买</a>
 	 					<a class="addcart" title="添加购物车" ng-click="addToShop()">
 	 						添加购物车
 	 					</a>
@@ -529,6 +529,7 @@
 				$scope.err = "";
 				$scope.goods = 0 ;
 				$scope.totalMoney = 0 ;
+				$scope.count = 1 ;
 				setTimeout(function(){
 					after();
 				},0);
@@ -569,6 +570,29 @@
 						console.log(data);
 					});
 				};
+				//直接跳转到购物车
+				$scope.goToCheck = function(){
+					var obj = {
+						classify:classify.info.classify,
+						count:$scope.count,
+					};
+					$http({
+						method:"POST",
+						url:"__APP__/Shop/itemToCheck",
+						data:obj,
+						headers:{
+		    				"Content-Type":"application/x-www-form-urlencoded",
+		    			},
+					}).success(function(data){
+						if(data.status ==1){
+							window.location.href = "__APP__/Shop/gotoCheck?id="+data.id ;
+						}else if(data.status ==5){
+							window.location.href = "__APP__/Index/index?act=login&op=index" ;
+						}
+					}).error(function(err){
+						console.log(err);
+					})
+				}
 				
 		    });
 		    var img = $(".gallery_wrap").children("div:first-child");

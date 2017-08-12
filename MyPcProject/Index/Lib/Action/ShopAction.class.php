@@ -60,6 +60,9 @@ class ShopACtion extends Action {
 
 	//传到订单页面
 	public function gotoCheck(){
+		if(I("get.id")){
+			$_POST["arr"][] = (int)I("get.id");
+		}
 		if(empty($_POST["arr"])){
 			header("location:../Shop/ShoppingCart");
 		}
@@ -84,4 +87,20 @@ class ShopACtion extends Action {
 		//返回购物车信息
 		$this -> display("shoppingCheck");
 	}
+	
+	//从商品详情跳转到订单页
+	public function itemToCheck(){
+		if(empty(session('uid'))){
+			$return["status"]= 5 ;
+			$return["info"] = "用户未登录" ;
+		}else{
+			$str = file_get_contents("php://input");
+			$data = json_decode($str,true);
+			$Shop = D("Shop");
+			$res = $Shop -> addToShop($data["classify"],$data["count"]);
+			$return = $res;
+		}
+		$this -> ajaxReturn($return);
+	}
+	
 }

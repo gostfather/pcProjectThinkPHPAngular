@@ -61,7 +61,12 @@ class ShopModel extends Model {
 		return $img;
 	}
 	//添加到购物车
-	public function addToShop($classify){
+	public function addToShop($classify,$count){
+		if($count){
+			$number = $count;
+		}else{
+			$number = 1;
+		}
 		$data["addtime"] = time();
 		$data["uid"] = session("uid");
 		if(empty(session("uid"))){
@@ -82,9 +87,10 @@ class ShopModel extends Model {
 				$find = $shop -> where($where) -> find();
 				if($find){
 					$idDelete["is_delete"] = 1;
-					$idDelete["count"] = 1;
+					$idDelete["count"] = $number;
 					$hasDelete = $shop -> where($where) -> data($idDelete) -> save();
 					if($hasDelete){
+						$return["id"] = $find["id"];
 						$return["info"] = "添加成功";
 						$return["status"] = 1;
 					}else{
@@ -95,9 +101,14 @@ class ShopModel extends Model {
 					//2.2  不是假删  商品数量加1
 					$where["is_delete"] = 1;
 					$rockery = $shop -> where($where) -> find();
-					$rockery["count"] = $rockery["count"]+1;
+					if($count){
+						$rockery["count"] = $number;
+					}else{
+						$rockery["count"] = $rockery["count"]+1;
+					}
 					$addShop = $shop -> where($where) -> data($rockery) -> save();
 					if($addShop){
+						$return["id"] = $rockery["id"];
 						$return["info"] = "添加成功";
 						$return["status"] = 1;
 					}else{
@@ -106,8 +117,10 @@ class ShopModel extends Model {
 					}
 				}
 			}else{
+				$data["count"] = $number ;
 				$res = $shop -> data($data) -> add();
 				if($res){
+					$return["id"] = $res["id"];
 					$return["info"] = "添加成功";
 					$return["status"] = 1;
 				}else{
