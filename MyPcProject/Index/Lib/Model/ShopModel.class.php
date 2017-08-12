@@ -117,7 +117,11 @@ class ShopModel extends Model {
 		$data["is_order"] = "" ;
 		$shop = M("shop");
 		$find = $shop -> where($data) -> find();
-		$find["count"] = $find["count"]-1;
+		if($find["count"] <= 1 ){
+			$find["count"] = 1;
+		}else{
+			$find["count"] = $find["count"]-1;
+		}
 		$res = $shop -> where($data) -> data($find) -> save();
 		if($res){
 			$return["count"] = $find["count"];
@@ -178,3 +182,4 @@ class ShopModel extends Model {
 	}
 	
 }
+?>
