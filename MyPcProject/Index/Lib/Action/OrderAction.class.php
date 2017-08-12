@@ -6,6 +6,9 @@ class OrderACtion extends Action {
 		if(empty($uid)){
 			header("location:../Index/index?act=login&op=index");
 		}
+		$Order = D("Order");
+		$getOrder = $Order -> getItem();
+		$this -> assign("orderList",json_encode($getOrder));
 		$this -> display("order");
 	}
  	//订单信息
