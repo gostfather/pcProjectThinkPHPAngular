@@ -6,6 +6,9 @@ class OrderACtion extends Action {
 		if(empty($uid)){
 			header("location:../Index/index?act=login&op=index");
 		}
+		$Order = D("Order");
+		$getOrder = $Order -> getItem();
+		$this -> assign("orderList",json_encode($getOrder));
 		$this -> display("order");
 	}
  	//订单信息
@@ -14,6 +17,10 @@ class OrderACtion extends Action {
 		$str = file_get_contents("php://input");
 		$data = json_decode($str,true);
 		$Order = D("Order");
+		/*$data["addressid"] = 7 ;
+		$data["deliverytime"] = "2017-08-07";
+		$data["message"] = "asdfasdfasdfasdfasdf7";
+		$data["shopids"] = [26,28];*/
 		$res = $Order -> uptoOrder($data);
 		$this->ajaxReturn($res);
 	}

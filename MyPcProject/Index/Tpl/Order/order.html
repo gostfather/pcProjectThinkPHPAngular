@@ -21,8 +21,8 @@
 		<include file="Component:header" />
 		<div class="nch-breadcrumb-layout">
 			<div class="nch-breadcrumb wrapper"><i class="icon-home"></i>
-				<span><a href="http://www.531314.com">首页</a></span><span class="arrow">></span>
-				<span><a href="http://www.531314.com/index.php?act=member&op=home">我的商城</a></span><span class="arrow">></span>
+				<span><a href="__APP__/Index/index">首页</a></span><span class="arrow">></span>
+				<span><a href="">我的商城</a></span><span class="arrow">></span>
 				<span>实物交易订单</span>
 			</div>
 		</div>
@@ -39,7 +39,7 @@
 						<a href="index.php?act=login&op=logout" title="安全退出"><i class="icon-off"></i>安全退出</a>
 					</div>
 					<div class="name">857902620&nbsp;
-						<div class="nc-grade-mini" style="cursor:pointer;" onclick="javascript:go('http://www.531314.com/grade.html');">V0</div>
+						<div class="nc-grade-mini" style="cursor:pointer;">V0</div>
 					</div>
 				</div>
 				<ul class="ncm-sidebar ncm-quick-menu">
@@ -54,6 +54,10 @@
 				<ul id="sidebarMenu" class="ncm-sidebar">
 					<li class="side-menu">
 						<h3>交易管理</h3>
+						<ul>
+							<li class="selected"><a href="__APP__/Order/order">实物交易订单</a></li>
+							<li><a href="__APP__/Order/comment">交易评价</a></li>
+						</ul>
 					</li>
 				</ul>
 			</div>
@@ -111,7 +115,7 @@
 								</td>
 							</tr>
 						</tbody>
-						<tbody ng-repeat="(k,v) in orders" class="pay">
+						<tbody ng-repeat="(k,v) in orders" class="pay" ng-if="v.is_cancel == 0">
 							<tr>
 								<td colspan="19" class="sep-row"></td>
 							</tr>
@@ -133,7 +137,7 @@
 								<td class="bdl"></td>
 								<td class="w70">
 									<div class="ncm-goods-thumb">
-										<a><img ng-src="{{v.shops[0].imgurl}}" /></a>
+										<a><img ng-src="__ROOT__/{{v.shops[0].imgurl}}" /></a>
 									</div>
 								</td>
 								<td class="tl">
@@ -170,7 +174,7 @@
 								<td class="bdl"></td>
 								<td class="w70">
 									<div class="ncm-goods-thumb">
-										<a><img ng-src="{{vv.imgurl}}" /></a>
+										<a><img ng-src="__ROOT__/{{vv.imgurl}}" /></a>
 									</div>
 								</td>
 								<td class="tl">
@@ -184,7 +188,7 @@
 								</td>
 							</tr>
 						</tbody>
-						<tbody ng-repeat="(k,v) in orders">
+						<tbody ng-repeat="(k,v) in orders" ng-if="orders.is_cancel == 1">
 							<tr>
 								<td colspan="19" class="sep-row"></td>
 							</tr>
@@ -192,7 +196,7 @@
 								<th colspan="19">
 									<span class="ml10">订单号：{{v.ordernumber}} </span>
 									<span>下单时间：{{v.addtime}}</span>
-									<span><a href="__ROOT__/Index/index" title="春舞枝旗舰店">春舞枝旗舰店</a></span>
+									<span><a href="__APP__/Index/index" title="春舞枝旗舰店">春舞枝旗舰店</a></span>
 									<span member_id="1"></span>
 									<a class="share-goods"><i class="icon-share"></i>分享</a>
 									<a class="order-trash"><i class="icon-trash"></i>删除</a>
@@ -202,7 +206,7 @@
 								<td class="bdl"></td>
 								<td class="w70">
 									<div class="ncm-goods-thumb">
-										<a><img ng-src="{{v.shops[0].imgurl}}" /></a>
+										<a><img ng-src="__ROOT__/{{v.shops[0].imgurl}}" /></a>
 									</div>
 								</td>
 								<td class="tl">
@@ -235,7 +239,7 @@
 								<td class="bdl"></td>
 								<td class="w70">
 									<div class="ncm-goods-thumb">
-										<a><img ng-src="{{vv.imgurl}}" /></a>
+										<a><img ng-src="__ROOT__/{{vv.imgurl}}" /></a>
 									</div>
 								</td>
 								<td class="tl">
@@ -256,8 +260,13 @@
 		</div>
 		<include file="Component:footer" />
 		<script type="text/javascript">
-			var data = [{
+			var orderList = {$orderList};
+			console.log(orderList);
+			/*var data = [{
 					ordernumber: 123123,
+					addtime: "2017-08-07 11:25:30",
+					is_pay: 1,
+					is_receive: 1,
 					shops: [{
 							imgurl: "http://img.531314.com/shop/store/goods/1/1_05424639725775441_60.jpg",
 							title: "【春舞枝】基地直销 33枝粉玫瑰",
@@ -271,33 +280,28 @@
 							count: 1,
 						},
 					],
-					addtime: "2017-08-07 11:25:30",
-					totalmoney: "776.00",
-					is_pay: 1,
-					is_receive: 1,
 				},
 				{
 					ordernumber: 41234123,
+					addtime: "2017-08-07 09:58:44",
+					is_pay: 0,
+					is_receive: 0,
 					shops: [{
 						imgurl: "http://img.531314.com/shop/store/goods/1/1_05424686092644715_60.jpg",
 						title: "【春舞枝】基地直销 33白+紫玫瑰16枝+8枝子洋桔梗",
 						StorePrice: "388.00",
 						count: 2,
 					}],
-					addtime: "2017-08-07 09:58:44",
-					totalmoney: "776.00",
-					is_pay: 0,
-					is_receive: 0,
 				}
 			];
-			console.log(data);
+			console.log(data);*/
 			var app = angular.module("app", []);
 			app.controller("myCon", function($scope, $http) {
 				$scope.isFind = true;
-				if(data) {
+				if(orderList.status === 1) {
 					$scope.isFind = false;
 				}
-				$scope.orders = data;
+				$scope.orders = orderList.data;
 				setTimeout(function() {
 					$(".ncm-goods-thumb").on("mouseenter", mouseIn);
 				}, 0);

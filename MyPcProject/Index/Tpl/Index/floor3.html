@@ -31,40 +31,59 @@
 					</ul>
 				</div>
 			</div>
-			<div class="middle-layout">
-				<div class="tabs-panel middle-goods-list ">
-					<ul>
-						<li>
-							<dl>
-								<dt class="goods-name">
-									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100819-stc_id-.html" title="【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花">
-										【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花
-									</a>
-								</dt>
-								<dd class="goods-thumb">
-									<a target="_blank" href="http://www.531314.com/goods-index-goods_id-100819-stc_id-.html">
-										<img src="http://img.531314.com/shop/store/goods/1/1_05073992610931992_240.jpg" alt="【春舞枝】鲜花速递5枝多头白百合A花店送花全国配送母亲节教师节祝福鲜花" />
-									</a>
-								</dd>
-								<dd class="goods-price">
-									<em>￥178.00</em>
-									<span class="original">￥258.00</span>
-								</dd>
-							</dl>
-						</li>
-
-					</ul>
-				</div>
-			</div>
-			<div class="right-sidebar">
-
-				<div class="right-side-focus">
-					<ul>
-						<li>
-							<a href="http://www.531314.com/shop/index.php?act=search&amp;op=index&amp;keyword=&amp;cate_id=1074&amp;stc_id=28" title="" target="_blank">
-								<img src="__ROOT__/Index/Common/images/index/floor3Right.jpg" alt="" /></a>
-						</li>
-					</ul>
-				</div>
-			</div>
+	<div class="middle-layout" ng-controller="myCon3">
+		<div class="tabs-panel middle-goods-list ">
+			<ul>			
+				<li ng-cloak class="item" ng-repeat="(k,v) in data" >
+					<dl>
+						<dt class="goods-name">
+							<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="9枝白玫瑰紫玫瑰16枝 、8枝子洋桔梗、尤加利若干">{{v.title}}<em>{{v.info}}</em></a>
+						</dt>
+						<dd class="goods-thumb">
+							<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="{{v.title}}">
+								<img ng-cloak ng-src="__ROOT__/{{v.imgurl[0]}}" title="{{v.title}}" alt="{{v.title}}" />
+							</a>
+						</dd>
+						<dd class="goods-price">
+							 <em class="sale-price" >&yen;{{v.StorePrice}}</em> 
+							 <span class="original">&yen;{{v.marketPrice}}</span>
+						</dd>
+					</dl>
+				</li>			
+			</ul>
 		</div>
+	</div>
+	<div class="right-sidebar">
+
+		<div class="right-side-focus">
+			<ul>
+				<li>
+					<a href="http://www.531314.com/shop/index.php?act=search&amp;op=index&amp;keyword=&amp;cate_id=1074&amp;stc_id=28" title="" target="_blank">
+						<img src="__ROOT__/Index/Common/images/index/floor3Right.jpg" alt="" /></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">	
+	function asdf(){
+	 	$(".item").hover(itemmouseOver, itemmouseOut);
+	 	function itemmouseOver(){
+	 		$(this).siblings(".item").css({"opacity":0.25})
+	 		return false;
+	 	};
+	 	function itemmouseOut(){
+	 		$(this).siblings(".item").css({"opacity":1})
+	 		return false;
+	 	}
+	}
+	var floor3 = {$floor3};
+	app.controller("myCon3",function ($scope,$http) {
+		$scope.data = floor3.data;
+		setTimeout(function(){
+			asdf();
+		})
+    });
+	
+	
+</script>

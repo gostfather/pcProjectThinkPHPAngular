@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>春舞枝</title>
+
+		<link rel="shortcut icon" href="http://531314.com/favicon.ico" />
+		<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/home_header.css" rel="stylesheet" type="text/css">
+		<link href="__ROOT__/Index/Common/css/home_login.css" rel="stylesheet" type="text/css">
+		<link href="http://www.531314.com/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<link href="http://www.531314.com/templates/new/css/member.css" rel="stylesheet" type="text/css">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
+
+	</head>
+
+	<body>
+		<include file="Component:site-nav" />
+		<include file="Component:header" />
+		<div class="nch-breadcrumb-layout">
+			<div class="nch-breadcrumb wrapper"><i class="icon-home"></i>
+				<span><a href="http://www.531314.com">首页</a></span><span class="arrow">></span>
+				<span><a href="http://www.531314.com/index.php?act=member&op=home">我的商城</a></span><span class="arrow">></span>
+				<span>实物交易订单</span>
+			</div>
+		</div>
+
+		<div class="ncm-container">
+			<div class="left-layout">
+				<div class="ncm-user-info">
+					<div class="avatar"><img src="http://img.531314.com/shop/common/default_user_portrait.gif">
+						<div class="frame"></div>
+					</div>
+					<div class="handle">
+						<a href="index.php?act=member_information&op=avatar" title="修改头像"><i class="icon-camera"></i>修改头像</a>
+						<a href="index.php?act=member_information&op=member" title="修改资料"><i class="icon-pencil"></i>修改资料</a>
+						<a href="index.php?act=login&op=logout" title="安全退出"><i class="icon-off"></i>安全退出</a>
+					</div>
+					<div class="name">857902620&nbsp;
+						<div class="nc-grade-mini" style="cursor:pointer;" onclick="javascript:go('http://www.531314.com/grade.html');">V0</div>
+					</div>
+				</div>
+				<ul class="ncm-sidebar ncm-quick-menu">
+					<li class="side-menu-quick" nctype="commonOperations" style="display: none;">
+						<a href="javascript:void(0)">
+							<h3>常用操作</h3>
+						</a>
+						<ul>
+						</ul>
+					</li>
+				</ul>
+				<ul id="sidebarMenu" class="ncm-sidebar">
+					<li class="side-menu">
+						<h3>交易管理</h3>
+						<ul>
+							<li ><a href="__APP__/Order/order">实物交易订单</a></li>
+							<li class="selected"><a href="__APP__/Order/comment">交易评价</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="right-layout">
+				<div class="wrap">
+					<div class="tabmenu">
+						<ul class="tab pngFix">
+							<li class="active">
+								<a>交易评价</a>
+							</li>
+						</ul>
+					</div>
+					<table ng-app="app" ng-controller="myCon" class="ncm-default-table order">
+ 						<tbody ng-show="isFind">
+							<tr>
+								<td colspan="20" class="norecord">
+									<div class="warning-option"><i>&nbsp;</i><span>暂无符合条件的数据记录</span></div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<include file="Component:footer" />
+		<script type="text/javascript">
+			var data = [{
+					ordernumber: 123123,
+					shops: [{
+							imgurl: "http://img.531314.com/shop/store/goods/1/1_05424639725775441_60.jpg",
+							title: "【春舞枝】基地直销 33枝粉玫瑰",
+							StorePrice: "388.00",
+							count: 1,
+						},
+						{
+							imgurl: "http://img.531314.com/shop/store/goods/1/1_05424686092644715_60.jpg",
+							title: "【春舞枝】基地直销 33枝红玫瑰情人草",
+							StorePrice: "388.00",
+							count: 1,
+						},
+					],
+					addtime: "2017-08-07 11:25:30",
+					totalmoney: "776.00",
+					is_pay: 1,
+					is_receive: 1,
+				},
+				{
+					ordernumber: 41234123,
+					shops: [{
+						imgurl: "http://img.531314.com/shop/store/goods/1/1_05424686092644715_60.jpg",
+						title: "【春舞枝】基地直销 33白+紫玫瑰16枝+8枝子洋桔梗",
+						StorePrice: "388.00",
+						count: 2,
+					}],
+					addtime: "2017-08-07 09:58:44",
+					totalmoney: "776.00",
+					is_pay: 0,
+					is_receive: 0,
+				}
+			];
+			console.log(data);
+			var app = angular.module("app", []);
+			app.controller("myCon", function($scope, $http) {
+				$scope.isFind = true;
+				/*if(data) {
+					$scope.isFind = false;
+				}*/
+				$scope.orders = data;
+				setTimeout(function() {
+					$(".ncm-goods-thumb").on("mouseenter", mouseIn);
+				}, 0);
+				$scope.delOrder = function(ordernumber) {
+					console.log(ordernumber);
+				}
+			});
+
+			function mouseIn(ev) {
+				var event = window.event || ev;
+				var img = $("<img />");
+				var src = $(this).find("img").attr("src");
+				img.css({
+					"position": "absolute",
+					"width": "100",
+				})
+				img.attr("src", src);
+				$(this).append(img);
+				$(this).mousemove(function(ev) {
+					var event = window.event || ev;
+					img.css({
+						"marginLeft": event.offsetX + 30,
+						"marginTop": event.offsetY - 90,
+					});
+					$(this).mouseleave(function() {
+						img.remove();
+					})
+				})
+				return false;
+			}
+		</script>
+	</body>
+
+</html>
