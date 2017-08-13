@@ -145,8 +145,8 @@
 										<dt><a>{{v.shops[0].title}}</a></dt>
 									</dl>
 								</td>
-								<td>388.00</td>
-								<td>1</td>
+								<td>{{v.shops[0].StorePrice}}</td>
+								<td>{{v.shops[0].count}}</td>
 								<td>
 								</td>
 								<td class="bdl" rowspan="{{v.shops.length}}">
@@ -214,8 +214,8 @@
 										<dt><a>{{v.shops[0].title}}</a></dt>
 									</dl>
 								</td>
-								<td>388.00</td>
-								<td>1</td>
+								<td>{{v.shops[0].StorePrice}}</td>
+								<td>{{v.shops[0].count}}</td>
 								<td>
 								</td>
 								<td class="bdl" rowspan="{{v.shops.length}}">
@@ -260,7 +260,7 @@
 		</div>
 		<include file="Component:footer" />
 		<script type="text/javascript">
-			var orderList = {$orderList};		
+			var orderList = {$orderList};
 			var app = angular.module("app", []);
 			app.controller("myCon", function($scope, $http) {
 				$scope.isFind = true;
