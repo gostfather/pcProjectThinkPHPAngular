@@ -195,67 +195,88 @@
 	</div>
 </body>
 <script>
+	// 接收后台商品信息
 	var list = {$list} ;
-	console.log(list);
 	$(".ncc-flow li").eq(0).addClass("current");
 	angular.module("shopApp",[]).controller("shopController",function ($scope,$http) {
+		// 显示购物车操作界面控件
 		$scope.IsShowCart = true;
 		if(list.status == 1){
 			$scope.item = list.data;
 		}else{
 			$scope.item = [];
 			$scope.IsShowCart = false;
-
 		}
-		// var 
+		// [-]按钮
 		$scope.sub = function (item,index) {
+			// 当商品数量减小到1的时候，操作无效
 			if (item.count <= 1) {
-				item.count = 1;
-			} else{
+				$scope.item[index].count = 1;
+			} else {
+				// 商品数量减少
+				$scope.item[index].count--;
+				if ($scope.chkItem[index]) {
+					$scope.total -= Number($scope.item[index].StorePrice);
+				}
+				// 后台处理只需要返回状态码，操作过程不需要后台数据		
 				$http.get("__APP__/Shop/reduceItem?classify=" + item.id)
 				.success(function(data){
+					// 如果操作成功，返回状态码
 					if(data.status == 1){
-						item.count = data.count;
-						if ($scope.chkItem[index]) {
-			   				$scope.total -= Number(item.StorePrice);
-			   			}
+						console.log("操作成功");
 					}else{
-						alert("操作失败");
+						alert("很抱歉，您的操作没有成功");
 					}
 	    		}).error(function(data){
 	    			console.log("错误："+data);
 	    		})
-    		}			
+			}
 		}
+		// [+]按钮
 		$scope.add = function (item,index) {
-			$http.get("__APP__/Shop/addItem?classify=" + item.id)
+			// 当商品数量增加到库存上限的时候（假定库存上限为100），操作无效
+			var MaxCount = 100;
+			if (item.count >= MaxCount) {
+				$scope.item[index].count = MaxCount;
+			} else {
+				// 商品数量增加
+				$scope.item[index].count++;
+				if ($scope.chkItem[index]) {
+					$scope.total += Number($scope.item[index].StorePrice);
+				}
+				// 后台处理只需要返回状态码，操作过程不需要后台数据
+				$http.get("__APP__/Shop/addItem?classify=" + item.id)
 				.success(function(data){
+					// 如果操作成功，返回状态码
 					if(data.status == 1){
-						item.count = Number(data.count);
-						if ($scope.chkItem[index]) {
-			   				$scope.total += Number(item.StorePrice);
-			   			}
+						console.log("操作成功");
 					}else{
-						alert("操作失败");
+						alert("很抱歉，您的操作没有成功");
 					}
-	    		})
-	    		.error(function(data){
+	    		}).error(function(data){
 	    			console.log("错误："+data);
 	    		})
 			}
+		}
 		$scope.del = function (k,item) {
-			console.log(item.id)
-			$http.get("__APP__/Shop/deleteItem?classify=" + item.id)
-				.success(function (data) {
-					if (data.status == 1) {
-						$scope.item.splice(k,1);
-					} else {
-						alert("操作失败");
-					}
-				})
-				.error(function (err) {
-					console.log(err);
-				})
+			var note = confirm("心爱的宝贝就要从您的购物车里消失了，您舍得要这样做么？/(ㄒoㄒ)/~~");
+			if (note == true) {
+				$http.get("__APP__/Shop/deleteItem?classify=" + item.id)
+					 .success(function (data) {
+						if (data.status == 1) {
+							$scope.item.splice(k,1);
+							// 购物车里没有商品
+							if ($scope.item.length == 0) {
+								$scope.IsShowCart = false;
+							}
+						} else {
+							alert("操作失败");
+						}
+					 })
+					 .error(function (err) {
+						console.log(err);
+					})
+			}
 		}
 		$scope.total = 0;
 		//用来标志每一项的状态  

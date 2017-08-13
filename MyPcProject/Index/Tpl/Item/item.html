@@ -525,6 +525,7 @@
 
 				//添加到购物车
 				$scope.addToShop = function(){
+					// 将商品的classify传给后台
 					$http({
 						method: 'GET',
         				url: '__APP__/Shop/addToShop/?classify='+classify.info.classify,

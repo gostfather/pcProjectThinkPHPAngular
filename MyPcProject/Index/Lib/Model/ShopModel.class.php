@@ -61,7 +61,7 @@ class ShopModel extends Model {
 		return $img;
 	}
 	//添加到购物车
-	public function addToShop($classify,$count){
+	public function addToShop($classify,$count) {
 		if($count){
 			$number = $count;
 		}else{
@@ -71,13 +71,14 @@ class ShopModel extends Model {
 		$data["uid"] = session("uid");
 		if(empty(session("uid"))){
 			$return["info"] = "请登录";
-			$return["status"] = 3;
+			$return ["status"] = 3;
 			session("classify",$classify);
 		}else{
 			$data["classify"] = $classify;
 			$data["count"] = 1 ;
 			$shop = M("shop");
 			$find = $shop -> where("classify='".$classify."' AND is_order=''") -> find();
+			// 判断是否是假删
 			if($find){
 				//2.1  是否假删    假删
 				$where["uid"] = session("uid");
