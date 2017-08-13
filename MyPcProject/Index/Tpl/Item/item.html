@@ -485,33 +485,20 @@
 						<div class="content">
 							<!-- 循环五个推荐商品 -->
 							<ul>
-								<li>
+								<li ng-repeat="(k,v) in recommend">
 									<dl>
 										<dt class="goods-name">
-											<a href="http://www.531314.com/item-100872.html" target="_blank" title="11枝紫色洋兰 提前1-3天预订">【春舞枝】鲜花速递-紫色洋兰礼盒 紫色洋兰礼盒<em>11枝紫色洋兰 提前1-3天预订</em>
+											<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="{{v.title}}"><em>{{v.title}}</em>
 											</a>
 										</dt>
 										<dd class="goods-pic">
-											<a href="" target="_blank" title="11枝紫色洋兰 提前1-3天预订">
-												<img src="__ROOT__/Index/Common/images/1.jpg" alt="【春舞枝】鲜花速递-紫色洋兰礼盒 紫色洋兰礼盒">
+											<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="{{v.title}}">
+												<img src="__ROOT__/{{v.imgurl}}" alt="{{v.title}}">
 											</a>
 										</dd>
-										<dd class="goods-price">¥138.00</dd>
+										<dd class="goods-price">¥{{v.StorePrice}}</dd>
 									</dl>
 								</li>
-								<li>
-									<dl>
-										<dt class="goods-name">
-											<a href="http://www.531314.com/item-100872.html" target="_blank" title="">【春舞枝】鲜花速递 9朵睡莲 高山积雪 花束全国同城配送 此款鲜花需提前1-3天预订哦<em>fcsfsfew</em></a></dt>
-										<dd class="goods-pic">
-											<a href="http://www.531314.com/item-100872.html" target="_blank" title="">
-												<img src="http://img.531314.com/shop/store/goods/1/1_05075577590788277_240.jpg" alt="【春舞枝】鲜花速递 9朵睡莲 高山积雪 花束全国同城配送  此款鲜花需提前1-3天预订哦"/>
-											</a>
-										</dd>
-										<dd class="goods-price">&yen;248.00</dd>
-									</dl>
-								</li>
-
 							</ul>
 							<div class="clear"></div>
 						</div>
@@ -523,8 +510,10 @@
 		<include file="Component:footer" />
 		<script type="text/javascript">
 			var classify = {$classify};
+			var recommend = {$recommend};
 			var app = angular.module("app",[]);
 			app.controller("myCon",function ($scope,$http) {
+				$scope.recommend = recommend.data;
 				$scope.data = classify.info;
 				$scope.err = "";
 				$scope.goods = 0 ;
