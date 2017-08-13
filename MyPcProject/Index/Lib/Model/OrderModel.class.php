@@ -124,7 +124,7 @@ class OrderModel extends Model {
 		$arr["is_delete"] = 1 ;
 		$arr["is_pay"] = 1 ;
 		$arr["is_receive"] = 1 ;
-		$arr["is_cancel"] = 1 ;
+		$arr["is_cancel"] = 0 ;
 		$res = $order -> where($arr) -> select();
 		$message = array();
 		if($res){
@@ -170,7 +170,7 @@ class OrderModel extends Model {
 				}
 			}
 		}else{
-			$return["info"] = "查询失败，没用订单" ;
+			$return["info"] = "查询失败，没有订单" ;
 			$return["status"] = 2;
 		}
 
