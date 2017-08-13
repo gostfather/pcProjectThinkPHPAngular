@@ -230,7 +230,7 @@
 									<a  title="点击按人气从高到低排序">人气<i></i></a>
 								</li>
 								<li>
-									<a  title="点击按价格从高到低排序">价格<i></i></a>
+									<a ng-click="price()"  title="点击按价格从高到低排序">价格<i></i></a>
 								</li>
 							</ul>
 						</div>
@@ -493,7 +493,11 @@
 			    	if( $scope.arr.length > 1){
 			    		CateKeyWord($scope.arr,k);
 			    	}
-			    	getItem(k);
+			    	if($scope.isDesc){
+			    		DescItem(k);
+			    	}else{
+			    		getItem(k);
+			    	}
 			    }
 			    function getItem(page){
 					$http.get("__APP__/Cate/getList?page="+page).success(function(data){
@@ -502,7 +506,27 @@
 							$scope.data = data.info;
 							$scope.pages = data.pages;
 							$scope.currentPage = page;
-							console.log($scope.currentPage);
+							setTimeout(function(){
+								asdf();
+							},0);
+							window.clearTimeout();
+							//让节点循环完之后绑定jq事件
+						}else{
+							$scope.show = true ;
+			    			$scope.pages = 0;
+							$scope.message = data.info ;
+						}
+					}).error(function(data){
+						console.log(data);
+					});
+				}
+			    function DescItem(page){
+					$http.get("__APP__/Cate/priceSort?page="+page).success(function(data){
+						if(data.status === 1 ){
+							$scope.show = false ;
+							$scope.data = data.info;
+							$scope.pages = data.pages;
+							$scope.currentPage = page;
 							setTimeout(function(){
 								asdf();
 							},0);
@@ -574,6 +598,42 @@
 			    	}).error(function(err){
 			    		console.log("错误是"+err);
 			    	});
+			    }
+			    $scope.desc = false ;
+			    $scope.isDesc = false;
+			    $scope.price = function(){
+			    	$scope.desc = !$scope.desc ;
+			    	$http({
+			    		url:"__APP__/Cate/priceSort",
+			    		method:"POST",
+			    		data:{
+			    			desc:$scope.desc,
+			    		},
+			    		headers:{
+	        				"Content-Type":"application/x-www-form-urlencoded",
+	        			},
+			    	})
+			    	.success(function(data){
+			    		if(data.status === 1 ){
+							$scope.show = false ;
+							$scope.data = data.info;
+							$scope.pages = data.pages;
+							$scope.currentPage = 0 ;
+							$scope.isDesc = true;
+							setTimeout(function(){
+								asdf();
+							},0);
+							window.clearTimeout();
+							//让节点循环完之后绑定jq事件
+						}else{
+							$scope.show = true ;
+			    			$scope.pages = 0;
+							$scope.message = data.info ;
+						}
+			    	})
+			    	.error(function(err){
+			    		console.log(err)
+			    	})
 			    }
 		    });
 		</script>
