@@ -295,7 +295,7 @@ a:hover.ncc-btn-black{
 	overflow:hidden;
 }
 .ncc-null-shopping i.ico{
-	background:url(../images/cart.png) no-repeat 0 0;
+	background: url(../images/cart.png) no-repeat 0 0;
 	width:180px;
 	height:180px;
 	position:absolute;

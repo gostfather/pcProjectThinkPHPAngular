@@ -66,18 +66,18 @@
 		</ul>
 	</header>
 	<!-- 没有商品的购物车 -->
-	<div class="ncc-wrapper" style="display: none">
+	<div class="ncc-wrapper" ng-show="!IsShowCart" style="background-color:white">
 		<div class="ncc-null-shopping">
 			<i class="ico"></i>
 			<h4>您的购物车还没有商品</h4>
 			<p>
 				<a href="__APP__/Index/index" class="ncc-btn-mini mr10">马上去购物</a>
-				<a href="" class="ncc-btn-mini">查看自己的订单</a>
+				<a href="__APP__/Order/order" class="ncc-btn-mini">查看自己的订单</a>
 			</p>
 		</div>
 	</div>
 	<!-- 有商品的购物车 -->
-	<div class="ncc-wrapper">
+	<div class="ncc-wrapper" ng-show="IsShowCart">
 		<div class="ncc-main">
 			<div class="ncc-title">
 				<h3>我的购物车</h3>
@@ -165,7 +165,7 @@
 		</div>
 	</div>
 
-	<div id="faq">
+		<div id="faq">
 		<div class="faq-wrapper"></div>
 	</div>
 	<!-- footer -->
@@ -196,16 +196,20 @@
 </body>
 <script>
 	var list = {$list} ;
+	console.log(list);
 	$(".ncc-flow li").eq(0).addClass("current");
 	angular.module("shopApp",[]).controller("shopController",function ($scope,$http) {
+		$scope.IsShowCart = true;
 		if(list.status == 1){
 			$scope.item = list.data;
 		}else{
 			$scope.item = [];
-		}
+			$scope.IsShowCart = false;
 
+		}
+		// var 
 		$scope.sub = function (item,index) {
-			if (item.count == 1 || item.count < 1) {
+			if (item.count <= 1) {
 				item.count = 1;
 			} else{
 				$http.get("__APP__/Shop/reduceItem?classify=" + item.id)
@@ -213,7 +217,7 @@
 					if(data.status == 1){
 						item.count = data.count;
 						if ($scope.chkItem[index]) {
-			   				$scope.total -= item.StorePrice;
+			   				$scope.total -= Number(item.StorePrice);
 			   			}
 					}else{
 						alert("操作失败");
@@ -227,9 +231,9 @@
 			$http.get("__APP__/Shop/addItem?classify=" + item.id)
 				.success(function(data){
 					if(data.status == 1){
-						item.count = data.count;
+						item.count = Number(data.count);
 						if ($scope.chkItem[index]) {
-			   				$scope.total += item.StorePrice;
+			   				$scope.total += Number(item.StorePrice);
 			   			}
 					}else{
 						alert("操作失败");
