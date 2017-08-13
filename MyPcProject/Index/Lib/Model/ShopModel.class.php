@@ -61,7 +61,7 @@ class ShopModel extends Model {
 		return $img;
 	}
 	//添加到购物车
-	public function addToShop($classify,$count){
+	public function addToShop($classify,$count) {
 		if($count){
 			$number = $count;
 		}else{
@@ -71,7 +71,7 @@ class ShopModel extends Model {
 		$data["uid"] = session("uid");
 		if(empty(session("uid"))){
 			$return["info"] = "请登录";
-			$return["status"] = 3;
+			$return ["status"] = 3;
 			session("classify",$classify);
 		}else{
 			$findData["classify"] = $classify;
