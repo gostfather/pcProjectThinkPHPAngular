@@ -9,6 +9,7 @@ class SearchModel extends Model {
 		$res = $images -> where($where) -> order("addtime DESC") -> group("classify") -> limit($page*$everyPage,$everyPage) -> select();
 		if($res){
 			for($i = 0 ;$i < count($res) ; $i++){
+				$arr = array();
 				$data = $images -> where("classify='".$res[$i]["classify"]."'") -> select();
 				for($k=0 ; $k < count($data) ; $k++){
 					 $arr[$k] = $data[$k]["imgurl"];
