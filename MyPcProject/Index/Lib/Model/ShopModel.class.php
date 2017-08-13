@@ -61,7 +61,12 @@ class ShopModel extends Model {
 		return $img;
 	}
 	//添加到购物车
-	public function addToShop($classify){
+	public function addToShop($classify,$count){
+		if($count){
+			$number = $count;
+		}else{
+			$number = 1;
+		}
 		$data["addtime"] = time();
 		$data["uid"] = session("uid");
 		if(empty(session("uid"))){
@@ -74,15 +79,52 @@ class ShopModel extends Model {
 			$shop = M("shop");
 			$find = $shop -> where("classify='".$classify."' AND is_order=''") -> find();
 			if($find){
-				$return["info"] = "购物车已经存在此商品";
-				$return["status"] = 4;
+				//2.1  是否假删    假删
+				$where["uid"] = session("uid");
+				$where["classify"] = $classify;
+				$where["is_order"] = "";
+				$where["is_delete"] = 0;
+				$find = $shop -> where($where) -> find();
+				if($find){
+					$idDelete["is_delete"] = 1;
+					$idDelete["count"] = $number;
+					$hasDelete = $shop -> where($where) -> data($idDelete) -> save();
+					if($hasDelete){
+						$return["id"] = $find["id"];
+						$return["info"] = "添加成功";
+						$return["status"] = 1;
+					}else{
+						$return["info"] = "添加失败2.1";
+						$return["status"] = 2;
+					}
+				}else{
+					//2.2  不是假删  商品数量加1
+					$where["is_delete"] = 1;
+					$rockery = $shop -> where($where) -> find();
+					if($count){
+						$rockery["count"] = $number;
+					}else{
+						$rockery["count"] = $rockery["count"]+1;
+					}
+					$addShop = $shop -> where($where) -> data($rockery) -> save();
+					if($addShop){
+						$return["id"] = $rockery["id"];
+						$return["info"] = "添加成功";
+						$return["status"] = 1;
+					}else{
+						$return["info"] = "添加失败2.2";
+						$return["status"] = 2;
+					}
+				}
 			}else{
+				$data["count"] = $number ;
 				$res = $shop -> data($data) -> add();
 				if($res){
+					$return["id"] = $res["id"];
 					$return["info"] = "添加成功";
 					$return["status"] = 1;
 				}else{
-					$return["info"] = "添加失败";
+					$return["info"] = "添加失败1.2";
 					$return["status"] = 2;
 				}
 			}
@@ -117,7 +159,11 @@ class ShopModel extends Model {
 		$data["is_order"] = "" ;
 		$shop = M("shop");
 		$find = $shop -> where($data) -> find();
-		$find["count"] = $find["count"]-1;
+		if($find["count"] <= 1 ){
+			$find["count"] = 1;
+		}else{
+			$find["count"] = $find["count"]-1;
+		}
 		$res = $shop -> where($data) -> data($find) -> save();
 		if($res){
 			$return["count"] = $find["count"];
@@ -178,3 +224,4 @@ class ShopModel extends Model {
 	}
 	
 }
+?>
