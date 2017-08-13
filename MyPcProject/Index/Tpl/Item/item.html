@@ -135,7 +135,7 @@
 						<dl>
 							<dt>购买数量：</dt>
 							<dd class="ncs-figure-input">
-								<input type="text" name="" id="quantity" value="1" size="3" maxlength="6" class="text w30">
+								<input ng-model="count" type="text" name="" id="quantity" value="1" size="3" maxlength="6" class="text w30">
 								<a class="increase">+</a>
 								<a class="decrease">-</a>
 								<span>当前库存<em nctype="goods_stock">{{data.stock}}</em></span>
@@ -145,7 +145,7 @@
 					<div class="ncs-btn">
 						<div class="ncs-point"></div>
 						<div class="clear"></div>
-						<a class="buynow" title="立即购买">立即购买</a>
+						<a class="buynow" ng-click="goToCheck()" title="立即购买">立即购买</a>
 	 					<a class="addcart" title="添加购物车" ng-click="addToShop()">
 	 						添加购物车
 	 					</a>
@@ -485,33 +485,20 @@
 						<div class="content">
 							<!-- 循环五个推荐商品 -->
 							<ul>
-								<li>
+								<li ng-repeat="(k,v) in recommend">
 									<dl>
 										<dt class="goods-name">
-											<a href="http://www.531314.com/item-100872.html" target="_blank" title="11枝紫色洋兰 提前1-3天预订">【春舞枝】鲜花速递-紫色洋兰礼盒 紫色洋兰礼盒<em>11枝紫色洋兰 提前1-3天预订</em>
+											<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="{{v.title}}"><em>{{v.title}}</em>
 											</a>
 										</dt>
 										<dd class="goods-pic">
-											<a href="" target="_blank" title="11枝紫色洋兰 提前1-3天预订">
-												<img src="__ROOT__/Index/Common/images/1.jpg" alt="【春舞枝】鲜花速递-紫色洋兰礼盒 紫色洋兰礼盒">
+											<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="{{v.title}}">
+												<img src="__ROOT__/{{v.imgurl}}" alt="{{v.title}}">
 											</a>
 										</dd>
-										<dd class="goods-price">¥138.00</dd>
+										<dd class="goods-price">¥{{v.StorePrice}}</dd>
 									</dl>
 								</li>
-								<li>
-									<dl>
-										<dt class="goods-name">
-											<a href="http://www.531314.com/item-100872.html" target="_blank" title="">【春舞枝】鲜花速递 9朵睡莲 高山积雪 花束全国同城配送 此款鲜花需提前1-3天预订哦<em>fcsfsfew</em></a></dt>
-										<dd class="goods-pic">
-											<a href="http://www.531314.com/item-100872.html" target="_blank" title="">
-												<img src="http://img.531314.com/shop/store/goods/1/1_05075577590788277_240.jpg" alt="【春舞枝】鲜花速递 9朵睡莲 高山积雪 花束全国同城配送  此款鲜花需提前1-3天预订哦"/>
-											</a>
-										</dd>
-										<dd class="goods-price">&yen;248.00</dd>
-									</dl>
-								</li>
-
 							</ul>
 							<div class="clear"></div>
 						</div>
@@ -523,18 +510,22 @@
 		<include file="Component:footer" />
 		<script type="text/javascript">
 			var classify = {$classify};
+			var recommend = {$recommend};
 			var app = angular.module("app",[]);
 			app.controller("myCon",function ($scope,$http) {
+				$scope.recommend = recommend.data;
 				$scope.data = classify.info;
 				$scope.err = "";
 				$scope.goods = 0 ;
 				$scope.totalMoney = 0 ;
+				$scope.count = 1 ;
 				setTimeout(function(){
 					after();
 				},0);
 
 				//添加到购物车
 				$scope.addToShop = function(){
+					// 将商品的classify传给后台
 					$http({
 						method: 'GET',
         				url: '__APP__/Shop/addToShop/?classify='+classify.info.classify,
@@ -569,6 +560,29 @@
 						console.log(data);
 					});
 				};
+				//直接跳转到购物车
+				$scope.goToCheck = function(){
+					var obj = {
+						classify:classify.info.classify,
+						count:$scope.count,
+					};
+					$http({
+						method:"POST",
+						url:"__APP__/Shop/itemToCheck",
+						data:obj,
+						headers:{
+		    				"Content-Type":"application/x-www-form-urlencoded",
+		    			},
+					}).success(function(data){
+						if(data.status ==1){
+							window.location.href = "__APP__/Shop/gotoCheck?id="+data.id ;
+						}else if(data.status ==5){
+							window.location.href = "__APP__/Index/index?act=login&op=index" ;
+						}
+					}).error(function(err){
+						console.log(err);
+					})
+				}
 				
 		    });
 		    var img = $(".gallery_wrap").children("div:first-child");
