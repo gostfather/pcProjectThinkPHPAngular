@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>春舞枝</title>
+	<meta name="keywords" content="春舞枝"/>
+	<meta name="description" content="春舞枝"/>
+	<style>
+		.nc-appbar-tabs a.compare{display:none!important;}
+		.ncc-table-style tbody tr.item_disabled td{
+			background:none repeat scroll 0 0 #F9F9F9;height:30px;padding:10px 0;text-align:center;
+		}
+	</style>
+	<link href="__ROOT__/Index/Common/css/base.css" rel="stylesheet" type="text/css">
+	<link href="__ROOT__/Index/Common/css/home_cart.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="__ROOT__/Index/Common/js/angular.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/Index/Common/js/jq.min.js"></script>
+</head>
+<body>
+	<!-- 1 -->
+	<include file="Component:site-nav"/>
+	<!-- 1.1 -->
+	<header class="ncc-head-layout">
+		<div class="site-logo">
+			<a href="__APP__/Index/index">
+				<img src="__ROOT__/Index/Common/images/logo.png" alt="">
+			</a>
+		</div>
+		<ul class="ncc-flow">
+			<li>
+				<i class="step1"></i>
+				<p>我的购物车</p>
+				<sub></sub>
+				<div class="hr"></div>
+			</li>
+			<li>
+				<i class="step2"></i>
+				<p>填写核对购物信息</p>
+				<sub></sub>
+				<div class="hr"></div>
+			</li>
+			<li>
+				<i class="step3"></i>
+				<p>支付提交</p>
+				<sub></sub>
+				<div class="hr"></div>
+			</li>
+			<li>
+				<i class="step4"></i>
+				<p>订单完成</p>
+				<sub></sub>
+				<div class="hr"></div>
+			</li>
+		</ul>
+	</header>
+	<!--  -->
+	<div class="ncc-wrapper">
+		<div class="ncc-main">
+			<div class="ncc-title">
+				<h3>支付提交</h3>
+				<h5>订单详情内容可通过查看<a href="__APP__/Order/order">我的订单</a>进行核对处理。</h5>
+			</div>
+			<br/>
+			<form action="">
+				<div class="ncc-receipt-info">
+					<div class="ncc-receipt-info-title">
+						<h3>请您及时付款，以便订单尽快处理！ 在线支付金额：<strong>￥774.00</strong></h3>
+					</div>
+					<table class="ncc-table-style">
+						<thead>
+							<tr>
+								<th class="w50"></th>
+								<th class="w200 tl">订单号</th>
+								<th class="w150 tl">支付方式</th>
+								<th class="tl">金额</th>
+								<th class="w150">物流</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td class="tl">5281502645925968</td>
+								<td class="tl">在线支付</td>
+								<td class="tl">￥774.00</td>
+								<td>快递</td>
+							</tr>	
+						</tbody>
+					</table>
+				</div>
+				<div class="ncc-receipt-info">
+					<div class="ncc-receipt-info-title">
+						<h3>支付选择</h3>
+					</div>
+					<ul class="ncc-payment-list">
+						<li payment_code="alipay" onclick="alipay(this)">
+							<label for="pay_alipay">
+								<i></i>
+								<div class="logo" for="pay_2"> 
+									<img src="__ROOT__/Index/Common/images/alipay_logo.gif"/> 
+								</div>
+							</label>
+						</li>
+					</ul>
+				</div>
+				<div class="ncc-bottom tc mb50">
+					<!-- 点击直接跳转到支付宝界面 -->
+					<a class="ncc-btn ncc-btn-green">确认提交支付</a>
+				</div>
+			</form>
+		</div>
+		
+	</div>
+
+	<!-- footer -->
+	<div id="faq">
+		<div class="faq-wrapper"></div>
+	</div>
+	<div id="footer" class="wrapper">
+		<p>
+			<a href="__APP__/Index/index">
+				首页
+			</a> | 
+			<a href="/shop/index.php?act=article&amp;article_id=24">
+				招聘英才
+			</a> | 
+			<a href="/shop/index.php?act=article&amp;article_id=25">
+				合作及洽谈
+			</a> | 
+			<a href="/shop/index.php?act=article&amp;article_id=23">
+				联系我们
+			</a> | 
+			<a href="/shop/index.php?act=article&amp;article_id=22">
+				关于我们
+			</a> | 
+			<a href="/shop/index.php?act=link">
+				友情链接
+			</a>
+		</p>
+		Copyright 2015 闽ICP备12008006号-1
+		<br>
+	</div>
+</body>
+<script>
+	// 当前页
+	$(".ncc-flow li").eq(2).addClass("current");
+	function alipay(t) {
+		$(t).addClass("using");
+	}
+</script>
+</html>

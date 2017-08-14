@@ -644,12 +644,12 @@ $(".ncc-flow li").eq(1).addClass("current");
 				// 拼接 配送时间
 				var deliverytime = $(".J_Item").val() + " " + $scope.selectedTime;
 			} else {
-				console.log("没有选择配送日期哦");
+				alert("亲，您还没有选择配送日期哦");
 			}
 			if ($scope.defaultAddress) {
 				Isdefault = true;
 			} else {
-				console.log("没有收货人信息哦");
+				console.log("亲，您还没完善收货人信息哦");
 			}
 			if (IsDate && Isdefault) {
 				// 信息全部正确，准备入库
@@ -677,17 +677,15 @@ $(".ncc-flow li").eq(1).addClass("current");
 				}).success(function (data) {
 					if (data.status == 1) {
 						// 成功
-						console.log("订单提交成功");
+						alert("订单提交成功，点击跳转下一步");
+						window.location.href="__APP__/Shop/toSubmit"; 
 						// 弹出提交成功信息，跳转页面
 					}else if (data.status == 2) {
 		       			// 更新失败
 		       			// $scope.IsWillComplete = false;
 		       		}	
 				}).error(function (err) {})
-			}else {
-				console.log("亲，有信息没有完善哦");
 			}
-
 		}
 	});
 
