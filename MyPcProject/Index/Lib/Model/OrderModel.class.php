@@ -5,7 +5,7 @@ class OrderModel extends Model {
 		$order = M("order");
 		$obj["addressid"] = $data["addressid"] ;
 		$obj["deliverytime"] = $data["deliverytime"] ;
-		$obj["message"] = $data["message"] ;
+		$obj["message"] = htmlspecialchars($data["message"]) ;
 		//添加uid addtime 订单号
 		$obj["uid"] = session("uid");
 		$obj["addtime"] = time();
@@ -177,5 +177,22 @@ class OrderModel extends Model {
 		return $return;
 	
 	}
+	public function subComment($data){
+		$comment["uid"] = session("uid");
+		$comment["classify"] = $data["classify"];
+		$comment["comment"] = htmlspecialchars($data["comment"]);
+		$comment["grade"] = $data["star"];
+		$com = M("comment");
+		$res = $com -> data($comment) -> add();
+		if($res){
+			$return["info"] = "评论成功";
+			$return["status"] = 1 ;
+		}else{
+			$return["info"] = "评论失败";
+			$return["status"] = 2 ;
+		}
+		return $return; 
+	}
+
 }
 ?>
