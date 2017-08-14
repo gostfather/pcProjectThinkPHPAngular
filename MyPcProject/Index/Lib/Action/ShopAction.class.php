@@ -104,6 +104,9 @@ class ShopACtion extends Action {
 	}
 	// 确认信息成功，跳转到支付页面
 	public function toSubmit() {
+		//查询订单信息
+		$order = D("Order");
+		$res = $order -> getOneItem();
 		$this -> display("shoppingSubmit");
 	}
 
