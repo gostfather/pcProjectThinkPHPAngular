@@ -102,6 +102,10 @@ class ShopACtion extends Action {
 		}
 		$this -> ajaxReturn($return);
 	}
+	// 确认信息成功，跳转到支付页面
+	public function toSubmit() {
+		$this -> display("shoppingSubmit");
+	}
 
 	public function _empty(){
 		header('HTTP/1.1 404 Not Found');//如果访问不存在可以直接返回404，例如http://www.laotouwang.com/sdasdf
