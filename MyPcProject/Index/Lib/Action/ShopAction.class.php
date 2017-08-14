@@ -60,11 +60,15 @@ class ShopACtion extends Action {
 
 	//传到订单页面
 	public function gotoCheck(){
+		$ArrPOST = array();
 		if(I("get.id")){
-			$_POST["arr"][] = (int)I("get.id");
-		}
-		if(empty($_POST["arr"])){
-			header("location:../Shop/ShoppingCart");
+			$ArrPOST[] = (int)I("id");
+		}else{
+			if(empty($_POST["arr"])){
+				header("location:../Shop/ShoppingCart");
+			}else{
+				$ArrPOST = $_POST["arr"];
+			}
 		}
 		if(empty(session('uid'))){
 			header("location:../Index/index?act=login&op=index");
@@ -77,7 +81,7 @@ class ShopACtion extends Action {
 		$this -> assign("default" ,json_encode($default));
 		//返回默认的地址
 		$Shop = D("Shop");
-		$res = $Shop -> getShop($_POST["arr"]);
+		$res = $Shop -> getShop($ArrPOST);
 		$return = json_encode($res["data"]);
 		/*
 		* Author: doudou
