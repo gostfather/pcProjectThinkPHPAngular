@@ -237,7 +237,11 @@
 			    				"Content-Type":"application/x-www-form-urlencoded",
 			    			},
 						}).success(function(data){
-							console.log(data);
+							if(data.status == 1){
+								window.reload();
+							}else{
+								alert("网络问题:"+data.info);
+							}
 						}).error(function(err){
 							console.log(err);
 						})
