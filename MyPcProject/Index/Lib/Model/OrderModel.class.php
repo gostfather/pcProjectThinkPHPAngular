@@ -120,51 +120,46 @@ class OrderModel extends Model {
 		$images = M("images");
 		$arr["uid"] = session("uid");
 		$arr["is_delete"] = 1 ;
+		// 该用户未删除的按时间排序，最新的一条订单
 		$res = $order -> where($arr) -> order("addtime DESC") -> find();
 		$message = array();
 		if($res){
-			for($i = 0 ; $i <count($res) ; $i ++){
-				$message[$i]["ordernumber"] = $res[$i]["ordernumber"];
-				$message[$i]["addtime"] = date("Y-m-d H:i:s" , $res[$i]["addtime"]);
-				$message[$i]["is_pay"] = $res[$i]["is_pay"];
-				$message[$i]["is_receive"] = $res[$i]["is_receive"];
-				$message[$i]["is_cancel"] = $res[$i]["is_cancel"];
-				$message[$i]["totalmoney"] = 0 ;
-				//区订单表中的 订单号   添加时间  是否付款  是否收货
+			$message["ordernumber"] = $res["ordernumber"];
+			$message["addtime"] = date("Y-m-d H:i:s" , $res["addtime"]);
+			$message["is_pay"] = $res["is_pay"];
+			$message["is_receive"] = $res["is_receive"];
+			$message["is_cancel"] = $res["is_cancel"];
+			//区订单表中的 订单号   添加时间  是否付款  是否收货
 //				$message[$i]["shops"] = $res[$i]["ordernumber"];
-				$isOrder["is_order"] = $message[$i]["ordernumber"];
-				$shoplist = $shop -> where($isOrder) -> select();
-				//通过ordernumber 去找购物车中的信息
-				if($shoplist){
-					for($k = 0 ; $k < count($shoplist) ; $k++){
-						$count = $shoplist[$k]["count"];
-						//拿到商品数量
-						$classify["classify"] = $shoplist[$k]["classify"];
-						//拿到classify 去商品表找一条 图片 单价和title
-						$oneImage = $images -> where($classify) -> find();
-						$message[$i]["shops"][$k]["classify"] = $classify["classify"];
-						$message[$i]["shops"][$k]["imgurl"] =  $oneImage["imgurl"];
-						$message[$i]["shops"][$k]["title"] =  $oneImage["title"];
-						$message[$i]["shops"][$k]["StorePrice"] =  $oneImage["StorePrice"];
-						$message[$i]["shops"][$k]["count"] =  $count;
-						$message[$i]["totalmoney"] += $count * $oneImage["StorePrice"] ;
-					}
-					$return["info"] = "查询成功" ;
-					$return["status"] = 1;
-					$return["data"] = $message;
-				}else{
-					$return["info"] = "查询失败，获取购物车信息失败" ;
-					$return["status"] = 3;
-					break ;
+			$isOrder["is_order"] = $message["ordernumber"];
+			$shoplist = $shop -> where($isOrder) -> select();
+			//通过ordernumber 去找购物车中的信息
+			if($shoplist){
+				for($k = 0 ; $k < count($shoplist) ; $k++){
+					$count = $shoplist[$k]["count"];
+					//拿到商品数量
+					$classify["classify"] = $shoplist[$k]["classify"];
+					//拿到classify 去商品表找一条 图片 单价和title
+					$oneImage = $images -> where($classify) -> find();
+					$message[$i]["shops"][$k]["classify"] = $classify["classify"];
+					$message[$i]["shops"][$k]["imgurl"] =  $oneImage["imgurl"];
+					$message[$i]["shops"][$k]["title"] =  $oneImage["title"];
+					$message[$i]["shops"][$k]["StorePrice"] =  $oneImage["StorePrice"];
+					$message[$i]["shops"][$k]["count"] =  $count;
+					$message["totalmoney"] += $count * $oneImage["StorePrice"] ;
 				}
+				$return["info"] = "查询成功" ;
+				$return["status"] = 1;
+				$return["data"] = $message;
+			}else{
+				$return["info"] = "查询失败，获取购物车信息失败" ;
+				$return["status"] = 3;
 			}
 		}else{
 			$return["info"] = "查询失败，没用订单" ;
 			$return["status"] = 2;
 		}
-
 		return $return;
-	
 	}
 
 	public function willComment(){
@@ -241,6 +236,23 @@ class OrderModel extends Model {
 			$return["status"] = 1 ;
 		}else{
 			$return["info"] = "评论失败";
+			$return["status"] = 2 ;
+		}
+		return $return; 
+	}
+	//订单付款
+	public function toPay($data){
+		$comment["ordernumber"] = $data["ordernumber"];
+		$pay["is_pay"] = 1 ;
+		$order = M("order");
+		$res = $order -> where($comment) -> data($pay) -> save();
+		$str = $order ->getLastSql();
+		// var_dump($str);die;
+		if($res){
+			$return["info"] = "付款成功";
+			$return["status"] = 1 ;
+		}else{
+			$return["info"] = "付款失败";
 			$return["status"] = 2 ;
 		}
 		return $return; 
