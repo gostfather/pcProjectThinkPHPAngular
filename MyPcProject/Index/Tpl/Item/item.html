@@ -493,7 +493,7 @@
 										</dt>
 										<dd class="goods-pic">
 											<a href="__APP__/Item/item?item={{v.classify}}" target="_blank" title="{{v.title}}">
-												<img src="__ROOT__/{{v.imgurl}}" alt="{{v.title}}">
+												<img ng-src="__ROOT__/{{v.imgurl}}" alt="{{v.title}}">
 											</a>
 										</dd>
 										<dd class="goods-price">¥{{v.StorePrice}}</dd>
@@ -525,7 +525,6 @@
 
 				//添加到购物车
 				$scope.addToShop = function(){
-					// 将商品的classify传给后台
 					$http({
 						method: 'GET',
         				url: '__APP__/Shop/addToShop/?classify='+classify.info.classify,
