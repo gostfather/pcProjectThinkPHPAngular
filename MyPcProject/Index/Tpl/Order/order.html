@@ -167,8 +167,9 @@
 
 								</td>
 								<td class="bdl bdr" rowspan="{{v.shops.length}}">
-									<p ng-hide="v.is_pay == 1 || v.is_receive == 1 || v.is_cancel == 1">
-										<a ng-click="delOrder(v.ordernumber)" class="ncm-btn ncm-btn-red"><i class="icon-ban-circle"></i> 取消订单</a>
+									<p>
+										<a ng-hide="(v.is_pay == 1 || v.is_receive == 1 ) || v.is_cancel == 1" ng-click="delOrder(v.ordernumber)" class="ncm-btn ncm-btn-red"><i class="icon-ban-circle"></i> 取消订单</a>
+										<a ng-show="(v.is_pay == 1 && v.is_receive == 0 ) && v.is_cancel == 0" ng-click="delOrder(v.ordernumber)" class="ncm-btn ncm-btn-green"><i class="icon-ban-circle"></i> 确认收货</a>
 									</p>
 								</td>
 							</tr>
