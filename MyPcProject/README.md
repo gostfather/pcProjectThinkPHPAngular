@@ -18,3 +18,11 @@ C:\Users\admin\Documents\GitHub\pcProjectThinkPHPAngular
 
 8-6 search 到cate 页面做呈现；索索功能
 8-13 订单页数量显示、、购物车数据传递、、
+
+ThinkPHP 3.1.6   angularjs1.6   jq3.2.1   
+Mysql数据库阿里云
+citySet.js
+cisyJson.js//省市联动
+jquery.taryli.min.js 星级评价插件
+trip-calendar.js//日历插件的js文件
+yui-min.js//日历插件的js文件
