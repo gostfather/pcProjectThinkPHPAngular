@@ -111,6 +111,9 @@ class ShopACtion extends Action {
 		//查询订单信息
 		$order = D("Order");
 		$res = $order -> getOneItem();
+		// echo "<pre>";
+		// var_dump($res);
+		$this -> assign("data",json_encode($res));
 		$this -> display("shoppingSubmit");
 	}
 

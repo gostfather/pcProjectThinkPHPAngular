@@ -24,6 +24,13 @@ class OrderACtion extends Action {
 		$res = $Order -> uptoOrder($data);
 		$this->ajaxReturn($res);
 	}
+	public function toPay() {
+		$str = file_get_contents("php://input");
+		$data = $_POST;
+		$Order = D("Order");
+		$res = $Order -> toPay($data);
+		$this->ajaxReturn($res);
+	}
 	public function deleteOrder(){
 		$ordernumber = I("ordernumber");
 		$Order = D("Order");
