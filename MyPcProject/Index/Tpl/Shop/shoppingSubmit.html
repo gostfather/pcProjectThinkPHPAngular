@@ -64,7 +64,7 @@
 			<form action="">
 				<div class="ncc-receipt-info">
 					<div class="ncc-receipt-info-title">
-						<h3>请您及时付款，以便订单尽快处理！ 在线支付金额：<strong>￥774.00</strong></h3>
+						<h3>请您及时付款，以便订单尽快处理！ 在线支付金额：<strong>￥<span class="orderMoney"></span>.00</strong></h3>
 					</div>
 					<table class="ncc-table-style">
 						<thead>
@@ -81,7 +81,7 @@
 								<td></td>
 								<td class="tl">5281502645925968</td>
 								<td class="tl">在线支付</td>
-								<td class="tl">￥774.00</td>
+								<td class="tl">￥<span class="orderMoney"></span>.00</td>
 								<td>快递</td>
 							</tr>	
 						</tbody>
@@ -104,7 +104,7 @@
 				</div>
 				<div class="ncc-bottom tc mb50">
 					<!-- 点击直接跳转到支付宝界面 -->
-					<a class="ncc-btn ncc-btn-green">确认提交支付</a>
+					<a class="ncc-btn ncc-btn-green" onclick="submit()">确认提交支付</a>
 				</div>
 			</form>
 		</div>
@@ -141,10 +141,37 @@
 	</div>
 </body>
 <script>
+	var IsChoice = false;
+	var price = {$data};
+	$(".orderMoney").text(price.data.totalmoney);
 	// 当前页
 	$(".ncc-flow li").eq(2).addClass("current");
 	function alipay(t) {
 		$(t).addClass("using");
+		IsChoice = true;
+	}
+	function submit() {
+		if (IsChoice) {
+			console.log(price.data.ordernumber);
+			$.ajax({ type: "post",
+					url: "__APP__/Order/toPay",
+					async: true,
+        			dataType: "json",
+                	data: {
+                		ordernumber : price.data.ordernumber,
+                	},
+       				success:function(data){
+       					if (data.status == 1) {
+       						alert("付款成功，跳转到订单页面");
+       						window.location.href="__APP__/Order/order";
+   						} else if(data.status == 2) {
+   							alert("付款失败");
+   						}
+               	 	},
+         	});
+		} else {
+			alert("请选择付款方式");
+		}
 	}
 </script>
 </html>
