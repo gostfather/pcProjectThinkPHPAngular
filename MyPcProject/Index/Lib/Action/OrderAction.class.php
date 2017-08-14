@@ -46,8 +46,8 @@ class OrderACtion extends Action {
 		$str = file_get_contents("php://input");
 		$data = json_decode($str,true);
 		$Order = D("Order");
-//		$res = $Order -> subComment($data);
-		$this->ajaxReturn($data);
+		$res = $Order -> subComment($data);
+		$this->ajaxReturn($res);
 	}
 	
 	public function _empty(){

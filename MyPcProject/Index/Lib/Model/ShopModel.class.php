@@ -74,11 +74,12 @@ class ShopModel extends Model {
 			$return ["status"] = 3;
 			session("classify",$classify);
 		}else{
-			$data["classify"] = $classify;
-			$data["count"] = 1 ;
+			$findData["classify"] = $classify;
+			$findData["uid"] = session("uid") ;
+			$findData["is_order"] = "" ;
+			$findData["is_delete"] = 1 ;
 			$shop = M("shop");
-			$find = $shop -> where("classify='".$classify."' AND is_order=''") -> find();
-			// 判断是否是假删
+			$find = $shop -> where($findData) -> find();
 			if($find){
 				//2.1  是否假删    假删
 				$where["uid"] = session("uid");
@@ -103,21 +104,29 @@ class ShopModel extends Model {
 					$where["is_delete"] = 1;
 					$rockery = $shop -> where($where) -> find();
 					if($count){
-						$rockery["count"] = $number;
-					}else{
-						$rockery["count"] = $rockery["count"]+1;
-					}
-					$addShop = $shop -> where($where) -> data($rockery) -> save();
-					if($addShop){
+						$rockeryCount["count"] = $count;
+						$addShop = $shop -> where($where) -> data($rockeryCount) -> save();
 						$return["id"] = $rockery["id"];
 						$return["info"] = "添加成功";
 						$return["status"] = 1;
 					}else{
+						$rockeryCount["count"] = $rockery["count"]+1;
+						$addShop = $shop -> where($where) -> data($rockeryCount) -> save();
+						$return["id"] = $rockery["id"];
+						$return["info"] = "添加成功";
+						$return["status"] = 1;
+					}
+
+					/*if($addShop){
+						
+					}else{
+						$return["data"] = $str;
 						$return["info"] = "添加失败2.2";
 						$return["status"] = 2;
-					}
+					}*/
 				}
 			}else{
+				$data["classify"] = $classify;
 				$data["count"] = $number ;
 				$res = $shop -> data($data) -> add();
 				if($res){
